@@ -1,14 +1,17 @@
-package pt.europeia.exemplo1;
+package com.stockmanager;
+
 	
 import java.net.URL;
+
+import com.stockmanager.controllers.LoginController;
+import com.stockmanager.model.Database;
+import com.stockmanager.model.User;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
-import pt.europeia.exemplo1.controllers.LoginController;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.layout.BorderPane;
 
 
 public class Main extends Application {
@@ -22,7 +25,6 @@ public class Main extends Application {
 			FXMLLoader loader = new FXMLLoader(path);
 			loader.setController(new LoginController());
 			Parent root = loader.load();
-			
 			Scene scene = new Scene(root);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setScene(scene);
@@ -33,6 +35,7 @@ public class Main extends Application {
 	}
 	
 	public static void main(String[] args) {
+		Database.connect();
 		launch(args);
 	}
 }
