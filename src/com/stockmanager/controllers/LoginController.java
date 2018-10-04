@@ -40,14 +40,7 @@ public class LoginController {
 			newWindow.setScene(scene);
 			Window mainWindow = usernameTF.getScene().getWindow();
 			newWindow.show();
-			((Stage)mainWindow).close();
-			System.out.println("GOSTO");
-			
-			if(user.authenticate(password))
-				alert.setHeaderText("YAY");
-			else 
-				alert.setHeaderText("NAY");
-			alert.showAndWait();
+			((Stage)mainWindow).close();			
 		}
 		catch(Exception e) {
 			e.printStackTrace();
