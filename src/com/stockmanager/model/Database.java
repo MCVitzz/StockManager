@@ -3,18 +3,14 @@ package com.stockmanager.model;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.Properties;
 
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 
 public class Database {
-
-	private static final String CONNECTION_STRING = "jdbc:mysql://localhost:3306/stockmanager";
 	private static Connection conn;
 
 	public static Connection connect() {
@@ -66,7 +62,6 @@ public class Database {
 	}
 
 	public static boolean executeQuery(String query) {
-		String res = null;
 		try {
 			System.out.println(query);
 			Statement stmt = conn.createStatement();

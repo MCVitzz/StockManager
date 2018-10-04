@@ -1,14 +1,20 @@
 package com.stockmanager.controllers;
 
-import com.stockmanager.model.Database;
+import java.net.URL;
+
+import com.stockmanager.Main;
 import com.stockmanager.model.User;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import javafx.stage.Window;
 
 public class LoginController {
 
@@ -24,10 +30,31 @@ public class LoginController {
 
 		Alert alert = new Alert(AlertType.WARNING);
 		User user = new User(username);
-		if(user.authenticate(password))
-			alert.setHeaderText("YAY");
-		else 
-			alert.setHeaderText("NAY");
-		alert.showAndWait();
+		
+		try {
+			Stage newWindow = new Stage();
+			URL path = Main.class.getResource("views/MainView.fxml");
+			FXMLLoader loader = new FXMLLoader(path);
+			Parent root = loader.load();
+			Scene scene = new Scene(root);
+			newWindow.setScene(scene);
+			Window mainWindow = usernameTF.getScene().getWindow();
+			newWindow.show();
+			((Stage)mainWindow).close();
+			System.out.println("GOSTO");
+			
+			if(user.authenticate(password))
+				alert.setHeaderText("YAY");
+			else 
+				alert.setHeaderText("NAY");
+			alert.showAndWait();
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void openNew() {
+		
 	}
 }

@@ -2,7 +2,6 @@ package com.stockmanager.model;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 
 import com.stockmanager.utils.PasswordUtils;
 import com.stockmanager.utils.Utilities;

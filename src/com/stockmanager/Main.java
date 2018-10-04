@@ -5,7 +5,6 @@ import java.net.URL;
 
 import com.stockmanager.controllers.LoginController;
 import com.stockmanager.model.Database;
-import com.stockmanager.model.User;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
