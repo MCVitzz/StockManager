@@ -1,1 +1,6 @@
 /* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+
+
+#MenuButton{
+   -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #dc143c, #32cd32);
+}

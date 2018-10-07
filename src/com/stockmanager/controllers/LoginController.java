@@ -3,6 +3,7 @@ package com.stockmanager.controllers;
 import java.net.URL;
 
 import com.stockmanager.Main;
+import com.stockmanager.model.Database;
 import com.stockmanager.model.User;
 
 import javafx.fxml.FXML;
@@ -31,23 +32,32 @@ public class LoginController {
 		Alert alert = new Alert(AlertType.WARNING);
 		User user = new User(username);
 		
+		if(Database.simpleSelect("Password", "user", "User = '" + username + "'") == null)
+			alert.show();
+		else
+			
 		try {
-			Stage newWindow = new Stage();
-			URL path = Main.class.getResource("views/MainView.fxml");
-			FXMLLoader loader = new FXMLLoader(path);
-			Parent root = loader.load();
-			Scene scene = new Scene(root);
-			newWindow.setScene(scene);
-			Window mainWindow = usernameTF.getScene().getWindow();
-			newWindow.show();
-			((Stage)mainWindow).close();			
+			if(user.authenticate(password)) {
+				Stage newWindow = new Stage();
+				URL path = Main.class.getResource("views/MainView.fxml");
+				FXMLLoader loader = new FXMLLoader(path);
+				Parent root = loader.load();
+				Scene scene = new Scene(root);
+				newWindow.setScene(scene);
+				Window mainWindow = usernameTF.getScene().getWindow();
+				newWindow.show();
+				((Stage)mainWindow).close();		
+			}
+			else alert.show();
+
+
 		}
 		catch(Exception e) {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void openNew() {
-		
+
 	}
 }

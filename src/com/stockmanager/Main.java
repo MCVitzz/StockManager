@@ -20,10 +20,10 @@ public class Main extends Application {
 		try {
 			//BorderPane root = new BorderPane();
 			URL path = Main.class.
-					getResource("views/MainView.fxml");
+					getResource("views/LoginView.fxml");
 			//Parent root = FXMLLoader.load(path);
 			FXMLLoader loader = new FXMLLoader(path);
-			loader.setController(new MainController());
+			loader.setController(new LoginController());
 			Parent root = loader.load();
 			Scene scene = new Scene(root);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
