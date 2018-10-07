@@ -31,27 +31,31 @@ public class LoginController {
 
 		Alert alert = new Alert(AlertType.WARNING);
 		User user = new User(username);
-		
-		if(Database.simpleSelect("Password", "user", "User = '" + username + "'") == null)
+
+		if(Database.simpleSelect("Password", "user", "User = '" + username + "'") == null) {
+			alert.setHeaderText("Username does not exist");
 			alert.show();
-		else
-			
-		try {
-			if(user.authenticate(password)) {
-				Stage newWindow = new Stage();
-				URL path = Main.class.getResource("views/MainView.fxml");
-				FXMLLoader loader = new FXMLLoader(path);
-				Parent root = loader.load();
-				Scene scene = new Scene(root);
-				newWindow.setScene(scene);
-				Window mainWindow = usernameTF.getScene().getWindow();
-				newWindow.show();
-				((Stage)mainWindow).close();		
-			}
-			else alert.show();
-
-
 		}
+		else
+			try {
+				if(user.authenticate(password)) {
+					Stage newWindow = new Stage();
+					URL path = Main.class.getResource("views/MainView.fxml");
+					FXMLLoader loader = new FXMLLoader(path);
+					Parent root = loader.load();
+					Scene scene = new Scene(root);
+					newWindow.setScene(scene);
+					Window mainWindow = usernameTF.getScene().getWindow();
+					newWindow.show();
+					((Stage)mainWindow).close();		
+				}
+				else {
+					alert.setHeaderText("The password does not match");
+					alert.show();
+				}
+
+
+			}
 		catch(Exception e) {
 			e.printStackTrace();
 		}
