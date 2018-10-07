@@ -4,6 +4,7 @@ package com.stockmanager;
 import java.net.URL;
 
 import com.stockmanager.controllers.LoginController;
+import com.stockmanager.controllers.MainController;
 import com.stockmanager.model.Database;
 
 import javafx.application.Application;
@@ -22,7 +23,7 @@ public class Main extends Application {
 					getResource("views/MainView.fxml");
 			//Parent root = FXMLLoader.load(path);
 			FXMLLoader loader = new FXMLLoader(path);
-			loader.setController(new LoginController());
+			loader.setController(new MainController());
 			Parent root = loader.load();
 			Scene scene = new Scene(root);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
