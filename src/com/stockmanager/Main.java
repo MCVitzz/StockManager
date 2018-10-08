@@ -17,10 +17,8 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			//BorderPane root = new BorderPane();
 			URL path = Main.class.
 					getResource("views/LoginView.fxml");
-			//Parent root = FXMLLoader.load(path); 	
 			FXMLLoader loader = new FXMLLoader(path);
 			loader.setController(new LoginController());
 			Parent root = loader.load();
