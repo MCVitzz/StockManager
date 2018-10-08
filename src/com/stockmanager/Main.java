@@ -4,7 +4,6 @@ package com.stockmanager;
 import java.net.URL;
 
 import com.stockmanager.controllers.LoginController;
-import com.stockmanager.controllers.MainController;
 import com.stockmanager.model.Database;
 
 import javafx.application.Application;
