@@ -47,6 +47,7 @@ public class LoginController {
 					Stage newWindow = new Stage();
 					URL path = Main.class.getResource("views/MainView.fxml");
 					FXMLLoader loader = new FXMLLoader(path);
+					loader.setController(new MainController());
 					Parent root = loader.load();
 					Scene scene = new Scene(root);
 					newWindow.setScene(scene);
