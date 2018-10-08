@@ -5,6 +5,7 @@ import java.net.URL;
 import com.stockmanager.Main;
 import com.stockmanager.model.Database;
 import com.stockmanager.model.User;
+import com.stockmanager.utils.Utilities;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -19,7 +20,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 
-public class LoginController {
+public class LoginController extends BaseController {
 
 	@FXML
 	private TextField usernameTF;
@@ -33,34 +34,14 @@ public class LoginController {
 	private void login(ActionEvent event) {
 		String username = usernameTF.getText();
 		String password = passwordPF.getText();
-
-		Alert alert = new Alert(AlertType.WARNING);
 		User user = new User(username);
 
-		if(Database.simpleSelect("Password", "user", "User = '" + username + "'") == null) {
-			alert.setHeaderText("Username does not exist");
-			alert.show();
-		}
-		else
-			try {
-				if(user.authenticate(password)) {
-					Stage newWindow = new Stage();
-					URL path = Main.class.getResource("views/MainView.fxml");
-					FXMLLoader loader = new FXMLLoader(path);
-					loader.setController(new MainController());
-					Parent root = loader.load();
-					Scene scene = new Scene(root);
-					newWindow.setScene(scene);
-					Window mainWindow = usernameTF.getScene().getWindow();
-					newWindow.show();
-					((Stage)mainWindow).close();		
-				}
-				else {
-					alert.setHeaderText("The password does not match");
-					alert.show();
-				}
+		if(Database.simpleSelect("Password", "user", "User = '" + username + "'") == null) Utilities.warn("Username does not exist.");
+		else try {
+				if(user.authenticate(password)) Utilities.openScene("MainView", passwordPF.getScene().getWindow());
+				loader.setController(new LoginController());
 
-
+				else Utilities.warn("Password does not match.");
 			}
 		catch(Exception e) {
 			e.printStackTrace();
