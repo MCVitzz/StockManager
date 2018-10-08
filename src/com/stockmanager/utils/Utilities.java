@@ -33,6 +33,7 @@ public class Utilities {
 		}
 		catch(IOException e) {
 			warn("Problem opening Scene");
+			e.printStackTrace();
 		}
 	}
 	

@@ -52,7 +52,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="28.0" prefWidth="130.0" text="Stock">
+            <Button mnemonicParsing="false" onAction="#stockButton" prefHeight="28.0" prefWidth="130.0" text="Stock">
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin>

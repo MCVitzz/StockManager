@@ -2,6 +2,7 @@ package com.stockmanager.controllers;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.chart.PieChart;
 import javafx.scene.layout.VBox;
@@ -16,11 +17,12 @@ public class MainController {
 	    private PieChart pieChart;
 
     
-    public MainController() {
+    public void initialize() {
     	showPieChart();
     }
     
     void showPieChart() {
+    	
     	ObservableList<PieChart.Data> pieChartData = 
                 FXCollections.observableArrayList(
                     new PieChart.Data("Sunday", 30),
@@ -30,9 +32,16 @@ public class MainController {
                     new PieChart.Data("Thursday", 100),
                     new PieChart.Data("Friday", 80),
                     new PieChart.Data("Saturday", 10));
+    	
          
         pieChart.setTitle("Weekly Record");
         pieChart.setData(pieChartData);
     	}
+    
+    @FXML
+    void stockButton(ActionEvent event) {
+
+    }
+    
 	}
 
