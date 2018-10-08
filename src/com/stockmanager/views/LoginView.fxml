@@ -5,22 +5,52 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <VBox alignment="CENTER" prefHeight="400.0" prefWidth="600.0" spacing="20.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
+      <ImageView fitHeight="78.0" fitWidth="101.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../Images/mainLogo.png" />
+         </image>
+      </ImageView>
       <Label text="Username" />
-      <TextField fx:id="usernameTF">
+      <TextField fx:id="usernameTF" stylesheets="@../application.css">
          <VBox.margin>
             <Insets left="100.0" right="100.0" />
          </VBox.margin>
       </TextField>
       <Label text="Password" />
-      <PasswordField fx:id="passwordPF">
+      <PasswordField fx:id="passwordPF" stylesheets="@../application.css">
          <VBox.margin>
             <Insets left="100.0" right="100.0" />
          </VBox.margin>
       </PasswordField>
-      <Button mnemonicParsing="false" onAction="#login" text="Login" />
+      <HBox prefHeight="57.0" prefWidth="600.0">
+         <children>
+            <Button id="loginButton" mnemonicParsing="false" onAction="#login" stylesheets="@../application.css" text="Login">
+               <HBox.margin>
+                  <Insets left="200.0" />
+               </HBox.margin>
+            </Button>
+            <Button id="exitButton" fx:id="exitButton" mnemonicParsing="false" onAction="#exit" stylesheets="@../application.css" text="Exit">
+               <HBox.margin>
+                  <Insets left="35.0" />
+               </HBox.margin>
+            </Button>
+            <Button id="recoverPasswordButton" mnemonicParsing="false" onAction="#login" prefHeight="26.0" prefWidth="31.0" stylesheets="@../application.css" text="?">
+               <HBox.margin>
+                  <Insets left="5.0" />
+               </HBox.margin>
+               <font>
+                  <Font size="6.0" />
+               </font>
+            </Button>
+         </children>
+      </HBox>
    </children>
 </VBox>

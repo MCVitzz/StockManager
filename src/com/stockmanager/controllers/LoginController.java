@@ -6,12 +6,14 @@ import com.stockmanager.Main;
 import com.stockmanager.model.Database;
 import com.stockmanager.model.User;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -23,6 +25,9 @@ public class LoginController {
 	private TextField usernameTF;
 	@FXML
 	private PasswordField passwordPF; 
+	
+	@FXML
+    private Label lostPasswordLabel;
 
 	@FXML
 	private void login() {
@@ -61,7 +66,12 @@ public class LoginController {
 		}
 	}
 
-	public void openNew() {
+	 @FXML
+	    void exit(ActionEvent event) {
+		 System.exit(0);
+	    }
+	 
+	 	public void openNew() {
 
-	}
+	 	}
 }
