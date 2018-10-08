@@ -2,8 +2,7 @@
 
 /* ------------------------------------------------ MENU ------------------------------------------------- */
 
-
-#MenuButton{
+.MenuButton{
    -fx-background-color : linear-gradient(to right, lightgray , white)
 }
 

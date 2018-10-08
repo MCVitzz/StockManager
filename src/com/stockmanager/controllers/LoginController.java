@@ -30,7 +30,7 @@ public class LoginController {
     private Label lostPasswordLabel;
 
 	@FXML
-	private void login() {
+	private void login(ActionEvent event) {
 		String username = usernameTF.getText();
 		String password = passwordPF.getText();
 
