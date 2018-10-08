@@ -27,9 +27,9 @@ public class Utilities {
 			Parent root = loader.load();
 			Scene scene = new Scene(root);
 			newWindow.setScene(scene);
-			Window mainWindow = oldWindow;
 			newWindow.show();
-			((Stage)mainWindow).close();
+			if(oldWindow != null)
+				((Stage)oldWindow).close();
 		}
 		catch(IOException e) {
 			warn("Problem opening Scene");
