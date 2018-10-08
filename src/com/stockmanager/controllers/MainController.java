@@ -1,47 +1,33 @@
 package com.stockmanager.controllers;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+import com.stockmanager.utils.Utilities;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.chart.PieChart;
 import javafx.scene.layout.VBox;
 
 public class MainController {
-	
+
 	@FXML
-    private VBox mainVerticalBox;
+	private VBox mainVerticalBox;
 
 
-	 @FXML
-	    private PieChart pieChart;
-
-    
-    public void initialize() {
-    	showPieChart();
-    }
-    
-    void showPieChart() {
-    	
-    	ObservableList<PieChart.Data> pieChartData = 
-                FXCollections.observableArrayList(
-                    new PieChart.Data("Sunday", 30),
-                    new PieChart.Data("Monday", 45),
-                    new PieChart.Data("Tuesday", 70),
-                    new PieChart.Data("Wednesday", 97),
-                    new PieChart.Data("Thursday", 100),
-                    new PieChart.Data("Friday", 80),
-                    new PieChart.Data("Saturday", 10));
-    	
-         
-        pieChart.setTitle("Weekly Record");
-        pieChart.setData(pieChartData);
-    	}
-    
-    @FXML
-    void stockButton(ActionEvent event) {
-
-    }
-    
+	void initialize() {
+		dashboardButton(null);
 	}
+
+	@FXML
+	void dashboardButton(ActionEvent event) {
+		mainVerticalBox.getChildren().clear();
+		mainVerticalBox.getChildren().add(0, Utilities.getNode("DashboardView"));
+
+	}
+
+	@FXML
+	void stockButton(ActionEvent event) {
+		mainVerticalBox.getChildren().clear();
+		mainVerticalBox.getChildren().add(0, Utilities.getNode("StockView"));
+	}
+
+}
 
