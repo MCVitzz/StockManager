@@ -1,5 +1,10 @@
 package com.stockmanager.controllers;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
+import javafx.scene.chart.PieChart;
+
 public class MainController {
 
 //    @FXML
@@ -12,6 +17,6 @@ public class MainController {
 //            new PieChart.Data("Nokia Lumia", 22)); 
 //    
 //    mainPieChart.setData(pieChartData);
-//
+
 	}
 
