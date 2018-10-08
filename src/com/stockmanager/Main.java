@@ -10,11 +10,7 @@ import javafx.stage.Stage;
 public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
-		try {
-			Utilities.openScene("LoginView", null);
-		} catch(Exception e) {
-			e.printStackTrace();
-		}
+		Utilities.openScene("LoginView", null);
 	}
 	
 	public static void main(String[] args) {
