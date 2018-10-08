@@ -12,8 +12,8 @@ public class MainController {
     private VBox mainVerticalBox;
 
 
-    @FXML
-    private PieChart mainPieChart;
+	 @FXML
+	    private PieChart pieChart;
 
     
     public MainController() {
@@ -21,13 +21,18 @@ public class MainController {
     }
     
     void showPieChart() {
-    ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList(
-            new PieChart.Data("Iphone 5S", 13), 
-            new PieChart.Data("Samsung Grand", 25), 
-            new PieChart.Data("MOTO G", 10), 
-            new PieChart.Data("Nokia Lumia", 22)); 
-    
-    mainPieChart.setData(pieChartData);
+    	ObservableList<PieChart.Data> pieChartData = 
+                FXCollections.observableArrayList(
+                    new PieChart.Data("Sunday", 30),
+                    new PieChart.Data("Monday", 45),
+                    new PieChart.Data("Tuesday", 70),
+                    new PieChart.Data("Wednesday", 97),
+                    new PieChart.Data("Thursday", 100),
+                    new PieChart.Data("Friday", 80),
+                    new PieChart.Data("Saturday", 10));
+         
+        pieChart.setTitle("Weekly Record");
+        pieChart.setData(pieChartData);
     	}
 	}
 
