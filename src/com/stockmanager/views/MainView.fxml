@@ -125,7 +125,7 @@
             <DropShadow />
          </effect>
       </VBox>
-      <VBox prefHeight="800.0" prefWidth="1098.0" style="-fx-background-color: lightgrey;">
+      <VBox fx:id="mainVerticalBox" prefHeight="800.0" prefWidth="1098.0" style="-fx-background-color: lightgrey;">
          <effect>
             <DropShadow />
          </effect>

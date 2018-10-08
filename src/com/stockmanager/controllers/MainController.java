@@ -4,8 +4,13 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.chart.PieChart;
+import javafx.scene.layout.VBox;
 
 public class MainController {
+	
+	@FXML
+    private VBox mainVerticalBox;
+
 
 //    @FXML
 //    private PieChart mainPieChart;

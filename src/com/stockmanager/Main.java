@@ -20,7 +20,7 @@ public class Main extends Application {
 			//BorderPane root = new BorderPane();
 			URL path = Main.class.
 					getResource("views/LoginView.fxml");
-			//Parent root = FXMLLoader.load(path);
+			//Parent root = FXMLLoader.load(path); 	
 			FXMLLoader loader = new FXMLLoader(path);
 			loader.setController(new LoginController());
 			Parent root = loader.load();
