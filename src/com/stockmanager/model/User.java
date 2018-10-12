@@ -2,24 +2,25 @@ package com.stockmanager.model;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import com.stockmanager.utils.PasswordUtils;
 import com.stockmanager.utils.Utilities;
 
 public class User extends DatabaseObject {
 
-	private String name;
+	private String user;
 	private String password;
 	private String passwordSalt;
 
 	public User() {
-
+		
 	}
 
-	public User(String name) {
-		this.name = name;
+	public User(String user) {
+		this.user = user;
 		try {
-			ResultSet rs = Database.select("SELECT * FROM user WHERE User = '" + name + "'");
+			ResultSet rs = Database.select("SELECT * FROM user WHERE User = '" + user + "'");
 			while (rs.next()) {
 				this.password = rs.getString("Password");
 				this.passwordSalt = rs.getString("PasswordSalt");
@@ -28,6 +29,23 @@ public class User extends DatabaseObject {
 		catch(SQLException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public String getUser() {
+		return this.user;
+	}
+	
+	public static ArrayList<User> getAll() {
+		ResultSet rs = Database.select("SELECT User FROM user");
+		ArrayList<User> users = new ArrayList<User>();
+		try {
+			while(rs.next())
+					users.add(new User(rs.getString("User")));
+		} catch (SQLException e) {
+			Utilities.warn("FATAL ERROR");
+			e.printStackTrace();
+		}
+		return users;
 	}
 	
 	public boolean authenticate(String password) {
@@ -41,23 +59,23 @@ public class User extends DatabaseObject {
 
 	protected boolean insert() {
 		if(validate())
-			return Database.executeQuery("INSERT INTO user (User, Password, PasswordSalt) VALUES ('" + name + "', '" + password + "', '" + passwordSalt + "')");
+			return Database.executeQuery("INSERT INTO user (User, Password, PasswordSalt) VALUES ('" + user + "', '" + password + "', '" + passwordSalt + "')");
 		else 
 			return false;
 	}
 
 	protected boolean update() {
 		if(validate())
-			return Database.executeQuery("UPDATE user SET Password = '" + password + "', PasswordSalt = '" + passwordSalt + "' WHERE User = '" + name + "'");
+			return Database.executeQuery("UPDATE user SET Password = '" + password + "', PasswordSalt = '" + passwordSalt + "' WHERE User = '" + user + "'");
 		else 
 			return false;
 	}
 
 	protected boolean exists() {
-		return Database.simpleSelect("*", "user", "User = '" + name + "'") != null;
+		return Database.simpleSelect("User", "user", "User = '" + user + "'") != null;
 	}
 
 	protected boolean validate() {
-		return (!Utilities.stringIsEmpty(name) && !Utilities.stringIsEmpty(password) && !Utilities.stringIsEmpty(passwordSalt));
+		return (!Utilities.stringIsEmpty(user) && !Utilities.stringIsEmpty(password) && !Utilities.stringIsEmpty(passwordSalt));
 	}
 }

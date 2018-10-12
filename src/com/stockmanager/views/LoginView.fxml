@@ -25,7 +25,7 @@
          </VBox.margin>
       </TextField>
       <Label text="Password" />
-      <PasswordField fx:id="passwordPF" stylesheets="@../application.css">
+      <PasswordField fx:id="passwordPF" onAction="#login" stylesheets="@../application.css">
          <VBox.margin>
             <Insets left="100.0" right="100.0" />
          </VBox.margin>

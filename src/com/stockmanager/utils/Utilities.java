@@ -29,6 +29,29 @@ public class Utilities {
 		if(oldWindow != null)
 			((Stage)oldWindow).close();
 	}
+	
+	public static void openDialog(String sceneName, Object obj) {
+		Stage newWindow = new Stage();
+		Node node = getNode(sceneName, obj);
+		Scene scene = new Scene((Parent)node);
+		newWindow.setScene(scene);
+		newWindow.show();
+	}
+	
+	public static Node getNode(String name, Object obj) {
+		Node node = null;
+		try {
+			URL path = Main.class.getResource("views/" + name +".fxml");
+			System.out.println("oi");
+			FXMLLoader loader = new FXMLLoader(path);
+			loader.setController(obj);
+			node = loader.load();
+		} catch (IOException e) {
+			warn("Problem opening Scene");
+			e.printStackTrace();
+		}
+		return node;
+	}
 
 	public static Node getNode(String name) {
 		Node node = null;

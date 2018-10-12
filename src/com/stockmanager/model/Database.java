@@ -7,37 +7,22 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
+import com.stockmanager.utils.Utilities;
 
 public class Database {
 	private static Connection conn;
 
-	public static Connection connect() {
+	public static void connect() {
 		try {
-			
-			
 			String driver = "com.mysql.jdbc.Driver";
-		    String connection = "jdbc:mysql://207.180.213.202:3306/stockmanager";
-		    String user = "ruca";
-		    String password = "Elite2018+1";
-		    Class.forName(driver);
-		    conn = DriverManager.getConnection(connection, user, password);
-
-			System.out.println(conn);
-			
-		    
-//			Properties connectionProps = new Properties();
-//			connectionProps.put("user", "root");
-//			connectionProps.put("password", "Inverno2017");
-//			conn = DriverManager.getConnection(CONNECTION_STRING);
-			System.out.println("Connected to database");
-			return conn;
+			String connection = "jdbc:mysql://207.180.213.202:3306/stockmanager";
+			String user = "ruca";
+			String password = "Elite2018+1";
+			Class.forName(driver);
+			conn = DriverManager.getConnection(connection, user, password);
 		}
 		catch(Exception e) {
-			System.out.println("Ripalhada");
 			System.out.println(e.getMessage());
-			return null;
 		}
 	}
 
@@ -48,12 +33,9 @@ public class Database {
 	public static String simpleSelect(String column, String from, String where) {
 		String res = null;
 		try {
-			Statement stmt = conn.createStatement();
-			String query = "SELECT " + column + " FROM " + from + " WHERE " + where;
-			System.out.println(query);
-			ResultSet rs = stmt.executeQuery(query);
+			ResultSet rs = select("SELECT " + column + " FROM " + from + " WHERE " + where);
 			while (rs.next())
-					res = rs.getString(column);
+				res = rs.getString(column);
 		}
 		catch(SQLException e) {
 			e.printStackTrace();
@@ -69,9 +51,7 @@ public class Database {
 			return true;
 		}
 		catch(SQLException e) {
-			Alert alert = new Alert(AlertType.WARNING);
-			alert.setHeaderText(e.getMessage());
-			alert.showAndWait();
+			Utilities.warn(e.getMessage());
 			return false;
 		}
 	}
@@ -79,7 +59,7 @@ public class Database {
 	public static ArrayList<DatabaseObject> selectQuery() {
 		return new ArrayList<DatabaseObject>();
 	}	
-	
+
 	public static ResultSet select(String query) {
 		ResultSet rs = null;
 		try {
