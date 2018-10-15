@@ -18,6 +18,16 @@ public class Company extends DatabaseObject {
 	
 	public Company(String company) {
 		this.company = company;
+		try {
+			ResultSet rs = Database.select("SELECT * FROM company WHERE Company = '" + company + "'");
+			while (rs.next()) {
+				this.address = rs.getString("Address");
+				this.country = rs.getString("Country");
+			}
+		}
+		catch(SQLException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	public static ArrayList<Company> getAll() {
@@ -40,7 +50,7 @@ public class Company extends DatabaseObject {
 
 	@Override
 	protected boolean update() {
-		return Database.executeQuery("UPDATE company SET( WHERECompany, Address, Country) VALUES (, '" + address + "', '" + country + "')");
+		return Database.executeQuery("UPDATE company SET Address = '" + address + "', Country = '" + country + "' WHERE Company = '" + company + "'");
 	}
 
 	@Override
@@ -68,5 +78,17 @@ public class Company extends DatabaseObject {
 
 	public String getCountry() {
 		return country;
+	}
+
+	public void setCompany(String company) {
+		this.company = company;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public void setCountry(String country) {
+		this.country = country;
 	}
 }

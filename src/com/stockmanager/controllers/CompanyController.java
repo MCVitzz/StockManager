@@ -1,9 +1,10 @@
 package com.stockmanager.controllers;
 
 import com.stockmanager.model.Company;
+import com.stockmanager.model.Company;
+import com.stockmanager.utils.Utilities;
 
 import javafx.collections.FXCollections;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -34,19 +35,27 @@ public class CompanyController {
 		tblCompany.setItems(FXCollections.observableArrayList(Company.getAll()));
 	}
     
-    @FXML
-    void btnAddCompany_OnClick(ActionEvent event) {
-    	
-    }
-
-    @FXML
-    void btnRemoveCompany_OnClick(ActionEvent event) {
-    	
-    }
-
-    @FXML
-    void tblCompany_OnClick(MouseEvent event) {
-    	
-    }
+	@FXML
+	public void tblCompany_OnClick(MouseEvent e) {
+		if (tblCompany.getSelectionModel().getSelectedItem() != null && e.getClickCount() == 2)
+			Utilities.openDialog("DialogCompanyView", new DialogCompanyController(tblCompany.getSelectionModel().getSelectedItem().getCompany(), this));
+		
+	}
+	
+	@FXML
+	public void btnAddCompany_OnClick() {
+    	System.out.println("oi");
+		Utilities.openDialog("DialogCompanyView", new DialogCompanyController(this));
+	}
+	
+	@FXML
+	public void btnRemoveCompany_OnClick() {
+		if (tblCompany.getSelectionModel().getSelectedItem() != null) {
+			if(Utilities.confirmDialog("Are you sure you want to permanently remove the company " + tblCompany.getSelectionModel().getSelectedItem().getCompany() + "?")) {
+				new Company(tblCompany.getSelectionModel().getSelectedItem().getCompany()).delete();
+				initialize();
+			}
+		}
+	}
 
 }
