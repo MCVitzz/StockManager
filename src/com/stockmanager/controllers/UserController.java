@@ -27,12 +27,22 @@ public class UserController {
 	@FXML
 	public void tblUser_OnClick(MouseEvent e) {
 		if (tblUser.getSelectionModel().getSelectedItem() != null && e.getClickCount() == 2)
-			Utilities.openDialog("DialogUserView", new DialogUserController(tblUser.getSelectionModel().getSelectedItem().getUser()));
+			Utilities.openDialog("DialogUserView", new DialogUserController(tblUser.getSelectionModel().getSelectedItem().getUser(), this));
 	}
 	
 	@FXML
 	public void btnAddUser_OnClick() {
     	System.out.println("oi");
-		Utilities.openDialog("DialogUserView", new DialogUserController());
+		Utilities.openDialog("DialogUserView", new DialogUserController(this));
+	}
+	
+	@FXML
+	public void btnRemoveUser_OnClick() {
+		if (tblUser.getSelectionModel().getSelectedItem() != null) {
+			if(Utilities.confirmDialog("Are you sure you want to permanently remove the user " + tblUser.getSelectionModel().getSelectedItem().getUser() + "?")) {
+				new User(tblUser.getSelectionModel().getSelectedItem().getUser()).delete();
+				initialize();
+			}
+		}
 	}
 }

@@ -38,6 +38,11 @@ public class MainController {
 	}
 	
 	@FXML
+	void companyButton_OnClick() {
+		changeView("CompanyView", "Companies");
+	}
+	
+	@FXML
 	void btnLogout_OnClick() {
 		Utilities.openScene("LoginView", lblTitle.getScene().getWindow());
 	}

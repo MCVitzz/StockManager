@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -17,6 +18,11 @@
       <HBox prefHeight="40.0" prefWidth="1098.0" style="-fx-background-color: #C30000;">
          <children>
             <Button mnemonicParsing="false" onAction="#btnAddUser_OnClick" prefHeight="25.0" prefWidth="25.0" text="+" translateX="5.0" translateY="5.0" />
+            <Button mnemonicParsing="false" onAction="#btnRemoveUser_OnClick" prefHeight="25.0" prefWidth="68.0" text="Remove">
+               <HBox.margin>
+                  <Insets left="10.0" top="5.0" />
+               </HBox.margin>
+            </Button>
          </children>
       </HBox>
    </children>

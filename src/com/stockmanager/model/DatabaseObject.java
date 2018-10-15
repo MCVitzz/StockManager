@@ -8,10 +8,12 @@ public abstract class DatabaseObject {
 	
 	protected abstract boolean exists();
 	
+	public abstract boolean delete();
+	
 	protected abstract boolean validate();
 	
 	public void save() {
-		if(this.exists())
+		if(this.exists() && validate())
 			update();
 		else
 			insert();

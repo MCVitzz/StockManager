@@ -11,6 +11,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 
@@ -65,6 +66,12 @@ public class Utilities {
 		return node;
 	}
 
+	public static boolean confirmDialog(String message) {
+		Alert alert = new Alert(AlertType.CONFIRMATION, message, ButtonType.YES, ButtonType.NO, ButtonType.CANCEL);
+		alert.showAndWait();
+		return alert.getResult() == ButtonType.YES;
+	}
+	
 	public static void warn(String message) {
 		alert(AlertType.WARNING, message);
 	}

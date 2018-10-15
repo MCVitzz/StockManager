@@ -13,13 +13,17 @@ public class DialogUserController {
 	
     @FXML
     private TextField txtPassword, txtUser;
+    
+    private UserController userController;
 
     
     
-    public DialogUserController() {
+    public DialogUserController(UserController userController) {
+    	this.userController = userController;
     }
     
-    public DialogUserController(String user) {
+    public DialogUserController(String user, UserController userController) {
+    	this.userController = userController;
     	this.user = user;
     }
     
@@ -36,6 +40,7 @@ public class DialogUserController {
 			User usr = new User(txtUser.getText());
 			usr.changePassword(txtPassword.getText());
 			usr.save();
+			userController.initialize();
 		}
 		btnCancel_OnClick();
 	}

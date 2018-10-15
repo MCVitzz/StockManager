@@ -137,6 +137,18 @@
                   <Insets top="10.0" />
                </VBox.margin>
             </Button>
+            <Button mnemonicParsing="false" onAction="#companyButton_OnClick" prefHeight="28.0" prefWidth="131.0" text="Companies">
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../Images/factory.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </Button>
          </children>
          <effect>
             <DropShadow />
