@@ -8,13 +8,11 @@ import com.stockmanager.utils.Utilities;
 
 public class Company extends DatabaseObject {
 
+
 	private String company;
 	private String address;
 	private String country;
 	
-	public Company() {
-		
-	}
 	
 	public Company(String company) {
 		this.company = company;

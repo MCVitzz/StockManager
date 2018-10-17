@@ -32,6 +32,12 @@ public class MainController {
 		changeView("StockView", "Stock");
 	}
 
+	
+	@FXML
+	void salesOrderButton_OnClick(ActionEvent event) {
+		changeView("SalesOrderView", "Sales Order");
+		
+	}
 	@FXML
 	void userButton_OnClick(ActionEvent event) {
 		changeView("UserView", "Users");
@@ -40,6 +46,14 @@ public class MainController {
 	@FXML
 	void companyButton_OnClick() {
 		changeView("CompanyView", "Companies");
+	}
+	@FXML
+	void itemButton_OnClick() {
+		changeView("ItemView", "Items");
+	}
+	@FXML
+	void unitButton_OnClick() {
+		changeView("UnitView", "Units");
 	}
 	
 	@FXML

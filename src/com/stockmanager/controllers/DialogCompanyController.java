@@ -43,7 +43,7 @@ public class DialogCompanyController {
 
 	@FXML
 	public void btnSave_OnClick() {
-		Company cpy = new Company();
+		Company cpy = new Company("");
 		cpy.setCompany(txtCompany.getText());
 		cpy.setAddress(txtAddress.getText());
 		cpy.setCountry(txtCountry.getText());

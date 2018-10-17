@@ -65,7 +65,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="28.0" prefWidth="132.0" text="Sales Order">
+            <Button mnemonicParsing="false" onAction="#salesOrderButton_OnClick" prefHeight="28.0" prefWidth="132.0" text="Sales Order">
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin>
@@ -145,6 +145,16 @@
                      </image>
                   </ImageView>
                </graphic>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#itemButton_OnClick" prefHeight="28.0" prefWidth="131.0" text="Items">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#unitButton_OnClick" prefHeight="28.0" prefWidth="131.0" text="Units">
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin>

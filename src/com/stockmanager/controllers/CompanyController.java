@@ -1,7 +1,6 @@
 package com.stockmanager.controllers;
 
 import com.stockmanager.model.Company;
-import com.stockmanager.model.Company;
 import com.stockmanager.utils.Utilities;
 
 import javafx.collections.FXCollections;
@@ -26,13 +25,13 @@ public class CompanyController {
     private TableColumn<Company, String> clmnCountry;
 
 	public void initialize() {
+		//tblCompany.setEditable(true);
 		clmnCompany.setCellValueFactory(new PropertyValueFactory<Company, String>("company"));
 		clmnAddress.setCellValueFactory(new PropertyValueFactory<Company, String>("address"));
 		clmnCountry.setCellValueFactory(new PropertyValueFactory<Company, String>("country"));
-		
-		
-		
+
 		tblCompany.setItems(FXCollections.observableArrayList(Company.getAll()));
+
 	}
     
 	@FXML
@@ -44,7 +43,6 @@ public class CompanyController {
 	
 	@FXML
 	public void btnAddCompany_OnClick() {
-    	System.out.println("oi");
 		Utilities.openDialog("DialogCompanyView", new DialogCompanyController(this));
 	}
 	
