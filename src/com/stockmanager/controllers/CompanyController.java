@@ -1,7 +1,6 @@
 package com.stockmanager.controllers;
 
 import com.stockmanager.model.Company;
-import com.stockmanager.model.Company;
 import com.stockmanager.utils.Utilities;
 
 import javafx.collections.FXCollections;
