@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" style="-fx-background-color: grey;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.stockmanager.controllers.MainController">
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" style="-fx-background-color: grey;" stylesheets="@../application.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.stockmanager.controllers.MainController">
    <children>
       <VBox prefHeight="800.0" prefWidth="54.0" style="-fx-background-color: #3399ff;">
          <effect>
@@ -101,7 +101,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="28.0" prefWidth="133.0" text="Warehouse">
+            <Button mnemonicParsing="false" onAction="#warehouseButton_OnClick" prefHeight="28.0" prefWidth="133.0" text="Warehouse">
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin>
@@ -155,6 +155,25 @@
                </VBox.margin>
             </Button>
             <Button mnemonicParsing="false" onAction="#unitButton_OnClick" prefHeight="28.0" prefWidth="131.0" text="Units">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../Images/meter.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#locationButton_OnClick" prefHeight="28.0" prefWidth="131.0" text="Locations">
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../Images/location.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin>

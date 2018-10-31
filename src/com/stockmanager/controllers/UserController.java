@@ -32,7 +32,6 @@ public class UserController {
 	
 	@FXML
 	public void btnAddUser_OnClick() {
-    	System.out.println("oi");
 		Utilities.openDialog("DialogUserView", new DialogUserController(this));
 	}
 	

@@ -13,9 +13,7 @@ public class User extends DatabaseObject {
 	private String password;
 	private String passwordSalt;
 
-	public User() {
-
-	}
+	public User() {}
 
 	public User(String user) {
 		this.user = user;
