@@ -15,6 +15,9 @@ public class ItemController {
 	@FXML
     private TableView<Item> tblItem;
 
+	@FXML
+	private TableColumn<Item, String> clmnCompany;
+	
     @FXML
     private TableColumn<Item, String> clmnItem;
 
@@ -25,6 +28,7 @@ public class ItemController {
     private TableColumn<Item, String> clmnUnit;
 
 	public void initialize() {
+		clmnCompany.setCellValueFactory(new PropertyValueFactory<Item, String>("company"));
 		clmnItem.setCellValueFactory(new PropertyValueFactory<Item, String>("item"));
 		clmnName.setCellValueFactory(new PropertyValueFactory<Item, String>("name"));
 		clmnUnit.setCellValueFactory(new PropertyValueFactory<Item, String>("unit"));

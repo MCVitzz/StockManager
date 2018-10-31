@@ -12,8 +12,9 @@
       <HBox prefHeight="35.0" prefWidth="1098.0" style="-fx-background-color: #C30000;" />
       <TableView fx:id="tblUnit" onMouseClicked="#tblUnit_OnClick" prefHeight="620.0" prefWidth="1098.0">
          <columns>
-            <TableColumn fx:id="clmUnit" prefWidth="234.0" text="Item" />
-            <TableColumn fx:id="clmName" prefWidth="649.0" text="Name" />
+            <TableColumn fx:id="clmnCompany" prefWidth="300.0" text="Company" />
+            <TableColumn fx:id="clmnUnit" prefWidth="234.0" text="Unit" />
+            <TableColumn fx:id="clmnName" prefWidth="649.0" text="Name" />
          </columns>
       </TableView>
       <HBox prefHeight="40.0" prefWidth="1098.0" style="-fx-background-color: #C30000;">

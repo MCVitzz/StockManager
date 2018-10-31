@@ -16,16 +16,20 @@ public class UnitController {
 	@FXML
 	private TableView<Unit> tblUnit;
 	
-    @FXML
-    private TableColumn<Unit, String> clmUnit;
+	@FXML
+    private TableColumn<Unit, String> clmnCompany;
+    
+	@FXML
+    private TableColumn<Unit, String> clmnUnit;
 
     @FXML
-    private TableColumn<Unit, String> clmName;
+    private TableColumn<Unit, String> clmnName;
     
     public void initialize() {
 	
-		clmUnit.setCellValueFactory(new PropertyValueFactory<Unit, String>("Unit"));
-		clmName.setCellValueFactory(new PropertyValueFactory<Unit, String>("Name"));
+    	clmnCompany.setCellValueFactory(new PropertyValueFactory<Unit, String>("company"));
+		clmnUnit.setCellValueFactory(new PropertyValueFactory<Unit, String>("unit"));
+		clmnName.setCellValueFactory(new PropertyValueFactory<Unit, String>("name"));
 
 		tblUnit.setItems(FXCollections.observableArrayList(Unit.getAll()));
 	}

@@ -8,6 +8,7 @@ import com.stockmanager.utils.Utilities;
 
 public class Unit extends DatabaseObject{
 
+	private String company;
 	private String unit;
 	private String name;
 	
@@ -17,6 +18,7 @@ public class Unit extends DatabaseObject{
 			ResultSet rs = Database.select("SELECT * FROM unit WHERE Unit = '" + unit + "'");
 			while (rs.next()) {
 				this.name = rs.getString("Name");
+				this.company = rs.getString("Company");
 			}
 		}
 		catch(SQLException e) {
@@ -40,12 +42,12 @@ public class Unit extends DatabaseObject{
 	
 	@Override
 	protected boolean insert() {
-		return Database.executeQuery("INSERT INTO unit (Unit, Name) VALUES ('" + unit + "', '" + name + "')");
+		return Database.executeQuery("INSERT INTO unit (Company, Unit, Name) VALUES ('"+ company+"', " + unit + "', '" + name + "')");
 	}
 
 	@Override
 	protected boolean update() {
-		return Database.executeQuery("UPDATE unit SET Name = '" + name +  "' WHERE Unit = '" + unit + "'");
+		return Database.executeQuery("UPDATE unit SET Company = '" + company + "Name = '" + name +  "' WHERE Unit = '" + unit + "'");
 	}
 
 	@Override
@@ -61,6 +63,15 @@ public class Unit extends DatabaseObject{
 	@Override
 	protected boolean validate() {
 		return (!Utilities.stringIsEmpty(unit) && !Utilities.stringIsEmpty(name));
+	}
+	
+	
+	public String getCompany() {
+		return company;
+	}
+	
+	public void setCompany(String company) {
+		this.company = company;
 	}
 	
 	public String getUnit() {
