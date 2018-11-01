@@ -12,7 +12,7 @@ public class Unit extends DatabaseObject{
 	private String unit;
 	private String name;
 	
-	public Unit(String unit) {
+	public Unit(String unit,String name) {
 		this.unit = unit;
 		try {
 			ResultSet rs = Database.select("SELECT * FROM unit WHERE Unit = '" + unit + "'");
@@ -32,13 +32,18 @@ public class Unit extends DatabaseObject{
 		ArrayList<Unit> units = new ArrayList<Unit>();
 		try {
 			while(rs.next())
-				units.add(new Unit(rs.getString("Unit")));
+				units.add(new Unit( rs.getString("Unit"), rs.getString("Name")));
 		} catch (SQLException e) {
 			Utilities.warn(e.getMessage());
 			e.printStackTrace();
 		}
 		return units;
 	}
+	
+	@Override
+    public String toString() {
+        return this.unit;
+    }
 	
 	@Override
 	protected boolean insert() {

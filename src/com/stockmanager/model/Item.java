@@ -41,6 +41,11 @@ public class Item extends DatabaseObject{
 		}
 		return items;
 	}
+	
+	@Override
+    public String toString() {
+        return this.item;
+    }
 
 	@Override
 	protected boolean insert() {

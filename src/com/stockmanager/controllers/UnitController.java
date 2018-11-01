@@ -37,7 +37,7 @@ public class UnitController {
     @FXML
 	public void tblUnit_OnClick(MouseEvent e) {
 		if (tblUnit.getSelectionModel().getSelectedItem() != null && e.getClickCount() == 2)
-			Utilities.openDialog("DialogUnitView", new DialogUnitController(tblUnit.getSelectionModel().getSelectedItem().getUnit(), this));
+			Utilities.openDialog("DialogUnitView", new DialogUnitController(tblUnit.getSelectionModel().getSelectedItem().getUnit(),tblUnit.getSelectionModel().getSelectedItem().getName(), this));
 		
 	}
 	
@@ -50,7 +50,7 @@ public class UnitController {
 	public void removeUnitBtn_OnClick() {
 		if (tblUnit.getSelectionModel().getSelectedItem() != null) {
 			if(Utilities.confirmDialog("Are you sure you want to permanently remove this unit " + tblUnit.getSelectionModel().getSelectedItem().getUnit() + "?")) {
-				new Unit(tblUnit.getSelectionModel().getSelectedItem().getUnit()).delete();
+				new Unit(tblUnit.getSelectionModel().getSelectedItem().getUnit(),tblUnit.getSelectionModel().getSelectedItem().getName()).delete();
 				initialize();
 			}
 		}
