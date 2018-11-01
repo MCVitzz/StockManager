@@ -3,7 +3,9 @@ package com.stockmanager.controllers;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import com.stockmanager.model.Company;
 import com.stockmanager.model.Location;
+import com.stockmanager.model.Warehouse;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
@@ -15,10 +17,10 @@ public class DialogLocationController {
 	private Location location;
 
 	@FXML
-	private TextField txtCompany;
+	private ComboBox<Company> sltCompany;
 	
 	@FXML
-	private TextField txtWarehouse;
+	private ComboBox<Warehouse> sltWarehouse;
 	
 	@FXML
 	private TextField txtLocation;
@@ -41,18 +43,23 @@ public class DialogLocationController {
 
 	public void initialize() {
 		
+		sltCompany.getItems().clear();
+		sltCompany.getItems().addAll(Company.getAll());
+		
 		sltType.getItems().clear();
 		sltType.getItems().addAll(new ArrayList<String>(Arrays.asList(
 				"Normal", "Pier"
 		)));
 		
 		if(location != null) {
-			txtCompany.setDisable(true);
-			txtWarehouse.setDisable(true);
+			sltCompany.setDisable(true);
+			sltWarehouse.setDisable(true);
 			txtLocation.setDisable(true);
 			
-			txtCompany.setText(location.getCompany());
-			txtWarehouse.setText(location.getWarehouse());
+			fillWarehouse(location.getCompany());
+			
+			sltCompany.setValue(new Company(location.getCompany()));
+			sltWarehouse.setValue(new Warehouse(location.getCompany(), location.getWarehouse()));
 			txtLocation.setText(location.getLocation());
 			sltType.setValue(location.getType());
 		}
@@ -60,11 +67,21 @@ public class DialogLocationController {
 
 	@FXML
 	public void btnSave_OnClick() {
-		Location lct = new Location(txtCompany.getText(), txtWarehouse.getText(), txtLocation.getText());
+		Location lct = new Location(sltCompany.getValue().getCompany(), sltWarehouse.getValue().getWarehouse(), txtLocation.getText());
 		lct.setType(sltType.getValue());
 		lct.save();
 		locationController.initialize();
 		btnCancel_OnClick();
+	}
+	
+	@FXML
+	public void sltCompany_OnAction() {
+		fillWarehouse(sltCompany.getValue().getCompany());
+	}
+	
+	public void fillWarehouse(String company) {
+		sltWarehouse.getItems().clear();
+		sltWarehouse.getItems().addAll(Warehouse.getAllWarehousesFromCompany(company));
 	}
 
 	@FXML

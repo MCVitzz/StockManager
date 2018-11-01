@@ -34,6 +34,21 @@ public class Warehouse extends DatabaseObject {
 		return this.warehouse;
 	}
 
+	public static ArrayList<Warehouse> getAllWarehousesFromCompany(String company) {
+		ArrayList<Warehouse> warehouses = new ArrayList<>();
+		
+		try {
+			ResultSet rs = Database.select("SELECT Warehouse FROM warehouse WHERE Company = '" + company + "'");
+			while (rs.next()) 
+				warehouses.add(new Warehouse(company, rs.getString("Warehouse")));
+		}
+		catch(SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return warehouses;
+	}
+	
 	public static ArrayList<Warehouse> getAll() {
 		ResultSet rs = Database.select("SELECT Company, Warehouse FROM warehouse");
 		ArrayList<Warehouse> warehouses = new ArrayList<Warehouse>();
@@ -86,4 +101,10 @@ public class Warehouse extends DatabaseObject {
 	protected boolean validate() {
 		return (!Utilities.stringIsEmpty(warehouse) && !Utilities.stringIsEmpty(company) && !Utilities.stringIsEmpty(address) && !Utilities.stringIsEmpty(name));
 	}
+	
+	@Override
+	public String toString() {
+		return this.warehouse;
+	}
+	
 }

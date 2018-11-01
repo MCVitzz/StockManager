@@ -8,11 +8,9 @@ import com.stockmanager.utils.Utilities;
 
 public class Company extends DatabaseObject {
 
-
 	private String company;
 	private String address;
 	private String country;
-	
 	
 	public Company(String company) {
 		this.company = company;
@@ -41,6 +39,11 @@ public class Company extends DatabaseObject {
 		return companies;
 	}
 
+	@Override
+	public String toString() {
+		return this.company;
+	}
+	
 	@Override
 	protected boolean insert() {
 		return Database.executeQuery("INSERT INTO company (Company, Address, Country) VALUES ('" + company + "', '" + address + "', '" + country + "')");

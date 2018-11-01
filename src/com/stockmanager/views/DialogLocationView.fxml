@@ -58,21 +58,13 @@
             <Insets left="50.0" />
          </GridPane.margin>
       </Label>
-      <TextField fx:id="txtWarehouse" prefHeight="26.0" prefWidth="151.0" GridPane.columnIndex="3">
-         <GridPane.margin>
-            <Insets right="50.0" />
-         </GridPane.margin>
-      </TextField>
       <Label prefHeight="109.0" prefWidth="234.0" text="Company">
          <GridPane.margin>
             <Insets left="50.0" />
          </GridPane.margin>
       </Label>
-      <TextField fx:id="txtCompany" prefHeight="25.0" prefWidth="343.0" GridPane.columnIndex="1">
-         <GridPane.margin>
-            <Insets right="50.0" />
-         </GridPane.margin>
-      </TextField>
       <ComboBox fx:id="sltType" prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+      <ComboBox fx:id="sltCompany" onAction="#sltCompany_OnAction" prefWidth="150.0" GridPane.columnIndex="1" />
+      <ComboBox fx:id="sltWarehouse" prefWidth="150.0" GridPane.columnIndex="3" />
    </children>
 </GridPane>
