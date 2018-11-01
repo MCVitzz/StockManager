@@ -8,15 +8,17 @@ import com.stockmanager.utils.Utilities;
 
 public class Unit extends DatabaseObject{
 
+	private String company;
 	private String unit;
 	private String name;
 	
-	public Unit(String unit) {
+	public Unit(String unit,String name) {
 		this.unit = unit;
 		try {
 			ResultSet rs = Database.select("SELECT * FROM unit WHERE Unit = '" + unit + "'");
 			while (rs.next()) {
 				this.name = rs.getString("Name");
+				this.company = rs.getString("Company");
 			}
 		}
 		catch(SQLException e) {
@@ -30,7 +32,7 @@ public class Unit extends DatabaseObject{
 		ArrayList<Unit> units = new ArrayList<Unit>();
 		try {
 			while(rs.next())
-				units.add(new Unit(rs.getString("Unit")));
+				units.add(new Unit( rs.getString("Unit"), rs.getString("Name")));
 		} catch (SQLException e) {
 			Utilities.warn(e.getMessage());
 			e.printStackTrace();
@@ -39,13 +41,18 @@ public class Unit extends DatabaseObject{
 	}
 	
 	@Override
+    public String toString() {
+        return this.unit;
+    }
+	
+	@Override
 	protected boolean insert() {
-		return Database.executeQuery("INSERT INTO unit (Unit, Name) VALUES ('" + unit + "', '" + name + "')");
+		return Database.executeQuery("INSERT INTO unit (Company, Unit, Name) VALUES ('"+ company+"', " + unit + "', '" + name + "')");
 	}
 
 	@Override
 	protected boolean update() {
-		return Database.executeQuery("UPDATE unit SET Name = '" + name +  "' WHERE Unit = '" + unit + "'");
+		return Database.executeQuery("UPDATE unit SET Company = '" + company + "Name = '" + name +  "' WHERE Unit = '" + unit + "'");
 	}
 
 	@Override
@@ -61,6 +68,15 @@ public class Unit extends DatabaseObject{
 	@Override
 	protected boolean validate() {
 		return (!Utilities.stringIsEmpty(unit) && !Utilities.stringIsEmpty(name));
+	}
+	
+	
+	public String getCompany() {
+		return company;
+	}
+	
+	public void setCompany(String company) {
+		this.company = company;
 	}
 	
 	public String getUnit() {

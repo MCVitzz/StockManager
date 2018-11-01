@@ -1,14 +1,21 @@
 package com.stockmanager.controllers;
 
+
+import com.stockmanager.model.Company;
 import com.stockmanager.model.Unit;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 public class DialogUnitController {
 
 	private Unit unit;
+	
+	
+	@FXML
+	private ComboBox<Company> cbCompany;
 
 	@FXML
 	private TextField txtUnit;
@@ -24,14 +31,19 @@ public class DialogUnitController {
 		this.unitController = unitController;
 	}
 
-	public DialogUnitController(String unit, UnitController unitController) {
+	public DialogUnitController(String name, String unit, UnitController unitController) {
 		this.unitController = unitController;
-		this.unit = new Unit(unit);
+		this.unit = new Unit(name, unit);
 	}
 
 	public void initialize() {
+		
+		cbCompany.getItems().clear();
+		cbCompany.getItems().addAll(Company.getAll());
+				
 		if(unit != null) {
 			txtUnit.setDisable(true);
+			cbCompany.setValue(new Company(unit.getCompany()));
 			txtUnit.setText(unit.getUnit());
 			txtName.setText(unit.getName());
 			
@@ -40,9 +52,8 @@ public class DialogUnitController {
 
 	@FXML
 	public void btnUnitSave_OnClick() {
-		Unit unt = new Unit("");
-		unt.setUnit(txtUnit.getText());
-		unt.setName(txtName.getText());
+		Unit unt = new Unit(txtUnit.getText(),txtName.getText());
+		unt.setCompany(cbCompany.getValue().getCompany());
 		unt.save();
 		unitController.initialize();
 		btnUnitCancel_OnClick();
