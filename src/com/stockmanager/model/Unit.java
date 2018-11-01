@@ -12,13 +12,13 @@ public class Unit extends DatabaseObject{
 	private String unit;
 	private String name;
 	
-	public Unit(String unit,String name) {
+	public Unit(String company, String unit) {
+		this.company = company;
 		this.unit = unit;
 		try {
-			ResultSet rs = Database.select("SELECT * FROM unit WHERE Unit = '" + unit + "'");
+			ResultSet rs = Database.select("SELECT * FROM unit WHERE Company = '" + company + "' AND Unit = '" + unit + "'");
 			while (rs.next()) {
 				this.name = rs.getString("Name");
-				this.company = rs.getString("Company");
 			}
 		}
 		catch(SQLException e) {
@@ -28,15 +28,30 @@ public class Unit extends DatabaseObject{
 	
 	
 	public static ArrayList<Unit> getAll() {
-		ResultSet rs = Database.select("SELECT Unit FROM unit");
+		ResultSet rs = Database.select("SELECT Company,Unit FROM unit");
 		ArrayList<Unit> units = new ArrayList<Unit>();
 		try {
 			while(rs.next())
-				units.add(new Unit( rs.getString("Unit"), rs.getString("Name")));
+				units.add(new Unit(rs.getString("Company"), rs.getString("Unit")));
 		} catch (SQLException e) {
 			Utilities.warn(e.getMessage());
 			e.printStackTrace();
 		}
+		return units;
+	}
+	
+	public static ArrayList<Unit> getAllUnitsFromCompany(String company) {
+		ArrayList<Unit> units = new ArrayList<>();
+		
+		try {
+			ResultSet rs = Database.select("SELECT Unit FROM unit WHERE Company = '" + company + "'");
+			while (rs.next()) 
+				units.add(new Unit(company, rs.getString("Unit")));
+		}
+		catch(SQLException e) {
+			e.printStackTrace();
+		}
+		
 		return units;
 	}
 	
@@ -47,7 +62,7 @@ public class Unit extends DatabaseObject{
 	
 	@Override
 	protected boolean insert() {
-		return Database.executeQuery("INSERT INTO unit (Company, Unit, Name) VALUES ('"+ company+"', " + unit + "', '" + name + "')");
+		return Database.executeQuery("INSERT INTO unit (Company, Unit, Name) VALUES ('"+ company+"', '" + unit + "', '" + name + "')");
 	}
 
 	@Override
@@ -75,19 +90,9 @@ public class Unit extends DatabaseObject{
 		return company;
 	}
 	
-	public void setCompany(String company) {
-		this.company = company;
-	}
-	
 	public String getUnit() {
 		return unit;
 	}
-
-
-	public void setUnit(String unit) {
-		this.unit = unit;
-	}
-
 
 	public String getName() {
 		return name;

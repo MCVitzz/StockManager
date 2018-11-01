@@ -31,9 +31,9 @@ public class DialogUnitController {
 		this.unitController = unitController;
 	}
 
-	public DialogUnitController(String name, String unit, UnitController unitController) {
+	public DialogUnitController(String company, String unit, UnitController unitController) {
 		this.unitController = unitController;
-		this.unit = new Unit(name, unit);
+		this.unit = new Unit(company, unit);
 	}
 
 	public void initialize() {
@@ -43,6 +43,7 @@ public class DialogUnitController {
 				
 		if(unit != null) {
 			txtUnit.setDisable(true);
+			txtName.setDisable(true);
 			cbCompany.setValue(new Company(unit.getCompany()));
 			txtUnit.setText(unit.getUnit());
 			txtName.setText(unit.getName());
@@ -52,8 +53,8 @@ public class DialogUnitController {
 
 	@FXML
 	public void btnUnitSave_OnClick() {
-		Unit unt = new Unit(txtUnit.getText(),txtName.getText());
-		unt.setCompany(cbCompany.getValue().getCompany());
+		Unit unt = new Unit(cbCompany.getValue().getCompany(),txtUnit.getText());
+		unt.setName(txtName.getText());
 		unt.save();
 		unitController.initialize();
 		btnUnitCancel_OnClick();

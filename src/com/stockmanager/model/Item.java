@@ -14,12 +14,12 @@ public class Item extends DatabaseObject{
 	private String unit;
 	
 	
-	public Item(String item) {
+	public Item(String company, String item) {
+		this.company = company;
 		this.item = item;
 		try {
-			ResultSet rs = Database.select("SELECT * FROM item WHERE Item = '" + item + "'");
+			ResultSet rs = Database.select("SELECT * FROM item WHERE Company = '" + company + "' AND Item = '" + item + "'");
 			while (rs.next()) {
-				this.company = rs.getString("Company");
 				this.name = rs.getString("Name");
 				this.unit = rs.getString("Unit");
 			}
@@ -30,11 +30,11 @@ public class Item extends DatabaseObject{
 	}
 	
 	public static ArrayList<Item> getAll() {
-		ResultSet rs = Database.select("SELECT Item FROM item");
+		ResultSet rs = Database.select("SELECT Company,Item FROM item");
 		ArrayList<Item> items = new ArrayList<Item>();
 		try {
 			while(rs.next())
-				items.add(new Item(rs.getString("Item")));
+				items.add(new Item(rs.getString("Company"),rs.getString("Item")));
 		} catch (SQLException e) {
 			Utilities.warn(e.getMessage());
 			e.printStackTrace();
@@ -76,16 +76,9 @@ public class Item extends DatabaseObject{
 		return company;
 	}
 	
-	public void setCompany(String company) {
-		this.company = company;
-	}
 	
 	public String getItem() {
 		return item;
-	}
-
-	public void setItem(String item) {
-		this.item = item;
 	}
 
 	public String getName() {

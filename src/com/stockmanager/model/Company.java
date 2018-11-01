@@ -38,11 +38,6 @@ public class Company extends DatabaseObject {
 		}
 		return companies;
 	}
-	
-	@Override
-    public String toString() {
-        return this.company;
-    }
 
 	@Override
 	public String toString() {

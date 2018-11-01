@@ -40,7 +40,7 @@ public class ItemController {
 	@FXML
 	public void tblItem_OnClick(MouseEvent e) {
 		if (tblItem.getSelectionModel().getSelectedItem() != null && e.getClickCount() == 2)
-			Utilities.openDialog("DialogItemView", new DialogItemController(tblItem.getSelectionModel().getSelectedItem().getItem(), this));
+			Utilities.openDialog("DialogItemView", new DialogItemController(tblItem.getSelectionModel().getSelectedItem().getCompany(),tblItem.getSelectionModel().getSelectedItem().getItem(), this));
 		
 	}
 	
@@ -53,7 +53,7 @@ public class ItemController {
 	public void btnRemoveItem_OnClick() {
 		if (tblItem.getSelectionModel().getSelectedItem() != null) {
 			if(Utilities.confirmDialog("Are you sure you want to permanently remove this item" + tblItem.getSelectionModel().getSelectedItem().getItem() + "?")) {
-				new Item(tblItem.getSelectionModel().getSelectedItem().getItem()).delete();
+				tblItem.getSelectionModel().getSelectedItem().delete();
 				initialize();
 			}
 		}

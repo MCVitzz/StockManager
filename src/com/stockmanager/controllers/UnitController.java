@@ -50,7 +50,7 @@ public class UnitController {
 	public void removeUnitBtn_OnClick() {
 		if (tblUnit.getSelectionModel().getSelectedItem() != null) {
 			if(Utilities.confirmDialog("Are you sure you want to permanently remove this unit " + tblUnit.getSelectionModel().getSelectedItem().getUnit() + "?")) {
-				new Unit(tblUnit.getSelectionModel().getSelectedItem().getUnit(),tblUnit.getSelectionModel().getSelectedItem().getName()).delete();
+				tblUnit.getSelectionModel().getSelectedItem().delete();
 				initialize();
 			}
 		}
