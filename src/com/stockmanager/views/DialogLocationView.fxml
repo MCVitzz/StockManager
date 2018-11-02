@@ -63,8 +63,8 @@
             <Insets left="50.0" />
          </GridPane.margin>
       </Label>
-      <ComboBox fx:id="sltType" prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-      <ComboBox fx:id="sltCompany" onAction="#sltCompany_OnAction" prefWidth="150.0" GridPane.columnIndex="1" />
-      <ComboBox fx:id="sltWarehouse" prefWidth="150.0" GridPane.columnIndex="3" />
+      <ComboBox fx:id="cbType" prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+      <ComboBox fx:id="cbCompany" onAction="#cbCompany_OnAction" prefWidth="150.0" GridPane.columnIndex="1" />
+      <ComboBox fx:id="cbWarehouse" prefWidth="150.0" GridPane.columnIndex="3" />
    </children>
 </GridPane>
