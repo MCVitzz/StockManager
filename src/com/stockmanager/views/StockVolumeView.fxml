@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="675.0" prefWidth="1098.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.stockmanager.controllers.StockVolumeController">
+   <children>
+      <HBox prefHeight="35.0" prefWidth="1098.0" style="-fx-background-color: #C30000;" />
+      <TableView fx:id="tblStockVolume" onMouseClicked="#tblStockVolume_OnClick" prefHeight="620.0" prefWidth="1098.0">
+        <columns>
+          <TableColumn fx:id="clmnWarehouse" prefWidth="209.0" text="Warehouse" />
+            <TableColumn fx:id="clmnVolume" prefWidth="645.0" text="Volume" />
+            <TableColumn fx:id="clmnLocation" prefWidth="243.0" text="Location" />
+        </columns>
+      </TableView>
+      <HBox prefHeight="40.0" prefWidth="1098.0" style="-fx-background-color: #C30000;" />
+   </children>
+</VBox>

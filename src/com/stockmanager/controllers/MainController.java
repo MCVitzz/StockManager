@@ -29,7 +29,7 @@ public class MainController {
 
 	@FXML
 	void stockButton(ActionEvent event) {
-		changeView("StockView", "Stock");
+		changeView("StockVolumeView", "Stock");
 	}
 
 	@FXML
@@ -78,6 +78,4 @@ public class MainController {
 		mainVerticalBox.getChildren().clear();
 		mainVerticalBox.getChildren().add(0, Utilities.getNode(newView));
 	}
-	
-	
 }
