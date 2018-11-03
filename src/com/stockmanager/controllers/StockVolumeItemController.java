@@ -1,5 +1,6 @@
 package com.stockmanager.controllers;
 
+import com.stockmanager.model.PaginatedStockVolumeItem;
 import com.stockmanager.model.StockVolume;
 import com.stockmanager.model.StockVolumeItem;
 import com.stockmanager.utils.Utilities;
@@ -16,27 +17,35 @@ public class StockVolumeItemController {
 	private StockVolume volume;
 	
 	@FXML
-	private TableView<StockVolumeItem> tblStockVolumeItem;
+	private TableView<PaginatedStockVolumeItem> tblStockVolumeItem;
 
 	@FXML
-	private TableColumn<StockVolume, String> clmnItem;
+	private TableColumn<PaginatedStockVolumeItem, String> clmnItem;
 	
 	@FXML
-	private TableColumn<StockVolume, Double> clmnQuantity;
+	private TableColumn<PaginatedStockVolumeItem, String> clmnName;
 	
 	@FXML
-	private TableColumn<StockVolume, String> clmnUnit;
+	private TableColumn<PaginatedStockVolumeItem, Double> clmnQuantity;
+	
+	@FXML
+	private TableColumn<PaginatedStockVolumeItem, String> clmnUnit;
 
 	public StockVolumeItemController(StockVolume volume) {
 		this.volume = volume;
 	}
 	
 	public void initialize() {
-		clmnItem.setCellValueFactory(new PropertyValueFactory<StockVolume, String>("item"));
-		clmnQuantity.setCellValueFactory(new PropertyValueFactory<StockVolume, Double>("quantity"));
-		clmnUnit.setCellValueFactory(new PropertyValueFactory<StockVolume, String>("unit"));
+		clmnItem.setCellValueFactory(new PropertyValueFactory<PaginatedStockVolumeItem, String>("item"));
+		clmnName.setCellValueFactory(new PropertyValueFactory<PaginatedStockVolumeItem, String>("name"));
+		clmnQuantity.setCellValueFactory(new PropertyValueFactory<PaginatedStockVolumeItem, Double>("quantity"));
+		clmnUnit.setCellValueFactory(new PropertyValueFactory<PaginatedStockVolumeItem, String>("unit"));
 		
-		tblStockVolumeItem.setItems(FXCollections.observableArrayList(StockVolumeItem.getAllItemsInVolume(volume)));
+		getData();
+	}
+	
+	public void getData() {
+		tblStockVolumeItem.setItems(FXCollections.observableArrayList(PaginatedStockVolumeItem.getAllPaginatedItemsInVolume(volume)));
 	}
 
 	@FXML
@@ -45,5 +54,10 @@ public class StockVolumeItemController {
 			StockVolumeItem w = tblStockVolumeItem.getSelectionModel().getSelectedItem();
 			Utilities.openDialog("DialogStockVolumeItemView", new DialogStockVolumeItemController(w.getCompany(), w.getVolume(), w.getItem()));
 		}
+	}
+	
+	@FXML
+	public void btnRefresh_OnClick() {
+		getData();
 	}
 }

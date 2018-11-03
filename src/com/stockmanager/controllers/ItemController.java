@@ -32,9 +32,12 @@ public class ItemController {
 		clmnItem.setCellValueFactory(new PropertyValueFactory<Item, String>("item"));
 		clmnName.setCellValueFactory(new PropertyValueFactory<Item, String>("name"));
 		clmnUnit.setCellValueFactory(new PropertyValueFactory<Item, String>("unit"));
-
+		
+		getData();
+	}
+	
+	public void getData() {
 		tblItem.setItems(FXCollections.observableArrayList(Item.getAll()));
-
 	}
     
 	@FXML
@@ -59,4 +62,8 @@ public class ItemController {
 		}
 	}
 	
+	@FXML
+	public void btnRefresh_OnClick() {
+		getData();
+	}	
 }

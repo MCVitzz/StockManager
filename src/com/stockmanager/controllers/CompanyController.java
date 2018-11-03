@@ -25,13 +25,15 @@ public class CompanyController {
     private TableColumn<Company, String> clmnCountry;
 
 	public void initialize() {
-		//tblCompany.setEditable(true);
 		clmnCompany.setCellValueFactory(new PropertyValueFactory<Company, String>("company"));
 		clmnAddress.setCellValueFactory(new PropertyValueFactory<Company, String>("address"));
 		clmnCountry.setCellValueFactory(new PropertyValueFactory<Company, String>("country"));
-
+		
+		getData();
+	}
+	
+	public void getData() {
 		tblCompany.setItems(FXCollections.observableArrayList(Company.getAll()));
-
 	}
     
 	@FXML
@@ -56,4 +58,8 @@ public class CompanyController {
 		}
 	}
 
+	@FXML
+	public void btnRefresh_OnClick() {
+		getData();
+	}	
 }

@@ -12,15 +12,21 @@
       <HBox prefHeight="35.0" prefWidth="1098.0" style="-fx-background-color: #C30000;" />
       <TableView fx:id="tblWarehouse" onMouseClicked="#tblWarehouse_OnClick" prefHeight="620.0" prefWidth="1098.0">
         <columns>
-          <TableColumn fx:id="clmnWarehousename" prefWidth="209.0" text="Warehouse" />
-            <TableColumn fx:id="clmnName" prefWidth="319.0" text="Name" />
-            <TableColumn fx:id="clmnAddress" prefWidth="569.0" text="Address" />
+            <TableColumn fx:id="clmnCompany" prefWidth="127.0" text="Company" />
+          <TableColumn fx:id="clmnWarehouse" prefWidth="156.0" text="Warehouse" />
+            <TableColumn fx:id="clmnName" prefWidth="285.0" text="Name" />
+            <TableColumn fx:id="clmnAddress" prefWidth="529.0" text="Address" />
         </columns>
       </TableView>
       <HBox prefHeight="40.0" prefWidth="1098.0" style="-fx-background-color: #C30000;">
          <children>
             <Button mnemonicParsing="false" onAction="#btnAddWarehouse_OnClick" prefHeight="25.0" prefWidth="25.0" text="+" translateX="5.0" translateY="5.0" />
             <Button mnemonicParsing="false" onAction="#btnRemoveWarehouse_OnClick" prefHeight="25.0" prefWidth="68.0" text="Remove">
+               <HBox.margin>
+                  <Insets left="10.0" top="5.0" />
+               </HBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#btnRefresh_OnClick" text="Refresh">
                <HBox.margin>
                   <Insets left="10.0" top="5.0" />
                </HBox.margin>

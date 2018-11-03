@@ -29,9 +29,13 @@ public class StockVolumeController {
 		clmnVolume.setCellValueFactory(new PropertyValueFactory<StockVolume, Long>("volume"));
 		clmnLocation.setCellValueFactory(new PropertyValueFactory<StockVolume, String>("location"));
 		
-		tblStockVolume.setItems(FXCollections.observableArrayList(StockVolume.getAll()));
+		getData();
 	}
 
+	public void getData() {
+		tblStockVolume.setItems(FXCollections.observableArrayList(StockVolume.getAll()));
+	}
+	
 	@FXML
 	public void tblStockVolume_OnClick(MouseEvent e) {
 		if (tblStockVolume.getSelectionModel().getSelectedItem() != null && e.getClickCount() == 2) {
@@ -39,4 +43,9 @@ public class StockVolumeController {
 			Utilities.openDialog("DialogStockVolumeView", new DialogStockVolumeController(w.getCompany(), w.getVolume()));
 		}
 	}
+	
+	@FXML
+	public void btnRefresh_OnClick() {
+		getData();
+	}	
 }

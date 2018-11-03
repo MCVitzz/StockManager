@@ -26,14 +26,17 @@ public class UnitController {
     private TableColumn<Unit, String> clmnName;
     
     public void initialize() {
-	
     	clmnCompany.setCellValueFactory(new PropertyValueFactory<Unit, String>("company"));
 		clmnUnit.setCellValueFactory(new PropertyValueFactory<Unit, String>("unit"));
 		clmnName.setCellValueFactory(new PropertyValueFactory<Unit, String>("name"));
-
-		tblUnit.setItems(FXCollections.observableArrayList(Unit.getAll()));
+		
+		getData();
 	}
 
+    public void getData() {
+		tblUnit.setItems(FXCollections.observableArrayList(Unit.getAll()));
+    }
+    
     @FXML
 	public void tblUnit_OnClick(MouseEvent e) {
 		if (tblUnit.getSelectionModel().getSelectedItem() != null && e.getClickCount() == 2)
@@ -54,5 +57,10 @@ public class UnitController {
 				initialize();
 			}
 		}
+	}
+	
+	@FXML
+	public void btnRefresh_OnClick() {
+		getData();
 	}
 }

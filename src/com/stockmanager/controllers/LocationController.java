@@ -29,6 +29,10 @@ public class LocationController {
 		clmnLocation.setCellValueFactory(new PropertyValueFactory<Location, String>("location"));
 		clmnType.setCellValueFactory(new PropertyValueFactory<Location, String>("type"));
 		
+		getData();
+	}
+	
+	public void getData() {
 		tblLocation.setItems(FXCollections.observableArrayList(Location.getAll()));
 	}
 
@@ -54,4 +58,9 @@ public class LocationController {
 			}
 		}
 	}
+	
+	@FXML
+	public void btnRefresh_OnClick() {
+		getData();
+	}	
 }
