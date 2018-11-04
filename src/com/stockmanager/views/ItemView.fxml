@@ -26,6 +26,11 @@
                   <Insets left="10.0" top="5.0" />
                </HBox.margin>
             </Button>
+            <Button mnemonicParsing="false" onAction="#btnRefresh_OnClick" text="Refresh">
+               <HBox.margin>
+                  <Insets left="10.0" top="5.0" />
+               </HBox.margin>
+            </Button>
          </children>
       </HBox>
    </children>

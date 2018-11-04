@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.HBox?>
@@ -10,11 +12,19 @@
       <HBox prefHeight="16.0" prefWidth="677.0" style="-fx-background-color: #C30000;" />
       <TableView fx:id="tblStockVolumeItem" onMouseClicked="#tblStockVolumeItem_OnClick" prefHeight="507.0" prefWidth="677.0">
         <columns>
-          <TableColumn fx:id="clmnItem" prefWidth="376.0" text="Item" />
-            <TableColumn fx:id="clmnQuantity" prefWidth="173.0" text="Quantity" />
-            <TableColumn fx:id="clmnUnit" prefWidth="127.0" text="Unit" />
+          <TableColumn fx:id="clmnItem" prefWidth="116.0" text="Item" />
+            <TableColumn fx:id="clmnName" maxWidth="377.0" prefWidth="376.0" text="Name" />
+            <TableColumn fx:id="clmnQuantity" minWidth="0.0" prefWidth="88.0" text="Quantity" />
+            <TableColumn fx:id="clmnUnit" minWidth="0.0" prefWidth="96.0" text="Unit" />
         </columns>
       </TableView>
-      <HBox prefHeight="21.0" prefWidth="677.0" style="-fx-background-color: #C30000;" />
+      <HBox prefHeight="21.0" prefWidth="677.0" style="-fx-background-color: #C30000;">
+         <children>
+            <Button mnemonicParsing="false" onAction="#btnRefresh_OnClick" text="Refresh">
+               <HBox.margin>
+                  <Insets bottom="5.0" left="10.0" top="5.0" />
+               </HBox.margin>
+            </Button>
+         </children></HBox>
    </children>
 </VBox>

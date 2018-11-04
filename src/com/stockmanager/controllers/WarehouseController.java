@@ -15,9 +15,11 @@ public class WarehouseController {
 	@FXML
 	private TableView<Warehouse> tblWarehouse;
 
-
 	@FXML
-	private TableColumn<Warehouse, String> clmnWarehousename;
+	private TableColumn<Warehouse, String> clmnCompany;
+	
+	@FXML
+	private TableColumn<Warehouse, String> clmnWarehouse;
 	
 	@FXML
 	private TableColumn<Warehouse, String> clmnName;
@@ -26,13 +28,18 @@ public class WarehouseController {
 	private TableColumn<Warehouse, String> clmnAddress;
 
 	public void initialize() {
-		clmnWarehousename.setCellValueFactory(new PropertyValueFactory<Warehouse, String>("warehouse"));
+		clmnCompany.setCellValueFactory(new PropertyValueFactory<Warehouse, String>("company"));
+		clmnWarehouse.setCellValueFactory(new PropertyValueFactory<Warehouse, String>("warehouse"));
 		clmnName.setCellValueFactory(new PropertyValueFactory<Warehouse, String>("name"));
 		clmnAddress.setCellValueFactory(new PropertyValueFactory<Warehouse, String>("address"));
 		
-		tblWarehouse.setItems(FXCollections.observableArrayList(Warehouse.getAll()));
+		getData();
 	}
 
+	public void getData() {
+		tblWarehouse.setItems(FXCollections.observableArrayList(Warehouse.getAll()));
+	}
+	
 	@FXML
 	public void tblWarehouse_OnClick(MouseEvent e) {
 		if (tblWarehouse.getSelectionModel().getSelectedItem() != null && e.getClickCount() == 2) {
@@ -54,5 +61,10 @@ public class WarehouseController {
 				initialize();
 			}
 		}
+	}
+	
+	@FXML
+	public void btnRefresh_OnClick() {
+		getData();
 	}
 }

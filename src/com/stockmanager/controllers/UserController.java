@@ -21,6 +21,11 @@ public class UserController {
 
 	public void initialize() {
 		clmnUsername.setCellValueFactory(new PropertyValueFactory<User, String>("user"));
+		
+		getData();
+	}
+	
+	public void getData() {
 		tblUser.setItems(FXCollections.observableArrayList(User.getAll()));
 	}
 
@@ -43,5 +48,10 @@ public class UserController {
 				initialize();
 			}
 		}
+	}
+	
+	@FXML
+	public void btnRefresh_OnClick() {
+		getData();
 	}
 }
