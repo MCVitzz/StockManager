@@ -34,7 +34,7 @@ public class MainController {
 
 	@FXML
 	void salesOrderButton_OnClick(ActionEvent event) {
-		changeView("SalesOrderView", "Sales Order");
+		//changeView("SalesOrderView", "Sales Order");
 		
 	}
 	
