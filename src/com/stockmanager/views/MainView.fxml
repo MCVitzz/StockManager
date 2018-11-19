@@ -101,7 +101,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button mnemonicParsing="false" onAction="#warehouseButton_OnClick" prefHeight="28.0" prefWidth="133.0" text="Warehouse">
+            <Button mnemonicParsing="false" onAction="#warehouseButton_OnClick" prefHeight="28.0" prefWidth="133.0" text="Warehouses">
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin>
