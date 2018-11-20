@@ -10,11 +10,11 @@ import javafx.stage.Stage;
 public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
-		Utilities.openScene("LoginView", null);
+		Utilities.openScene("MainView", null);
 	}
 	
 	public static void main(String[] args) {
-		//Database.connect();
+		Database.connect();
 		launch(args);
 	}
 }

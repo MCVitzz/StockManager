@@ -20,7 +20,6 @@ public class Database {
 			String password = "password";
 			Class.forName(driver);
 			conn = DriverManager.getConnection(connection, user, password);
-			System.out.println(conn);
 		}
 		catch(Exception e) {
 			System.out.println(e.getMessage());

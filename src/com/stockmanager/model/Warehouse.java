@@ -87,7 +87,7 @@ public class Warehouse extends DatabaseObject {
 	}
 
 	protected boolean update() {
-		return Database.executeQuery("UPDATE warehouse SET Name = '" + name + "', Address = '" + address + "' WHERE Company = '" + company + "' Warehouse = '" + warehouse + "'");
+		return Database.executeQuery("UPDATE warehouse SET Name = '" + name + "', Address = '" + address + "' WHERE Company = '" + company + "' AND Warehouse = '" + warehouse + "'");
 	}
 
 	protected boolean exists() {

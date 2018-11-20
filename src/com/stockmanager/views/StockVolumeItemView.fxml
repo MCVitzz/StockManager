@@ -9,7 +9,7 @@
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="543.0" prefWidth="677.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <HBox prefHeight="16.0" prefWidth="677.0" style="-fx-background-color: #C30000;" />
+      <HBox prefHeight="16.0" prefWidth="677.0" style="-fx-background-color: rgb(64.0, 78.0, 103.0);;" />
       <TableView fx:id="tblStockVolumeItem" onMouseClicked="#tblStockVolumeItem_OnClick" prefHeight="507.0" prefWidth="677.0">
         <columns>
           <TableColumn fx:id="clmnItem" prefWidth="116.0" text="Item" />
@@ -18,7 +18,7 @@
             <TableColumn fx:id="clmnUnit" minWidth="0.0" prefWidth="96.0" text="Unit" />
         </columns>
       </TableView>
-      <HBox prefHeight="21.0" prefWidth="677.0" style="-fx-background-color: #C30000;">
+      <HBox prefHeight="21.0" prefWidth="677.0" style="-fx-background-color: rgb(64.0, 78.0, 103.0);;">
          <children>
             <Button mnemonicParsing="false" onAction="#btnRefresh_OnClick" text="Refresh">
                <HBox.margin>

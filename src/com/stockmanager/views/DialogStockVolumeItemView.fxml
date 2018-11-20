@@ -21,6 +21,11 @@
     <RowConstraints maxHeight="100.0" minHeight="10.0" prefHeight="169.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
+      <TextField fx:id="txtCompany" prefHeight="25.0" prefWidth="343.0" GridPane.columnIndex="1">
+         <GridPane.margin>
+            <Insets right="50.0" />
+         </GridPane.margin>
+      </TextField>
       <Label prefHeight="109.0" prefWidth="234.0" text="Volume" GridPane.columnIndex="2">
          <GridPane.margin>
             <Insets />
@@ -54,11 +59,6 @@
             <Insets left="50.0" />
          </GridPane.margin>
       </Label>
-      <TextField fx:id="txtCompany" prefHeight="25.0" prefWidth="343.0" GridPane.columnIndex="1">
-         <GridPane.margin>
-            <Insets right="50.0" />
-         </GridPane.margin>
-      </TextField>
       <TextField fx:id="txtVolume" prefHeight="25.0" prefWidth="343.0" GridPane.columnIndex="2">
          <GridPane.margin>
             <Insets left="75.0" />

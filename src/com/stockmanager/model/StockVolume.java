@@ -9,8 +9,8 @@ import com.stockmanager.utils.Utilities;
 public class StockVolume extends DatabaseObject {
 
 	private String company;
-	private long volume;
 	private String warehouse;
+	private long volume;
 	private String location;
 
 	public StockVolume() {}

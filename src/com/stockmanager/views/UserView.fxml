@@ -9,13 +9,13 @@
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="675.0" prefWidth="1098.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.stockmanager.controllers.UserController">
    <children>
-      <HBox prefHeight="35.0" prefWidth="1098.0" style="-fx-background-color: #C30000;" />
+      <HBox prefHeight="35.0" prefWidth="1098.0" style="-fx-background-color: rgb(64.0, 78.0, 103.0);;" />
       <TableView fx:id="tblUser" onMouseClicked="#tblUser_OnClick" prefHeight="620.0" prefWidth="1098.0">
         <columns>
           <TableColumn fx:id="clmnUsername" prefWidth="1097.0" text="Username" />
         </columns>
       </TableView>
-      <HBox prefHeight="40.0" prefWidth="1098.0" style="-fx-background-color: #C30000;">
+      <HBox prefHeight="40.0" prefWidth="1098.0" style="-fx-background-color: rgb(64.0, 78.0, 103.0);;">
          <children>
             <Button mnemonicParsing="false" onAction="#btnAddUser_OnClick" prefHeight="25.0" prefWidth="25.0" text="+" translateX="5.0" translateY="5.0" />
             <Button mnemonicParsing="false" onAction="#btnRemoveUser_OnClick" prefHeight="25.0" prefWidth="68.0" text="Remove">

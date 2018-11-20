@@ -23,6 +23,12 @@
       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
+      <ComboBox fx:id="cbCompany" onAction="#cbCompany_OnAction" prefWidth="150.0" GridPane.columnIndex="1" />
+      <TextField fx:id="txtItem" prefHeight="25.0" prefWidth="343.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+         <GridPane.margin>
+            <Insets right="50.0" />
+         </GridPane.margin>
+      </TextField>
       <Label prefHeight="109.0" prefWidth="234.0" text="Item" GridPane.rowIndex="1">
          <GridPane.margin>
             <Insets left="50.0" />
@@ -38,6 +44,7 @@
             <Insets right="50.0" />
          </GridPane.margin>
       </TextField>
+      <ComboBox fx:id="cbUnit" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
       <Button mnemonicParsing="false" onAction="#btnItemSave_OnClick" prefHeight="35.0" prefWidth="73.0" text="Save" GridPane.rowIndex="4">
          <opaqueInsets>
             <Insets />
@@ -59,17 +66,10 @@
             <Insets left="50.0" />
          </GridPane.margin>
       </Label>
-      <TextField fx:id="txtItem" prefHeight="25.0" prefWidth="343.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
-         <GridPane.margin>
-            <Insets right="50.0" />
-         </GridPane.margin>
-      </TextField>
       <Label text="Company">
          <GridPane.margin>
             <Insets left="50.0" />
          </GridPane.margin>
       </Label>
-      <ComboBox fx:id="cbCompany" onAction="#cbCompany_OnAction" prefWidth="150.0" GridPane.columnIndex="1" />
-      <ComboBox fx:id="cbUnit" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
    </children>
 </GridPane>

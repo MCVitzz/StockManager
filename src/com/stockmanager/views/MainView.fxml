@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.effect.DropShadow?>
@@ -13,14 +14,14 @@
 
 <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" style="-fx-background-color: grey;" stylesheets="@../application.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.stockmanager.controllers.MainController">
    <children>
-      <VBox prefHeight="800.0" prefWidth="175.0" style="-fx-background-color: black;">
+      <VBox prefHeight="800.0" prefWidth="175.0" style="-fx-background-color: rgb(64, 78, 103);;">
          <children>
-            <Label prefHeight="31.0" prefWidth="154.0" text="CompanyName" textAlignment="CENTER" textFill="WHITE">
+            <Label prefHeight="31.0" prefWidth="154.0" text="Project Development" textAlignment="CENTER" textFill="WHITE">
                <VBox.margin>
                   <Insets left="15.0" />
                </VBox.margin>
             </Label>
-            <Button mnemonicParsing="false" onAction="#dashboardButton" prefHeight="28.0" prefWidth="178.0" text="Dasboard">
+            <Button id="dashboardButton" alignment="TOP_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#dashboardButton" prefHeight="28.0" prefWidth="178.0" stylesheets="@../application.css" text="Dashboard" textFill="WHITE">
                <VBox.margin>
                   <Insets top="40.0" />
                </VBox.margin>
@@ -32,58 +33,22 @@
                      <viewport>
                         <Rectangle2D />
                      </viewport>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </ImageView>
                </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets left="15.0" />
+               </padding>
             </Button>
-            <Button mnemonicParsing="false" onAction="#stockButton" prefHeight="28.0" prefWidth="176.0" text="Stock">
-               <VBox.margin>
-                  <Insets top="20.0" />
-               </VBox.margin>
-               <graphic>
-                  <ImageView fitHeight="23.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../../Images/stock.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-            <Button mnemonicParsing="false" onAction="#salesOrderButton_OnClick" prefHeight="28.0" prefWidth="175.0" text="Sales Order">
-               <VBox.margin>
-                  <Insets top="20.0" />
-               </VBox.margin>
-               <graphic>
-                  <ImageView fitHeight="23.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../../Images/package.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-            <Button mnemonicParsing="false" prefHeight="28.0" prefWidth="178.0" text="Purchase Order">
-               <VBox.margin>
-                  <Insets top="20.0" />
-               </VBox.margin>
-               <graphic>
-                  <ImageView fitHeight="23.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../../Images/goods.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-            <Button mnemonicParsing="false" prefHeight="28.0" prefWidth="176.0" text="Inventory">
-               <VBox.margin>
-                  <Insets top="20.0" />
-               </VBox.margin>
-               <graphic>
-                  <ImageView fitHeight="23.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../../Images/package.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-            <Button mnemonicParsing="false" onAction="#warehouseButton_OnClick" prefHeight="28.0" prefWidth="175.0" text="Warehouse">
+            <Button id="warehouseButton" alignment="TOP_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#warehouseButton_OnClick" prefHeight="28.0" prefWidth="175.0" stylesheets="@../application.css" text="Warehouse" textFill="WHITE">
                <VBox.margin>
                   <Insets top="20.0" />
                </VBox.margin>
@@ -92,10 +57,145 @@
                      <image>
                         <Image url="@../../../../Images/warehouse.png" />
                      </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </ImageView>
                </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets left="15.0" />
+               </padding>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="28.0" prefWidth="180.0" text="Reports">
+            <Button id="companyButton" alignment="TOP_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#companyButton_OnClick" prefHeight="28.0" prefWidth="177.0" stylesheets="@../application.css" text="Companies" textFill="WHITE">
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../Images/factory.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
+               </graphic>
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets left="15.0" />
+               </padding>
+            </Button>
+            <Button id="stockButton" alignment="TOP_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#stockButton" prefHeight="28.0" prefWidth="176.0" stylesheets="@../application.css" text="Stock" textFill="WHITE">
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../Images/stock.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <viewport>
+                        <Rectangle2D />
+                     </viewport>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets left="15.0" />
+               </padding>
+            </Button>
+            <Button id="salesOrderButton" alignment="TOP_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#salesOrderButton_OnClick" prefHeight="28.0" prefWidth="175.0" stylesheets="@../application.css" text="Sales Order" textFill="WHITE">
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../Images/package.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets left="15.0" />
+               </padding>
+            </Button>
+            <Button id="purchaseOrderButton" alignment="TOP_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="178.0" stylesheets="@../application.css" text="Purchase Order" textFill="WHITE">
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../Images/goods.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets left="15.0" />
+               </padding>
+            </Button>
+            <Button id="inventoryButton" alignment="TOP_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="176.0" stylesheets="@../application.css" text="Inventory" textFill="WHITE">
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../Images/package.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets left="15.0" />
+               </padding>
+            </Button>
+            <Button id="reportsButton" fx:id="reportsButton" alignment="TOP_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="180.0" stylesheets="@../application.css" text="Reports" textFill="WHITE">
                <VBox.margin>
                   <Insets top="20.0" />
                </VBox.margin>
@@ -104,39 +204,46 @@
                      <image>
                         <Image url="@../../../../Images/report.png" />
                      </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </ImageView>
                </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets left="15.0" />
+               </padding>
             </Button>
-            <Button mnemonicParsing="false" onAction="#userButton_OnClick" prefHeight="28.0" prefWidth="178.0" text="Users">
+            <Button id="itemButton" alignment="TOP_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#itemButton_OnClick" prefHeight="28.0" prefWidth="178.0" stylesheets="@../application.css" text="Items" textFill="WHITE">
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets left="15.0" />
+               </padding>
                <graphic>
                   <ImageView fitHeight="23.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../Images/man.png" />
+                        <Image url="@../../../../Images/icons.png" />
                      </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </ImageView>
                </graphic>
-               <VBox.margin>
-                  <Insets top="20.0" />
-               </VBox.margin>
             </Button>
-            <Button mnemonicParsing="false" onAction="#companyButton_OnClick" prefHeight="28.0" prefWidth="177.0" text="Companies">
-               <graphic>
-                  <ImageView fitHeight="23.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../../Images/factory.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <VBox.margin>
-                  <Insets top="20.0" />
-               </VBox.margin>
-            </Button>
-            <Button mnemonicParsing="false" onAction="#itemButton_OnClick" prefHeight="28.0" prefWidth="178.0" text="Items">
-               <VBox.margin>
-                  <Insets top="20.0" />
-               </VBox.margin>
-            </Button>
-            <Button mnemonicParsing="false" onAction="#unitButton_OnClick" prefHeight="28.0" prefWidth="177.0" text="Units">
+            <Button id="unitButton" alignment="TOP_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#unitButton_OnClick" prefHeight="28.0" prefWidth="177.0" stylesheets="@../application.css" text="Units" textFill="WHITE">
                <VBox.margin>
                   <Insets top="20.0" />
                </VBox.margin>
@@ -145,32 +252,92 @@
                      <image>
                         <Image url="@../../../../Images/meter.png" />
                      </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </ImageView>
                </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets left="15.0" />
+               </padding>
             </Button>
-            <Button mnemonicParsing="false" onAction="#locationButton_OnClick" prefHeight="28.0" prefWidth="178.0" text="Locations">
+            <Button id="locationButton" alignment="TOP_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#locationButton_OnClick" prefHeight="28.0" prefWidth="178.0" stylesheets="@../application.css" text="Locations" textFill="WHITE">
                <graphic>
                   <ImageView fitHeight="23.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../../Images/location.png" />
                      </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </ImageView>
                </graphic>
                <VBox.margin>
                   <Insets top="20.0" />
                </VBox.margin>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets left="15.0" />
+               </padding>
             </Button>
-            <Button mnemonicParsing="false" onAction="#btnLogout_OnClick" prefHeight="28.0" prefWidth="178.0" text="Logout">
+            <Button id="userButton" alignment="TOP_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#userButton_OnClick" prefHeight="28.0" prefWidth="178.0" stylesheets="@../application.css" text="Users" textFill="WHITE">
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../Images/man.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
+               </graphic>
+               <VBox.margin>
+                  <Insets top="142.0" />
+               </VBox.margin>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets left="15.0" />
+               </padding>
+            </Button>
+            <Button id="logoutButton" alignment="TOP_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#btnLogout_OnClick" prefHeight="28.0" prefWidth="178.0" stylesheets="@../application.css" text="Logout" textFill="WHITE">
                <graphic>
                   <ImageView fitHeight="23.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../../Images/logout.png" />
                      </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </ImageView>
                </graphic>
                <VBox.margin>
-                  <Insets top="110.0" />
+                  <Insets top="20.0" />
                </VBox.margin>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets left="15.0" />
+               </padding>
             </Button>
          </children>
          <effect>
@@ -184,7 +351,7 @@
          <children>
             <HBox prefHeight="134.0" prefWidth="1098.0">
                <children>
-                  <Label fx:id="lblTitle" prefHeight="130.0" prefWidth="1098.0">
+                  <Label fx:id="lblTitle" prefHeight="130.0" prefWidth="1098.0" style="-fx-background-color: rgb(64.0, 78.0, 103.0);;" textFill="WHITE">
                      <font>
                         <Font name="Calibri Bold" size="36.0" />
                      </font>
@@ -197,7 +364,7 @@
             <VBox fx:id="mainVerticalBox" prefHeight="647.0" prefWidth="1098.0" />
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Label prefHeight="115.0" prefWidth="1187.0" text="Software Developed for Universidade Europeia © 2018">
+                  <Label prefHeight="115.0" prefWidth="1187.0" style="-fx-background-color: rgb(64.0, 78.0, 103.0);;" text="Software Developed for Universidade Europeia © 2018" textFill="WHITE">
                      <font>
                         <Font size="10.0" />
                      </font>
