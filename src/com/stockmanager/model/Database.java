@@ -15,9 +15,9 @@ public class Database {
 	public static void connect() {
 		try {
 			String driver = "com.mysql.jdbc.Driver";
-			String connection = "jdbc:mysql://207.180.213.202:3306/stockmanager";
-			String user = "ruca";
-			String password = "Elite2018+1";
+			String connection = "jdbc:mysql://localhost:3306/stockmanager";
+			String user = "root";
+			String password = "password";
 			Class.forName(driver);
 			conn = DriverManager.getConnection(connection, user, password);
 		}

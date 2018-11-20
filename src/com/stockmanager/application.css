@@ -3,23 +3,20 @@
 /* ------------------------------------------------ MENU ------------------------------------------------- */
 
 .MenuButton{
-   -fx-background-color : linear-gradient(to right, lightgray , white)
+   -fx-background-color : rgb(64.0, 78.0, 103.0);
 }
 
 #loginButton, #exitButton {
     -fx-background-color: 
-        #000000,
-        linear-gradient(#7ebcea, #2f4b8f),
-        linear-gradient(#426ab7, #263e75),
-        linear-gradient(#395cab, #223768);
-    -fx-background-insets: 0,1,2,3;
-    -fx-background-radius: 3,2,2,2;
-    -fx-padding: 12 30 12 30;
+        rgb(64.0, 78.0, 103.0);
+    -fx-background-insets: 0.0,1.0,2.0,3.0;
+    -fx-background-radius: 3.0,2.0,2.0,2.0;
+    -fx-padding: 12.0 30.0 12.0 30.0;
     -fx-text-fill: white;
-    -fx-font-size: 12px;
+    -fx-font-size: 12.0px;
 }
 #loginButton Text, #exitButton Text {
-    -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.8) , 0, 0.0 , 0 , 1); }
+    -fx-effect: dropshadow( one-pass-box , rgba(0.0,0.0,0.0,0.8) , 0.0, 0.0 , 0.0 , 1.0); }
 
 #loginButton:hover, #exitButton:hover {
 
@@ -28,11 +25,11 @@
         linear-gradient(black, black),
         linear-gradient(white, black),
         linear-gradient(white, white);
-    -fx-background-insets: 0,1,2,3;
-    -fx-background-radius: 3,2,2,2;
-    -fx-padding: 12 30 12 30;
+    -fx-background-insets: 0.0,1.0,2.0,3.0;
+    -fx-background-radius: 3.0,2.0,2.0,2.0;
+    -fx-padding: 12.0 30.0 12.0 30.0;
     -fx-text-fill: black;
-    -fx-font-size: 12px;
+    -fx-font-size: 12.0px;
 }
 
 #loginButton:pressed, #exitButton:pressed {
@@ -42,11 +39,11 @@
         linear-gradient(black, black),
         linear-gradient(white, black),
         linear-gradient(white, white);
-    -fx-background-insets: 0,1,2,3;
-    -fx-background-radius: 3,2,2,2;
-    -fx-padding: 12 30 12 30;
+    -fx-background-insets: 0.0,1.0,2.0,3.0;
+    -fx-background-radius: 3.0,2.0,2.0,2.0;
+    -fx-padding: 12.0 30.0 12.0 30.0;
     -fx-text-fill: black;
-    -fx-font-size: 11px;
+    -fx-font-size: 11.0px;
     -fx-font-weight: bold;
 }
     
@@ -56,22 +53,19 @@
         linear-gradient(#7ebcea, #2f4b8f),
         linear-gradient(#426ab7, #263e75),
         linear-gradient(#395cab, #223768);
-    -fx-background-insets: 0,1,2,3;
-    -fx-background-radius: 3,2,2,2;
+    -fx-background-insets: 0.0,1.0,2.0,3.0;
+    -fx-background-radius: 3.0,2.0,2.0,2.0;
     -fx-text-fill: white;
-    -fx-font-size: 12px;
+    -fx-font-size: 12.0px;
 }
 
 #recoverPasswordButton:hover{
 	-fx-background-color: 
-        #000000,
-        linear-gradient(black, black),
-        linear-gradient(white, black),
-        linear-gradient(white, white);
-    -fx-background-insets: 0,1,2,3;
-    -fx-background-radius: 3,2,2,2;
+        #337ab7;
+    -fx-background-insets: 0.0,1.0,2.0,3.0;
+    -fx-background-radius: 3.0,2.0,2.0,2.0;
     -fx-text-fill: black;
-    -fx-font-size: 12px;
+    -fx-font-size: 12.0px;
 }
 
 #recoverPasswordButton:pressed {
@@ -80,20 +74,56 @@
         linear-gradient(black, black),
         linear-gradient(white, black),
         linear-gradient(white, white);
-    -fx-background-insets: 0,1,2,3;
-    -fx-background-radius: 3,2,2,2;
+    -fx-background-insets: 0.0,1.0,2.0,3.0;
+    -fx-background-radius: 3.0,2.0,2.0,2.0;
     -fx-text-fill: black;
-    -fx-font-size: 12px;
+    -fx-font-size: 12.0px;
     -fx-font-weight: bold;
 }
 /* ------------------------------------------------ MENU ------------------------------------------------- */
 
 .text-field {
   -fx-border-color: grey;
-  -fx-border-width: 0 0 1 0;
+  -fx-border-width: 0.0 0.0 1.0 0.0;
   -fx-background-color: transparent;
   }
 
 .ccombo-box :disabled {
 	-fx-color: black;
 }  
+
+#dashboardButton,
+#stockButton,
+#salesOrderButton,
+#purchaseOrderButton,
+#inventoryButton,
+#warehouseButton,
+#reportsButton,
+#userButton,
+#companyButton,
+#itemButton,
+#unitButton,
+#locationButton,
+#logoutButton
+{
+	-fx-background-color:         rgb(64.0, 78.0, 103.0);
+}
+	
+
+#dashboardButton:hover, #dashboardButton:pressed,
+#stockButton:hover, #stockButton:pressed,
+#salesOrderButton:hover, #salesOrderButton:pressed,
+#purchaseOrderButton:hover, #purchaseOrderButton:pressed,
+#inventoryButton:hover, #inventoryButton:pressed,
+#warehouseButton:hover, #warehouseButton:pressed,
+#reportsButton:hover, #reportsButton:pressed,
+#userButton:hover, #userButton:pressed,
+#companyButton:hover, #companyButton:pressed,
+#itemButton:hover, #itemButton:pressed,
+#unitButton:hover, #unitButton:pressed,
+#locationButton:hover, #locationButton:pressed,
+#logoutButton:hover, #logoutButton:pressed
+{
+	-fx-background-color: rgba(18.0, 42.0, 82.0, 0.815);
+}
+	

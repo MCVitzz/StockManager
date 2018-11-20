@@ -41,6 +41,16 @@
             <Insets right="50.0" />
          </GridPane.margin>
       </TextField>
+      <TextField fx:id="txtCountry" prefHeight="26.0" prefWidth="238.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="2">
+         <GridPane.margin>
+            <Insets right="50.0" />
+         </GridPane.margin>
+      </TextField>
+      <Label prefHeight="109.0" prefWidth="234.0" text="Country" GridPane.rowIndex="2">
+         <GridPane.margin>
+            <Insets left="50.0" />
+         </GridPane.margin>
+      </Label>
       <Button mnemonicParsing="false" onAction="#btnSave_OnClick" prefHeight="35.0" prefWidth="73.0" text="Save" GridPane.rowIndex="3">
          <opaqueInsets>
             <Insets />
@@ -57,15 +67,5 @@
             <Insets left="75.0" />
          </GridPane.margin>
       </Button>
-      <Label prefHeight="109.0" prefWidth="234.0" text="Country" GridPane.rowIndex="2">
-         <GridPane.margin>
-            <Insets left="50.0" />
-         </GridPane.margin>
-      </Label>
-      <TextField fx:id="txtCountry" prefHeight="26.0" prefWidth="238.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="2">
-         <GridPane.margin>
-            <Insets right="50.0" />
-         </GridPane.margin>
-      </TextField>
    </children>
 </GridPane>
