@@ -1,8 +1,8 @@
 package com.stockmanager.controllers;
 
-import com.stockmanager.model.PaginatedStockVolumeItem;
 import com.stockmanager.model.StockVolume;
 import com.stockmanager.model.StockVolumeItem;
+import com.stockmanager.model.paginated.PaginatedStockVolumeItem;
 import com.stockmanager.utils.Utilities;
 
 import javafx.collections.FXCollections;

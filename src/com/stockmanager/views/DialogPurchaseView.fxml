@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="827.0" prefWidth="1123.0" stylesheets="@../application.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="169.0" minWidth="10.0" prefWidth="159.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="477.0" minWidth="0.0" prefWidth="214.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="528.0" minWidth="10.0" prefWidth="198.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="528.0" minWidth="10.0" prefWidth="230.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="442.0" minWidth="10.0" prefWidth="195.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="404.0" minWidth="0.0" prefWidth="217.0" />
+  </columnConstraints>
+  <rowConstraints>
+      <RowConstraints maxHeight="196.0" minHeight="10.0" prefHeight="64.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="245.0" minHeight="0.0" prefHeight="68.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="647.0" minHeight="10.0" prefHeight="627.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="205.0" minHeight="10.0" prefHeight="78.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <Label prefHeight="109.0" prefWidth="234.0" text="Purchase" GridPane.columnIndex="2">
+         <GridPane.margin>
+            <Insets left="50.0" />
+         </GridPane.margin>
+      </Label>
+      <TextField fx:id="txtPurchase" prefHeight="25.0" prefWidth="343.0" GridPane.columnIndex="3">
+         <GridPane.margin>
+            <Insets right="50.0" />
+         </GridPane.margin>
+      </TextField>
+      <Button mnemonicParsing="false" onAction="#btnCancel_OnClick" prefHeight="35.0" prefWidth="73.0" text="Cancel" GridPane.columnIndex="1" GridPane.rowIndex="3">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <GridPane.margin>
+            <Insets left="55.0" />
+         </GridPane.margin>
+      </Button>
+      <Label prefHeight="109.0" prefWidth="234.0" text="Date" GridPane.rowIndex="1">
+         <GridPane.margin>
+            <Insets left="50.0" />
+         </GridPane.margin>
+      </Label>
+      <Label prefHeight="109.0" prefWidth="234.0" text="Company">
+         <GridPane.margin>
+            <Insets left="50.0" />
+         </GridPane.margin>
+      </Label>
+      <TextField fx:id="txtSupplier" prefHeight="25.0" prefWidth="343.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
+         <GridPane.margin>
+            <Insets right="50.0" />
+         </GridPane.margin>
+      </TextField>
+      <VBox fx:id="vbPurchaseItem" prefHeight="531.0" prefWidth="677.0" GridPane.columnSpan="4" GridPane.rowIndex="2" />
+      <Label prefHeight="109.0" prefWidth="234.0" text="Supplier" GridPane.columnIndex="2" GridPane.rowIndex="1">
+         <GridPane.margin>
+            <Insets left="50.0" />
+         </GridPane.margin>
+      </Label>
+      <Label prefHeight="109.0" prefWidth="234.0" text="Warehouse" GridPane.columnIndex="4">
+         <GridPane.margin>
+            <Insets left="50.0" />
+         </GridPane.margin>
+      </Label>
+      <Label prefHeight="109.0" prefWidth="234.0" text="State" GridPane.columnIndex="4" GridPane.rowIndex="1">
+         <GridPane.margin>
+            <Insets left="50.0" />
+         </GridPane.margin>
+      </Label>
+      <DatePicker fx:id="dtPckrDate" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+      <ComboBox fx:id="cbWarehouse" prefWidth="150.0" GridPane.columnIndex="5" />
+      <ComboBox fx:id="cbCompany" prefWidth="150.0" GridPane.columnIndex="1" />
+      <TextField fx:id="txtState" prefWidth="150.0" GridPane.columnIndex="5" GridPane.rowIndex="1">
+         <GridPane.margin>
+            <Insets right="50.0" />
+         </GridPane.margin>
+      </TextField>
+      <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="73.0" text="Save" GridPane.rowIndex="3">
+         <GridPane.margin>
+            <Insets left="75.0" />
+         </GridPane.margin>
+      </Button>
+   </children>
+</GridPane>

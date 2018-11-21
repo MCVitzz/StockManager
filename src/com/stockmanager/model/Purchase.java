@@ -56,7 +56,7 @@ public class Purchase extends DatabaseObject {
 		return warehouse;
 	}
 
-	public long getPurchase() {
+	public int getPurchase() {
 		return this.purchase;
 	}
 
@@ -101,10 +101,10 @@ public class Purchase extends DatabaseObject {
 	}
 
 	public boolean delete() {
-		return Database.executeQuery("DELETE FROM purchase WHERE Company = '" + company + "' AND Warehouse = '" + warehouse + "' AND Purchase = '" + purchase + "'");
+		return Database.executeQuery("DELETE FROM purchase WHERE Company = '" + company + "' AND Purchase = '" + purchase + "'");
 	}
 
 	protected boolean validate() {
-		return (purchase != 0 && !Utilities.stringIsEmpty(company) && !Utilities.stringIsEmpty(warehouse) && !Utilities.stringIsEmpty(location));
+		return true;
 	}
 }

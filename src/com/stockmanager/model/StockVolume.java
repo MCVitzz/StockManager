@@ -68,7 +68,7 @@ public class StockVolume extends DatabaseObject {
 	}
 
 	protected boolean update() {
-		return Database.executeQuery("UPDATE stockVolume SET Warehouse = '" + warehouse + "', Location = '" + location + "' WHERE Company = '" + company + "' AND Warehouse = '" + warehouse + "' AND Volume = '" + volume + "'");
+		return Database.executeQuery("UPDATE stockVolume SET Warehouse = '" + warehouse + "', Location = '" + location + "' WHERE Company = '" + company + "' AND Volume = '" + volume + "'");
 	}
 
 	protected boolean exists() {
@@ -76,7 +76,7 @@ public class StockVolume extends DatabaseObject {
 	}
 
 	public boolean delete() {
-		return Database.executeQuery("DELETE FROM stockVolume WHERE Company = '" + company + "' AND Warehouse = '" + warehouse + "' AND Volume = '" + volume + "'");
+		return Database.executeQuery("DELETE FROM stockVolume WHERE Company = '" + company + "' AND Volume = '" + volume + "'");
 	}
 
 	protected boolean validate() {
