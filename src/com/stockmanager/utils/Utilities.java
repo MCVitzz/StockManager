@@ -4,7 +4,11 @@ import java.io.IOException;
 import java.net.URL;
 
 import com.stockmanager.Main;
+import com.stockmanager.model.Company;
+import com.stockmanager.model.Warehouse;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -12,6 +16,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 
@@ -20,7 +26,26 @@ public class Utilities {
 	public static boolean stringIsEmpty(String str) {
 		return str == null || str == "";
 	}
+	
+	public static void allowOnlyNumbers(TextField txt) {
+		txt.textProperty().addListener(new ChangeListener<String>() {
+		    public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+		        if (!newValue.matches("\\d*"))
+		            txt.setText(newValue.replaceAll("[^\\d]", ""));
+		    }
+		});
+	}
 
+	public static void fillCompanies(ComboBox<Company> cbCompany) {
+		cbCompany.getItems().clear();
+		cbCompany.getItems().addAll(Company.getAll());
+	}
+
+	public static void fillWarehouses(ComboBox<Warehouse> cbWarehouse, String company) {
+		cbWarehouse.getItems().clear();
+		cbWarehouse.getItems().addAll(Warehouse.getAllWarehousesFromCompany(company));
+	}
+	
 	public static void openScene(String sceneName, Window oldWindow) {
 		Stage newWindow = new Stage();
 		Node node = getNode(sceneName);

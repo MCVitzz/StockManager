@@ -6,6 +6,7 @@ import java.util.Arrays;
 import com.stockmanager.model.Company;
 import com.stockmanager.model.Location;
 import com.stockmanager.model.Warehouse;
+import com.stockmanager.utils.Utilities;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
@@ -56,7 +57,7 @@ public class DialogLocationController {
 			cbWarehouse.setDisable(true);
 			txtLocation.setDisable(true);
 			
-			fillWarehouse(location.getCompany());
+			Utilities.fillWarehouses(cbWarehouse, location.getCompany());
 			
 			cbCompany.setValue(new Company(location.getCompany()));
 			cbWarehouse.setValue(new Warehouse(location.getCompany(), location.getWarehouse()));

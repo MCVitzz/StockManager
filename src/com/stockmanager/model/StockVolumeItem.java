@@ -83,19 +83,19 @@ public class StockVolumeItem extends DatabaseObject {
 	}
 
 	protected boolean insert() {
-		return Database.executeQuery("INSERT INTO stockVolume (Company, Warehouse, Volume, Item, Quantity, Unit) VALUES ('" + company + "', '" + volume + "', '" + item + "', '" + quantity + "', '" + unit + "')");
+		return Database.executeQuery("INSERT INTO stockVolumeItem (Company, Warehouse, Volume, Item, Quantity, Unit) VALUES ('" + company + "', '" + volume + "', '" + item + "', '" + quantity + "', '" + unit + "')");
 	}
 
 	protected boolean update() {
-		return Database.executeQuery("UPDATE stockVolume SET Quantity = '" + quantity + "', Unit = '" + unit + "' WHERE Company = '" + company + "' AND Volume = '" + volume + "' AND Item = '" + item + "'");
+		return Database.executeQuery("UPDATE stockVolumeItem SET Quantity = '" + quantity + "', Unit = '" + unit + "' WHERE Company = '" + company + "' AND Volume = '" + volume + "' AND Item = '" + item + "'");
 	}
 
 	protected boolean exists() {
-		return Database.simpleSelect("StockVolume", "stockVolume", "Company = '" + company + "' AND Volume = '" + volume + "'") != null;
+		return Database.simpleSelect("Volume", "stockVolumeItem", "Company = '" + company + "' AND Volume = '" + volume + "' AND Item = '" + item + "'") != null;
 	}
 
 	public boolean delete() {
-		return Database.executeQuery("DELETE FROM stockVolume WHERE Company = '" + company + "' AND Volume = '" + volume + "'");
+		return Database.executeQuery("DELETE FROM stockVolumeItem WHERE Company = '" + company + "' AND Volume = '" + volume + "' AND Item = '" + item + "'");
 	}
 
 	protected boolean validate() {
