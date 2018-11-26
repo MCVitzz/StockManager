@@ -29,7 +29,13 @@ public class PurchaseItemController {
 	private TableColumn<PaginatedPurchaseItem, Double> clmnQuantity;
 	
 	@FXML
+	private TableColumn<PaginatedPurchaseItem, Double> clmnConfirmed;
+	
+	@FXML
 	private TableColumn<PaginatedPurchaseItem, String> clmnUnit;
+	
+	@FXML
+	private TableColumn<PaginatedPurchaseItem, String> clmnState;
 
 	public PurchaseItemController(Purchase purchase) {
 		this.purchase = purchase;
@@ -39,6 +45,8 @@ public class PurchaseItemController {
 		clmnItem.setCellValueFactory(new PropertyValueFactory<PaginatedPurchaseItem, String>("item"));
 		clmnName.setCellValueFactory(new PropertyValueFactory<PaginatedPurchaseItem, String>("name"));
 		clmnQuantity.setCellValueFactory(new PropertyValueFactory<PaginatedPurchaseItem, Double>("quantity"));
+		clmnConfirmed.setCellValueFactory(new PropertyValueFactory<PaginatedPurchaseItem, Double>("confirmedQuantity"));
+		clmnState.setCellValueFactory(new PropertyValueFactory<PaginatedPurchaseItem, String>("state"));
 		clmnUnit.setCellValueFactory(new PropertyValueFactory<PaginatedPurchaseItem, String>("unit"));
 		
 		getData();
@@ -52,8 +60,13 @@ public class PurchaseItemController {
 	public void tblPurchaseItem_OnClick(MouseEvent e) {
 		if (tblPurchaseItem.getSelectionModel().getSelectedItem() != null && e.getClickCount() == 2) {
 			PurchaseItem w = tblPurchaseItem.getSelectionModel().getSelectedItem();
-			Utilities.openDialog("DialogPurchaseItemView", new DialogPurchaseItemController(w.getCompany(), w.getPurchase(), w.getItem()));
+			Utilities.openDialog("DialogPurchaseItemView", new DialogPurchaseItemController(w.getCompany(), w.getPurchase(), w.getItem(), this));
 		}
+	}
+	
+	@FXML
+	public void btnAddPurchaseItem_OnClick() {
+		Utilities.openDialog("DialogPurchaseItemView", new DialogPurchaseItemController(purchase.getCompany(), purchase.getPurchase(), this));
 	}
 	
 	@FXML

@@ -21,7 +21,7 @@
     <RowConstraints maxHeight="100.0" minHeight="10.0" prefHeight="169.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <TextField fx:id="txtItem" onAction="#txtItem_OnAction" prefHeight="25.0" prefWidth="343.0" GridPane.columnIndex="1">
+      <TextField fx:id="txtItem" onKeyPressed="#txtItem_KeyPressed" prefHeight="25.0" prefWidth="343.0" GridPane.columnIndex="1">
          <GridPane.margin>
             <Insets right="50.0" />
          </GridPane.margin>
@@ -75,7 +75,7 @@
             <Insets left="5.0" right="85.0" />
          </GridPane.margin>
       </TextField>
-      <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="73.0" text="Save" GridPane.rowIndex="2">
+      <Button mnemonicParsing="false" onAction="#btnSavePurchaseItem_OnClick" prefHeight="35.0" prefWidth="73.0" text="Save" GridPane.rowIndex="2">
          <GridPane.margin>
             <Insets left="65.0" />
          </GridPane.margin>

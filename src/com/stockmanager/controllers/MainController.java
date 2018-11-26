@@ -35,7 +35,12 @@ public class MainController {
 	@FXML
 	void salesOrderButton_OnClick(ActionEvent event) {
 		changeView("SalesOrderView", "Sales Order");
-		
+	}
+
+	@FXML
+	void purchaseButton_OnClick(ActionEvent event) {
+		System.out.println("here");
+		changeView("PurchaseView", "Purchases");
 	}
 	
 	@FXML
