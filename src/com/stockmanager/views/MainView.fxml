@@ -171,6 +171,30 @@
                   <Insets left="15.0" />
                </padding>
             </Button>
+            <Button id="locationButton" alignment="TOP_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#saleButton_OnClick" prefHeight="28.0" prefWidth="178.0" stylesheets="@../application.css" text="Sales" textFill="WHITE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets left="15.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../Images/goods.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
+               </graphic>
+            </Button>
             <Button id="inventoryButton" alignment="TOP_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="176.0" stylesheets="@../application.css" text="Inventory" textFill="WHITE">
                <VBox.margin>
                   <Insets top="20.0" />

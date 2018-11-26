@@ -39,10 +39,13 @@ public class MainController {
 
 	@FXML
 	void purchaseButton_OnClick(ActionEvent event) {
-		System.out.println("here");
 		changeView("PurchaseView", "Purchases");
 	}
 	
+	@FXML
+	void saleButton_OnClick(ActionEvent event) {
+		changeView("SaleView", "Sales");
+	}
 	@FXML
 	void warehouseButton_OnClick() {
 		changeView("WarehouseView", "Warehouses");
