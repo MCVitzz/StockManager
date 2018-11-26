@@ -147,7 +147,7 @@
                   <Insets left="15.0" />
                </padding>
             </Button>
-            <Button id="purchaseOrderButton" alignment="TOP_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="178.0" stylesheets="@../application.css" text="Purchase Order" textFill="WHITE">
+            <Button id="purchaseButton" alignment="TOP_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#purchaseButton_OnClick" prefHeight="28.0" prefWidth="178.0" stylesheets="@../application.css" text="Purchases" textFill="WHITE">
                <VBox.margin>
                   <Insets top="20.0" />
                </VBox.margin>

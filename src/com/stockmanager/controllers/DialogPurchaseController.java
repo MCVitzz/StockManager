@@ -1,7 +1,5 @@
 package com.stockmanager.controllers;
 
-import java.time.ZoneId;
-
 import com.stockmanager.model.Company;
 import com.stockmanager.model.Purchase;
 import com.stockmanager.model.Warehouse;
@@ -17,6 +15,8 @@ import javafx.stage.Stage;
 public class DialogPurchaseController {
 
 	private Purchase purchase;
+	
+	private PurchaseController purchaseController;
 
 	@FXML
 	private ComboBox<Company> cbCompany;
@@ -41,13 +41,15 @@ public class DialogPurchaseController {
 	@FXML
 	private VBox vbPurchaseItem;
 
-	public DialogPurchaseController(String company, int purchase) {
-		this.purchase = new Purchase(company, purchase);
+	public DialogPurchaseController(PurchaseController purchaseController, Purchase purchase) {
+		this.purchase = purchase;
+		this.purchaseController = purchaseController;
 	}
 
 	public void initialize() {
 		Utilities.fillCompanies(cbCompany);
 		txtPurchase.setDisable(true);
+		txtState.setDisable(true);
 
 		if(purchase != null) {
 			cbCompany.setDisable(true);
@@ -55,17 +57,39 @@ public class DialogPurchaseController {
 			txtPurchase.setText(Integer.toString(purchase.getPurchase()));
 			Utilities.fillWarehouses(cbWarehouse, purchase.getCompany());
 			cbWarehouse.setValue(new Warehouse(purchase.getCompany(), purchase.getWarehouse()));
-			dtPckrDate.setValue(purchase.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
+			dtPckrDate.setValue(purchase.getDate());
 			txtSupplier.setText(purchase.getSupplier());
 			txtState.setText(purchase.getState());
+			putPag();
 		}
 		else {
 			txtState.setText("Open");
-			putPag();
+			vbPurchaseItem.setVisible(false);
 		}
 
 	}
 
+	@FXML
+	public void btnSave_OnClick() {
+		Purchase prc;
+		if(Utilities.stringIsEmpty(txtPurchase.getText()))
+			prc = new Purchase(cbCompany.getValue().getCompany());
+		else
+			prc = new Purchase(cbCompany.getValue().getCompany(), Integer.parseInt(txtPurchase.getText()));
+		prc.setDate(dtPckrDate.getValue());
+		prc.setWarehouse(cbWarehouse.getValue().getWarehouse());
+		prc.setSupplier(txtSupplier.getText());
+		prc.setState(txtState.getText());
+		prc.save();
+		purchaseController.initialize();
+		btnCancel_OnClick();
+	}
+	
+	@FXML
+	public void cbCompany_OnAction() {
+		Utilities.fillWarehouses(cbWarehouse, cbCompany.getValue().getCompany());
+	}
+	
 	private void putPag() {
 		vbPurchaseItem.getChildren().clear();
 		vbPurchaseItem.getChildren().add(0, Utilities.getNode("PurchaseItemView", new PurchaseItemController(purchase)));

@@ -2,8 +2,8 @@ package com.stockmanager.model;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 
 import com.stockmanager.utils.Utilities;
 
@@ -12,7 +12,7 @@ public class Purchase extends DatabaseObject {
 	private String company;
 	private int purchase;
 	private String warehouse;
-	private Date date;
+	private LocalDate date;
 	private String supplier;
 	private String state;
 
@@ -25,7 +25,28 @@ public class Purchase extends DatabaseObject {
 			ResultSet rs = Database.select("SELECT * FROM purchase WHERE Company = '" + company + "' AND Purchase = '" + purchase + "'");
 			while (rs.next()) {
 				this.warehouse = rs.getString("Warehouse");
-				this.date = rs.getDate("Date");
+				this.date = rs.getDate("Date").toLocalDate();
+				this.supplier = rs.getString("Supplier");
+				this.state = rs.getString("Date");
+			}
+		}
+		catch(SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public Purchase(String company) {
+		this.company = company;
+		try {
+			this.purchase = 1;
+			String s = Database.simpleSelect("MAX(Purchase) AS Purchase", "purchase",  "Company = '" + company + "'");
+			if(s != null)
+				this.purchase = Integer.parseInt(s) + 1;
+			
+			ResultSet rs = Database.select("SELECT * FROM purchase WHERE Company = '" + company + "' AND Purchase = '" + purchase + "'");
+			while (rs.next()) {
+				this.warehouse = rs.getString("Warehouse");
+				this.date = rs.getDate("Date").toLocalDate();
 				this.supplier = rs.getString("Supplier");
 				this.state = rs.getString("Date");
 			}
@@ -60,11 +81,11 @@ public class Purchase extends DatabaseObject {
 		return this.purchase;
 	}
 
-	public Date getDate() {
+	public LocalDate getDate() {
 		return date;
 	}
 
-	public void setDate(Date date) {
+	public void setDate(LocalDate date) {
 		this.date = date;
 	}
 

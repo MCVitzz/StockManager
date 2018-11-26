@@ -23,7 +23,7 @@ public class PaginatedPurchaseItem extends PurchaseItem {
 	}
 	
 	public static ArrayList<PaginatedPurchaseItem> getAllPaginatedItemsInPurchase(Purchase purchase) {
-		ResultSet rs = Database.select("SELECT PI.Item, I.Name FROM purchase AS PI INNER JOIN Item AS I ON I.Company = PI.Company AND I.Item = PI.Item WHERE Company = '" + purchase.getCompany() + "' AND Purchase = " + purchase.getPurchase() + "");
+		ResultSet rs = Database.select("SELECT PI.Item, I.Name FROM purchaseItem AS PI INNER JOIN Item AS I ON I.Company = PI.Company AND I.Item = PI.Item WHERE PI.Company = '" + purchase.getCompany() + "' AND Purchase = " + purchase.getPurchase() + "");
 		ArrayList<PaginatedPurchaseItem> purchases = new ArrayList<PaginatedPurchaseItem>();
 		try {
 			while(rs.next())

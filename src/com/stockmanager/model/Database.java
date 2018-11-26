@@ -32,10 +32,12 @@ public class Database {
 
 	public static String simpleSelect(String column, String from, String where) {
 		String res = null;
+		String s = "SELECT " + column + " FROM " + from + " WHERE " + where;
+		System.out.println(s);
 		try {
-			ResultSet rs = select("SELECT " + column + " FROM " + from + " WHERE " + where);
+			ResultSet rs = select(s);
 			while (rs.next())
-				res = rs.getString(column);
+				res = rs.getString(1);
 		}
 		catch(SQLException e) {
 			e.printStackTrace();

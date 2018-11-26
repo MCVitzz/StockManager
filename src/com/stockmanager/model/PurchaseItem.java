@@ -107,11 +107,11 @@ public class PurchaseItem extends DatabaseObject {
 	}
 
 	protected boolean insert() {
-		return Database.executeQuery("INSERT INTO purchaseItem (Company, Warehouse, Purchase, Item, Quantity, ConfirmedQuantity, Unit, State) VALUES ('" + company + "', '" + purchase + "', '" + item + "', '" + quantity + "', '" + confirmedQuantity + "', '" + unit + "', '" + state + "')");
+		return Database.executeQuery("INSERT INTO purchaseItem (Company, Purchase, Item, Quantity, ConfirmedQuantity, Unit, State) VALUES ('" + company + "', '" + purchase + "', '" + item + "', '" + quantity + "', '" + confirmedQuantity + "', '" + unit + "', '" + state + "')");
 	}
 
 	protected boolean update() {
-		return Database.executeQuery("UPDATE purchase SET Quantity = '" + quantity + "', ConfirmedQuantity = '" + confirmedQuantity + "', Unit = '" + unit + "', state = '" + state + "' WHERE Company = '" + company + "' AND Purchase = '" + purchase + "' AND Item = '" + item + "'");
+		return Database.executeQuery("UPDATE purchaseItem SET Quantity = '" + quantity + "', ConfirmedQuantity = '" + confirmedQuantity + "', Unit = '" + unit + "', state = '" + state + "' WHERE Company = '" + company + "' AND Purchase = '" + purchase + "' AND Item = '" + item + "'");
 	}
 
 	protected boolean exists() {

@@ -6,13 +6,19 @@ import com.stockmanager.utils.Utilities;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
 public class DialogPurchaseItemController {
 
+	PurchaseItemController purchaseItemController;
+	
 	private PurchaseItem purchaseItem;
 	
 	private String company;
+	
+	private int purchase;
 
 	@FXML
 	private TextField txtItem;
@@ -32,13 +38,17 @@ public class DialogPurchaseItemController {
 	@FXML
 	private TextField txtUnitConfirmed;
 
-	public DialogPurchaseItemController(String company, int purchase, String item) {
+	public DialogPurchaseItemController(String company, int purchase, String item, PurchaseItemController purchaseItemController) {
 		this.purchaseItem = new PurchaseItem(company, purchase, item);
 		this.company = company;
+		this.purchase = purchase;
+		this.purchaseItemController = purchaseItemController;
 	}
 
-	public DialogPurchaseItemController(String company, int purchase) {
+	public DialogPurchaseItemController(String company, int purchase, PurchaseItemController purchaseItemController) {
 		this.company = company;
+		this.purchase = purchase;
+		this.purchaseItemController = purchaseItemController;
 	}
 
 	public void initialize() {
@@ -57,7 +67,22 @@ public class DialogPurchaseItemController {
 			txtConfirmed.setText(Double.toString(purchaseItem.getConfirmedQuantity()));
 			txtUnitConfirmed.setText(purchaseItem.getUnit());
 		}
-		else txtState.setText("Open");
+		else {
+			txtConfirmed.setText("0");
+			txtState.setText("Open");
+		}
+	}
+	
+	@FXML
+	public void btnSavePurchaseItem_OnClick() {
+		PurchaseItem pi = new PurchaseItem(company, purchase, txtItem.getText());
+		pi.setConfirmedQuantity(Double.parseDouble(txtConfirmed.getText()));;
+		pi.setQuantity(Double.parseDouble(txtQuantity.getText()));
+		pi.setUnit(txtUnit.getText());
+		pi.setState(txtState.getText());
+		pi.save();
+		purchaseItemController.initialize();
+		btnCancel_OnClick();
 	}
 
 	@FXML
@@ -66,9 +91,11 @@ public class DialogPurchaseItemController {
 	}
 	
 	@FXML
-	public void txtItem_OnAction() {
-		Item item = new Item(company, txtItem.getText());
-		txtUnit.setText(item.getUnit());
-		txtUnitConfirmed.setText(item.getUnit());
+	public void txtItem_KeyPressed(KeyEvent key) {
+		if(key.getCode() == KeyCode.TAB) {
+			Item item = new Item(company, txtItem.getText());
+			txtUnit.setText(item.getUnit());
+			txtUnitConfirmed.setText(item.getUnit());
+		}
 	}
 }

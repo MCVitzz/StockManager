@@ -7,21 +7,26 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="543.0" prefWidth="1123.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="625.0" prefWidth="1123.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <HBox prefHeight="16.0" prefWidth="677.0" style="-fx-background-color: rgb(64.0, 78.0, 103.0);;" />
-      <TableView fx:id="tblStockPurchaseItem" onMouseClicked="#tblStockPurchaseItem_OnClick" prefHeight="507.0" prefWidth="828.0">
+      <TableView fx:id="tblPurchaseItem" onMouseClicked="#tblPurchaseItem_OnClick" prefHeight="586.0" prefWidth="1123.0">
         <columns>
           <TableColumn fx:id="clmnItem" prefWidth="116.0" text="Item" />
             <TableColumn fx:id="clmnName" maxWidth="641.0" prefWidth="591.0" text="Name" />
             <TableColumn fx:id="clmnQuantity" minWidth="0.0" prefWidth="98.0" text="Quantity" />
-            <TableColumn prefWidth="88.0" text="Confirmed" />
+            <TableColumn fx:id="clmnConfirmed" prefWidth="88.0" text="Confirmed" />
             <TableColumn fx:id="clmnUnit" minWidth="0.0" prefWidth="91.0" text="Unit" />
             <TableColumn fx:id="clmnState" prefWidth="138.0" text="State" />
         </columns>
       </TableView>
       <HBox prefHeight="21.0" prefWidth="677.0" style="-fx-background-color: rgb(64.0, 78.0, 103.0);;">
          <children>
+            <Button mnemonicParsing="false" onAction="#btnAddPurchaseItem_OnClick" text="+">
+               <HBox.margin>
+                  <Insets bottom="5.0" left="10.0" top="5.0" />
+               </HBox.margin>
+            </Button>
             <Button mnemonicParsing="false" onAction="#btnRefresh_OnClick" text="Refresh">
                <HBox.margin>
                   <Insets bottom="5.0" left="10.0" top="5.0" />

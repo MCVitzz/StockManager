@@ -1,5 +1,7 @@
 package com.stockmanager.controllers;
 
+import java.util.Date;
+
 import com.stockmanager.model.Purchase;
 import com.stockmanager.utils.Utilities;
 
@@ -16,20 +18,33 @@ public class PurchaseController {
 	private TableView<Purchase> tblPurchase;
 
 	@FXML
+	private TableColumn<Purchase, Integer> clmnPurchase;
+	
+	@FXML
 	private TableColumn<Purchase, String> clmnWarehouse;
 	
 	@FXML
-	private TableColumn<Purchase, Long> clmnPurchase;
+	private TableColumn<Purchase, Date> clmnDate;
 	
 	@FXML
-	private TableColumn<Purchase, String> clmnLocation;
+	private TableColumn<Purchase, String> clmnSupplier;
+	
+	@FXML
+	private TableColumn<Purchase, String> clmnState;
 
 	public void initialize() {
+		clmnPurchase.setCellValueFactory(new PropertyValueFactory<Purchase, Integer>("purchase"));
 		clmnWarehouse.setCellValueFactory(new PropertyValueFactory<Purchase, String>("warehouse"));
-		clmnPurchase.setCellValueFactory(new PropertyValueFactory<Purchase, Long>("purchase"));
-		clmnLocation.setCellValueFactory(new PropertyValueFactory<Purchase, String>("location"));
+		clmnDate.setCellValueFactory(new PropertyValueFactory<Purchase, Date>("date"));
+		clmnSupplier.setCellValueFactory(new PropertyValueFactory<Purchase, String>("supplier"));
+		clmnState.setCellValueFactory(new PropertyValueFactory<Purchase, String>("state"));
 		
 		getData();
+	}
+	
+	@FXML
+	public void btnAddPurchase_OnClick() {
+		Utilities.openDialog("DialogPurchaseView", new DialogPurchaseController(this, null));
 	}
 
 	public void getData() {
@@ -38,10 +53,8 @@ public class PurchaseController {
 	
 	@FXML
 	public void tblPurchase_OnClick(MouseEvent e) {
-		if (tblPurchase.getSelectionModel().getSelectedItem() != null && e.getClickCount() == 2) {
-			Purchase w = tblPurchase.getSelectionModel().getSelectedItem();
-			Utilities.openDialog("DialogPurchaseView", new DialogPurchaseController(w.getCompany(), w.getPurchase()));
-		}
+		if (tblPurchase.getSelectionModel().getSelectedItem() != null && e.getClickCount() == 2)
+			Utilities.openDialog("DialogPurchaseView", new DialogPurchaseController(this, tblPurchase.getSelectionModel().getSelectedItem()));
 	}
 	
 	@FXML

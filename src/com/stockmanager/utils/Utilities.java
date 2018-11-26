@@ -24,7 +24,7 @@ import javafx.stage.Window;
 public class Utilities {
 
 	public static boolean stringIsEmpty(String str) {
-		return str == null || str == "";
+		return str == null || str.equals("");
 	}
 	
 	public static void allowOnlyNumbers(TextField txt) {
@@ -68,7 +68,6 @@ public class Utilities {
 		Node node = null;
 		try {
 			URL path = Main.class.getResource("views/" + name +".fxml");
-			System.out.println("oi");
 			FXMLLoader loader = new FXMLLoader(path);
 			loader.setController(obj);
 			node = loader.load();

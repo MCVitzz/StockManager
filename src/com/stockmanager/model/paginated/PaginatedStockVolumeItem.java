@@ -24,14 +24,14 @@ public class PaginatedStockVolumeItem extends StockVolumeItem {
 	
 	public static ArrayList<PaginatedStockVolumeItem> getAllPaginatedItemsInVolume(StockVolume stockVolume) {
 		ResultSet rs = Database.select("SELECT PI.Item, I.Name FROM stockVolume AS PI INNER JOIN Item AS I ON I.Company = PI.Company AND I.Item = PI.Item WHERE Company = '" + stockVolume.getCompany() + "' AND Volume = " + stockVolume.getVolume() + "");
-		ArrayList<PaginatedStockVolumeItem> stockPurchases = new ArrayList<PaginatedStockVolumeItem>();
+		ArrayList<PaginatedStockVolumeItem> stockVolumeItems = new ArrayList<PaginatedStockVolumeItem>();
 		try {
 			while(rs.next())
-				stockPurchases.add(new PaginatedStockVolumeItem(stockVolume.getCompany(), stockVolume.getVolume(), rs.getString("Item"), rs.getString("Name")));
+				stockVolumeItems.add(new PaginatedStockVolumeItem(stockVolume.getCompany(), stockVolume.getVolume(), rs.getString("Item"), rs.getString("Name")));
 		} catch (SQLException e) {
 			Utilities.warn(e.getMessage());
 			e.printStackTrace();
 		}
-		return stockPurchases;
+		return stockVolumeItems;
 	}
 }

@@ -27,7 +27,7 @@ public class DialogLocationController {
 	private TextField txtLocation;
 
 	@FXML
-	private ComboBox<String> sltType;
+	private ComboBox<String> cbType;
 
 	private LocationController locationController;
 
@@ -47,8 +47,8 @@ public class DialogLocationController {
 		cbCompany.getItems().clear();
 		cbCompany.getItems().addAll(Company.getAll());
 		
-		sltType.getItems().clear();
-		sltType.getItems().addAll(new ArrayList<String>(Arrays.asList(
+		cbType.getItems().clear();
+		cbType.getItems().addAll(new ArrayList<String>(Arrays.asList(
 				"Normal", "Pier"
 		)));
 		
@@ -62,21 +62,21 @@ public class DialogLocationController {
 			cbCompany.setValue(new Company(location.getCompany()));
 			cbWarehouse.setValue(new Warehouse(location.getCompany(), location.getWarehouse()));
 			txtLocation.setText(location.getLocation());
-			sltType.setValue(location.getType());
+			cbType.setValue(location.getType());
 		}
 	}
 
 	@FXML
 	public void btnSave_OnClick() {
 		Location lct = new Location(cbCompany.getValue().getCompany(), cbWarehouse.getValue().getWarehouse(), txtLocation.getText());
-		lct.setType(sltType.getValue());
+		lct.setType(cbType.getValue());
 		lct.save();
 		locationController.initialize();
 		btnCancel_OnClick();
 	}
 	
 	@FXML
-	public void sltCompany_OnAction() {
+	public void cbCompany_OnAction() {
 		Utilities.fillWarehouses(cbWarehouse, cbCompany.getValue().getCompany());
 	}
 
