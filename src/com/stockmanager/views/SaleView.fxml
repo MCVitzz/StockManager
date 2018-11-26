@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="675.0" prefWidth="1098.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.stockmanager.controllers.SaleController">
+   <children>
+      <HBox prefHeight="35.0" prefWidth="1098.0" style="-fx-background-color: rgb(64.0, 78.0, 103.0);;" />
+      <TableView fx:id="tblSale" onMouseClicked="#tblSale_OnClick" prefHeight="620.0" prefWidth="1098.0">
+        <columns>
+            <TableColumn fx:id="clmnSale" prefWidth="120.0" text="Sale" />
+          <TableColumn fx:id="clmnWarehouse" prefWidth="199.0" text="Warehouse" />
+            <TableColumn fx:id="clmnDate" prefWidth="120.0" text="Date" />
+            <TableColumn fx:id="clmnClient" minWidth="2.0" prefWidth="478.0" text="Client" />
+            <TableColumn fx:id="clmnState" maxWidth="634.0" prefWidth="180.0" text="State" />
+        </columns>
+      </TableView>
+      <HBox prefHeight="40.0" prefWidth="1098.0" style="-fx-background-color: rgb(64.0, 78.0, 103.0);;">
+         <children>
+            <Button mnemonicParsing="false" onAction="#btnAddSale_OnClick" text="+">
+               <HBox.margin>
+                  <Insets left="10.0" top="5.0" />
+               </HBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#btnRefresh_OnClick" text="Refresh">
+               <HBox.margin>
+                  <Insets left="10.0" top="5.0" />
+               </HBox.margin>
+            </Button>
+         </children></HBox>
+   </children>
+</VBox>
