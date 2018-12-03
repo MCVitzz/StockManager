@@ -75,9 +75,13 @@ public class DialogPurchaseController {
 			case "Receiving":
 				btnClose.setVisible(true);
 				btnReceive.setVisible(false);
+				cbWarehouse.setDisable(false);
 			case "Closed":
 				btnClose.setVisible(false);
 				btnReceive.setVisible(false);
+				txtSupplier.setDisable(false);
+				cbWarehouse.setDisable(false);
+				dtPckrDate.setDisable(false);
 			}
 				
 		}
@@ -119,6 +123,11 @@ public class DialogPurchaseController {
 	private void putPag() {
 		vbPurchaseItem.getChildren().clear();
 		vbPurchaseItem.getChildren().add(0, Utilities.getNode("PurchaseItemView", new PurchaseItemController(purchase)));
+	}
+	
+	@FXML
+	void btnClose_OnClick() {
+		
 	}
 
 	@FXML

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import jDialogPurchaseItemReceivingControllervDialogPurchaseItemReceivingControllerfx.scene.chDialogPurchaseItemReceivingControllerrt.PieChDialogPurchaseItemReceivingControllerrt?>
-<?import jDialogPurchaseItemReceivingControllervDialogPurchaseItemReceivingControllerfx.scene.lDialogPurchaseItemReceivingControlleryout.VBox?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.layout.VBox?>
 
-<VBox mDialogPurchaseItemReceivingControllerxHeight="-Infinity" mDialogPurchaseItemReceivingControllerxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://jDialogPurchaseItemReceivingControllervDialogPurchaseItemReceivingControllerfx.com/jDialogPurchaseItemReceivingControllervDialogPurchaseItemReceivingControllerfx/10.0.1" xmlns:fx="http://jDialogPurchaseItemReceivingControllervDialogPurchaseItemReceivingControllerfx.com/fxml/1" fx:controller="com.stockmDialogPurchaseItemReceivingControllernDialogPurchaseItemReceivingControllerger.controllers.DDialogPurchaseItemReceivingControllershboDialogPurchaseItemReceivingControllerrdController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.stockmanager.controllers.DashboardController">
    <children>
-      <PieChDialogPurchaseItemReceivingControllerrt fx:id="pieChDialogPurchaseItemReceivingControllerrt" />
+      <PieChart fx:id="pieChart" />
    </children>
 </VBox>

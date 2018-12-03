@@ -1,104 +1,104 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import jDialogPurchaseItemReceivingControllervDialogPurchaseItemReceivingControllerfx.geometry.Insets?>
-<?import jDialogPurchaseItemReceivingControllervDialogPurchaseItemReceivingControllerfx.scene.control.Button?>
-<?import jDialogPurchaseItemReceivingControllervDialogPurchaseItemReceivingControllerfx.scene.control.ComboBox?>
-<?import jDialogPurchaseItemReceivingControllervDialogPurchaseItemReceivingControllerfx.scene.control.DDialogPurchaseItemReceivingControllertePicker?>
-<?import jDialogPurchaseItemReceivingControllervDialogPurchaseItemReceivingControllerfx.scene.control.LDialogPurchaseItemReceivingControllerbel?>
-<?import jDialogPurchaseItemReceivingControllervDialogPurchaseItemReceivingControllerfx.scene.control.TextField?>
-<?import jDialogPurchaseItemReceivingControllervDialogPurchaseItemReceivingControllerfx.scene.lDialogPurchaseItemReceivingControlleryout.ColumnConstrDialogPurchaseItemReceivingControllerints?>
-<?import jDialogPurchaseItemReceivingControllervDialogPurchaseItemReceivingControllerfx.scene.lDialogPurchaseItemReceivingControlleryout.GridPDialogPurchaseItemReceivingControllerne?>
-<?import jDialogPurchaseItemReceivingControllervDialogPurchaseItemReceivingControllerfx.scene.lDialogPurchaseItemReceivingControlleryout.RowConstrDialogPurchaseItemReceivingControllerints?>
-<?import jDialogPurchaseItemReceivingControllervDialogPurchaseItemReceivingControllerfx.scene.lDialogPurchaseItemReceivingControlleryout.VBox?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
 
-<GridPDialogPurchaseItemReceivingControllerne mDialogPurchaseItemReceivingControllerxHeight="-Infinity" mDialogPurchaseItemReceivingControllerxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="827.0" prefWidth="1123.0" stylesheets="@../DialogPurchaseItemReceivingControllerpplicDialogPurchaseItemReceivingControllertion.css" xmlns="http://jDialogPurchaseItemReceivingControllervDialogPurchaseItemReceivingControllerfx.com/jDialogPurchaseItemReceivingControllervDialogPurchaseItemReceivingControllerfx/10.0.1" xmlns:fx="http://jDialogPurchaseItemReceivingControllervDialogPurchaseItemReceivingControllerfx.com/fxml/1">
-  <columnConstrDialogPurchaseItemReceivingControllerints>
-    <ColumnConstrDialogPurchaseItemReceivingControllerints hgrow="SOMETIMES" mDialogPurchaseItemReceivingControllerxWidth="169.0" minWidth="10.0" prefWidth="159.0" />
-      <ColumnConstrDialogPurchaseItemReceivingControllerints hgrow="SOMETIMES" mDialogPurchaseItemReceivingControllerxWidth="477.0" minWidth="0.0" prefWidth="214.0" />
-      <ColumnConstrDialogPurchaseItemReceivingControllerints hgrow="SOMETIMES" mDialogPurchaseItemReceivingControllerxWidth="528.0" minWidth="10.0" prefWidth="198.0" />
-      <ColumnConstrDialogPurchaseItemReceivingControllerints hgrow="SOMETIMES" mDialogPurchaseItemReceivingControllerxWidth="528.0" minWidth="10.0" prefWidth="230.0" />
-      <ColumnConstrDialogPurchaseItemReceivingControllerints hgrow="SOMETIMES" mDialogPurchaseItemReceivingControllerxWidth="442.0" minWidth="10.0" prefWidth="195.0" />
-      <ColumnConstrDialogPurchaseItemReceivingControllerints hgrow="SOMETIMES" mDialogPurchaseItemReceivingControllerxWidth="404.0" minWidth="0.0" prefWidth="217.0" />
-  </columnConstrDialogPurchaseItemReceivingControllerints>
-  <rowConstrDialogPurchaseItemReceivingControllerints>
-      <RowConstrDialogPurchaseItemReceivingControllerints mDialogPurchaseItemReceivingControllerxHeight="196.0" minHeight="10.0" prefHeight="64.0" vgrow="SOMETIMES" />
-      <RowConstrDialogPurchaseItemReceivingControllerints mDialogPurchaseItemReceivingControllerxHeight="196.0" minHeight="10.0" prefHeight="64.0" vgrow="SOMETIMES" />
-      <RowConstrDialogPurchaseItemReceivingControllerints mDialogPurchaseItemReceivingControllerxHeight="245.0" minHeight="0.0" prefHeight="68.0" vgrow="SOMETIMES" />
-      <RowConstrDialogPurchaseItemReceivingControllerints mDialogPurchaseItemReceivingControllerxHeight="647.0" minHeight="10.0" prefHeight="627.0" vgrow="SOMETIMES" />
-    <RowConstrDialogPurchaseItemReceivingControllerints mDialogPurchaseItemReceivingControllerxHeight="205.0" minHeight="10.0" prefHeight="78.0" vgrow="SOMETIMES" />
-  </rowConstrDialogPurchaseItemReceivingControllerints>
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="827.0" prefWidth="1123.0" stylesheets="@../application.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="169.0" minWidth="10.0" prefWidth="159.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="477.0" minWidth="0.0" prefWidth="214.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="528.0" minWidth="10.0" prefWidth="198.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="528.0" minWidth="10.0" prefWidth="230.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="442.0" minWidth="10.0" prefWidth="195.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="404.0" minWidth="0.0" prefWidth="217.0" />
+  </columnConstraints>
+  <rowConstraints>
+      <RowConstraints maxHeight="196.0" minHeight="10.0" prefHeight="64.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="196.0" minHeight="10.0" prefHeight="64.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="245.0" minHeight="0.0" prefHeight="68.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="647.0" minHeight="10.0" prefHeight="627.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="205.0" minHeight="10.0" prefHeight="78.0" vgrow="SOMETIMES" />
+  </rowConstraints>
    <children>
-      <LDialogPurchaseItemReceivingControllerbel prefHeight="109.0" prefWidth="234.0" text="PurchDialogPurchaseItemReceivingControllerse" GridPDialogPurchaseItemReceivingControllerne.columnIndex="2" GridPDialogPurchaseItemReceivingControllerne.rowIndex="1">
-         <GridPDialogPurchaseItemReceivingControllerne.mDialogPurchaseItemReceivingControllerrgin>
+      <Label prefHeight="109.0" prefWidth="234.0" text="Purchase" GridPane.columnIndex="2" GridPane.rowIndex="1">
+         <GridPane.margin>
             <Insets left="50.0" />
-         </GridPDialogPurchaseItemReceivingControllerne.mDialogPurchaseItemReceivingControllerrgin>
-      </LDialogPurchaseItemReceivingControllerbel>
-      <TextField fx:id="txtPurchDialogPurchaseItemReceivingControllerse" prefHeight="25.0" prefWidth="343.0" GridPDialogPurchaseItemReceivingControllerne.columnIndex="3" GridPDialogPurchaseItemReceivingControllerne.rowIndex="1">
-         <GridPDialogPurchaseItemReceivingControllerne.mDialogPurchaseItemReceivingControllerrgin>
+         </GridPane.margin>
+      </Label>
+      <TextField fx:id="txtPurchase" prefHeight="25.0" prefWidth="343.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
+         <GridPane.margin>
             <Insets right="50.0" />
-         </GridPDialogPurchaseItemReceivingControllerne.mDialogPurchaseItemReceivingControllerrgin>
+         </GridPane.margin>
       </TextField>
-      <Button mnemonicPDialogPurchaseItemReceivingControllerrsing="fDialogPurchaseItemReceivingControllerlse" onAction="#btnCDialogPurchaseItemReceivingControllerncel_OnClick" prefHeight="35.0" prefWidth="73.0" text="CDialogPurchaseItemReceivingControllerncel" GridPDialogPurchaseItemReceivingControllerne.columnIndex="1" GridPDialogPurchaseItemReceivingControllerne.rowIndex="4">
-         <opDialogPurchaseItemReceivingControllerqueInsets>
+      <Button mnemonicParsing="false" onAction="#btnCancel_OnClick" prefHeight="35.0" prefWidth="73.0" text="Cancel" GridPane.columnIndex="1" GridPane.rowIndex="4">
+         <opaqueInsets>
             <Insets />
-         </opDialogPurchaseItemReceivingControllerqueInsets>
-         <GridPDialogPurchaseItemReceivingControllerne.mDialogPurchaseItemReceivingControllerrgin>
+         </opaqueInsets>
+         <GridPane.margin>
             <Insets left="55.0" />
-         </GridPDialogPurchaseItemReceivingControllerne.mDialogPurchaseItemReceivingControllerrgin>
+         </GridPane.margin>
       </Button>
-      <LDialogPurchaseItemReceivingControllerbel prefHeight="109.0" prefWidth="234.0" text="DDialogPurchaseItemReceivingControllerte" GridPDialogPurchaseItemReceivingControllerne.rowIndex="2">
-         <GridPDialogPurchaseItemReceivingControllerne.mDialogPurchaseItemReceivingControllerrgin>
+      <Label prefHeight="109.0" prefWidth="234.0" text="Date" GridPane.rowIndex="2">
+         <GridPane.margin>
             <Insets left="50.0" />
-         </GridPDialogPurchaseItemReceivingControllerne.mDialogPurchaseItemReceivingControllerrgin>
-      </LDialogPurchaseItemReceivingControllerbel>
-      <LDialogPurchaseItemReceivingControllerbel prefHeight="109.0" prefWidth="234.0" text="CompDialogPurchaseItemReceivingControllerny" GridPDialogPurchaseItemReceivingControllerne.rowIndex="1">
-         <GridPDialogPurchaseItemReceivingControllerne.mDialogPurchaseItemReceivingControllerrgin>
+         </GridPane.margin>
+      </Label>
+      <Label prefHeight="109.0" prefWidth="234.0" text="Company" GridPane.rowIndex="1">
+         <GridPane.margin>
             <Insets left="50.0" />
-         </GridPDialogPurchaseItemReceivingControllerne.mDialogPurchaseItemReceivingControllerrgin>
-      </LDialogPurchaseItemReceivingControllerbel>
-      <TextField fx:id="txtSupplier" prefHeight="25.0" prefWidth="343.0" GridPDialogPurchaseItemReceivingControllerne.columnIndex="3" GridPDialogPurchaseItemReceivingControllerne.rowIndex="2">
-         <GridPDialogPurchaseItemReceivingControllerne.mDialogPurchaseItemReceivingControllerrgin>
+         </GridPane.margin>
+      </Label>
+      <TextField fx:id="txtSupplier" prefHeight="25.0" prefWidth="343.0" GridPane.columnIndex="3" GridPane.rowIndex="2">
+         <GridPane.margin>
             <Insets right="50.0" />
-         </GridPDialogPurchaseItemReceivingControllerne.mDialogPurchaseItemReceivingControllerrgin>
+         </GridPane.margin>
       </TextField>
-      <VBox fx:id="vbPurchDialogPurchaseItemReceivingControllerseItem" prefHeight="531.0" prefWidth="677.0" GridPDialogPurchaseItemReceivingControllerne.columnSpDialogPurchaseItemReceivingControllern="6" GridPDialogPurchaseItemReceivingControllerne.rowIndex="3" />
-      <LDialogPurchaseItemReceivingControllerbel prefHeight="109.0" prefWidth="234.0" text="Supplier" GridPDialogPurchaseItemReceivingControllerne.columnIndex="2" GridPDialogPurchaseItemReceivingControllerne.rowIndex="2">
-         <GridPDialogPurchaseItemReceivingControllerne.mDialogPurchaseItemReceivingControllerrgin>
+      <VBox fx:id="vbPurchaseItem" prefHeight="531.0" prefWidth="677.0" GridPane.columnSpan="6" GridPane.rowIndex="3" />
+      <Label prefHeight="109.0" prefWidth="234.0" text="Supplier" GridPane.columnIndex="2" GridPane.rowIndex="2">
+         <GridPane.margin>
             <Insets left="50.0" />
-         </GridPDialogPurchaseItemReceivingControllerne.mDialogPurchaseItemReceivingControllerrgin>
-      </LDialogPurchaseItemReceivingControllerbel>
-      <LDialogPurchaseItemReceivingControllerbel prefHeight="109.0" prefWidth="234.0" text="WDialogPurchaseItemReceivingControllerrehouse" GridPDialogPurchaseItemReceivingControllerne.columnIndex="4" GridPDialogPurchaseItemReceivingControllerne.rowIndex="1">
-         <GridPDialogPurchaseItemReceivingControllerne.mDialogPurchaseItemReceivingControllerrgin>
+         </GridPane.margin>
+      </Label>
+      <Label prefHeight="109.0" prefWidth="234.0" text="Warehouse" GridPane.columnIndex="4" GridPane.rowIndex="1">
+         <GridPane.margin>
             <Insets left="50.0" />
-         </GridPDialogPurchaseItemReceivingControllerne.mDialogPurchaseItemReceivingControllerrgin>
-      </LDialogPurchaseItemReceivingControllerbel>
-      <LDialogPurchaseItemReceivingControllerbel prefHeight="109.0" prefWidth="234.0" text="StDialogPurchaseItemReceivingControllerte" GridPDialogPurchaseItemReceivingControllerne.columnIndex="4" GridPDialogPurchaseItemReceivingControllerne.rowIndex="2">
-         <GridPDialogPurchaseItemReceivingControllerne.mDialogPurchaseItemReceivingControllerrgin>
+         </GridPane.margin>
+      </Label>
+      <Label prefHeight="109.0" prefWidth="234.0" text="State" GridPane.columnIndex="4" GridPane.rowIndex="2">
+         <GridPane.margin>
             <Insets left="50.0" />
-         </GridPDialogPurchaseItemReceivingControllerne.mDialogPurchaseItemReceivingControllerrgin>
-      </LDialogPurchaseItemReceivingControllerbel>
-      <DDialogPurchaseItemReceivingControllertePicker fx:id="dtPckrDDialogPurchaseItemReceivingControllerte" GridPDialogPurchaseItemReceivingControllerne.columnIndex="1" GridPDialogPurchaseItemReceivingControllerne.rowIndex="2" />
-      <ComboBox fx:id="cbWDialogPurchaseItemReceivingControllerrehouse" prefWidth="150.0" GridPDialogPurchaseItemReceivingControllerne.columnIndex="5" GridPDialogPurchaseItemReceivingControllerne.rowIndex="1" />
-      <ComboBox fx:id="cbCompDialogPurchaseItemReceivingControllerny" onAction="#cbCompDialogPurchaseItemReceivingControllerny_OnAction" prefWidth="150.0" GridPDialogPurchaseItemReceivingControllerne.columnIndex="1" GridPDialogPurchaseItemReceivingControllerne.rowIndex="1" />
-      <TextField fx:id="txtStDialogPurchaseItemReceivingControllerte" prefWidth="150.0" GridPDialogPurchaseItemReceivingControllerne.columnIndex="5" GridPDialogPurchaseItemReceivingControllerne.rowIndex="2">
-         <GridPDialogPurchaseItemReceivingControllerne.mDialogPurchaseItemReceivingControllerrgin>
+         </GridPane.margin>
+      </Label>
+      <DatePicker fx:id="dtPckrDate" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+      <ComboBox fx:id="cbWarehouse" prefWidth="150.0" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+      <ComboBox fx:id="cbCompany" onAction="#cbCompany_OnAction" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+      <TextField fx:id="txtState" prefWidth="150.0" GridPane.columnIndex="5" GridPane.rowIndex="2">
+         <GridPane.margin>
             <Insets right="50.0" />
-         </GridPDialogPurchaseItemReceivingControllerne.mDialogPurchaseItemReceivingControllerrgin>
+         </GridPane.margin>
       </TextField>
-      <Button mnemonicPDialogPurchaseItemReceivingControllerrsing="fDialogPurchaseItemReceivingControllerlse" onAction="#btnSDialogPurchaseItemReceivingControllerve_OnClick" prefHeight="35.0" prefWidth="73.0" text="SDialogPurchaseItemReceivingControllerve" GridPDialogPurchaseItemReceivingControllerne.rowIndex="4">
-         <GridPDialogPurchaseItemReceivingControllerne.mDialogPurchaseItemReceivingControllerrgin>
+      <Button mnemonicParsing="false" onAction="#btnSave_OnClick" prefHeight="35.0" prefWidth="73.0" text="Save" GridPane.rowIndex="4">
+         <GridPane.margin>
             <Insets left="75.0" />
-         </GridPDialogPurchaseItemReceivingControllerne.mDialogPurchaseItemReceivingControllerrgin>
+         </GridPane.margin>
       </Button>
-      <Button fx:id="btnReceive" mnemonicPDialogPurchaseItemReceivingControllerrsing="fDialogPurchaseItemReceivingControllerlse" onAction="#btnReceive_OnClick" prefHeight="35.0" prefWidth="73.0" text="Receive" GridPDialogPurchaseItemReceivingControllerne.columnIndex="2" GridPDialogPurchaseItemReceivingControllerne.rowIndex="4">
-         <GridPDialogPurchaseItemReceivingControllerne.mDialogPurchaseItemReceivingControllerrgin>
+      <Button fx:id="btnReceive" mnemonicParsing="false" onAction="#btnReceive_OnClick" prefHeight="35.0" prefWidth="73.0" text="Receive" GridPane.columnIndex="2" GridPane.rowIndex="4">
+         <GridPane.margin>
             <Insets left="-25.0" />
-         </GridPDialogPurchaseItemReceivingControllerne.mDialogPurchaseItemReceivingControllerrgin>
+         </GridPane.margin>
       </Button>
-      <Button fx:id="btnClose" mnemonicPDialogPurchaseItemReceivingControllerrsing="fDialogPurchaseItemReceivingControllerlse" onAction="#btnClose_OnClick" prefHeight="35.0" prefWidth="73.0" text="Close" GridPDialogPurchaseItemReceivingControllerne.columnIndex="3" GridPDialogPurchaseItemReceivingControllerne.rowIndex="4">
-         <GridPDialogPurchaseItemReceivingControllerne.mDialogPurchaseItemReceivingControllerrgin>
+      <Button fx:id="btnClose" mnemonicParsing="false" onAction="#btnClose_OnClick" prefHeight="35.0" prefWidth="73.0" text="Close" GridPane.columnIndex="3" GridPane.rowIndex="4">
+         <GridPane.margin>
             <Insets left="-85.0" />
-         </GridPDialogPurchaseItemReceivingControllerne.mDialogPurchaseItemReceivingControllerrgin>
+         </GridPane.margin>
       </Button>
    </children>
-</GridPDialogPurchaseItemReceivingControllerne>
+</GridPane>

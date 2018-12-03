@@ -1,29 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import jDialogPurchaseItemReceivingControllervDialogPurchaseItemReceivingControllerfx.geometry.Insets?>
-<?import jDialogPurchaseItemReceivingControllervDialogPurchaseItemReceivingControllerfx.scene.control.Button?>
-<?import jDialogPurchaseItemReceivingControllervDialogPurchaseItemReceivingControllerfx.scene.control.TDialogPurchaseItemReceivingControllerbleColumn?>
-<?import jDialogPurchaseItemReceivingControllervDialogPurchaseItemReceivingControllerfx.scene.control.TDialogPurchaseItemReceivingControllerbleView?>
-<?import jDialogPurchaseItemReceivingControllervDialogPurchaseItemReceivingControllerfx.scene.lDialogPurchaseItemReceivingControlleryout.HBox?>
-<?import jDialogPurchaseItemReceivingControllervDialogPurchaseItemReceivingControllerfx.scene.lDialogPurchaseItemReceivingControlleryout.VBox?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 
-<VBox mDialogPurchaseItemReceivingControllerxHeight="-Infinity" mDialogPurchaseItemReceivingControllerxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="543.0" prefWidth="677.0" xmlns="http://jDialogPurchaseItemReceivingControllervDialogPurchaseItemReceivingControllerfx.com/jDialogPurchaseItemReceivingControllervDialogPurchaseItemReceivingControllerfx/10.0.1" xmlns:fx="http://jDialogPurchaseItemReceivingControllervDialogPurchaseItemReceivingControllerfx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="543.0" prefWidth="677.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <HBox prefHeight="16.0" prefWidth="677.0" style="-fx-bDialogPurchaseItemReceivingControllerckground-color: rgb(64.0, 78.0, 103.0);;" />
-      <TDialogPurchaseItemReceivingControllerbleView fx:id="tblStockVolumeItem" onMouseClicked="#tblStockVolumeItem_OnClick" prefHeight="507.0" prefWidth="677.0">
+      <HBox prefHeight="16.0" prefWidth="677.0" style="-fx-background-color: rgb(64.0, 78.0, 103.0);;" />
+      <TableView fx:id="tblStockVolumeItem" onMouseClicked="#tblStockVolumeItem_OnClick" prefHeight="507.0" prefWidth="677.0">
         <columns>
-          <TDialogPurchaseItemReceivingControllerbleColumn fx:id="clmnItem" prefWidth="116.0" text="Item" />
-            <TDialogPurchaseItemReceivingControllerbleColumn fx:id="clmnNDialogPurchaseItemReceivingControllerme" mDialogPurchaseItemReceivingControllerxWidth="377.0" prefWidth="376.0" text="NDialogPurchaseItemReceivingControllerme" />
-            <TDialogPurchaseItemReceivingControllerbleColumn fx:id="clmnQuDialogPurchaseItemReceivingControllerntity" minWidth="0.0" prefWidth="88.0" text="QuDialogPurchaseItemReceivingControllerntity" />
-            <TDialogPurchaseItemReceivingControllerbleColumn fx:id="clmnUnit" minWidth="0.0" prefWidth="96.0" text="Unit" />
+          <TableColumn fx:id="clmnItem" prefWidth="116.0" text="Item" />
+            <TableColumn fx:id="clmnName" maxWidth="377.0" prefWidth="376.0" text="Name" />
+            <TableColumn fx:id="clmnQuantity" minWidth="0.0" prefWidth="88.0" text="Quantity" />
+            <TableColumn fx:id="clmnUnit" minWidth="0.0" prefWidth="96.0" text="Unit" />
         </columns>
-      </TDialogPurchaseItemReceivingControllerbleView>
-      <HBox prefHeight="21.0" prefWidth="677.0" style="-fx-bDialogPurchaseItemReceivingControllerckground-color: rgb(64.0, 78.0, 103.0);;">
+      </TableView>
+      <HBox prefHeight="21.0" prefWidth="677.0" style="-fx-background-color: rgb(64.0, 78.0, 103.0);;">
          <children>
-            <Button mnemonicPDialogPurchaseItemReceivingControllerrsing="fDialogPurchaseItemReceivingControllerlse" onAction="#btnRefresh_OnClick" text="Refresh">
-               <HBox.mDialogPurchaseItemReceivingControllerrgin>
+            <Button mnemonicParsing="false" onAction="#btnRefresh_OnClick" text="Refresh">
+               <HBox.margin>
                   <Insets bottom="5.0" left="10.0" top="5.0" />
-               </HBox.mDialogPurchaseItemReceivingControllerrgin>
+               </HBox.margin>
             </Button>
          </children></HBox>
    </children>

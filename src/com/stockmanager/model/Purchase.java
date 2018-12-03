@@ -27,7 +27,7 @@ public class Purchase extends DatabaseObject {
 				this.warehouse = rs.getString("Warehouse");
 				this.date = rs.getDate("Date").toLocalDate();
 				this.supplier = rs.getString("Supplier");
-				this.state = rs.getString("Date");
+				this.state = rs.getString("State");
 			}
 		}
 		catch(SQLException e) {

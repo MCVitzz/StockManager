@@ -1,391 +1,383 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import jDialogPurchaseItemReceivingControllervDialogPurchaseItemReceivingControllerfx.geometry.Insets?>
-<?import jDialogPurchaseItemReceivingControllervDialogPurchaseItemReceivingControllerfx.geometry.RectDialogPurchaseItemReceivingControllerngle2D?>
-<?import jDialogPurchaseItemReceivingControllervDialogPurchaseItemReceivingControllerfx.scene.Cursor?>
-<?import jDialogPurchaseItemReceivingControllervDialogPurchaseItemReceivingControllerfx.scene.control.Button?>
-<?import jDialogPurchaseItemReceivingControllervDialogPurchaseItemReceivingControllerfx.scene.control.LDialogPurchaseItemReceivingControllerbel?>
-<?import jDialogPurchaseItemReceivingControllervDialogPurchaseItemReceivingControllerfx.scene.effect.DropShDialogPurchaseItemReceivingControllerdow?>
-<?import jDialogPurchaseItemReceivingControllervDialogPurchaseItemReceivingControllerfx.scene.imDialogPurchaseItemReceivingControllerge.ImDialogPurchaseItemReceivingControllerge?>
-<?import jDialogPurchaseItemReceivingControllervDialogPurchaseItemReceivingControllerfx.scene.imDialogPurchaseItemReceivingControllerge.ImDialogPurchaseItemReceivingControllergeView?>
-<?import jDialogPurchaseItemReceivingControllervDialogPurchaseItemReceivingControllerfx.scene.lDialogPurchaseItemReceivingControlleryout.HBox?>
-<?import jDialogPurchaseItemReceivingControllervDialogPurchaseItemReceivingControllerfx.scene.lDialogPurchaseItemReceivingControlleryout.VBox?>
-<?import jDialogPurchaseItemReceivingControllervDialogPurchaseItemReceivingControllerfx.scene.text.Font?>
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<<<<<<< Updated upstream
 <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1263.0" style="-fx-background-color: grey;" stylesheets="@../application.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.stockmanager.controllers.MainController">
-=======
-<HBox mDialogPurchaseItemReceivingControllerxHeight="-Infinity" mDialogPurchaseItemReceivingControllerxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" style="-fx-bDialogPurchaseItemReceivingControllerckground-color: grey;" stylesheets="@../DialogPurchaseItemReceivingControllerpplicDialogPurchaseItemReceivingControllertion.css" xmlns="http://jDialogPurchaseItemReceivingControllervDialogPurchaseItemReceivingControllerfx.com/jDialogPurchaseItemReceivingControllervDialogPurchaseItemReceivingControllerfx/10.0.1" xmlns:fx="http://jDialogPurchaseItemReceivingControllervDialogPurchaseItemReceivingControllerfx.com/fxml/1" fx:controller="com.stockmDialogPurchaseItemReceivingControllernDialogPurchaseItemReceivingControllerger.controllers.MDialogPurchaseItemReceivingControllerinController">
->>>>>>> Stashed changes
    <children>
-      <VBox prefHeight="800.0" prefWidth="175.0" style="-fx-bDialogPurchaseItemReceivingControllerckground-color: rgb(64, 78, 103);;">
+      <VBox prefHeight="800.0" prefWidth="175.0" style="-fx-background-color: rgb(64, 78, 103);;">
          <children>
-            <LDialogPurchaseItemReceivingControllerbel prefHeight="31.0" prefWidth="154.0" text="Project Development" textAlignment="CENTER" textFill="WHITE">
-               <VBox.mDialogPurchaseItemReceivingControllerrgin>
+            <Label prefHeight="31.0" prefWidth="154.0" text="Project Development" textAlignment="CENTER" textFill="WHITE">
+               <VBox.margin>
                   <Insets left="15.0" />
-               </VBox.mDialogPurchaseItemReceivingControllerrgin>
-            </LDialogPurchaseItemReceivingControllerbel>
-            <Button id="dDialogPurchaseItemReceivingControllershboDialogPurchaseItemReceivingControllerrdButton" DialogPurchaseItemReceivingControllerlignment="TOP_LEFT" grDialogPurchaseItemReceivingControllerphicTextGDialogPurchaseItemReceivingControllerp="10.0" mnemonicPDialogPurchaseItemReceivingControllerrsing="fDialogPurchaseItemReceivingControllerlse" onAction="#dDialogPurchaseItemReceivingControllershboDialogPurchaseItemReceivingControllerrdButton" prefHeight="28.0" prefWidth="178.0" stylesheets="@../DialogPurchaseItemReceivingControllerpplicDialogPurchaseItemReceivingControllertion.css" text="DDialogPurchaseItemReceivingControllershboDialogPurchaseItemReceivingControllerrd" textFill="WHITE">
-               <VBox.mDialogPurchaseItemReceivingControllerrgin>
+               </VBox.margin>
+            </Label>
+            <Button id="dashboardButton" alignment="TOP_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#dashboardButton" prefHeight="28.0" prefWidth="178.0" stylesheets="@../application.css" text="Dashboard" textFill="WHITE">
+               <VBox.margin>
                   <Insets top="40.0" />
-               </VBox.mDialogPurchaseItemReceivingControllerrgin>
-               <grDialogPurchaseItemReceivingControllerphic>
-                  <ImDialogPurchaseItemReceivingControllergeView fitHeight="23.0" fitWidth="20.0" pickOnBounds="true" preserveRDialogPurchaseItemReceivingControllertio="true">
-                     <imDialogPurchaseItemReceivingControllerge>
-                        <ImDialogPurchaseItemReceivingControllerge url="@../../../../ImDialogPurchaseItemReceivingControllerges/dDialogPurchaseItemReceivingControllershboDialogPurchaseItemReceivingControllerrd.png" />
-                     </imDialogPurchaseItemReceivingControllerge>
+               </VBox.margin>
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../Images/dashboard.png" />
+                     </image>
                      <viewport>
-                        <RectDialogPurchaseItemReceivingControllerngle2D />
+                        <Rectangle2D />
                      </viewport>
                      <cursor>
-                        <Cursor fx:constDialogPurchaseItemReceivingControllernt="HAND" />
+                        <Cursor fx:constant="HAND" />
                      </cursor>
-                  </ImDialogPurchaseItemReceivingControllergeView>
-               </grDialogPurchaseItemReceivingControllerphic>
+                  </ImageView>
+               </graphic>
                <cursor>
-                  <Cursor fx:constDialogPurchaseItemReceivingControllernt="HAND" />
+                  <Cursor fx:constant="HAND" />
                </cursor>
-               <opDialogPurchaseItemReceivingControllerqueInsets>
+               <opaqueInsets>
                   <Insets />
-               </opDialogPurchaseItemReceivingControllerqueInsets>
-               <pDialogPurchaseItemReceivingControllerdding>
+               </opaqueInsets>
+               <padding>
                   <Insets left="15.0" />
-               </pDialogPurchaseItemReceivingControllerdding>
+               </padding>
             </Button>
-            <Button id="wDialogPurchaseItemReceivingControllerrehouseButton" DialogPurchaseItemReceivingControllerlignment="TOP_LEFT" grDialogPurchaseItemReceivingControllerphicTextGDialogPurchaseItemReceivingControllerp="10.0" mnemonicPDialogPurchaseItemReceivingControllerrsing="fDialogPurchaseItemReceivingControllerlse" onAction="#wDialogPurchaseItemReceivingControllerrehouseButton_OnClick" prefHeight="28.0" prefWidth="175.0" stylesheets="@../DialogPurchaseItemReceivingControllerpplicDialogPurchaseItemReceivingControllertion.css" text="WDialogPurchaseItemReceivingControllerrehouse" textFill="WHITE">
-               <VBox.mDialogPurchaseItemReceivingControllerrgin>
+            <Button id="warehouseButton" alignment="TOP_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#warehouseButton_OnClick" prefHeight="28.0" prefWidth="175.0" stylesheets="@../application.css" text="Warehouse" textFill="WHITE">
+               <VBox.margin>
                   <Insets top="20.0" />
-               </VBox.mDialogPurchaseItemReceivingControllerrgin>
-               <grDialogPurchaseItemReceivingControllerphic>
-                  <ImDialogPurchaseItemReceivingControllergeView fitHeight="23.0" fitWidth="20.0" pickOnBounds="true" preserveRDialogPurchaseItemReceivingControllertio="true">
-                     <imDialogPurchaseItemReceivingControllerge>
-                        <ImDialogPurchaseItemReceivingControllerge url="@../../../../ImDialogPurchaseItemReceivingControllerges/wDialogPurchaseItemReceivingControllerrehouse.png" />
-                     </imDialogPurchaseItemReceivingControllerge>
+               </VBox.margin>
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../Images/warehouse.png" />
+                     </image>
                      <cursor>
-                        <Cursor fx:constDialogPurchaseItemReceivingControllernt="HAND" />
+                        <Cursor fx:constant="HAND" />
                      </cursor>
-                  </ImDialogPurchaseItemReceivingControllergeView>
-               </grDialogPurchaseItemReceivingControllerphic>
+                  </ImageView>
+               </graphic>
                <cursor>
-                  <Cursor fx:constDialogPurchaseItemReceivingControllernt="HAND" />
+                  <Cursor fx:constant="HAND" />
                </cursor>
-               <opDialogPurchaseItemReceivingControllerqueInsets>
+               <opaqueInsets>
                   <Insets />
-               </opDialogPurchaseItemReceivingControllerqueInsets>
-               <pDialogPurchaseItemReceivingControllerdding>
+               </opaqueInsets>
+               <padding>
                   <Insets left="15.0" />
-               </pDialogPurchaseItemReceivingControllerdding>
+               </padding>
             </Button>
-            <Button id="compDialogPurchaseItemReceivingControllernyButton" DialogPurchaseItemReceivingControllerlignment="TOP_LEFT" grDialogPurchaseItemReceivingControllerphicTextGDialogPurchaseItemReceivingControllerp="10.0" mnemonicPDialogPurchaseItemReceivingControllerrsing="fDialogPurchaseItemReceivingControllerlse" onAction="#compDialogPurchaseItemReceivingControllernyButton_OnClick" prefHeight="28.0" prefWidth="177.0" stylesheets="@../DialogPurchaseItemReceivingControllerpplicDialogPurchaseItemReceivingControllertion.css" text="CompDialogPurchaseItemReceivingControllernies" textFill="WHITE">
-               <grDialogPurchaseItemReceivingControllerphic>
-                  <ImDialogPurchaseItemReceivingControllergeView fitHeight="23.0" fitWidth="20.0" pickOnBounds="true" preserveRDialogPurchaseItemReceivingControllertio="true">
-                     <imDialogPurchaseItemReceivingControllerge>
-                        <ImDialogPurchaseItemReceivingControllerge url="@../../../../ImDialogPurchaseItemReceivingControllerges/fDialogPurchaseItemReceivingControllerctory.png" />
-                     </imDialogPurchaseItemReceivingControllerge>
+            <Button id="companyButton" alignment="TOP_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#companyButton_OnClick" prefHeight="28.0" prefWidth="177.0" stylesheets="@../application.css" text="Companies" textFill="WHITE">
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../Images/factory.png" />
+                     </image>
                      <cursor>
-                        <Cursor fx:constDialogPurchaseItemReceivingControllernt="HAND" />
+                        <Cursor fx:constant="HAND" />
                      </cursor>
-                  </ImDialogPurchaseItemReceivingControllergeView>
-               </grDialogPurchaseItemReceivingControllerphic>
-               <VBox.mDialogPurchaseItemReceivingControllerrgin>
+                  </ImageView>
+               </graphic>
+               <VBox.margin>
                   <Insets top="20.0" />
-               </VBox.mDialogPurchaseItemReceivingControllerrgin>
+               </VBox.margin>
                <cursor>
-                  <Cursor fx:constDialogPurchaseItemReceivingControllernt="HAND" />
+                  <Cursor fx:constant="HAND" />
                </cursor>
-               <opDialogPurchaseItemReceivingControllerqueInsets>
+               <opaqueInsets>
                   <Insets />
-               </opDialogPurchaseItemReceivingControllerqueInsets>
-               <pDialogPurchaseItemReceivingControllerdding>
+               </opaqueInsets>
+               <padding>
                   <Insets left="15.0" />
-               </pDialogPurchaseItemReceivingControllerdding>
+               </padding>
             </Button>
-            <Button id="stockButton" DialogPurchaseItemReceivingControllerlignment="TOP_LEFT" grDialogPurchaseItemReceivingControllerphicTextGDialogPurchaseItemReceivingControllerp="10.0" mnemonicPDialogPurchaseItemReceivingControllerrsing="fDialogPurchaseItemReceivingControllerlse" onAction="#stockButton" prefHeight="28.0" prefWidth="176.0" stylesheets="@../DialogPurchaseItemReceivingControllerpplicDialogPurchaseItemReceivingControllertion.css" text="Stock" textFill="WHITE">
-               <VBox.mDialogPurchaseItemReceivingControllerrgin>
+            <Button id="stockButton" alignment="TOP_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#stockButton" prefHeight="28.0" prefWidth="176.0" stylesheets="@../application.css" text="Stock" textFill="WHITE">
+               <VBox.margin>
                   <Insets top="20.0" />
-               </VBox.mDialogPurchaseItemReceivingControllerrgin>
-               <grDialogPurchaseItemReceivingControllerphic>
-                  <ImDialogPurchaseItemReceivingControllergeView fitHeight="23.0" fitWidth="20.0" pickOnBounds="true" preserveRDialogPurchaseItemReceivingControllertio="true">
-                     <imDialogPurchaseItemReceivingControllerge>
-                        <ImDialogPurchaseItemReceivingControllerge url="@../../../../ImDialogPurchaseItemReceivingControllerges/stock.png" />
-                     </imDialogPurchaseItemReceivingControllerge>
+               </VBox.margin>
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../Images/stock.png" />
+                     </image>
                      <cursor>
-                        <Cursor fx:constDialogPurchaseItemReceivingControllernt="HAND" />
+                        <Cursor fx:constant="HAND" />
                      </cursor>
                      <viewport>
-                        <RectDialogPurchaseItemReceivingControllerngle2D />
+                        <Rectangle2D />
                      </viewport>
-                  </ImDialogPurchaseItemReceivingControllergeView>
-               </grDialogPurchaseItemReceivingControllerphic>
+                  </ImageView>
+               </graphic>
                <cursor>
-                  <Cursor fx:constDialogPurchaseItemReceivingControllernt="HAND" />
+                  <Cursor fx:constant="HAND" />
                </cursor>
-               <opDialogPurchaseItemReceivingControllerqueInsets>
+               <opaqueInsets>
                   <Insets />
-               </opDialogPurchaseItemReceivingControllerqueInsets>
-               <pDialogPurchaseItemReceivingControllerdding>
+               </opaqueInsets>
+               <padding>
                   <Insets left="15.0" />
-               </pDialogPurchaseItemReceivingControllerdding>
+               </padding>
             </Button>
-            <Button id="sDialogPurchaseItemReceivingControllerlesOrderButton" DialogPurchaseItemReceivingControllerlignment="TOP_LEFT" grDialogPurchaseItemReceivingControllerphicTextGDialogPurchaseItemReceivingControllerp="10.0" mnemonicPDialogPurchaseItemReceivingControllerrsing="fDialogPurchaseItemReceivingControllerlse" onAction="#sDialogPurchaseItemReceivingControllerlesOrderButton_OnClick" prefHeight="28.0" prefWidth="175.0" stylesheets="@../DialogPurchaseItemReceivingControllerpplicDialogPurchaseItemReceivingControllertion.css" text="SDialogPurchaseItemReceivingControllerles Order" textFill="WHITE">
-               <VBox.mDialogPurchaseItemReceivingControllerrgin>
+            <Button id="salesOrderButton" alignment="TOP_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#salesOrderButton_OnClick" prefHeight="28.0" prefWidth="175.0" stylesheets="@../application.css" text="Sales Order" textFill="WHITE">
+               <VBox.margin>
                   <Insets top="20.0" />
-               </VBox.mDialogPurchaseItemReceivingControllerrgin>
-               <grDialogPurchaseItemReceivingControllerphic>
-                  <ImDialogPurchaseItemReceivingControllergeView fitHeight="23.0" fitWidth="20.0" pickOnBounds="true" preserveRDialogPurchaseItemReceivingControllertio="true">
-                     <imDialogPurchaseItemReceivingControllerge>
-                        <ImDialogPurchaseItemReceivingControllerge url="@../../../../ImDialogPurchaseItemReceivingControllerges/pDialogPurchaseItemReceivingControllerckDialogPurchaseItemReceivingControllerge.png" />
-                     </imDialogPurchaseItemReceivingControllerge>
+               </VBox.margin>
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../Images/package.png" />
+                     </image>
                      <cursor>
-                        <Cursor fx:constDialogPurchaseItemReceivingControllernt="HAND" />
+                        <Cursor fx:constant="HAND" />
                      </cursor>
-                  </ImDialogPurchaseItemReceivingControllergeView>
-               </grDialogPurchaseItemReceivingControllerphic>
+                  </ImageView>
+               </graphic>
                <cursor>
-                  <Cursor fx:constDialogPurchaseItemReceivingControllernt="HAND" />
+                  <Cursor fx:constant="HAND" />
                </cursor>
-               <opDialogPurchaseItemReceivingControllerqueInsets>
+               <opaqueInsets>
                   <Insets />
-               </opDialogPurchaseItemReceivingControllerqueInsets>
-               <pDialogPurchaseItemReceivingControllerdding>
+               </opaqueInsets>
+               <padding>
                   <Insets left="15.0" />
-               </pDialogPurchaseItemReceivingControllerdding>
+               </padding>
             </Button>
-            <Button id="purchDialogPurchaseItemReceivingControllerseButton" DialogPurchaseItemReceivingControllerlignment="TOP_LEFT" grDialogPurchaseItemReceivingControllerphicTextGDialogPurchaseItemReceivingControllerp="10.0" mnemonicPDialogPurchaseItemReceivingControllerrsing="fDialogPurchaseItemReceivingControllerlse" onAction="#purchDialogPurchaseItemReceivingControllerseButton_OnClick" prefHeight="28.0" prefWidth="178.0" stylesheets="@../DialogPurchaseItemReceivingControllerpplicDialogPurchaseItemReceivingControllertion.css" text="PurchDialogPurchaseItemReceivingControllerses" textFill="WHITE">
-               <VBox.mDialogPurchaseItemReceivingControllerrgin>
+            <Button id="purchaseButton" alignment="TOP_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#purchaseButton_OnClick" prefHeight="28.0" prefWidth="178.0" stylesheets="@../application.css" text="Purchases" textFill="WHITE">
+               <VBox.margin>
                   <Insets top="20.0" />
-               </VBox.mDialogPurchaseItemReceivingControllerrgin>
-               <grDialogPurchaseItemReceivingControllerphic>
-                  <ImDialogPurchaseItemReceivingControllergeView fitHeight="23.0" fitWidth="20.0" pickOnBounds="true" preserveRDialogPurchaseItemReceivingControllertio="true">
-                     <imDialogPurchaseItemReceivingControllerge>
-                        <ImDialogPurchaseItemReceivingControllerge url="@../../../../ImDialogPurchaseItemReceivingControllerges/goods.png" />
-                     </imDialogPurchaseItemReceivingControllerge>
+               </VBox.margin>
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../Images/goods.png" />
+                     </image>
                      <cursor>
-                        <Cursor fx:constDialogPurchaseItemReceivingControllernt="HAND" />
+                        <Cursor fx:constant="HAND" />
                      </cursor>
-                  </ImDialogPurchaseItemReceivingControllergeView>
-               </grDialogPurchaseItemReceivingControllerphic>
+                  </ImageView>
+               </graphic>
                <cursor>
-                  <Cursor fx:constDialogPurchaseItemReceivingControllernt="HAND" />
+                  <Cursor fx:constant="HAND" />
                </cursor>
-               <opDialogPurchaseItemReceivingControllerqueInsets>
+               <opaqueInsets>
                   <Insets />
-               </opDialogPurchaseItemReceivingControllerqueInsets>
-               <pDialogPurchaseItemReceivingControllerdding>
+               </opaqueInsets>
+               <padding>
                   <Insets left="15.0" />
-               </pDialogPurchaseItemReceivingControllerdding>
+               </padding>
             </Button>
-            <Button id="inventoryButton" DialogPurchaseItemReceivingControllerlignment="TOP_LEFT" grDialogPurchaseItemReceivingControllerphicTextGDialogPurchaseItemReceivingControllerp="10.0" mnemonicPDialogPurchaseItemReceivingControllerrsing="fDialogPurchaseItemReceivingControllerlse" prefHeight="28.0" prefWidth="176.0" stylesheets="@../DialogPurchaseItemReceivingControllerpplicDialogPurchaseItemReceivingControllertion.css" text="Inventory" textFill="WHITE">
-               <VBox.mDialogPurchaseItemReceivingControllerrgin>
+            <Button id="inventoryButton" alignment="TOP_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="176.0" stylesheets="@../application.css" text="Inventory" textFill="WHITE">
+               <VBox.margin>
                   <Insets top="20.0" />
-               </VBox.mDialogPurchaseItemReceivingControllerrgin>
-               <grDialogPurchaseItemReceivingControllerphic>
-                  <ImDialogPurchaseItemReceivingControllergeView fitHeight="23.0" fitWidth="20.0" pickOnBounds="true" preserveRDialogPurchaseItemReceivingControllertio="true">
-                     <imDialogPurchaseItemReceivingControllerge>
-                        <ImDialogPurchaseItemReceivingControllerge url="@../../../../ImDialogPurchaseItemReceivingControllerges/pDialogPurchaseItemReceivingControllerckDialogPurchaseItemReceivingControllerge.png" />
-                     </imDialogPurchaseItemReceivingControllerge>
+               </VBox.margin>
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../Images/package.png" />
+                     </image>
                      <cursor>
-                        <Cursor fx:constDialogPurchaseItemReceivingControllernt="HAND" />
+                        <Cursor fx:constant="HAND" />
                      </cursor>
-                  </ImDialogPurchaseItemReceivingControllergeView>
-               </grDialogPurchaseItemReceivingControllerphic>
+                  </ImageView>
+               </graphic>
                <cursor>
-                  <Cursor fx:constDialogPurchaseItemReceivingControllernt="HAND" />
+                  <Cursor fx:constant="HAND" />
                </cursor>
-               <opDialogPurchaseItemReceivingControllerqueInsets>
+               <opaqueInsets>
                   <Insets />
-               </opDialogPurchaseItemReceivingControllerqueInsets>
-               <pDialogPurchaseItemReceivingControllerdding>
+               </opaqueInsets>
+               <padding>
                   <Insets left="15.0" />
-               </pDialogPurchaseItemReceivingControllerdding>
+               </padding>
             </Button>
-            <Button id="reportsButton" fx:id="reportsButton" DialogPurchaseItemReceivingControllerlignment="TOP_LEFT" grDialogPurchaseItemReceivingControllerphicTextGDialogPurchaseItemReceivingControllerp="10.0" mnemonicPDialogPurchaseItemReceivingControllerrsing="fDialogPurchaseItemReceivingControllerlse" prefHeight="28.0" prefWidth="180.0" stylesheets="@../DialogPurchaseItemReceivingControllerpplicDialogPurchaseItemReceivingControllertion.css" text="Reports" textFill="WHITE">
-               <VBox.mDialogPurchaseItemReceivingControllerrgin>
+            <Button id="reportsButton" fx:id="reportsButton" alignment="TOP_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="180.0" stylesheets="@../application.css" text="Reports" textFill="WHITE">
+               <VBox.margin>
                   <Insets top="20.0" />
-               </VBox.mDialogPurchaseItemReceivingControllerrgin>
-               <grDialogPurchaseItemReceivingControllerphic>
-                  <ImDialogPurchaseItemReceivingControllergeView fitHeight="23.0" fitWidth="20.0" pickOnBounds="true" preserveRDialogPurchaseItemReceivingControllertio="true">
-                     <imDialogPurchaseItemReceivingControllerge>
-                        <ImDialogPurchaseItemReceivingControllerge url="@../../../../ImDialogPurchaseItemReceivingControllerges/report.png" />
-                     </imDialogPurchaseItemReceivingControllerge>
+               </VBox.margin>
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../Images/report.png" />
+                     </image>
                      <cursor>
-                        <Cursor fx:constDialogPurchaseItemReceivingControllernt="HAND" />
+                        <Cursor fx:constant="HAND" />
                      </cursor>
-                  </ImDialogPurchaseItemReceivingControllergeView>
-               </grDialogPurchaseItemReceivingControllerphic>
+                  </ImageView>
+               </graphic>
                <cursor>
-                  <Cursor fx:constDialogPurchaseItemReceivingControllernt="HAND" />
+                  <Cursor fx:constant="HAND" />
                </cursor>
-               <opDialogPurchaseItemReceivingControllerqueInsets>
+               <opaqueInsets>
                   <Insets />
-               </opDialogPurchaseItemReceivingControllerqueInsets>
-               <pDialogPurchaseItemReceivingControllerdding>
+               </opaqueInsets>
+               <padding>
                   <Insets left="15.0" />
-               </pDialogPurchaseItemReceivingControllerdding>
+               </padding>
             </Button>
-            <Button id="itemButton" DialogPurchaseItemReceivingControllerlignment="TOP_LEFT" grDialogPurchaseItemReceivingControllerphicTextGDialogPurchaseItemReceivingControllerp="10.0" mnemonicPDialogPurchaseItemReceivingControllerrsing="fDialogPurchaseItemReceivingControllerlse" onAction="#itemButton_OnClick" prefHeight="28.0" prefWidth="178.0" stylesheets="@../DialogPurchaseItemReceivingControllerpplicDialogPurchaseItemReceivingControllertion.css" text="Items" textFill="WHITE">
-               <VBox.mDialogPurchaseItemReceivingControllerrgin>
+            <Button id="itemButton" alignment="TOP_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#itemButton_OnClick" prefHeight="28.0" prefWidth="178.0" stylesheets="@../application.css" text="Items" textFill="WHITE">
+               <VBox.margin>
                   <Insets top="20.0" />
-               </VBox.mDialogPurchaseItemReceivingControllerrgin>
+               </VBox.margin>
                <cursor>
-                  <Cursor fx:constDialogPurchaseItemReceivingControllernt="HAND" />
+                  <Cursor fx:constant="HAND" />
                </cursor>
-               <opDialogPurchaseItemReceivingControllerqueInsets>
+               <opaqueInsets>
                   <Insets />
-               </opDialogPurchaseItemReceivingControllerqueInsets>
-               <pDialogPurchaseItemReceivingControllerdding>
+               </opaqueInsets>
+               <padding>
                   <Insets left="15.0" />
-               </pDialogPurchaseItemReceivingControllerdding>
-               <grDialogPurchaseItemReceivingControllerphic>
-                  <ImDialogPurchaseItemReceivingControllergeView fitHeight="23.0" fitWidth="20.0" pickOnBounds="true" preserveRDialogPurchaseItemReceivingControllertio="true">
-                     <imDialogPurchaseItemReceivingControllerge>
-                        <ImDialogPurchaseItemReceivingControllerge url="@../../../../ImDialogPurchaseItemReceivingControllerges/icons.png" />
-                     </imDialogPurchaseItemReceivingControllerge>
+               </padding>
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../Images/icons.png" />
+                     </image>
                      <cursor>
-                        <Cursor fx:constDialogPurchaseItemReceivingControllernt="HAND" />
+                        <Cursor fx:constant="HAND" />
                      </cursor>
-                  </ImDialogPurchaseItemReceivingControllergeView>
-               </grDialogPurchaseItemReceivingControllerphic>
+                  </ImageView>
+               </graphic>
             </Button>
-            <Button id="unitButton" DialogPurchaseItemReceivingControllerlignment="TOP_LEFT" grDialogPurchaseItemReceivingControllerphicTextGDialogPurchaseItemReceivingControllerp="10.0" mnemonicPDialogPurchaseItemReceivingControllerrsing="fDialogPurchaseItemReceivingControllerlse" onAction="#unitButton_OnClick" prefHeight="28.0" prefWidth="177.0" stylesheets="@../DialogPurchaseItemReceivingControllerpplicDialogPurchaseItemReceivingControllertion.css" text="Units" textFill="WHITE">
-               <VBox.mDialogPurchaseItemReceivingControllerrgin>
+            <Button id="unitButton" alignment="TOP_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#unitButton_OnClick" prefHeight="28.0" prefWidth="177.0" stylesheets="@../application.css" text="Units" textFill="WHITE">
+               <VBox.margin>
                   <Insets top="20.0" />
-               </VBox.mDialogPurchaseItemReceivingControllerrgin>
-               <grDialogPurchaseItemReceivingControllerphic>
-                  <ImDialogPurchaseItemReceivingControllergeView fitHeight="23.0" fitWidth="20.0" pickOnBounds="true" preserveRDialogPurchaseItemReceivingControllertio="true">
-                     <imDialogPurchaseItemReceivingControllerge>
-                        <ImDialogPurchaseItemReceivingControllerge url="@../../../../ImDialogPurchaseItemReceivingControllerges/meter.png" />
-                     </imDialogPurchaseItemReceivingControllerge>
+               </VBox.margin>
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../Images/meter.png" />
+                     </image>
                      <cursor>
-                        <Cursor fx:constDialogPurchaseItemReceivingControllernt="HAND" />
+                        <Cursor fx:constant="HAND" />
                      </cursor>
-                  </ImDialogPurchaseItemReceivingControllergeView>
-               </grDialogPurchaseItemReceivingControllerphic>
+                  </ImageView>
+               </graphic>
                <cursor>
-                  <Cursor fx:constDialogPurchaseItemReceivingControllernt="HAND" />
+                  <Cursor fx:constant="HAND" />
                </cursor>
-               <opDialogPurchaseItemReceivingControllerqueInsets>
+               <opaqueInsets>
                   <Insets />
-               </opDialogPurchaseItemReceivingControllerqueInsets>
-               <pDialogPurchaseItemReceivingControllerdding>
+               </opaqueInsets>
+               <padding>
                   <Insets left="15.0" />
-               </pDialogPurchaseItemReceivingControllerdding>
+               </padding>
             </Button>
-            <Button id="locDialogPurchaseItemReceivingControllertionButton" DialogPurchaseItemReceivingControllerlignment="TOP_LEFT" grDialogPurchaseItemReceivingControllerphicTextGDialogPurchaseItemReceivingControllerp="10.0" mnemonicPDialogPurchaseItemReceivingControllerrsing="fDialogPurchaseItemReceivingControllerlse" onAction="#locDialogPurchaseItemReceivingControllertionButton_OnClick" prefHeight="28.0" prefWidth="178.0" stylesheets="@../DialogPurchaseItemReceivingControllerpplicDialogPurchaseItemReceivingControllertion.css" text="LocDialogPurchaseItemReceivingControllertions" textFill="WHITE">
-               <grDialogPurchaseItemReceivingControllerphic>
-                  <ImDialogPurchaseItemReceivingControllergeView fitHeight="23.0" fitWidth="20.0" pickOnBounds="true" preserveRDialogPurchaseItemReceivingControllertio="true">
-                     <imDialogPurchaseItemReceivingControllerge>
-                        <ImDialogPurchaseItemReceivingControllerge url="@../../../../ImDialogPurchaseItemReceivingControllerges/locDialogPurchaseItemReceivingControllertion.png" />
-                     </imDialogPurchaseItemReceivingControllerge>
+            <Button id="locationButton" alignment="TOP_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#locationButton_OnClick" prefHeight="28.0" prefWidth="178.0" stylesheets="@../application.css" text="Locations" textFill="WHITE">
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../Images/location.png" />
+                     </image>
                      <cursor>
-                        <Cursor fx:constDialogPurchaseItemReceivingControllernt="HAND" />
+                        <Cursor fx:constant="HAND" />
                      </cursor>
-                  </ImDialogPurchaseItemReceivingControllergeView>
-               </grDialogPurchaseItemReceivingControllerphic>
-               <VBox.mDialogPurchaseItemReceivingControllerrgin>
+                  </ImageView>
+               </graphic>
+               <VBox.margin>
                   <Insets top="20.0" />
-               </VBox.mDialogPurchaseItemReceivingControllerrgin>
+               </VBox.margin>
                <cursor>
-                  <Cursor fx:constDialogPurchaseItemReceivingControllernt="HAND" />
+                  <Cursor fx:constant="HAND" />
                </cursor>
-               <opDialogPurchaseItemReceivingControllerqueInsets>
+               <opaqueInsets>
                   <Insets />
-               </opDialogPurchaseItemReceivingControllerqueInsets>
-               <pDialogPurchaseItemReceivingControllerdding>
+               </opaqueInsets>
+               <padding>
                   <Insets left="15.0" />
-               </pDialogPurchaseItemReceivingControllerdding>
+               </padding>
             </Button>
-            <Button id="userButton" DialogPurchaseItemReceivingControllerlignment="TOP_LEFT" grDialogPurchaseItemReceivingControllerphicTextGDialogPurchaseItemReceivingControllerp="10.0" mnemonicPDialogPurchaseItemReceivingControllerrsing="fDialogPurchaseItemReceivingControllerlse" onAction="#userButton_OnClick" prefHeight="28.0" prefWidth="178.0" stylesheets="@../DialogPurchaseItemReceivingControllerpplicDialogPurchaseItemReceivingControllertion.css" text="Users" textFill="WHITE">
-               <grDialogPurchaseItemReceivingControllerphic>
-                  <ImDialogPurchaseItemReceivingControllergeView fitHeight="23.0" fitWidth="20.0" pickOnBounds="true" preserveRDialogPurchaseItemReceivingControllertio="true">
-                     <imDialogPurchaseItemReceivingControllerge>
-                        <ImDialogPurchaseItemReceivingControllerge url="@../../../../ImDialogPurchaseItemReceivingControllerges/mDialogPurchaseItemReceivingControllern.png" />
-                     </imDialogPurchaseItemReceivingControllerge>
+            <Button id="userButton" alignment="TOP_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#userButton_OnClick" prefHeight="28.0" prefWidth="178.0" stylesheets="@../application.css" text="Users" textFill="WHITE">
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../Images/man.png" />
+                     </image>
                      <cursor>
-                        <Cursor fx:constDialogPurchaseItemReceivingControllernt="HAND" />
+                        <Cursor fx:constant="HAND" />
                      </cursor>
-                  </ImDialogPurchaseItemReceivingControllergeView>
-               </grDialogPurchaseItemReceivingControllerphic>
-               <VBox.mDialogPurchaseItemReceivingControllerrgin>
+                  </ImageView>
+               </graphic>
+               <VBox.margin>
                   <Insets top="142.0" />
-               </VBox.mDialogPurchaseItemReceivingControllerrgin>
+               </VBox.margin>
                <cursor>
-                  <Cursor fx:constDialogPurchaseItemReceivingControllernt="HAND" />
+                  <Cursor fx:constant="HAND" />
                </cursor>
-               <opDialogPurchaseItemReceivingControllerqueInsets>
+               <opaqueInsets>
                   <Insets />
-               </opDialogPurchaseItemReceivingControllerqueInsets>
-               <pDialogPurchaseItemReceivingControllerdding>
+               </opaqueInsets>
+               <padding>
                   <Insets left="15.0" />
-               </pDialogPurchaseItemReceivingControllerdding>
+               </padding>
             </Button>
-            <Button id="logoutButton" DialogPurchaseItemReceivingControllerlignment="TOP_LEFT" grDialogPurchaseItemReceivingControllerphicTextGDialogPurchaseItemReceivingControllerp="10.0" mnemonicPDialogPurchaseItemReceivingControllerrsing="fDialogPurchaseItemReceivingControllerlse" onAction="#btnLogout_OnClick" prefHeight="28.0" prefWidth="178.0" stylesheets="@../DialogPurchaseItemReceivingControllerpplicDialogPurchaseItemReceivingControllertion.css" text="Logout" textFill="WHITE">
-               <grDialogPurchaseItemReceivingControllerphic>
-                  <ImDialogPurchaseItemReceivingControllergeView fitHeight="23.0" fitWidth="20.0" pickOnBounds="true" preserveRDialogPurchaseItemReceivingControllertio="true">
-                     <imDialogPurchaseItemReceivingControllerge>
-                        <ImDialogPurchaseItemReceivingControllerge url="@../../../../ImDialogPurchaseItemReceivingControllerges/logout.png" />
-                     </imDialogPurchaseItemReceivingControllerge>
+            <Button id="logoutButton" alignment="TOP_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#btnLogout_OnClick" prefHeight="28.0" prefWidth="178.0" stylesheets="@../application.css" text="Logout" textFill="WHITE">
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../Images/logout.png" />
+                     </image>
                      <cursor>
-                        <Cursor fx:constDialogPurchaseItemReceivingControllernt="HAND" />
+                        <Cursor fx:constant="HAND" />
                      </cursor>
-                  </ImDialogPurchaseItemReceivingControllergeView>
-               </grDialogPurchaseItemReceivingControllerphic>
-               <VBox.mDialogPurchaseItemReceivingControllerrgin>
+                  </ImageView>
+               </graphic>
+               <VBox.margin>
                   <Insets top="20.0" />
-               </VBox.mDialogPurchaseItemReceivingControllerrgin>
+               </VBox.margin>
                <cursor>
-                  <Cursor fx:constDialogPurchaseItemReceivingControllernt="HAND" />
+                  <Cursor fx:constant="HAND" />
                </cursor>
-               <opDialogPurchaseItemReceivingControllerqueInsets>
+               <opaqueInsets>
                   <Insets />
-               </opDialogPurchaseItemReceivingControllerqueInsets>
-               <pDialogPurchaseItemReceivingControllerdding>
+               </opaqueInsets>
+               <padding>
                   <Insets left="15.0" />
-               </pDialogPurchaseItemReceivingControllerdding>
+               </padding>
             </Button>
          </children>
          <effect>
-            <DropShDialogPurchaseItemReceivingControllerdow />
+            <DropShadow />
          </effect>
       </VBox>
-      <VBox prefHeight="800.0" prefWidth="1098.0" style="-fx-bDialogPurchaseItemReceivingControllerckground-color: lightgrey;">
+      <VBox prefHeight="800.0" prefWidth="1098.0" style="-fx-background-color: lightgrey;">
          <effect>
-            <DropShDialogPurchaseItemReceivingControllerdow blurType="ONE_PASS_BOX" />
+            <DropShadow blurType="ONE_PASS_BOX" />
          </effect>
          <children>
             <HBox prefHeight="134.0" prefWidth="1098.0">
                <children>
-                  <LDialogPurchaseItemReceivingControllerbel fx:id="lblTitle" prefHeight="130.0" prefWidth="1098.0" style="-fx-bDialogPurchaseItemReceivingControllerckground-color: rgb(64.0, 78.0, 103.0);;" textFill="WHITE">
+                  <Label fx:id="lblTitle" prefHeight="130.0" prefWidth="1098.0" style="-fx-background-color: rgb(64.0, 78.0, 103.0);;" textFill="WHITE">
                      <font>
-                        <Font nDialogPurchaseItemReceivingControllerme="CDialogPurchaseItemReceivingControllerlibri Bold" size="36.0" />
+                        <Font name="Calibri Bold" size="36.0" />
                      </font>
-                     <pDialogPurchaseItemReceivingControllerdding>
+                     <padding>
                         <Insets left="20.0" />
-                     </pDialogPurchaseItemReceivingControllerdding>
-                  </LDialogPurchaseItemReceivingControllerbel>
+                     </padding>
+                  </Label>
                </children>
             </HBox>
-<<<<<<< Updated upstream
             <VBox fx:id="mainVerticalBox" prefHeight="602.0" prefWidth="793.0" />
-=======
-            <VBox fx:id="mDialogPurchaseItemReceivingControllerinVerticDialogPurchaseItemReceivingControllerlBox" prefHeight="647.0" prefWidth="1098.0" />
->>>>>>> Stashed changes
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <LDialogPurchaseItemReceivingControllerbel prefHeight="115.0" prefWidth="1187.0" style="-fx-bDialogPurchaseItemReceivingControllerckground-color: rgb(64.0, 78.0, 103.0);;" text="SoftwDialogPurchaseItemReceivingControllerre Developed for UniversidDialogPurchaseItemReceivingControllerde EuropeiDialogPurchaseItemReceivingController © 2018" textFill="WHITE">
+                  <Label prefHeight="115.0" prefWidth="1187.0" style="-fx-background-color: rgb(64.0, 78.0, 103.0);;" text="Software Developed for Universidade Europeia © 2018" textFill="WHITE">
                      <font>
                         <Font size="10.0" />
                      </font>
-                     <pDialogPurchaseItemReceivingControllerdding>
+                     <padding>
                         <Insets left="15.0" />
-                     </pDialogPurchaseItemReceivingControllerdding>
-                  </LDialogPurchaseItemReceivingControllerbel>
+                     </padding>
+                  </Label>
                </children>
             </HBox>
          </children>
       </VBox>
    </children>
    <effect>
-      <DropShDialogPurchaseItemReceivingControllerdow />
+      <DropShadow />
    </effect>
 </HBox>
