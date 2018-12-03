@@ -6,6 +6,7 @@ import com.stockmanager.model.Warehouse;
 import com.stockmanager.utils.Utilities;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
@@ -36,7 +37,12 @@ public class DialogPurchaseController {
 
 	@FXML
 	private TextField txtState;
+	
+	@FXML
+	private Button btnReceive;
 
+	@FXML
+	private Button btnClose;
 
 	@FXML
 	private VBox vbPurchaseItem;
@@ -61,14 +67,34 @@ public class DialogPurchaseController {
 			txtSupplier.setText(purchase.getSupplier());
 			txtState.setText(purchase.getState());
 			putPag();
+			switch(purchase.getState()) {
+			case "Open":
+				btnClose.setVisible(false);
+				btnReceive.setVisible(true);
+				break;
+			case "Receiving":
+				btnClose.setVisible(true);
+				btnReceive.setVisible(false);
+			case "Closed":
+				btnClose.setVisible(false);
+				btnReceive.setVisible(false);
+			}
+				
 		}
 		else {
 			txtState.setText("Open");
 			vbPurchaseItem.setVisible(false);
+			btnClose.setVisible(false);
+			btnReceive.setVisible(false);
 		}
 
 	}
 
+	@FXML
+	public void btnReceive_OnClick() {
+		
+	}
+	
 	@FXML
 	public void btnSave_OnClick() {
 		Purchase prc;

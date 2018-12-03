@@ -1,51 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.PasswordField?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
+<?import jDialogPurchaseItemReceivingControllervDialogPurchaseItemReceivingControllerfx.geometry.Insets?>
+<?import jDialogPurchaseItemReceivingControllervDialogPurchaseItemReceivingControllerfx.scene.control.Button?>
+<?import jDialogPurchaseItemReceivingControllervDialogPurchaseItemReceivingControllerfx.scene.control.LDialogPurchaseItemReceivingControllerbel?>
+<?import jDialogPurchaseItemReceivingControllervDialogPurchaseItemReceivingControllerfx.scene.control.PDialogPurchaseItemReceivingControllersswordField?>
+<?import jDialogPurchaseItemReceivingControllervDialogPurchaseItemReceivingControllerfx.scene.control.TextField?>
+<?import jDialogPurchaseItemReceivingControllervDialogPurchaseItemReceivingControllerfx.scene.imDialogPurchaseItemReceivingControllerge.ImDialogPurchaseItemReceivingControllerge?>
+<?import jDialogPurchaseItemReceivingControllervDialogPurchaseItemReceivingControllerfx.scene.imDialogPurchaseItemReceivingControllerge.ImDialogPurchaseItemReceivingControllergeView?>
+<?import jDialogPurchaseItemReceivingControllervDialogPurchaseItemReceivingControllerfx.scene.lDialogPurchaseItemReceivingControlleryout.HBox?>
+<?import jDialogPurchaseItemReceivingControllervDialogPurchaseItemReceivingControllerfx.scene.lDialogPurchaseItemReceivingControlleryout.VBox?>
+<?import jDialogPurchaseItemReceivingControllervDialogPurchaseItemReceivingControllerfx.scene.text.Font?>
 
-<VBox alignment="CENTER" prefHeight="400.0" prefWidth="600.0" spacing="20.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.stockmanager.controllers.LoginController">
+<VBox DialogPurchaseItemReceivingControllerlignment="CENTER" prefHeight="400.0" prefWidth="600.0" spDialogPurchaseItemReceivingControllercing="20.0" xmlns="http://jDialogPurchaseItemReceivingControllervDialogPurchaseItemReceivingControllerfx.com/jDialogPurchaseItemReceivingControllervDialogPurchaseItemReceivingControllerfx/10.0.1" xmlns:fx="http://jDialogPurchaseItemReceivingControllervDialogPurchaseItemReceivingControllerfx.com/fxml/1" fx:controller="com.stockmDialogPurchaseItemReceivingControllernDialogPurchaseItemReceivingControllerger.controllers.LoginController">
    <children>
-      <ImageView fitHeight="78.0" fitWidth="101.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../../Images/mainLogo.png" />
-         </image>
-      </ImageView>
-      <Label text="Username" />
-      <TextField fx:id="usernameTF" stylesheets="@../application.css">
-         <VBox.margin>
+      <ImDialogPurchaseItemReceivingControllergeView fitHeight="78.0" fitWidth="101.0" pickOnBounds="true" preserveRDialogPurchaseItemReceivingControllertio="true">
+         <imDialogPurchaseItemReceivingControllerge>
+            <ImDialogPurchaseItemReceivingControllerge url="@../../../../ImDialogPurchaseItemReceivingControllerges/mDialogPurchaseItemReceivingControllerinLogo.png" />
+         </imDialogPurchaseItemReceivingControllerge>
+      </ImDialogPurchaseItemReceivingControllergeView>
+      <LDialogPurchaseItemReceivingControllerbel text="UsernDialogPurchaseItemReceivingControllerme" />
+      <TextField fx:id="usernDialogPurchaseItemReceivingControllermeTF" stylesheets="@../DialogPurchaseItemReceivingControllerpplicDialogPurchaseItemReceivingControllertion.css">
+         <VBox.mDialogPurchaseItemReceivingControllerrgin>
             <Insets left="100.0" right="100.0" />
-         </VBox.margin>
+         </VBox.mDialogPurchaseItemReceivingControllerrgin>
       </TextField>
-      <Label text="Password" />
-      <PasswordField fx:id="passwordPF" onAction="#login" stylesheets="@../application.css">
-         <VBox.margin>
+      <LDialogPurchaseItemReceivingControllerbel text="PDialogPurchaseItemReceivingControllerssword" />
+      <PDialogPurchaseItemReceivingControllersswordField fx:id="pDialogPurchaseItemReceivingControllersswordPF" onAction="#login" stylesheets="@../DialogPurchaseItemReceivingControllerpplicDialogPurchaseItemReceivingControllertion.css">
+         <VBox.mDialogPurchaseItemReceivingControllerrgin>
             <Insets left="100.0" right="100.0" />
-         </VBox.margin>
-      </PasswordField>
+         </VBox.mDialogPurchaseItemReceivingControllerrgin>
+      </PDialogPurchaseItemReceivingControllersswordField>
       <HBox prefHeight="57.0" prefWidth="600.0">
          <children>
-            <Button id="loginButton" mnemonicParsing="false" onAction="#login" stylesheets="@../application.css" text="Login">
-               <HBox.margin>
+            <Button id="loginButton" mnemonicPDialogPurchaseItemReceivingControllerrsing="fDialogPurchaseItemReceivingControllerlse" onAction="#login" stylesheets="@../DialogPurchaseItemReceivingControllerpplicDialogPurchaseItemReceivingControllertion.css" text="Login">
+               <HBox.mDialogPurchaseItemReceivingControllerrgin>
                   <Insets left="200.0" />
-               </HBox.margin>
+               </HBox.mDialogPurchaseItemReceivingControllerrgin>
             </Button>
-            <Button id="exitButton" fx:id="exitButton" mnemonicParsing="false" onAction="#exit" stylesheets="@../application.css" text="Exit">
-               <HBox.margin>
+            <Button id="exitButton" fx:id="exitButton" mnemonicPDialogPurchaseItemReceivingControllerrsing="fDialogPurchaseItemReceivingControllerlse" onAction="#exit" stylesheets="@../DialogPurchaseItemReceivingControllerpplicDialogPurchaseItemReceivingControllertion.css" text="Exit">
+               <HBox.mDialogPurchaseItemReceivingControllerrgin>
                   <Insets left="35.0" />
-               </HBox.margin>
+               </HBox.mDialogPurchaseItemReceivingControllerrgin>
             </Button>
-            <Button id="recoverPasswordButton" mnemonicParsing="false" onAction="#login" prefHeight="26.0" prefWidth="31.0" stylesheets="@../application.css" text="?">
-               <HBox.margin>
+            <Button id="recoverPDialogPurchaseItemReceivingControllersswordButton" mnemonicPDialogPurchaseItemReceivingControllerrsing="fDialogPurchaseItemReceivingControllerlse" onAction="#login" prefHeight="26.0" prefWidth="31.0" stylesheets="@../DialogPurchaseItemReceivingControllerpplicDialogPurchaseItemReceivingControllertion.css" text="?">
+               <HBox.mDialogPurchaseItemReceivingControllerrgin>
                   <Insets left="5.0" />
-               </HBox.margin>
+               </HBox.mDialogPurchaseItemReceivingControllerrgin>
                <font>
                   <Font size="6.0" />
                </font>

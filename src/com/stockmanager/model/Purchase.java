@@ -69,6 +69,19 @@ public class Purchase extends DatabaseObject {
 		return purchases;
 	}
 	
+	public ArrayList<PurchaseItem> getItems() {
+		ResultSet rs = Database.select("SELECT Item FROM purchaseItem WHERE Company = '" + company + "' AND Purchase = '" + purchase + "'");
+		ArrayList<PurchaseItem> items = new ArrayList<PurchaseItem>();
+		try {
+			while(rs.next())
+				items.add(new PurchaseItem(company, purchase, rs.getString("Item")));
+		} catch (SQLException e) {
+			Utilities.warn(e.getMessage());
+			e.printStackTrace();
+		}
+		return items;
+	}
+	
 	public String getCompany() {
 		return company;
 	}
