@@ -2,7 +2,7 @@
 
 /* ------------------------------------------------ MENU ------------------------------------------------- */
 #loginVbox {
-	-fx-background-image: url("file:///C:/Users/Utilizador/Desktop/Project/StockManager/Images/backgroundlogo.PNG");
+	-fx-background-image: url("file://../Images/backgroundlogo.PNG");
     -fx-background-repeat: stretch;   
     -fx-background-size: 810 610;
     -fx-background-position: center center;
