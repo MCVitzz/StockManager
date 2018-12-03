@@ -51,6 +51,7 @@ public class Utilities {
 		Node node = getNode(sceneName);
 		Scene scene = new Scene((Parent)node);
 		newWindow.setScene(scene);
+		newWindow.setResizable(false);
 		newWindow.show();
 		if(oldWindow != null)
 			((Stage)oldWindow).close();

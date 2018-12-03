@@ -10,7 +10,7 @@ import javafx.stage.Stage;
 public class Main extends Application {
 
 	public void start(Stage primaryStage) {
-		Utilities.openScene("MainView", null);
+		Utilities.openScene("LoginView", null);
 	}
 	
 	public static void main(String[] args) {
