@@ -8,6 +8,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.VBox;
 
 
 public class ItemController {
@@ -28,6 +29,8 @@ public class ItemController {
     private TableColumn<Item, String> clmnUnit;
 
 	public void initialize() {
+		System.out.println(((VBox)tblItem.getParent()).getChildren());
+		
 		clmnCompany.setCellValueFactory(new PropertyValueFactory<Item, String>("company"));
 		clmnItem.setCellValueFactory(new PropertyValueFactory<Item, String>("item"));
 		clmnName.setCellValueFactory(new PropertyValueFactory<Item, String>("name"));

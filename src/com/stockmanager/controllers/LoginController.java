@@ -28,7 +28,7 @@ public class LoginController {
 
 		if(Database.simpleSelect("Password", "user", "User = '" + username + "'") == null) Utilities.warn("Username does not exist.");
 		else try {
-				if(user.authenticate(password)) Utilities.openScene("MainView", passwordPF.getScene().getWindow());
+				if(user.authenticate(password)) Utilities.openScene("MainView", passwordPF.getScene().getWindow(), MainController.getInstance());
 				else Utilities.warn("Password does not match.");
 			}
 		catch(Exception e) {

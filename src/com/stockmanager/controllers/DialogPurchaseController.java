@@ -129,6 +129,11 @@ public class DialogPurchaseController {
 	void btnClose_OnClick() {
 		
 	}
+	
+	@FXML
+	public void btnBack_OnClick() {
+		MainController.getInstance().changeView("PurchaseView");
+	}
 
 	@FXML
 	public void btnCancel_OnClick() {

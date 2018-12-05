@@ -57,10 +57,31 @@ public class Utilities {
 			((Stage)oldWindow).close();
 	}
 	
+	public static void openScene(String sceneName, Window oldWindow, Object obj) {
+		Stage newWindow = new Stage();
+		Node node = getNode(sceneName, obj);
+		Scene scene = new Scene((Parent)node);
+		newWindow.setScene(scene);
+		newWindow.setResizable(false);
+		newWindow.show();
+		if(oldWindow != null)
+			((Stage)oldWindow).close();
+	}
+	
+	public static void openScene(String sceneName, Object obj) {
+		Stage newWindow = new Stage();
+		Node node = getNode(sceneName, obj);
+		Scene scene = new Scene((Parent)node);
+		newWindow.setScene(scene);
+		newWindow.setResizable(false);
+		newWindow.show();
+	}
+	
 	public static void openDialog(String sceneName, Object obj) {
 		Stage newWindow = new Stage();
 		Node node = getNode(sceneName, obj);
 		Scene scene = new Scene((Parent)node);
+		newWindow.setResizable(false);
 		newWindow.setScene(scene);
 		newWindow.show();
 	}

@@ -54,7 +54,12 @@ public class PurchaseController {
 	@FXML
 	public void tblPurchase_OnClick(MouseEvent e) {
 		if (tblPurchase.getSelectionModel().getSelectedItem() != null && e.getClickCount() == 2)
-			Utilities.openDialog("DialogPurchaseView", new DialogPurchaseController(this, tblPurchase.getSelectionModel().getSelectedItem()));
+			MainController.getInstance().changeView(Utilities.getNode("DialogPurchaseView", new DialogPurchaseController(this, tblPurchase.getSelectionModel().getSelectedItem())));
+	}
+	
+	@FXML
+	public void btnBack_OnClick() {
+		MainController.getInstance().changeView("PurchaseView");
 	}
 	
 	@FXML

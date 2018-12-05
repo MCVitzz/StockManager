@@ -4,11 +4,14 @@ import com.stockmanager.utils.Utilities;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 
 public class MainController {
 
+	private static MainController instance;
+	
 	@FXML
 	private VBox mainVerticalBox;
 	
@@ -17,6 +20,14 @@ public class MainController {
     private Label lblTitle;
 
 
+    private MainController() {}
+    
+    public static MainController getInstance() {
+    	if(instance == null)
+    		instance = new MainController();
+    	return instance;
+    }
+    
 	public void initialize() {
 		changeView("DashboardView", "Dashboard");
 	}
@@ -24,7 +35,6 @@ public class MainController {
 	@FXML
 	void dashboardButton(ActionEvent event) {
 		changeView("DashboardView", "Dashboard");
-
 	}
 
 	@FXML
@@ -81,9 +91,19 @@ public class MainController {
 		Utilities.openScene("LoginView", lblTitle.getScene().getWindow());
 	}
 	
-	private void changeView(String newView, String title) {
+	public void changeView(String newView, String title) {
 		lblTitle.setText(title);
 		mainVerticalBox.getChildren().clear();
 		mainVerticalBox.getChildren().add(0, Utilities.getNode(newView));
+	}
+	
+	public void changeView(String newView) {
+		mainVerticalBox.getChildren().clear();
+		mainVerticalBox.getChildren().add(0, Utilities.getNode(newView));
+	}
+	
+	public void changeView(Node newView) {
+		mainVerticalBox.getChildren().clear();
+		mainVerticalBox.getChildren().add(0, newView);
 	}
 }
