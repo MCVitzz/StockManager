@@ -51,6 +51,7 @@ public class Utilities {
 		Stage newWindow = new Stage();
 		Node node = getNode(sceneName);
 		Scene scene = new Scene((Parent)node);
+		newWindow.getIcons().add(new Image("file://../Images/logo.png"));
 		newWindow.setScene(scene);
 		newWindow.setResizable(false);
 		newWindow.show();
@@ -62,6 +63,7 @@ public class Utilities {
 		Stage newWindow = new Stage();
 		Node node = getNode(sceneName, obj);
 		Scene scene = new Scene((Parent)node);
+		newWindow.getIcons().add(new Image("file://../Images/logo.png"));
 		newWindow.setScene(scene);
 		newWindow.setResizable(false);
 		newWindow.show();
