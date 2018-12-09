@@ -31,8 +31,6 @@ public class DialogLocationController {
 
 	private LocationController locationController;
 
-
-
 	public DialogLocationController(LocationController locationController) {
 		this.locationController = locationController;
 	}
