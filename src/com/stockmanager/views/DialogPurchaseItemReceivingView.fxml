@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="215.0" prefWidth="728.0" stylesheets="@../application.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="DialogPurchaseItemReceivingController">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="271.0" prefWidth="731.0" stylesheets="@../application.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" maxWidth="169.0" minWidth="10.0" prefWidth="149.0" />
       <ColumnConstraints hgrow="SOMETIMES" maxWidth="173.0" minWidth="10.0" prefWidth="129.0" />
@@ -17,14 +17,15 @@
       <ColumnConstraints hgrow="SOMETIMES" maxWidth="257.0" minWidth="0.0" prefWidth="165.0" />
   </columnConstraints>
   <rowConstraints>
-      <RowConstraints maxHeight="53.0" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="65.0" minHeight="10.0" prefHeight="59.0" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="44.0" minHeight="10.0" prefHeight="42.0" vgrow="SOMETIMES" />
-    <RowConstraints maxHeight="55.0" minHeight="10.0" prefHeight="55.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="61.0" minHeight="10.0" prefHeight="61.0" vgrow="SOMETIMES" />
+      <RowConstraints fx:id="rowLocation" maxHeight="65.0" minHeight="10.0" prefHeight="33.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="75.0" minHeight="10.0" prefHeight="43.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="75.0" minHeight="10.0" prefHeight="46.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="83.0" minHeight="10.0" prefHeight="83.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <ComboBox fx:id="cbItem" onAction="#cbItem_OnAction" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-      <Button mnemonicParsing="false" onAction="#btnReceive_OnClick" prefHeight="35.0" prefWidth="73.0" stylesheets="@../application.css" text="Receive" GridPane.rowIndex="3">
+      <ComboBox fx:id="cbItem" onAction="#cbItem_OnAction" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+      <Button mnemonicParsing="false" onAction="#btnReceive_OnClick" prefHeight="35.0" prefWidth="73.0" stylesheets="@../application.css" text="Receive" GridPane.rowIndex="4">
          <opaqueInsets>
             <Insets />
          </opaqueInsets>
@@ -32,7 +33,7 @@
             <Insets left="75.0" />
          </GridPane.margin>
       </Button>
-      <Button mnemonicParsing="false" onAction="#btnFinalize_OnClick" prefHeight="35.0" prefWidth="73.0" text="Finalize" GridPane.columnIndex="1" GridPane.rowIndex="3">
+      <Button mnemonicParsing="false" onAction="#btnFinalize_OnClick" prefHeight="35.0" prefWidth="73.0" text="Finalize" GridPane.columnIndex="1" GridPane.rowIndex="4">
          <opaqueInsets>
             <Insets />
          </opaqueInsets>
@@ -40,28 +41,28 @@
             <Insets left="75.0" />
          </GridPane.margin>
       </Button>
-      <Label prefHeight="109.0" prefWidth="234.0" text="Item" GridPane.rowIndex="1">
+      <Label prefHeight="109.0" prefWidth="234.0" text="Item" GridPane.rowIndex="2">
          <GridPane.margin>
             <Insets left="50.0" />
          </GridPane.margin>
       </Label>
-      <TextField fx:id="txtItem" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-      <Label text="Quantity" GridPane.rowIndex="2">
+      <TextField fx:id="txtItem" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+      <Label text="Quantity" GridPane.rowIndex="3">
          <GridPane.margin>
             <Insets left="50.0" />
          </GridPane.margin>
       </Label>
-      <TextField fx:id="txtQuantity" GridPane.columnIndex="1" GridPane.rowIndex="2">
+      <TextField fx:id="txtQuantity" GridPane.columnIndex="1" GridPane.rowIndex="3">
          <GridPane.margin>
             <Insets right="75.0" />
          </GridPane.margin>
       </TextField>
-      <TextField fx:id="txtUnit" GridPane.columnIndex="1" GridPane.rowIndex="2">
+      <TextField fx:id="txtUnit" GridPane.columnIndex="1" GridPane.rowIndex="3">
          <GridPane.margin>
             <Insets left="125.0" />
          </GridPane.margin>
       </TextField>
-      <Button mnemonicParsing="false" onAction="#btnNormal_OnClick" text="Normal" GridPane.columnIndex="2" GridPane.rowIndex="2">
+      <Button mnemonicParsing="false" onAction="#btnNormal_OnClick" text="Normal" GridPane.columnIndex="2" GridPane.rowIndex="3">
          <GridPane.margin>
             <Insets left="15.0" />
          </GridPane.margin>
@@ -72,10 +73,16 @@
          </GridPane.margin>
       </Label>
       <TextField fx:id="txtVolume" GridPane.columnIndex="1" />
-      <Button mnemonicParsing="false" text="Change" GridPane.columnIndex="2">
+      <Button mnemonicParsing="false" onAction="#btnChange_OnClick" text="Change" GridPane.columnIndex="2">
          <GridPane.margin>
             <Insets left="15.0" />
          </GridPane.margin>
       </Button>
+      <Label fx:id="lblLocation" text="Location" GridPane.rowIndex="1">
+         <GridPane.margin>
+            <Insets left="50.0" />
+         </GridPane.margin>
+      </Label>
+      <TextField fx:id="txtLocation" onAction="#txtLocation_OnAction" GridPane.columnIndex="1" GridPane.rowIndex="1" />
    </children>
 </GridPane>

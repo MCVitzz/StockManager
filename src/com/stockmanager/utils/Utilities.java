@@ -68,15 +68,6 @@ public class Utilities {
 			((Stage)oldWindow).close();
 	}
 	
-	public static void openScene(String sceneName, Object obj) {
-		Stage newWindow = new Stage();
-		Node node = getNode(sceneName, obj);
-		Scene scene = new Scene((Parent)node);
-		newWindow.setScene(scene);
-		newWindow.setResizable(false);
-		newWindow.show();
-	}
-	
 	public static void openDialog(String sceneName, Object obj) {
 		Stage newWindow = new Stage();
 		Node node = getNode(sceneName, obj);
