@@ -44,7 +44,7 @@ public class PurchaseController {
 	
 	@FXML
 	public void btnAddPurchase_OnClick() {
-		Utilities.openDialog("DialogPurchaseView", new DialogPurchaseController(this, null));
+		MainController.getInstance().changeView(Utilities.getNode("DialogPurchaseView", new DialogPurchaseController(this, null)));
 	}
 
 	public void getData() {

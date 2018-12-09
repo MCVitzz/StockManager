@@ -5,7 +5,6 @@ import com.stockmanager.model.Database;
 import com.stockmanager.utils.Utilities;
 
 import javafx.application.Application;
-import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 

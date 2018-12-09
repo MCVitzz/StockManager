@@ -15,6 +15,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.RowConstraints;
+import javafx.stage.Stage;
 
 public class DialogPurchaseItemReceivingController {
 
@@ -74,6 +75,7 @@ public class DialogPurchaseItemReceivingController {
     	Utilities.alert(AlertType.INFORMATION, "The Purchase has been completed");
     	purchase.setState("Closed");
     	purchase.save();
+		((Stage)txtLocation.getScene().getWindow()).close();
     }
 
     @FXML

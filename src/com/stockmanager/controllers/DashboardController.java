@@ -5,10 +5,8 @@ import java.util.Date;
 import com.stockmanager.model.Database;
 import com.stockmanager.model.Purchase;
 import com.stockmanager.model.Warehouse;
-import com.stockmanager.utils.Utilities;
 
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
