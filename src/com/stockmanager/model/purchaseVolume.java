@@ -2,10 +2,11 @@ package com.stockmanager.model;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import com.stockmanager.utils.Utilities;
 
-public class purchaseVolume extends DatabaseObject {
+public class PurchaseVolume extends DatabaseObject {
 
 	private String company;
 	private int purchase;
@@ -13,7 +14,7 @@ public class purchaseVolume extends DatabaseObject {
 	private String warehouse;
 	private String location;
 	
-	public purchaseVolume(String company, int purchase, long volume) {
+	public PurchaseVolume(String company, int purchase, long volume) {
 		this.company = company;
 		this.purchase = purchase;
 		this.volume = volume;
@@ -29,9 +30,57 @@ public class purchaseVolume extends DatabaseObject {
 		}
 	}
 	
+	public PurchaseVolumeItem makeItem(String item, double quantity, String unit) {
+		PurchaseVolumeItem pvi = new PurchaseVolumeItem(company, purchase, volume, item);
+		pvi.setQuantity(quantity);
+		pvi.setUnit(unit);
+		return pvi;
+	}
+	
+	public ArrayList<PurchaseVolumeItem> getItems() {
+		ResultSet rs = Database.select("SELECT Item FROM purchaseVolumeItem WHERE Company = '" + company + "' AND Purchase = '" + purchase + "' AND Volume = '" + volume + "'");
+		ArrayList<PurchaseVolumeItem> items = new ArrayList<PurchaseVolumeItem>();
+		try {
+			while(rs.next())
+				items.add(new PurchaseVolumeItem(company, purchase, volume, rs.getString("Item")));
+		} catch (SQLException e) {
+			Utilities.warn(e.getMessage());
+			e.printStackTrace();
+		}
+		return items;
+	}
+	
+	public String getWarehouse() {
+		return warehouse;
+	}
+
+	public void setWarehouse(String warehouse) {
+		this.warehouse = warehouse;
+	}
+
+	public String getLocation() {
+		return location;
+	}
+
+	public void setLocation(String location) {
+		this.location = location;
+	}
+
+	public String getCompany() {
+		return company;
+	}
+
+	public int getPurchase() {
+		return purchase;
+	}
+
+	public long getVolume() {
+		return volume;
+	}
+
 	@Override
 	protected boolean insert() {
-		return Database.executeQuery("INSERT INTO purchaseVolume (Company, Purchase, Volume, Warehouse, Location) VALUES '" + company + "', '" + purchase + "', '" + volume + "', '" + warehouse + "', '" + location + "'");
+		return Database.executeQuery("INSERT INTO purchaseVolume (Company, Purchase, Volume, Warehouse, Location) VALUES ('" + company + "', '" + purchase + "', '" + volume + "', '" + warehouse + "', '" + location + "')");
 	}
 
 	@Override

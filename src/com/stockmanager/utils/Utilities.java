@@ -71,6 +71,7 @@ public class Utilities {
 	public static void openDialog(String sceneName, Object obj) {
 		Stage newWindow = new Stage();
 		Node node = getNode(sceneName, obj);
+		//newWindow.getIcons().add(new Image("file:warehouse.png"));
 		Scene scene = new Scene((Parent)node);
 		newWindow.setResizable(false);
 		newWindow.setScene(scene);

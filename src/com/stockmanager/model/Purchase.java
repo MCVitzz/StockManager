@@ -69,7 +69,14 @@ public class Purchase extends DatabaseObject {
 		return purchases;
 	}
 	
-	public ArrayList<PurchaseItem> getPurchaseItems() {
+	public void createStock() {
+		Database.executeQuery("INSERT INTO stockvolume SELECT PV.Company, PV.Volume, P.Warehouse, PV.Location FROM purchase AS P "
+				+ "INNER JOIN purchasevolume AS PV ON P.Company = PV.Company AND P.Purchase = PV.Purchase WHERE P.Company = 'Staples' AND P.Purchase = 2;" + 
+				"INSERT INTO stockvolumeitem SELECT PVI.Company, PVI.Volume, PVI.Item, PVI.Quantity, PVI.Unit FROM purchase AS P "
+				+ "INNER JOIN purchasevolumeitem AS PVI ON P.Company = PVI.Company AND P.Purchase = PVI.Purchase WHERE P.Company = 'Staples' AND P.Purchase = 2;");
+	}
+	
+	public ArrayList<PurchaseItem> getItems() {
 		ResultSet rs = Database.select("SELECT Item FROM purchaseItem WHERE Company = '" + company + "' AND Purchase = '" + purchase + "'");
 		ArrayList<PurchaseItem> items = new ArrayList<PurchaseItem>();
 		try {

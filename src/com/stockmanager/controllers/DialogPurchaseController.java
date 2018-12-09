@@ -95,6 +95,8 @@ public class DialogPurchaseController {
 
 	@FXML
 	public void btnReceive_OnClick() {
+		purchase.setState("Receiving");
+		purchase.save();
 		Utilities.openDialog("DialogPurchaseItemReceivingView", new DialogPurchaseItemReceivingController(purchase, 0));
 	}
 	
