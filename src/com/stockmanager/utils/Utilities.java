@@ -15,6 +15,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.image.Image;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
@@ -50,6 +51,7 @@ public class Utilities {
 		Stage newWindow = new Stage();
 		Node node = getNode(sceneName);
 		Scene scene = new Scene((Parent)node);
+		newWindow.getIcons().add(new Image("file://../Images/logo.png"));
 		newWindow.setScene(scene);
 		newWindow.setResizable(false);
 		newWindow.show();
@@ -61,6 +63,7 @@ public class Utilities {
 		Stage newWindow = new Stage();
 		Node node = getNode(sceneName, obj);
 		Scene scene = new Scene((Parent)node);
+		newWindow.getIcons().add(new Image("file://../Images/logo.png"));
 		newWindow.setScene(scene);
 		newWindow.setResizable(false);
 		newWindow.show();
@@ -74,6 +77,7 @@ public class Utilities {
 		//newWindow.getIcons().add(new Image("file:warehouse.png"));
 		Scene scene = new Scene((Parent)node);
 		newWindow.setResizable(false);
+		newWindow.getIcons().add(new Image("file://../Images/logo.png"));
 		newWindow.setScene(scene);
 		newWindow.show();
 	}
