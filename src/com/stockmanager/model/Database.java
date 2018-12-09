@@ -44,6 +44,21 @@ public class Database {
 		}
 		return res;
 	}
+	
+	public static String simpleSelect(String column, String from) {
+		String res = null;
+		String s = "SELECT " + column + " FROM " + from;
+		System.out.println(s);
+		try {
+			ResultSet rs = select(s);
+			while (rs.next())
+				res = rs.getString(1);
+		}
+		catch(SQLException e) {
+			e.printStackTrace();
+		}
+		return res;
+	}
 
 	public static boolean executeQuery(String query) {
 		try {
