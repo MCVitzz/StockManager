@@ -30,7 +30,7 @@ public class UserPermissionsController {
 	}
 	
 	public void getData() {
-		tblUserPermissions.setItems(FXCollections.observableArrayList(UserPermission.getAll()));
+		tblUserPermissions.setItems(FXCollections.observableArrayList(UserPermission.getPremissionsFromUser(user)));
 	}
 	
 	public UserPermissionsController(String user) {

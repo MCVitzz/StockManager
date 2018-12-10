@@ -7,15 +7,15 @@ import java.util.ArrayList;
 import com.stockmanager.utils.Utilities;
 
 public class UserPermission extends DatabaseObject {
-	
+
 	String user;
 	String role;
 	boolean value;
-	
+
 	public UserPermission(String user, String role) {
 		this.user = user;
 		this.role = role;
-		
+
 		try {
 			ResultSet rs = Database.select("SELECT * FROM userpermission WHERE user = '" + user + "' AND Role = '" + role + "'");
 			while (rs.next()) {
@@ -26,7 +26,7 @@ public class UserPermission extends DatabaseObject {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public static ArrayList<UserPermission> getAll() {
 		ResultSet rs = Database.select("SELECT User,Role FROM userpermission");
 		ArrayList<UserPermission> userpermissions = new ArrayList<UserPermission>();
@@ -40,6 +40,19 @@ public class UserPermission extends DatabaseObject {
 		return userpermissions;
 	}
 	
+	public static ArrayList<UserPermission> getPremissionsFromUser(String user) {
+		ResultSet rs = Database.select("SELECT User, Role FROM userpermission WHERE User = '" + user + "'");
+		ArrayList<UserPermission> userpermissions = new ArrayList<UserPermission>();
+		try {
+			while(rs.next())
+				userpermissions.add(new UserPermission(rs.getString("User"), rs.getString("Role")));
+		} catch (SQLException e) {
+			Utilities.warn(e.getMessage());
+			e.printStackTrace();
+		}
+		return userpermissions;
+	}
+
 	@Override
 	protected boolean insert() {
 		return Database.executeQuery("INSERT INTO userpermission (User, Role, Value) VALUES ('" + user + "', '" + role + "', '" + value + "')");
@@ -77,8 +90,8 @@ public class UserPermission extends DatabaseObject {
 	public boolean isValue() {
 		return value;
 	}
-	
-	
-	
+
+
+
 
 }

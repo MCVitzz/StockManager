@@ -7,7 +7,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
 
 public class DialogUserController {
 
@@ -34,11 +33,8 @@ public class DialogUserController {
     	if(user != null) {
 	    	txtUser.setDisable(true);
 	    	txtUser.setText(user);
+	    	putPag();
     	}
-    	putPag();
-
-    	
-    	
     }
     
 	@FXML
@@ -54,14 +50,12 @@ public class DialogUserController {
 
 	@FXML
 	public void btnCancel_OnClick() {
-		((Stage)txtUser.getScene().getWindow()).close();
+		MainController.getInstance().changeView("UserView");
 	}
 	
 	private void putPag() {
-		System.out.println("oi");
 		vbUserpermissions.getChildren().clear();
 		vbUserpermissions.getChildren().add(0, Utilities.getNode("UserPermissionsView", new UserPermissionsController(user)));
-		System.out.println("oi");
 	}
 	
 }
