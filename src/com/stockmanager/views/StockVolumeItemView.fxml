@@ -13,9 +13,10 @@
       <TableView fx:id="tblStockVolumeItem" onMouseClicked="#tblStockVolumeItem_OnClick" prefHeight="507.0" prefWidth="677.0">
         <columns>
           <TableColumn fx:id="clmnItem" prefWidth="116.0" text="Item" />
-            <TableColumn fx:id="clmnName" maxWidth="377.0" prefWidth="376.0" text="Name" />
+            <TableColumn fx:id="clmnName" maxWidth="377.0" prefWidth="275.0" text="Name" />
             <TableColumn fx:id="clmnQuantity" minWidth="0.0" prefWidth="88.0" text="Quantity" />
             <TableColumn fx:id="clmnUnit" minWidth="0.0" prefWidth="96.0" text="Unit" />
+            <TableColumn fx:id="clmnEntryDate" prefWidth="100.0" text="Entry Date" />
         </columns>
       </TableView>
       <HBox prefHeight="21.0" prefWidth="677.0" style="-fx-background-color: rgb(64.0, 78.0, 103.0);;">

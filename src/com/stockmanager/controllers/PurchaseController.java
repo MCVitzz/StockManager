@@ -58,11 +58,6 @@ public class PurchaseController {
 	}
 	
 	@FXML
-	public void btnBack_OnClick() {
-		MainController.getInstance().changeView("PurchaseView");
-	}
-	
-	@FXML
 	public void btnRefresh_OnClick() {
 		getData();
 	}	

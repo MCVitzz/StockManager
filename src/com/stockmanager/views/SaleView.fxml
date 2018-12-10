@@ -10,7 +10,7 @@
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="675.0" prefWidth="1098.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.stockmanager.controllers.SaleController">
    <children>
       <HBox prefHeight="35.0" prefWidth="1098.0" style="-fx-background-color: rgb(64.0, 78.0, 103.0);;" />
-      <TableView fx:id="tblSale" onMouseClicked="#tblSale_OnClick" prefHeight="620.0" prefWidth="1098.0">
+      <TableView fx:id="tblSale" onMouseClicked="#tblSale_OnClick" prefHeight="637.0" prefWidth="1098.0">
         <columns>
             <TableColumn fx:id="clmnSale" prefWidth="120.0" text="Sale" />
           <TableColumn fx:id="clmnWarehouse" prefWidth="199.0" text="Warehouse" />

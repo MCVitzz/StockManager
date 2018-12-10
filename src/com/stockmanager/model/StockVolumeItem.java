@@ -2,6 +2,7 @@ package com.stockmanager.model;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 import com.stockmanager.utils.Utilities;
@@ -13,6 +14,7 @@ public class StockVolumeItem extends DatabaseObject {
 	private String item;
 	private double quantity;
 	private String unit;
+	private LocalDate entryDate;
 
 	public StockVolumeItem() {}
 
@@ -25,6 +27,7 @@ public class StockVolumeItem extends DatabaseObject {
 			while (rs.next()) {
 				this.quantity = rs.getFloat("Quantity");
 				this.unit = rs.getString("Unit");
+				this.entryDate = rs.getDate("EntryDate").toLocalDate();
 			}
 		}
 		catch(SQLException e) {
@@ -77,17 +80,21 @@ public class StockVolumeItem extends DatabaseObject {
 	public String getUnit() {
 		return unit;
 	}
+	
+	public LocalDate getEntryDate() {
+		return entryDate;
+	}
 
 	public void setQuantity(double quantity) {
 		this.quantity = quantity;
 	}
 
 	protected boolean insert() {
-		return Database.executeQuery("INSERT INTO stockVolumeItem (Company, Warehouse, Volume, Item, Quantity, Unit) VALUES ('" + company + "', '" + volume + "', '" + item + "', '" + quantity + "', '" + unit + "')");
+		return Database.executeQuery("INSERT INTO stockVolumeItem (Company, Warehouse, Volume, Item, Quantity, Unit, EntryDate) VALUES ('" + company + "', '" + volume + "', '" + item + "', '" + quantity + "', '" + unit + "', '" + entryDate + "')");
 	}
 
 	protected boolean update() {
-		return Database.executeQuery("UPDATE stockVolumeItem SET Quantity = '" + quantity + "', Unit = '" + unit + "' WHERE Company = '" + company + "' AND Volume = '" + volume + "' AND Item = '" + item + "'");
+		return Database.executeQuery("UPDATE stockVolumeItem SET Quantity = '" + quantity + "', Unit = '" + unit + "', EntryDate = '" + entryDate + "' WHERE Company = '" + company + "' AND Volume = '" + volume + "' AND Item = '" + item + "'");
 	}
 
 	protected boolean exists() {

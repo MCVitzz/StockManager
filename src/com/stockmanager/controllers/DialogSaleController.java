@@ -6,6 +6,7 @@ import com.stockmanager.model.Warehouse;
 import com.stockmanager.utils.Utilities;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
@@ -33,10 +34,11 @@ public class DialogSaleController {
 	@FXML
 	private TextField txtClient;
 
-
 	@FXML
 	private TextField txtState;
-
+	
+	@FXML
+	private Button btnPick;
 
 	@FXML
 	private VBox vbSaleItem;
@@ -61,10 +63,27 @@ public class DialogSaleController {
 			txtClient.setText(sale.getClient());
 			txtState.setText(sale.getState());
 			putPag();
+			switch(sale.getState()) {
+			case "Open":
+				
+				btnPick.setVisible(true);
+				break;
+			case "Picking":
+				
+				btnPick.setVisible(false);
+				cbWarehouse.setDisable(false);
+			case "Closed":
+				
+				btnPick.setVisible(false);
+				txtClient.setDisable(false);
+				cbWarehouse.setDisable(false);
+				dtPckrDate.setDisable(false);
+			}
 		}
 		else {
 			txtState.setText("Open");
 			vbSaleItem.setVisible(false);
+			btnPick.setVisible(false);
 		}
 
 	}
@@ -86,6 +105,11 @@ public class DialogSaleController {
 	}
 	
 	@FXML
+	public void btnPick_OnAction() {
+		Utilities.openDialog("DialogSaleItemPickView",new DialogSaleItemPickController());
+	}
+	
+	@FXML
 	public void cbCompany_OnAction() {
 		Utilities.fillWarehouses(cbWarehouse, cbCompany.getValue().getCompany());
 	}
@@ -93,6 +117,11 @@ public class DialogSaleController {
 	private void putPag() {
 		vbSaleItem.getChildren().clear();
 		vbSaleItem.getChildren().add(0, Utilities.getNode("SaleItemView", new SaleItemController(sale)));
+	}
+	
+	@FXML
+	public void btnBack_OnClick() {
+		MainController.getInstance().changeView("SaleView");
 	}
 
 	@FXML

@@ -27,7 +27,8 @@ public class Sale extends DatabaseObject {
 				this.warehouse = rs.getString("Warehouse");
 				this.date = rs.getDate("Date").toLocalDate();
 				this.client = rs.getString("Client");
-				this.state = rs.getString("Date");
+				this.state = rs.getString("State");
+				
 			}
 		}
 		catch(SQLException e) {
@@ -48,7 +49,7 @@ public class Sale extends DatabaseObject {
 				this.warehouse = rs.getString("Warehouse");
 				this.date = rs.getDate("Date").toLocalDate();
 				this.client = rs.getString("Client");
-				this.state = rs.getString("Date");
+				this.state = rs.getString("State");
 			}
 		}
 		catch(SQLException e) {
@@ -73,12 +74,16 @@ public class Sale extends DatabaseObject {
 		return company;
 	}
 
+	public int getSale() {
+		return this.sale;
+	}
+
 	public String getWarehouse() {
 		return warehouse;
 	}
 
-	public int getSale() {
-		return this.sale;
+	public void setWarehouse(String warehouse) {
+		this.warehouse = warehouse;
 	}
 
 	public LocalDate getDate() {
@@ -104,11 +109,7 @@ public class Sale extends DatabaseObject {
 	public void setState(String state) {
 		this.state = state;
 	}
-
-	public void setWarehouse(String warehouse) {
-		this.warehouse = warehouse;
-	}
-
+	
 	protected boolean insert() {
 		return Database.executeQuery("INSERT INTO sale (Company, Sale, Warehouse, Date, Client, State) VALUES ('" + company + "', '" + sale + "', '" + warehouse + "', '" + date + "', '" + client + "', '" + state + "')");
 	}
