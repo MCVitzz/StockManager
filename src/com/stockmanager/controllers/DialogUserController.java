@@ -3,8 +3,10 @@ package com.stockmanager.controllers;
 import com.stockmanager.model.User;
 import com.stockmanager.utils.Utilities;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class DialogUserController {
@@ -12,11 +14,12 @@ public class DialogUserController {
 	private String user;
 	
     @FXML
+    private VBox vbUserpermissions;
+	
+    @FXML
     private TextField txtPassword, txtUser;
     
     private UserController userController;
-
-    
     
     public DialogUserController(UserController userController) {
     	this.userController = userController;
@@ -32,10 +35,14 @@ public class DialogUserController {
 	    	txtUser.setDisable(true);
 	    	txtUser.setText(user);
     	}
+    	putPag();
+
+    	
+    	
     }
     
 	@FXML
-	public void btnSave_OnClick() {
+	void btnSave_OnClick(ActionEvent event) {
 		if(!Utilities.stringIsEmpty(txtPassword.getText())) {
 			User usr = new User(txtUser.getText());
 			usr.changePassword(txtPassword.getText());
@@ -49,4 +56,10 @@ public class DialogUserController {
 	public void btnCancel_OnClick() {
 		((Stage)txtUser.getScene().getWindow()).close();
 	}
+	
+	private void putPag() {
+		vbUserpermissions.getChildren().clear();
+		vbUserpermissions.getChildren().add(0, Utilities.getNode("UserPermissionsView", new UserPermissionsController(user)));
+	}
+	
 }
