@@ -123,30 +123,6 @@
                   <Insets left="15.0" />
                </padding>
             </Button>
-            <Button id="salesOrderButton" alignment="TOP_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#salesOrderButton_OnClick" prefHeight="28.0" prefWidth="175.0" stylesheets="@../application.css" text="Sales Order" textFill="WHITE">
-               <VBox.margin>
-                  <Insets top="20.0" />
-               </VBox.margin>
-               <graphic>
-                  <ImageView fitHeight="23.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../../Images/package.png" />
-                     </image>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </ImageView>
-               </graphic>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-               <padding>
-                  <Insets left="15.0" />
-               </padding>
-            </Button>
             <Button id="purchaseButton" alignment="TOP_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#purchaseButton_OnClick" prefHeight="28.0" prefWidth="178.0" stylesheets="@../application.css" text="Purchases" textFill="WHITE">
                <VBox.margin>
                   <Insets top="20.0" />
@@ -175,7 +151,7 @@
                <graphic>
                   <ImageView fitHeight="23.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../Images/goods.png" />
+                        <Image url="@../../../../Images/sales.png" />
                      </image>
                      <cursor>
                         <Cursor fx:constant="HAND" />
