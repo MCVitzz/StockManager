@@ -18,7 +18,7 @@
       </TableView>
       <HBox prefHeight="21.0" prefWidth="677.0" style="-fx-background-color: rgb(64.0, 78.0, 103.0);;">
          <children>
-            <Button mnemonicParsing="false" onAction="#btnUserPermissions_OnClick" onMouseClicked="#tbl" text="+">
+            <Button mnemonicParsing="false" onAction="#btnUserPermissions_OnClick" text="+">
                <HBox.margin>
                   <Insets bottom="5.0" left="10.0" top="5.0" />
                </HBox.margin>

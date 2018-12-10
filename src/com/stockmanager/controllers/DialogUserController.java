@@ -58,8 +58,10 @@ public class DialogUserController {
 	}
 	
 	private void putPag() {
+		System.out.println("oi");
 		vbUserpermissions.getChildren().clear();
 		vbUserpermissions.getChildren().add(0, Utilities.getNode("UserPermissionsView", new UserPermissionsController(user)));
+		System.out.println("oi");
 	}
 	
 }

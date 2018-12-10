@@ -1,6 +1,5 @@
 package com.stockmanager.controllers;
 
-import com.stockmanager.model.Company;
 import com.stockmanager.model.User;
 
 import javafx.collections.FXCollections;
@@ -41,6 +40,11 @@ public class UserPermissionsController {
 	@FXML
 	void btnRefresh_OnClick(ActionEvent event) {
 
+	}
+	
+	@FXML
+	void btnUserPermissions_OnClick() {
+		
 	}
 
 	@FXML
