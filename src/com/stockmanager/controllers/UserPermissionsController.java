@@ -1,6 +1,6 @@
 package com.stockmanager.controllers;
 
-import com.stockmanager.model.User;
+import com.stockmanager.model.UserPermission;
 
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
@@ -14,23 +14,23 @@ public class UserPermissionsController {
 	private String user;
 
 	@FXML
-	private TableView<User> tblUserPermissions;
+	private TableView<UserPermission> tblUserPermissions;
 
 	@FXML
-	private TableColumn<User, String> clmnUser;
+	private TableColumn<UserPermission, String> clmnUser;
 
 	@FXML
-	private TableColumn<User, String> clmnRole;
+	private TableColumn<UserPermission, String> clmnRole;
 
 	public void initialize() {
-		clmnUser.setCellValueFactory(new PropertyValueFactory<User, String>("User"));
-		clmnRole.setCellValueFactory(new PropertyValueFactory<User, String>("Role"));
+		clmnUser.setCellValueFactory(new PropertyValueFactory<UserPermission, String>("User"));
+		clmnRole.setCellValueFactory(new PropertyValueFactory<UserPermission, String>("Role"));
 		
 		getData();
 	}
 	
 	public void getData() {
-		tblUserPermissions.setItems(FXCollections.observableArrayList(User.getAll()));
+		tblUserPermissions.setItems(FXCollections.observableArrayList(UserPermission.getAll()));
 	}
 	
 	public UserPermissionsController(String user) {
