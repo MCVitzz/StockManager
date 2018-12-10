@@ -54,7 +54,7 @@ public class SaleController {
 	@FXML
 	public void tblSale_OnClick(MouseEvent e) {
 		if (tblSale.getSelectionModel().getSelectedItem() != null && e.getClickCount() == 2)
-			Utilities.openDialog("DialogSaleView", new DialogSaleController(this, tblSale.getSelectionModel().getSelectedItem()));
+			MainController.getInstance().changeView(Utilities.getNode("DialogSaleView", new DialogSaleController(this, tblSale.getSelectionModel().getSelectedItem())));
 	}
 	
 	@FXML

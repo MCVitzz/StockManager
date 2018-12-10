@@ -1,5 +1,7 @@
 package com.stockmanager.controllers;
 
+import java.time.LocalDate;
+
 import com.stockmanager.model.StockVolume;
 import com.stockmanager.model.StockVolumeItem;
 import com.stockmanager.model.paginated.PaginatedStockVolumeItem;
@@ -30,6 +32,9 @@ public class StockVolumeItemController {
 	
 	@FXML
 	private TableColumn<PaginatedStockVolumeItem, String> clmnUnit;
+	
+	@FXML
+	private TableColumn<PaginatedStockVolumeItem, LocalDate> clmnEntryDate;
 
 	public StockVolumeItemController(StockVolume volume) {
 		this.volume = volume;
@@ -40,6 +45,7 @@ public class StockVolumeItemController {
 		clmnName.setCellValueFactory(new PropertyValueFactory<PaginatedStockVolumeItem, String>("name"));
 		clmnQuantity.setCellValueFactory(new PropertyValueFactory<PaginatedStockVolumeItem, Double>("quantity"));
 		clmnUnit.setCellValueFactory(new PropertyValueFactory<PaginatedStockVolumeItem, String>("unit"));
+		clmnEntryDate.setCellValueFactory(new PropertyValueFactory<PaginatedStockVolumeItem, LocalDate>("entryDate"));
 		
 		getData();
 	}
