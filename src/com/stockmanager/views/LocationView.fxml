@@ -19,15 +19,15 @@
       </TableView>
       <HBox prefHeight="40.0" prefWidth="1098.0" style="-fx-background-color: rgb(64.0, 78.0, 103.0);;">
          <children>
-            <Button mnemonicParsing="false" onAction="#btnAddLocation_OnClick" prefHeight="25.0" prefWidth="25.0" text="+" translateX="5.0" translateY="5.0" />
-            <Button mnemonicParsing="false" onAction="#btnRemoveLocation_OnClick" prefHeight="25.0" prefWidth="68.0" text="Remove">
+            <Button mnemonicParsing="false" onAction="#btnAddLocation_OnClick" prefHeight="26.0" prefWidth="34.0" text="+" translateX="5.0" translateY="5.0" />
+            <Button mnemonicParsing="false" onAction="#btnRemoveLocation_OnClick" prefHeight="26.0" prefWidth="86.0" text="Remove">
                <HBox.margin>
                   <Insets left="10.0" top="5.0" />
                </HBox.margin>
             </Button>
             <Button mnemonicParsing="false" onAction="#btnRefresh_OnClick" text="Refresh">
                <HBox.margin>
-                  <Insets left="10.0" top="5.0" />
+                  <Insets left="5.0" top="5.0" />
                </HBox.margin>
             </Button>
          </children>

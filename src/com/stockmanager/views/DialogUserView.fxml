@@ -46,7 +46,7 @@
          <GridPane.margin>
             <Insets top="50.0" />
          </GridPane.margin></VBox>
-      <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="73.0" text="Save" GridPane.columnIndex="1" GridPane.rowIndex="3">
+      <Button mnemonicParsing="false" onAction="#btnSave_OnClick" prefHeight="35.0" prefWidth="73.0" text="Save" GridPane.columnIndex="1" GridPane.rowIndex="3">
          <opaqueInsets>
             <Insets />
          </opaqueInsets>
