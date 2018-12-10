@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="586.0" prefWidth="900.0" stylesheets="@../application.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="586.0" prefWidth="1089.0" stylesheets="@../application.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -22,7 +22,7 @@
       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <Label prefHeight="109.0" prefWidth="234.0" text="User">
+      <Label prefHeight="44.0" prefWidth="177.0" text="User">
          <GridPane.margin>
             <Insets left="50.0" />
          </GridPane.margin>
@@ -32,23 +32,26 @@
             <Insets right="50.0" />
          </GridPane.margin>
       </TextField>
-      <Label prefHeight="109.0" prefWidth="234.0" text="Password" GridPane.rowIndex="1">
+      <Label prefHeight="109.0" prefWidth="234.0" text="Password">
          <GridPane.margin>
-            <Insets left="50.0" />
+            <Insets left="50.0" top="100.0" />
          </GridPane.margin>
       </Label>
-      <PasswordField fx:id="txtPassword" prefHeight="25.0" prefWidth="343.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+      <PasswordField fx:id="txtPassword" prefHeight="25.0" prefWidth="343.0" GridPane.columnIndex="1">
          <GridPane.margin>
-            <Insets right="50.0" />
+            <Insets right="50.0" top="100.0" />
          </GridPane.margin>
       </PasswordField>
-      <VBox fx:id="vbUserpermissions" prefHeight="146.0" prefWidth="389.0" GridPane.columnSpan="2" GridPane.rowIndex="2" />
-      <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="73.0" text="Save" GridPane.rowIndex="3">
+      <VBox fx:id="vbUserpermissions" prefHeight="174.0" prefWidth="900.0" GridPane.columnSpan="2" GridPane.rowIndex="1" GridPane.rowSpan="2">
+         <GridPane.margin>
+            <Insets top="50.0" />
+         </GridPane.margin></VBox>
+      <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="73.0" text="Save" GridPane.columnIndex="1" GridPane.rowIndex="3">
          <opaqueInsets>
             <Insets />
          </opaqueInsets>
          <GridPane.margin>
-            <Insets left="75.0" />
+            <Insets left="215.0" />
          </GridPane.margin>
       </Button>
       <Button mnemonicParsing="false" onAction="#btnCancel_OnClick" prefHeight="35.0" prefWidth="73.0" text="Cancel" GridPane.columnIndex="1" GridPane.rowIndex="3">
@@ -56,7 +59,7 @@
             <Insets />
          </opaqueInsets>
          <GridPane.margin>
-            <Insets left="75.0" />
+            <Insets left="300.0" />
          </GridPane.margin>
       </Button>
    </children>

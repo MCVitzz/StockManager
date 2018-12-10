@@ -7,13 +7,13 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="424.0" prefWidth="1123.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="424.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <HBox prefHeight="16.0" prefWidth="1123.0" style="-fx-background-color: rgb(64.0, 78.0, 103.0);;" />
-      <TableView fx:id="tblUserPermissions" onMouseClicked="#tblUserPermissions_OnClick" prefHeight="397.0" prefWidth="1123.0">
+      <TableView fx:id="tblUserPermissions" onMouseClicked="#tblUserPermissions_OnClick" prefHeight="397.0" prefWidth="1086.0">
          <columns>
-            <TableColumn fx:id="clmnUser" maxWidth="641.0" prefWidth="591.0" text="Name" />
-            <TableColumn fx:id="clmnRole" prefWidth="138.0" text="Role" />
+            <TableColumn fx:id="clmnUser" maxWidth="920.8000457882881" prefWidth="916.8000457882881" text="Name" />
+            <TableColumn fx:id="clmnRole" minWidth="0.0" prefWidth="181.60003662109375" text="Role" />
          </columns>
       </TableView>
       <HBox prefHeight="21.0" prefWidth="677.0" style="-fx-background-color: rgb(64.0, 78.0, 103.0);;">
