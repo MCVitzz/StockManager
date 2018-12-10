@@ -11,7 +11,8 @@ import javafx.stage.Stage;
 public class Main extends Application {
 
 	public void start(Stage primaryStage) {
-		Utilities.openScene("MainView", MainController.getInstance());
+		Utilities.openDialog("MainView", MainController.getInstance());
+		
 	}
 	
 	public static void main(String[] args) {

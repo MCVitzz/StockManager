@@ -23,7 +23,7 @@ public class PaginatedStockVolumeItem extends StockVolumeItem {
 	}
 	
 	public static ArrayList<PaginatedStockVolumeItem> getAllPaginatedItemsInVolume(StockVolume stockVolume) {
-		ResultSet rs = Database.select("SELECT PI.Item, I.Name FROM stockVolume AS PI INNER JOIN Item AS I ON I.Company = PI.Company AND I.Item = PI.Item WHERE Company = '" + stockVolume.getCompany() + "' AND Volume = " + stockVolume.getVolume() + "");
+		ResultSet rs = Database.select("SELECT PI.Item, I.Name FROM stockVolumeItem AS PI INNER JOIN Item AS I ON I.Company = PI.Company AND I.Item = PI.Item WHERE I.Company = '" + stockVolume.getCompany() + "' AND Volume = " + stockVolume.getVolume() + "");
 		ArrayList<PaginatedStockVolumeItem> stockVolumeItems = new ArrayList<PaginatedStockVolumeItem>();
 		try {
 			while(rs.next())

@@ -32,12 +32,13 @@ public class UserController {
 	@FXML
 	public void tblUser_OnClick(MouseEvent e) {
 		if (tblUser.getSelectionModel().getSelectedItem() != null && e.getClickCount() == 2)
-			Utilities.openDialog("DialogUserView", new DialogUserController(tblUser.getSelectionModel().getSelectedItem().getUser(), this));
+			MainController.getInstance().changeView(Utilities.getNode("DialogUserView", new DialogUserController(tblUser.getSelectionModel().getSelectedItem().getUser(), this)));
+		
 	}
 	
 	@FXML
 	public void btnAddUser_OnClick() {
-		Utilities.openDialog("DialogUserView", new DialogUserController(this));
+		MainController.getInstance().changeView(Utilities.getNode("DialogUserView", new DialogUserController(this)));
 	}
 	
 	@FXML

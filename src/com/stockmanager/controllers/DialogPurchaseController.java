@@ -11,7 +11,6 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
 
 public class DialogPurchaseController {
 
@@ -96,7 +95,9 @@ public class DialogPurchaseController {
 
 	@FXML
 	public void btnReceive_OnClick() {
-		
+		purchase.setState("Receiving");
+		purchase.save();
+		Utilities.openDialog("DialogPurchaseItemReceivingView", new DialogPurchaseItemReceivingController(purchase, 0));
 	}
 	
 	@FXML
@@ -137,6 +138,6 @@ public class DialogPurchaseController {
 
 	@FXML
 	public void btnCancel_OnClick() {
-		((Stage)txtPurchase.getScene().getWindow()).close();
+		btnBack_OnClick();
 	}
 }
