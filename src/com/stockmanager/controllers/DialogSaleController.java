@@ -104,10 +104,10 @@ public class DialogSaleController {
 		btnCancel_OnClick();
 	}
 	
-	@FXML
-	public void btnPick_OnAction() {
-		Utilities.openDialog("DialogSaleItemPickView",new DialogSaleItemPickController());
-	}
+//	@FXML
+//	public void btnPick_OnAction() {
+//		Utilities.openDialog("DialogSaleItemPickView",new DialogSaleItemPickController());
+//	}
 	
 	@FXML
 	public void cbCompany_OnAction() {

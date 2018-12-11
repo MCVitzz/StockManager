@@ -1,6 +1,7 @@
 package com.stockmanager.controllers;
 
 import com.stockmanager.model.Item;
+import com.stockmanager.model.PickItem;
 import com.stockmanager.model.SaleItem;
 
 import javafx.event.ActionEvent;
@@ -27,20 +28,20 @@ public class DialogSaleItemPickController {
 	@FXML
 	private TextField txtUnit;
 	
-	public DialogSaleItemPickController(PickItem pickItem) {
-		this.pickItem = pickItem;
-		
-	}
+//	public DialogSaleItemPickController(PickItem pickItem) {
+//		this.pickItem = pickItem;
+//		
+//	}
 	
 	@FXML
 	void initialize() {
 		txtUnit.setVisible(false);
 	}
 	
-	@FXML
-	void txtItem_OnAction(ActionEvent event) {
-		txtUnit.setText();
-	}
+//	@FXML
+//	void txtItem_OnAction(ActionEvent event) {
+//		txtUnit.setText();
+//	}
 	
 	@FXML
 	void btnPick_OnClick(ActionEvent event) {
