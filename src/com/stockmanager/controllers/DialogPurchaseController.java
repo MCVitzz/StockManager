@@ -2,6 +2,7 @@ package com.stockmanager.controllers;
 
 import com.stockmanager.model.Company;
 import com.stockmanager.model.Purchase;
+import com.stockmanager.model.PurchaseItem;
 import com.stockmanager.model.Warehouse;
 import com.stockmanager.utils.Utilities;
 
@@ -98,6 +99,10 @@ public class DialogPurchaseController {
 		purchase.setState("Receiving");
 		purchase.save();
 		Utilities.openDialog("DialogPurchaseItemReceivingView", new DialogPurchaseItemReceivingController(purchase, 0));
+		for(PurchaseItem pi : purchase.getItems()) {
+			pi.setState("Receiving");
+			pi.save();
+		}
 	}
 	
 	@FXML

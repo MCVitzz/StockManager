@@ -89,8 +89,7 @@ public class DialogPurchaseItemReceivingController {
     	pv.setLocation(txtLocation.getText());
     	pv.setWarehouse(purchase.getWarehouse());
     	pv.save();
-    	PurchaseVolumeItem pvi = pv.makeItem(cbItem.getValue().getItem(), Double.parseDouble(txtQuantity.getText()), txtUnit.getText());
-    	pvi.save();
+    	pv.makeItem(cbItem.getValue().getItem(), Double.parseDouble(txtQuantity.getText()), txtUnit.getText());
     	reset();
     }
 
@@ -135,6 +134,7 @@ public class DialogPurchaseItemReceivingController {
 
     @FXML
     void cbItem_OnAction(ActionEvent event) {
+    	System.out.println(cbItem.getValue());
     	txtItem.setText(cbItem.getValue().getName());
     	txtUnit.setText(cbItem.getValue().getUnit());
     }
