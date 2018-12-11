@@ -18,9 +18,10 @@ public class MainController implements Controller {
 
 	private static MainController instance;
 	
+	private User user;
+	
 	@FXML
 	private VBox mainVerticalBox;
-	
 
     @FXML
     private Label lblTitle;
@@ -58,11 +59,17 @@ public class MainController implements Controller {
     @FXML
     private Button btnUsers;
 
-    private MainController() {}
+    private MainController(User user) {
+    	this.user = user;
+    }
     
     public static MainController getInstance() {
+    	return instance;
+    }
+    
+    public static MainController getInstance(User user) {
     	if(instance == null)
-    		instance = new MainController();
+    		instance = new MainController(user);
     	return instance;
     }
     
@@ -146,6 +153,10 @@ public class MainController implements Controller {
 		mainVerticalBox.getChildren().add(0, newView);
 	}
 
+	public User getUser() {
+		return user;
+	}
+	
 	@Override
 	public void checkPermissions(HashMap<String, Boolean> permissions) {
 		btnWarehouse.setDisable(!permissions.get("Warehouse"));
@@ -159,7 +170,5 @@ public class MainController implements Controller {
 		btnUnits.setDisable(!permissions.get("Units"));
 		btnLocations.setDisable(!permissions.get("Locations"));
 		btnUsers.setDisable(!permissions.get("Users"));
-		
-		
 	}
 }

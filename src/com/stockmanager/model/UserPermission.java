@@ -53,14 +53,18 @@ public class UserPermission extends DatabaseObject {
 		return userpermissions;
 	}
 
+	public void switchAccess() {
+		this.access = !this.access;
+	}
+	
 	@Override
 	protected boolean insert() {
-		return Database.executeQuery("INSERT INTO userpermission (User, Type, Access) VALUES ('" + user + "', '" + type + "', '" + access + "')");
+		return Database.executeQuery("INSERT INTO userpermission (User, Type, Access) VALUES ('" + user + "', '" + type + "', " + access() + ")");
 	}
 
 	@Override
 	protected boolean update() {
-		return Database.executeQuery("UPDATE userpermission SET Access = '" + access + "' WHERE User = '" + user + "' AND Type = '" + type + "'");
+		return Database.executeQuery("UPDATE userpermission SET Access = " + access() + " WHERE User = '" + user + "' AND Type = '" + type + "'");
 	}
 
 	@Override
@@ -94,6 +98,11 @@ public class UserPermission extends DatabaseObject {
 		return access ? "Yes" : "No";
 	}
 
+	private int access() {
+		if(access)
+			return 1;
+		else return 0;
+	}
 
 
 }

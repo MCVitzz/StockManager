@@ -14,11 +14,12 @@ public class LoginController {
 
 	@FXML
 	private TextField usernameTF;
+
 	@FXML
 	private PasswordField passwordPF; 
-	
+
 	@FXML
-    private Label lostPasswordLabel;
+	private Label lostPasswordLabel;
 
 	@FXML
 	private void login(ActionEvent event) {
@@ -28,20 +29,20 @@ public class LoginController {
 
 		if(Database.simpleSelect("Password", "user", "User = '" + username + "'") == null) Utilities.warn("Username does not exist.");
 		else try {
-				if(user.authenticate(password)) Utilities.openScene("MainView", passwordPF.getScene().getWindow(), MainController.getInstance());
-				else Utilities.warn("Password does not match.");
-			}
+			if(user.authenticate(password)) Utilities.openScene("MainView", passwordPF.getScene().getWindow(), MainController.getInstance(user));
+			else Utilities.warn("Password does not match.");
+		}
 		catch(Exception e) {
 			e.printStackTrace();
 		}
 	}
 
-	 @FXML
-	    void exit(ActionEvent event) {
-		 System.exit(0);
-	    }
-	 
-	 	public void openNew() {
+	@FXML
+	void exit(ActionEvent event) {
+		System.exit(0);
+	}
 
-	 	}
+	public void openNew() {
+
+	}
 }
