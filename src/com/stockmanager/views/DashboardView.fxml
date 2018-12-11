@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
@@ -109,39 +106,6 @@
          </children>
       </HBox>
       <HBox prefHeight="243.0" prefWidth="600.0">
-         <children>
-            <TitledPane prefHeight="207.0" prefWidth="516.0" text="Warehouse">
-               <content>
-                  <TableView fx:id="tblWarehouse" prefHeight="181.0" prefWidth="565.0">
-                     <columns>
-                        <TableColumn fx:id="clmnCompany" minWidth="50.0" prefWidth="91.0" text="Company" />
-                        <TableColumn fx:id="clmnWarehouse" minWidth="0.0" prefWidth="121.0" text="Warehouse" />
-                        <TableColumn fx:id="clmnName" minWidth="50.0" prefWidth="160.0" text="Name" />
-                        <TableColumn fx:id="clmnAddress" minWidth="8.0" prefWidth="142.0" text="Address" />
-                     </columns>
-                  </TableView>
-               </content>
-               <HBox.margin>
-                  <Insets left="20.0" top="15.0" />
-               </HBox.margin>
-            </TitledPane>
-            <TitledPane prefHeight="207.0" prefWidth="529.0" text="Purchases">
-               <content>
-                  <TableView fx:id="tblPurchase" prefHeight="181.0" prefWidth="532.0">
-                     <columns>
-                        <TableColumn fx:id="clmnPurchase" prefWidth="67.0" text="Purchase" />
-                        <TableColumn fx:id="clmnWarehouse1" prefWidth="109.0" text="Warehouse" />
-                        <TableColumn fx:id="clmnDate" prefWidth="137.0" text="Date" />
-                        <TableColumn fx:id="clmnSupplier" minWidth="2.0" prefWidth="102.0" text="Supplier" />
-                        <TableColumn fx:id="clmnState" maxWidth="634.0" prefWidth="112.0" text="State" />
-                     </columns>
-                  </TableView>
-               </content>
-               <HBox.margin>
-                  <Insets left="10.0" top="15.0" />
-               </HBox.margin>
-            </TitledPane>
-         </children>
          <VBox.margin>
             <Insets />
          </VBox.margin>

@@ -27,7 +27,36 @@ public class MainController implements Controller {
     
     @FXML
     private Button btnWarehouse;
+    
+    @FXML
+    private Button btnCompanies;
 
+    @FXML
+    private Button btnStock;
+
+    @FXML
+    private Button btnPurchases;
+
+    @FXML
+    private Button btnSales;
+
+    @FXML
+    private Button btnInventory;
+
+    @FXML
+    private Button btnReports;
+
+    @FXML
+    private Button btnItems;
+
+    @FXML
+    private Button btnUnits;
+
+    @FXML
+    private Button btnLocations;
+
+    @FXML
+    private Button btnUsers;
 
     private MainController() {}
     
@@ -119,6 +148,18 @@ public class MainController implements Controller {
 
 	@Override
 	public void checkPermissions(HashMap<String, Boolean> permissions) {
-		btnWarehouse.setDisable(!permissions.get("Show Warehouse"));
+		btnWarehouse.setDisable(!permissions.get("Warehouse"));
+		btnCompanies.setDisable(!permissions.get("Companies"));
+		btnStock.setDisable(!permissions.get("Stock"));
+		btnPurchases.setDisable(!permissions.get("Purchases"));
+		btnSales.setDisable(!permissions.get("Sales"));
+		btnInventory.setDisable(!permissions.get("Inventory"));
+		btnReports.setDisable(!permissions.get("Reports"));
+		btnItems.setDisable(!permissions.get("Items"));
+		btnUnits.setDisable(!permissions.get("Units"));
+		btnLocations.setDisable(!permissions.get("Locations"));
+		btnUsers.setDisable(!permissions.get("Users"));
+		
+		
 	}
 }

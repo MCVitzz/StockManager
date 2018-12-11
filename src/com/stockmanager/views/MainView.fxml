@@ -72,7 +72,7 @@
                   <Insets left="15.0" />
                </padding>
             </Button>
-            <Button id="companyButton" alignment="TOP_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#companyButton_OnClick" prefHeight="28.0" prefWidth="177.0" stylesheets="@../application.css" text="Companies" textFill="WHITE">
+            <Button id="companyButton" fx:id="btnCompanies" alignment="TOP_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#companyButton_OnClick" prefHeight="28.0" prefWidth="177.0" stylesheets="@../application.css" text="Companies" textFill="WHITE">
                <graphic>
                   <ImageView fitHeight="23.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -96,7 +96,7 @@
                   <Insets left="15.0" />
                </padding>
             </Button>
-            <Button id="stockButton" alignment="TOP_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#stockButton" prefHeight="28.0" prefWidth="176.0" stylesheets="@../application.css" text="Stock" textFill="WHITE">
+            <Button id="stockButton" fx:id="btnStock" alignment="TOP_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#stockButton" prefHeight="28.0" prefWidth="176.0" stylesheets="@../application.css" text="Stock" textFill="WHITE">
                <VBox.margin>
                   <Insets top="20.0" />
                </VBox.margin>
@@ -123,7 +123,7 @@
                   <Insets left="15.0" />
                </padding>
             </Button>
-            <Button id="purchaseButton" alignment="TOP_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#purchaseButton_OnClick" prefHeight="28.0" prefWidth="178.0" stylesheets="@../application.css" text="Purchases" textFill="WHITE">
+            <Button id="purchaseButton" fx:id="btnPurchases" alignment="TOP_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#purchaseButton_OnClick" prefHeight="28.0" prefWidth="178.0" stylesheets="@../application.css" text="Purchases" textFill="WHITE">
                <VBox.margin>
                   <Insets top="20.0" />
                </VBox.margin>
@@ -147,7 +147,7 @@
                   <Insets left="15.0" />
                </padding>
             </Button>
-            <Button id="purchaseButton" alignment="TOP_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#saleButton_OnClick" prefHeight="28.0" prefWidth="178.0" stylesheets="@../application.css" text="Sales" textFill="WHITE">
+            <Button id="purchaseButton" fx:id="btnSales" alignment="TOP_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#saleButton_OnClick" prefHeight="28.0" prefWidth="178.0" stylesheets="@../application.css" text="Sales" textFill="WHITE">
                <graphic>
                   <ImageView fitHeight="23.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -171,7 +171,7 @@
                   <Insets top="20.0" />
                </VBox.margin>
             </Button>
-            <Button id="inventoryButton" alignment="TOP_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="176.0" stylesheets="@../application.css" text="Inventory" textFill="WHITE">
+            <Button id="inventoryButton" fx:id="btnInventory" alignment="TOP_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="176.0" stylesheets="@../application.css" text="Inventory" textFill="WHITE">
                <VBox.margin>
                   <Insets top="20.0" />
                </VBox.margin>
@@ -195,7 +195,7 @@
                   <Insets left="15.0" />
                </padding>
             </Button>
-            <Button id="reportsButton" fx:id="reportsButton" alignment="TOP_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="180.0" stylesheets="@../application.css" text="Reports" textFill="WHITE">
+            <Button id="reportsButton" fx:id="btnReports" alignment="TOP_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="180.0" stylesheets="@../application.css" text="Reports" textFill="WHITE">
                <VBox.margin>
                   <Insets top="20.0" />
                </VBox.margin>
@@ -219,7 +219,7 @@
                   <Insets left="15.0" />
                </padding>
             </Button>
-            <Button id="itemButton" alignment="TOP_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#itemButton_OnClick" prefHeight="28.0" prefWidth="178.0" stylesheets="@../application.css" text="Items" textFill="WHITE">
+            <Button id="itemButton" fx:id="btnItems" alignment="TOP_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#itemButton_OnClick" prefHeight="28.0" prefWidth="178.0" stylesheets="@../application.css" text="Items" textFill="WHITE">
                <VBox.margin>
                   <Insets top="20.0" />
                </VBox.margin>
@@ -243,7 +243,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button id="unitButton" alignment="TOP_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#unitButton_OnClick" prefHeight="28.0" prefWidth="177.0" stylesheets="@../application.css" text="Units" textFill="WHITE">
+            <Button id="unitButton" fx:id="btnUnits" alignment="TOP_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#unitButton_OnClick" prefHeight="28.0" prefWidth="177.0" stylesheets="@../application.css" text="Units" textFill="WHITE">
                <VBox.margin>
                   <Insets top="20.0" />
                </VBox.margin>
@@ -267,7 +267,7 @@
                   <Insets left="15.0" />
                </padding>
             </Button>
-            <Button id="locationButton" alignment="TOP_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#locationButton_OnClick" prefHeight="28.0" prefWidth="178.0" stylesheets="@../application.css" text="Locations" textFill="WHITE">
+            <Button id="locationButton" fx:id="btnLocations" alignment="TOP_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#locationButton_OnClick" prefHeight="28.0" prefWidth="178.0" stylesheets="@../application.css" text="Locations" textFill="WHITE">
                <graphic>
                   <ImageView fitHeight="23.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -291,7 +291,7 @@
                   <Insets left="15.0" />
                </padding>
             </Button>
-            <Button id="userButton" alignment="TOP_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#userButton_OnClick" prefHeight="28.0" prefWidth="178.0" stylesheets="@../application.css" text="Users" textFill="WHITE">
+            <Button id="userButton" fx:id="btnUsers" alignment="TOP_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#userButton_OnClick" prefHeight="28.0" prefWidth="178.0" stylesheets="@../application.css" text="Users" textFill="WHITE">
                <graphic>
                   <ImageView fitHeight="23.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                      <image>
