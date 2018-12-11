@@ -1,8 +1,13 @@
 package com.stockmanager.controllers;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 import com.stockmanager.model.Company;
 import com.stockmanager.model.Purchase;
 import com.stockmanager.model.PurchaseItem;
+import com.stockmanager.model.User;
+import com.stockmanager.model.UserPermission;
 import com.stockmanager.model.Warehouse;
 import com.stockmanager.utils.Utilities;
 
@@ -13,7 +18,7 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 
-public class DialogPurchaseController {
+public class DialogPurchaseController implements Controller {
 
 	private Purchase purchase;
 	
@@ -138,11 +143,17 @@ public class DialogPurchaseController {
 	
 	@FXML
 	public void btnBack_OnClick() {
+		checkPermissions(null);
 		MainController.getInstance().changeView("PurchaseView");
 	}
 
 	@FXML
 	public void btnCancel_OnClick() {
 		btnBack_OnClick();
+	}
+
+	@Override
+	public void checkPermissions(HashMap<String, Boolean> permissions) {
+		System.out.println(new User("Vasco").getPermissions());
 	}
 }

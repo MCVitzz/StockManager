@@ -1,14 +1,20 @@
 package com.stockmanager.controllers;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
+import com.stockmanager.model.User;
+import com.stockmanager.model.UserPermission;
 import com.stockmanager.utils.Utilities;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 
-public class MainController {
+public class MainController implements Controller {
 
 	private static MainController instance;
 	
@@ -18,6 +24,9 @@ public class MainController {
 
     @FXML
     private Label lblTitle;
+    
+    @FXML
+    private Button btnWarehouse;
 
 
     private MainController() {}
@@ -30,6 +39,7 @@ public class MainController {
     
 	public void initialize() {
 		changeView("DashboardView", "Dashboard");
+		checkPermissions(new User("Vasco").getPermissions());
 	}
 
 	@FXML
@@ -105,5 +115,10 @@ public class MainController {
 	public void changeView(Node newView) {
 		mainVerticalBox.getChildren().clear();
 		mainVerticalBox.getChildren().add(0, newView);
+	}
+
+	@Override
+	public void checkPermissions(HashMap<String, Boolean> permissions) {
+		btnWarehouse.setDisable(!permissions.get("Show Warehouse"));
 	}
 }

@@ -17,14 +17,14 @@ public class UserPermissionsController {
 	private TableView<UserPermission> tblUserPermissions;
 
 	@FXML
-	private TableColumn<UserPermission, String> clmnUser;
+	private TableColumn<UserPermission, String> clmnType;
 
 	@FXML
-	private TableColumn<UserPermission, String> clmnRole;
+	private TableColumn<UserPermission, String> clmnAccess;
 
 	public void initialize() {
-		clmnUser.setCellValueFactory(new PropertyValueFactory<UserPermission, String>("User"));
-		clmnRole.setCellValueFactory(new PropertyValueFactory<UserPermission, String>("Role"));
+		clmnType.setCellValueFactory(new PropertyValueFactory<UserPermission, String>("Type"));
+		clmnAccess.setCellValueFactory(new PropertyValueFactory<UserPermission, String>("Access"));
 		
 		getData();
 	}

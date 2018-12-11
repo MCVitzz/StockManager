@@ -5,7 +5,6 @@ import com.stockmanager.model.Location;
 import com.stockmanager.model.Purchase;
 import com.stockmanager.model.PurchaseItem;
 import com.stockmanager.model.PurchaseVolume;
-import com.stockmanager.model.PurchaseVolumeItem;
 import com.stockmanager.utils.Utilities;
 
 import javafx.event.ActionEvent;

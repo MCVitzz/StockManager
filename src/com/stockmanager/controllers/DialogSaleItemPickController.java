@@ -2,7 +2,6 @@ package com.stockmanager.controllers;
 
 import com.stockmanager.model.Item;
 import com.stockmanager.model.PickItem;
-import com.stockmanager.model.SaleItem;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

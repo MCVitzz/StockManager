@@ -48,7 +48,7 @@
                   <Insets left="15.0" />
                </padding>
             </Button>
-            <Button id="warehouseButton" alignment="TOP_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#warehouseButton_OnClick" prefHeight="28.0" prefWidth="175.0" stylesheets="@../application.css" text="Warehouse" textFill="WHITE">
+            <Button id="warehouseButton" fx:id="btnWarehouse" alignment="TOP_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#warehouseButton_OnClick" prefHeight="28.0" prefWidth="175.0" stylesheets="@../application.css" text="Warehouse" textFill="WHITE">
                <VBox.margin>
                   <Insets top="20.0" />
                </VBox.margin>

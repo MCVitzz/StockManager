@@ -12,8 +12,8 @@
       <HBox prefHeight="16.0" prefWidth="1123.0" style="-fx-background-color: rgb(64.0, 78.0, 103.0);;" />
       <TableView fx:id="tblUserPermissions" onMouseClicked="#tblUserPermissions_OnClick" prefHeight="397.0" prefWidth="1086.0">
          <columns>
-            <TableColumn fx:id="clmnUser" maxWidth="920.8000457882881" prefWidth="916.8000457882881" text="Name" />
-            <TableColumn fx:id="clmnRole" minWidth="0.0" prefWidth="181.60003662109375" text="Role" />
+            <TableColumn fx:id="clmnType" maxWidth="920.8000457882881" prefWidth="916.8000457882881" text="Type" />
+            <TableColumn fx:id="clmnAccess" minWidth="0.0" prefWidth="181.60003662109375" text="Access" />
          </columns>
       </TableView>
       <HBox prefHeight="21.0" prefWidth="677.0" style="-fx-background-color: rgb(64.0, 78.0, 103.0);;">
