@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -22,15 +23,21 @@
       </TableView>
       <HBox prefHeight="21.0" prefWidth="677.0" style="-fx-background-color: rgb(64.0, 78.0, 103.0);;">
          <children>
-            <Button mnemonicParsing="false" onAction="#btnAddSaleItem_OnClick" text="+">
+            <Button mnemonicParsing="false" onAction="#btnAddSaleItem_OnClick" prefHeight="25.0" prefWidth="35.0" text="+">
                <HBox.margin>
-                  <Insets bottom="5.0" left="10.0" top="5.0" />
+                  <Insets bottom="10.0" left="5.0" top="10.0" />
                </HBox.margin>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
             <Button mnemonicParsing="false" onAction="#btnRefresh_OnClick" text="Refresh">
                <HBox.margin>
-                  <Insets bottom="5.0" left="10.0" top="5.0" />
+                  <Insets bottom="10.0" left="5.0" top="10.0" />
                </HBox.margin>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
          </children></HBox>
    </children>

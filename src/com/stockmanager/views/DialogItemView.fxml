@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
@@ -23,17 +24,25 @@
       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <ComboBox fx:id="cbCompany" onAction="#cbCompany_OnAction" prefWidth="150.0" GridPane.columnIndex="1" />
-      <TextField fx:id="txtItem" prefHeight="25.0" prefWidth="343.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+      <Label text="Company">
          <GridPane.margin>
-            <Insets right="50.0" />
+            <Insets left="50.0" />
          </GridPane.margin>
-      </TextField>
+      </Label>
+      <ComboBox fx:id="cbCompany" onAction="#cbCompany_OnAction" prefWidth="150.0" GridPane.columnIndex="1">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></ComboBox>
       <Label prefHeight="109.0" prefWidth="234.0" text="Item" GridPane.rowIndex="1">
          <GridPane.margin>
             <Insets left="50.0" />
          </GridPane.margin>
       </Label>
+      <TextField fx:id="txtItem" prefHeight="25.0" prefWidth="343.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+         <GridPane.margin>
+            <Insets right="50.0" />
+         </GridPane.margin>
+      </TextField>
       <Label prefHeight="109.0" prefWidth="234.0" text="Name" GridPane.rowIndex="2">
          <GridPane.margin>
             <Insets left="50.0" />
@@ -44,7 +53,15 @@
             <Insets right="50.0" />
          </GridPane.margin>
       </TextField>
-      <ComboBox fx:id="cbUnit" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+      <Label prefHeight="109.0" prefWidth="234.0" text="Unit" GridPane.rowIndex="3">
+         <GridPane.margin>
+            <Insets left="50.0" />
+         </GridPane.margin>
+      </Label>
+      <ComboBox fx:id="cbUnit" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></ComboBox>
       <Button mnemonicParsing="false" onAction="#btnItemSave_OnClick" prefHeight="35.0" prefWidth="73.0" text="Save" GridPane.rowIndex="4">
          <opaqueInsets>
             <Insets />
@@ -60,16 +77,9 @@
          <GridPane.margin>
             <Insets left="75.0" />
          </GridPane.margin>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </Button>
-      <Label prefHeight="109.0" prefWidth="234.0" text="Unit" GridPane.rowIndex="3">
-         <GridPane.margin>
-            <Insets left="50.0" />
-         </GridPane.margin>
-      </Label>
-      <Label text="Company">
-         <GridPane.margin>
-            <Insets left="50.0" />
-         </GridPane.margin>
-      </Label>
    </children>
 </GridPane>

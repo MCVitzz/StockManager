@@ -9,17 +9,17 @@ import com.stockmanager.utils.Utilities;
 public class UserPermission extends DatabaseObject {
 
 	String user;
-	String role;
-	boolean value;
+	String type;
+	boolean access;
 
-	public UserPermission(String user, String role) {
+	public UserPermission(String user, String type) {
 		this.user = user;
-		this.role = role;
+		this.type = type;
 
 		try {
-			ResultSet rs = Database.select("SELECT * FROM userpermission WHERE user = '" + user + "' AND Role = '" + role + "'");
+			ResultSet rs = Database.select("SELECT * FROM userpermission WHERE user = '" + user + "' AND Type = '" + type + "'");
 			while (rs.next()) {
-				this.value = rs.getBoolean("Value");
+				this.access = rs.getBoolean("Access");
 			}
 		}
 		catch(SQLException e) {
@@ -28,11 +28,11 @@ public class UserPermission extends DatabaseObject {
 	}
 
 	public static ArrayList<UserPermission> getAll() {
-		ResultSet rs = Database.select("SELECT User,Role FROM userpermission");
+		ResultSet rs = Database.select("SELECT User,Type FROM userpermission");
 		ArrayList<UserPermission> userpermissions = new ArrayList<UserPermission>();
 		try {
 			while(rs.next())
-				userpermissions.add(new UserPermission(rs.getString("User"), rs.getString("Role")));
+				userpermissions.add(new UserPermission(rs.getString("User"), rs.getString("Type")));
 		} catch (SQLException e) {
 			Utilities.warn(e.getMessage());
 			e.printStackTrace();
@@ -41,11 +41,11 @@ public class UserPermission extends DatabaseObject {
 	}
 	
 	public static ArrayList<UserPermission> getPremissionsFromUser(String user) {
-		ResultSet rs = Database.select("SELECT User, Role FROM userpermission WHERE User = '" + user + "'");
+		ResultSet rs = Database.select("SELECT User, Type FROM userpermission WHERE User = '" + user + "'");
 		ArrayList<UserPermission> userpermissions = new ArrayList<UserPermission>();
 		try {
 			while(rs.next())
-				userpermissions.add(new UserPermission(rs.getString("User"), rs.getString("Role")));
+				userpermissions.add(new UserPermission(rs.getString("User"), rs.getString("Type")));
 		} catch (SQLException e) {
 			Utilities.warn(e.getMessage());
 			e.printStackTrace();
@@ -53,45 +53,56 @@ public class UserPermission extends DatabaseObject {
 		return userpermissions;
 	}
 
+	public void switchAccess() {
+		this.access = !this.access;
+	}
+	
 	@Override
 	protected boolean insert() {
-		return Database.executeQuery("INSERT INTO userpermission (User, Role, Value) VALUES ('" + user + "', '" + role + "', '" + value + "')");
+		return Database.executeQuery("INSERT INTO userpermission (User, Type, Access) VALUES ('" + user + "', '" + type + "', " + access() + ")");
 	}
 
 	@Override
 	protected boolean update() {
-		return Database.executeQuery("UPDATE userpermission SET value = '" + value + "' WHERE User = '" + user + "' AND Role = '" + role + "'");
+		return Database.executeQuery("UPDATE userpermission SET Access = " + access() + " WHERE User = '" + user + "' AND Type = '" + type + "'");
 	}
 
 	@Override
 	protected boolean exists() {
-		return Database.simpleSelect("User", "userpermission", "user = '" + user + "' AND role = '" + role + "'") != null;
+		return Database.simpleSelect("User", "userpermission", "user = '" + user + "' AND Type = '" + type + "'") != null;
 	}
 
 	@Override
 	public boolean delete() {
-		return Database.executeQuery("DELETE FROM userpermission WHERE User = '" + user + "' AND Role = '" + role + "'");
+		return Database.executeQuery("DELETE FROM userpermission WHERE User = '" + user + "' AND Type = '" + type + "'");
 	}
 
 	@Override
 	protected boolean validate() {
-		return (!Utilities.stringIsEmpty(user) && !Utilities.stringIsEmpty(role));
+		return (!Utilities.stringIsEmpty(user) && !Utilities.stringIsEmpty(type));
 	}
-
 
 	public String getUser() {
 		return user;
 	}
 
-	public String getRole() {
-		return role;
+	public String getType() {
+		return type;
 	}
 
-	public boolean isValue() {
-		return value;
+	public boolean hasAccess() {
+		return access;
 	}
 
+	public String getAccess() {
+		return access ? "Yes" : "No";
+	}
 
+	private int access() {
+		if(access)
+			return 1;
+		else return 0;
+	}
 
 
 }

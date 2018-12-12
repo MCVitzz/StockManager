@@ -5,7 +5,6 @@ import com.stockmanager.model.Location;
 import com.stockmanager.model.Purchase;
 import com.stockmanager.model.PurchaseItem;
 import com.stockmanager.model.PurchaseVolume;
-import com.stockmanager.model.PurchaseVolumeItem;
 import com.stockmanager.utils.Utilities;
 
 import javafx.event.ActionEvent;
@@ -89,8 +88,7 @@ public class DialogPurchaseItemReceivingController {
     	pv.setLocation(txtLocation.getText());
     	pv.setWarehouse(purchase.getWarehouse());
     	pv.save();
-    	PurchaseVolumeItem pvi = pv.makeItem(cbItem.getValue().getItem(), Double.parseDouble(txtQuantity.getText()), txtUnit.getText());
-    	pvi.save();
+    	pv.makeItem(cbItem.getValue().getItem(), Double.parseDouble(txtQuantity.getText()), txtUnit.getText());
     	reset();
     }
 

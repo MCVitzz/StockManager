@@ -34,6 +34,7 @@ public class PurchaseVolume extends DatabaseObject {
 		PurchaseVolumeItem pvi = new PurchaseVolumeItem(company, purchase, volume, item);
 		pvi.setQuantity(quantity);
 		pvi.setUnit(unit);
+		pvi.save();
 		return pvi;
 	}
 	

@@ -3,11 +3,11 @@ package com.stockmanager.controllers;
 import com.stockmanager.model.UserPermission;
 
 import javafx.collections.FXCollections;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 
 public class UserPermissionsController {
 
@@ -17,15 +17,15 @@ public class UserPermissionsController {
 	private TableView<UserPermission> tblUserPermissions;
 
 	@FXML
-	private TableColumn<UserPermission, String> clmnUser;
+	private TableColumn<UserPermission, String> clmnType;
 
 	@FXML
-	private TableColumn<UserPermission, String> clmnRole;
+	private TableColumn<UserPermission, String> clmnAccess;
 
 	public void initialize() {
-		clmnUser.setCellValueFactory(new PropertyValueFactory<UserPermission, String>("User"));
-		clmnRole.setCellValueFactory(new PropertyValueFactory<UserPermission, String>("Role"));
-		
+		clmnType.setCellValueFactory(new PropertyValueFactory<UserPermission, String>("Type"));
+		clmnAccess.setCellValueFactory(new PropertyValueFactory<UserPermission, String>("Access"));
+		tblUserPermissions.getSelectionModel().setCellSelectionEnabled(true);
 		getData();
 	}
 	
@@ -38,8 +38,8 @@ public class UserPermissionsController {
 	}
 
 	@FXML
-	void btnRefresh_OnClick(ActionEvent event) {
-
+	void btnRefresh_OnClick() {
+		getData();
 	}
 	
 	@FXML
@@ -48,7 +48,13 @@ public class UserPermissionsController {
 	}
 
 	@FXML
-	void tblUserPermissions_OnClick(ActionEvent event) {
-
+	void tblUserPermissions_OnClick(MouseEvent e) {
+		if (tblUserPermissions.getSelectionModel().getSelectedItem() != null && e.getClickCount() == 2 && tblUserPermissions.getSelectionModel().getSelectedCells().get(0).getColumn() == 1) {
+			tblUserPermissions.getSelectionModel().getSelectedItem().switchAccess();
+			tblUserPermissions.getSelectionModel().getSelectedItem().save();
+			btnRefresh_OnClick();
+			MainController.getInstance().checkPermissions(MainController.getInstance().getUser().getPermissions());
+		}
 	}
+	
 }

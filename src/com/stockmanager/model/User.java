@@ -3,6 +3,7 @@ package com.stockmanager.model;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import com.stockmanager.utils.PasswordUtils;
 import com.stockmanager.utils.Utilities;
@@ -44,6 +45,26 @@ public class User extends DatabaseObject {
 			e.printStackTrace();
 		}
 		return users;
+	}
+	
+	private ArrayList<UserPermission> getUsersPermissions() {
+		ResultSet rs = Database.select("SELECT Type FROM userpermission WHERE User = '" + user + "'");
+		ArrayList<UserPermission> permissions = new ArrayList<UserPermission>();
+		try {
+			while(rs.next())
+				permissions.add(new UserPermission(user, rs.getString("Type")));
+		} catch (SQLException e) {
+			Utilities.warn(e.getMessage());
+			e.printStackTrace();
+		}
+		return permissions;
+	}
+	
+	public HashMap<String, Boolean> getPermissions() {
+		HashMap<String, Boolean> permissions = new HashMap<String, Boolean>();
+		for(UserPermission permission : getUsersPermissions())
+			permissions.put(permission.getType(), permission.hasAccess());
+		return permissions;
 	}
 
 	public boolean authenticate(String password) {

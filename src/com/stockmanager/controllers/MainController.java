@@ -1,35 +1,92 @@
 package com.stockmanager.controllers;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
+import com.stockmanager.model.User;
+import com.stockmanager.model.UserPermission;
 import com.stockmanager.utils.Utilities;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.ImageCursor;
 import javafx.scene.Node;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.layout.VBox;
 
-public class MainController {
+public class MainController implements Controller {
 
 	private static MainController instance;
-	
+
+	private User user;
+
 	@FXML
 	private VBox mainVerticalBox;
+
+	@FXML
+	private Label lblTitle;
 	
+	@FXML
+	private Label lblUser;
 
-    @FXML
-    private Label lblTitle;
+	@FXML
+	private Button btnWarehouse;
 
+	@FXML
+	private Button btnCompanies;
 
-    private MainController() {}
+	@FXML
+	private Button btnStock;
+
+	@FXML
+	private Button btnPurchases;
+
+	@FXML
+	private Button btnSales;
+
+	@FXML
+	private Button btnInventory;
+
+	@FXML
+	private Button btnReports;
+
+	@FXML
+	private Button btnItems;
+
+	@FXML
+	private Button btnUnits;
+    
+	@FXML
+	private Button btnLocations;
+
+	@FXML
+	private Button btnUsers;
+
+    private MainController(User user) {
+    	setUser(user);
+    }
     
     public static MainController getInstance() {
-    	if(instance == null)
-    		instance = new MainController();
     	return instance;
     }
     
+    public static MainController getInstance(User user) {
+    	if(instance == null)
+    		instance = new MainController(user);
+    	else {
+    		instance.setUser(user);
+    		instance.lblUser.setText(user.getUser());
+    		instance.checkPermissions(user.getPermissions());
+    	}
+    	return instance;
+    }
+
 	public void initialize() {
 		changeView("DashboardView", "Dashboard");
+		lblUser.setText(user.getUser());
+		checkPermissions(user.getPermissions());
 	}
 
 	@FXML
@@ -51,52 +108,53 @@ public class MainController {
 	void purchaseButton_OnClick(ActionEvent event) {
 		changeView("PurchaseView", "Purchases");
 	}
-	
+
 	@FXML
 	void saleButton_OnClick(ActionEvent event) {
 		changeView("SaleView", "Sales");
 	}
+
 	@FXML
 	void warehouseButton_OnClick() {
 		changeView("WarehouseView", "Warehouses");
 	}
-	
+
 	@FXML
 	void userButton_OnClick(ActionEvent event) {
 		changeView("UserView", "Users");
 	}
-	
+
 	@FXML
 	void companyButton_OnClick() {
 		changeView("CompanyView", "Companies");
 	}
-	
+
 	@FXML
 	void itemButton_OnClick() {
 		changeView("ItemView", "Items");
 	}
-	
+
 	@FXML
 	void unitButton_OnClick() {
 		changeView("UnitView", "Units");
 	}
-	
+
 	@FXML
 	void locationButton_OnClick() {
 		changeView("LocationView", "Locations");
 	}
-	
+
 	@FXML
 	void btnLogout_OnClick() {
-		Utilities.openScene("LoginView", lblTitle.getScene().getWindow());
+		Utilities.openScene("LoginView", lblTitle.getScene().getWindow(), new LoginController());
 	}
-	
+
 	public void changeView(String newView, String title) {
 		lblTitle.setText(title);
 		mainVerticalBox.getChildren().clear();
 		mainVerticalBox.getChildren().add(0, Utilities.getNode(newView));
 	}
-	
+
 	public void changeView(String newView) {
 		mainVerticalBox.getChildren().clear();
 		mainVerticalBox.getChildren().add(0, Utilities.getNode(newView));
@@ -105,5 +163,29 @@ public class MainController {
 	public void changeView(Node newView) {
 		mainVerticalBox.getChildren().clear();
 		mainVerticalBox.getChildren().add(0, newView);
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	private void setUser(User user) {
+		this.user = user;
+	}
+	
+	@Override
+	public void checkPermissions(HashMap<String, Boolean> permissions) {
+		btnWarehouse.setDisable(!permissions.get("Warehouse"));
+//		btnWarehouse.setCursor(new ImageCursor(new Image("file://../Images/cursor-proibido.png")));
+		btnCompanies.setDisable(!permissions.get("Companies"));
+		btnStock.setDisable(!permissions.get("Stock"));
+		btnPurchases.setDisable(!permissions.get("Purchases"));
+		btnSales.setDisable(!permissions.get("Sales"));
+		btnInventory.setDisable(!permissions.get("Inventory"));
+		btnReports.setDisable(!permissions.get("Reports"));
+		btnItems.setDisable(!permissions.get("Items"));
+		btnUnits.setDisable(!permissions.get("Units"));
+		btnLocations.setDisable(!permissions.get("Locations"));
+		btnUsers.setDisable(!permissions.get("Users"));
 	}
 }
