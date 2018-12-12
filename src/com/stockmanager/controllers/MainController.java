@@ -1,19 +1,16 @@
 package com.stockmanager.controllers;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
+import com.stockmanager.model.Menu;
 import com.stockmanager.model.User;
-import com.stockmanager.model.UserPermission;
 import com.stockmanager.utils.Utilities;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.ImageCursor;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.image.Image;
 import javafx.scene.layout.VBox;
 
 public class MainController implements Controller {
@@ -23,11 +20,14 @@ public class MainController implements Controller {
 	private User user;
 
 	@FXML
+	private VBox vboxMenu;
+
+	@FXML
 	private VBox mainVerticalBox;
 
 	@FXML
 	private Label lblTitle;
-	
+
 	@FXML
 	private Label lblUser;
 
@@ -57,36 +57,38 @@ public class MainController implements Controller {
 
 	@FXML
 	private Button btnUnits;
-    
+
 	@FXML
 	private Button btnLocations;
 
 	@FXML
 	private Button btnUsers;
 
-    private MainController(User user) {
-    	setUser(user);
-    }
-    
-    public static MainController getInstance() {
-    	return instance;
-    }
-    
-    public static MainController getInstance(User user) {
-    	if(instance == null)
-    		instance = new MainController(user);
-    	else {
-    		instance.setUser(user);
-    		instance.lblUser.setText(user.getUser());
-    		instance.checkPermissions(user.getPermissions());
-    	}
-    	return instance;
-    }
+	private MainController(User user) {
+		setUser(user);
+	}
+
+	public static MainController getInstance() {
+		return instance;
+	}
+
+	public static MainController getInstance(User user) {
+		if (instance == null)
+			instance = new MainController(user);
+		else {
+			instance.setUser(user);
+			instance.lblUser.setText(user.getUser());
+			instance.checkPermissions(user.getPermissions());
+		}
+		return instance;
+	}
 
 	public void initialize() {
 		changeView("DashboardView", "Dashboard");
 		lblUser.setText(user.getUser());
 		checkPermissions(user.getPermissions());
+		for(Menu menu : Menu.getAll())
+			createMenuButtons(menu.getName(), menu.getImage());
 	}
 
 	@FXML
@@ -159,7 +161,7 @@ public class MainController implements Controller {
 		mainVerticalBox.getChildren().clear();
 		mainVerticalBox.getChildren().add(0, Utilities.getNode(newView));
 	}
-	
+
 	public void changeView(Node newView) {
 		mainVerticalBox.getChildren().clear();
 		mainVerticalBox.getChildren().add(0, newView);
@@ -172,11 +174,17 @@ public class MainController implements Controller {
 	private void setUser(User user) {
 		this.user = user;
 	}
-	
+
+	private void createMenuButtons(String name, String image) {
+		
+			System.out.println("Nome do botão: " + name + "Path da imagem: " + image);
+			Button menuButtons = new Button(name);
+			vboxMenu.getChildren().add(menuButtons);
+	}
+
 	@Override
 	public void checkPermissions(HashMap<String, Boolean> permissions) {
 		btnWarehouse.setDisable(!permissions.get("Warehouse"));
-//		btnWarehouse.setCursor(new ImageCursor(new Image("file://../Images/cursor-proibido.png")));
 		btnCompanies.setDisable(!permissions.get("Companies"));
 		btnStock.setDisable(!permissions.get("Stock"));
 		btnPurchases.setDisable(!permissions.get("Purchases"));

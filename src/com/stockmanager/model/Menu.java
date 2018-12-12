@@ -1,0 +1,49 @@
+package com.stockmanager.model;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+
+import com.stockmanager.utils.Utilities;
+
+public class Menu {
+	private String name;
+	private String image;
+	
+	public Menu(String name, String image) {
+		this.name = name;
+		try {
+			ResultSet rs = Database.select("SELECT * FROM menu WHERE Name = '" + name + "'");
+			while (rs.next())
+				this.image = rs.getString("Image");
+		}
+		catch(SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public static ArrayList<Menu> getAll() {
+		ResultSet rs = Database.select("SELECT Name, Image FROM menu");
+		ArrayList<Menu> menu = new ArrayList<Menu>();
+		try {
+			while(rs.next())
+				menu.add(new Menu(rs.getString("Name"), rs.getString("Image")));
+		} catch (SQLException e) {
+			Utilities.warn(e.getMessage());
+			e.printStackTrace();
+		}
+		return menu;
+	}
+	
+	public String getName() {
+		return name;
+	}
+	
+	public String getImage() {
+		return image;
+	}
+	
+	public void setImage(String image) {
+		this.image = image;
+	}
+}
