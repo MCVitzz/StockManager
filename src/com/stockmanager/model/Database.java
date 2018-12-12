@@ -81,6 +81,7 @@ public class Database {
 		ResultSet rs = null;
 		try {
 			Statement stmt = conn.createStatement();
+			System.out.println(query);
 			rs = stmt.executeQuery(query);
 		}
 		catch(SQLException e) {

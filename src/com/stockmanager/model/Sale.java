@@ -56,13 +56,26 @@ public class Sale extends DatabaseObject {
 			e.printStackTrace();
 		}
 	}
-
+	
 	public static ArrayList<Sale> getAll() {
 		ResultSet rs = Database.select("SELECT Company, Sale FROM sale");
 		ArrayList<Sale> sales = new ArrayList<Sale>();
 		try {
 			while(rs.next())
 				sales.add(new Sale(rs.getString("Company"), rs.getInt("Sale")));
+		} catch (SQLException e) {
+			Utilities.warn(e.getMessage());
+			e.printStackTrace();
+		}
+		return sales;
+	}
+	
+	public ArrayList<SaleItem> getItems() {
+		ResultSet rs = Database.select("SELECT Item FROM saleitem WHERE Company = '" + company + "' AND Sale = " + sale);
+		ArrayList<SaleItem> sales = new ArrayList<SaleItem>();
+		try {
+			while(rs.next())
+				sales.add(new SaleItem(company, sale, rs.getString("Item")));
 		} catch (SQLException e) {
 			Utilities.warn(e.getMessage());
 			e.printStackTrace();

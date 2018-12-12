@@ -1,6 +1,9 @@
 package com.stockmanager.controllers;
 
+import java.util.ArrayList;
+
 import com.stockmanager.model.Company;
+import com.stockmanager.model.PickItem;
 import com.stockmanager.model.Sale;
 import com.stockmanager.model.Warehouse;
 import com.stockmanager.utils.Utilities;
@@ -104,10 +107,13 @@ public class DialogSaleController {
 		btnCancel_OnClick();
 	}
 	
-//	@FXML
-//	public void btnPick_OnAction() {
-//		Utilities.openDialog("DialogSaleItemPickView",new DialogSaleItemPickController());
-//	}
+	@FXML
+	public void btnPick_OnAction() {
+		ArrayList<PickItem> pktlist = PickItem.getAllPickingItems(sale);
+		if(pktlist.size() > 0)
+			Utilities.openDialog("DialogSaleItemPickView",new DialogSaleItemPickController(pktlist,sale));
+		else Utilities.warn("No stock available.");
+	}
 	
 	@FXML
 	public void cbCompany_OnAction() {
