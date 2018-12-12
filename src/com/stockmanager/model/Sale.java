@@ -70,6 +70,19 @@ public class Sale extends DatabaseObject {
 		return sales;
 	}
 	
+	public ArrayList<SaleItem> getItems() {
+		ResultSet rs = Database.select("SELECT Item FROM saleitem WHERE Company = '" + company + "' AND Sale = " + sale);
+		ArrayList<SaleItem> sales = new ArrayList<SaleItem>();
+		try {
+			while(rs.next())
+				sales.add(new SaleItem(company, sale, rs.getString("Item")));
+		} catch (SQLException e) {
+			Utilities.warn(e.getMessage());
+			e.printStackTrace();
+		}
+		return sales;
+	}
+	
 	public String getCompany() {
 		return company;
 	}

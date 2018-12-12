@@ -68,7 +68,6 @@ public class PurchaseVolumeItem extends DatabaseObject {
 		return item;
 	}
 
-
 	@Override
 	protected boolean insert() {
 		return Database.executeQuery("INSERT INTO purchaseVolumeItem (Company, Purchase, Volume, Item, Quantity, Unit) VALUES ('" + company + "', '" + purchase + "', '" + volume + "', '" + item + "', '" + quantity + "', '" + unit + "')");

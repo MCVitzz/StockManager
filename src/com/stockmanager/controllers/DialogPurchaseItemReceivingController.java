@@ -133,7 +133,6 @@ public class DialogPurchaseItemReceivingController {
 
     @FXML
     void cbItem_OnAction(ActionEvent event) {
-    	System.out.println(cbItem.getValue());
     	txtItem.setText(cbItem.getValue().getName());
     	txtUnit.setText(cbItem.getValue().getUnit());
     }

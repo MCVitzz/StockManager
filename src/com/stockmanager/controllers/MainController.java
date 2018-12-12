@@ -70,12 +70,14 @@ public class MainController implements Controller {
     public static MainController getInstance(User user) {
     	if(instance == null)
     		instance = new MainController(user);
+    	else instance.setUser(user);
     	return instance;
     }
     
 	public void initialize() {
 		changeView("DashboardView", "Dashboard");
-		checkPermissions(new User("Vasco").getPermissions());
+		System.out.println(user.getUser());
+		checkPermissions(user.getPermissions());
 	}
 
 	@FXML
@@ -134,7 +136,7 @@ public class MainController implements Controller {
 	
 	@FXML
 	void btnLogout_OnClick() {
-		Utilities.openScene("LoginView", lblTitle.getScene().getWindow());
+		Utilities.openScene("LoginView", lblTitle.getScene().getWindow(), new LoginController());
 	}
 	
 	public void changeView(String newView, String title) {
@@ -155,6 +157,10 @@ public class MainController implements Controller {
 
 	public User getUser() {
 		return user;
+	}
+	
+	private void setUser(User user) {
+		this.user = user;
 	}
 	
 	@Override

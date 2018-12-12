@@ -6,29 +6,42 @@ import java.util.ArrayList;
 
 public class PickItem {
 
-	
+
 	private StockVolumeItem volume;
 	private String item;
 	private double quantity;
-	
+
+
 	public PickItem(StockVolumeItem volume, double quantity) {
 		this.volume = volume;
 		this.quantity = quantity;		
 	}
 
-	public static ArrayList<PickItem> getAllPickingItems() {
+	public static ArrayList<PickItem> getAllPickingItems(Sale sale) {
 		ArrayList<PickItem> pickingList= new ArrayList<>();
-		
+		double saleqnt = 0;
+
 		try {
-			ResultSet rs = Database.select("SELECT SVI.Company, SVI.Volume, SI.Item, SI.Quantity FROM stockvolumeitem AS SVI INNER JOIN saleitem AS SI ON SVI.Company=SI.Company AND SVI.Item=SI.Item");
-			
-			while (rs.next()) 
-				pickingList.add(new PickItem(new StockVolumeItem(rs.getString("SVI.Company"),rs.getLong("SVI.Volume"),rs.getString("SVI.Item")),rs.getDouble("SI.Quantity")));
+			for(SaleItem si : sale.getItems()) {
+				ResultSet rs = Database.select("SELECT SVI.Volume, SVI.Item, SVI.Quantity"
+						+ "FROM stockvolumeitem AS SVI "
+						+ "INNER JOIN saleitem AS SI ON SVI.Company = SI.Company AND SVI.Item = SI.Item "
+						+ "WHERE SI.Company = '" + sale.getCompany() + "' AND SI.Sale = " + sale.getSale() + " GROUP BY SVI.Company, SVI.Item, SVI.Volume;");
+				saleqnt = Double.parseDouble(Database.simpleSelect("Quantity", "saleitem", "Company = '" + sale.getCompany() + "' AND Sale = " + sale.getSale() + " AND Item = '" + rs.getString("Item") + "'"));
+				while(rs.next()) {
+					saleqnt -= rs.getDouble("Quantity");
+					pickingList.add(new PickItem(new StockVolumeItem(si.getCompany(), rs.getLong("Volume"), si.getItem()), rs.getDouble("Quantity")));
+					new StockVolume(si.getCompany(), rs.getLong("Volume"));
+					if(saleqnt < 0) {
+						
+					}
+				}
+			}
 		}
 		catch(SQLException e) {
 			e.printStackTrace();
 		}
-		
+
 		return pickingList;
 	}
 
@@ -43,7 +56,7 @@ public class PickItem {
 	public double getQuantity() {
 		return quantity;
 	}
-	
-	
-	
+
+
+
 }
