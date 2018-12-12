@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
@@ -24,28 +25,35 @@
     <RowConstraints maxHeight="83.0" minHeight="10.0" prefHeight="83.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <ComboBox fx:id="cbItem" onAction="#cbItem_OnAction" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-      <Button mnemonicParsing="false" onAction="#btnReceive_OnClick" prefHeight="35.0" prefWidth="73.0" stylesheets="@../application.css" text="Receive" GridPane.rowIndex="4">
-         <opaqueInsets>
-            <Insets />
-         </opaqueInsets>
+      <Label text="Volume">
          <GridPane.margin>
-            <Insets left="75.0" />
+            <Insets left="50.0" />
          </GridPane.margin>
-      </Button>
-      <Button mnemonicParsing="false" onAction="#btnFinalize_OnClick" prefHeight="35.0" prefWidth="73.0" text="Finalize" GridPane.columnIndex="1" GridPane.rowIndex="4">
-         <opaqueInsets>
-            <Insets />
-         </opaqueInsets>
+      </Label>
+      <TextField fx:id="txtVolume" GridPane.columnIndex="1" />
+      <Button mnemonicParsing="false" onAction="#btnChange_OnClick" text="Change" GridPane.columnIndex="2">
          <GridPane.margin>
-            <Insets left="75.0" />
+            <Insets left="15.0" />
          </GridPane.margin>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </Button>
+      <Label fx:id="lblLocation" text="Location" GridPane.rowIndex="1">
+         <GridPane.margin>
+            <Insets left="50.0" />
+         </GridPane.margin>
+      </Label>
+      <TextField fx:id="txtLocation" onAction="#txtLocation_OnAction" GridPane.columnIndex="1" GridPane.rowIndex="1" />
       <Label prefHeight="109.0" prefWidth="234.0" text="Item" GridPane.rowIndex="2">
          <GridPane.margin>
             <Insets left="50.0" />
          </GridPane.margin>
       </Label>
+      <ComboBox fx:id="cbItem" onAction="#cbItem_OnAction" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></ComboBox>
       <TextField fx:id="txtItem" GridPane.columnIndex="2" GridPane.rowIndex="2" />
       <Label text="Quantity" GridPane.rowIndex="3">
          <GridPane.margin>
@@ -66,23 +74,31 @@
          <GridPane.margin>
             <Insets left="15.0" />
          </GridPane.margin>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </Button>
-      <Label text="Volume">
+      <Button mnemonicParsing="false" onAction="#btnReceive_OnClick" prefHeight="35.0" prefWidth="73.0" stylesheets="@../application.css" text="Receive" GridPane.rowIndex="4">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
          <GridPane.margin>
-            <Insets left="50.0" />
+            <Insets left="75.0" />
          </GridPane.margin>
-      </Label>
-      <TextField fx:id="txtVolume" GridPane.columnIndex="1" />
-      <Button mnemonicParsing="false" onAction="#btnChange_OnClick" text="Change" GridPane.columnIndex="2">
-         <GridPane.margin>
-            <Insets left="15.0" />
-         </GridPane.margin>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </Button>
-      <Label fx:id="lblLocation" text="Location" GridPane.rowIndex="1">
+      <Button mnemonicParsing="false" onAction="#btnFinalize_OnClick" prefHeight="35.0" prefWidth="73.0" text="Finalize" GridPane.columnIndex="1" GridPane.rowIndex="4">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
          <GridPane.margin>
-            <Insets left="50.0" />
+            <Insets left="75.0" />
          </GridPane.margin>
-      </Label>
-      <TextField fx:id="txtLocation" onAction="#txtLocation_OnAction" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
    </children>
 </GridPane>

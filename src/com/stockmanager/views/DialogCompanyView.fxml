@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
@@ -41,16 +42,16 @@
             <Insets right="50.0" />
          </GridPane.margin>
       </TextField>
-      <TextField fx:id="txtCountry" prefHeight="26.0" prefWidth="238.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="2">
-         <GridPane.margin>
-            <Insets right="50.0" />
-         </GridPane.margin>
-      </TextField>
       <Label prefHeight="109.0" prefWidth="234.0" text="Country" GridPane.rowIndex="2">
          <GridPane.margin>
             <Insets left="50.0" />
          </GridPane.margin>
       </Label>
+      <TextField fx:id="txtCountry" prefHeight="26.0" prefWidth="238.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="2">
+         <GridPane.margin>
+            <Insets right="50.0" />
+         </GridPane.margin>
+      </TextField>
       <Button mnemonicParsing="false" onAction="#btnSave_OnClick" prefHeight="35.0" prefWidth="73.0" text="Save" GridPane.rowIndex="3">
          <opaqueInsets>
             <Insets />
@@ -58,6 +59,9 @@
          <GridPane.margin>
             <Insets left="75.0" />
          </GridPane.margin>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </Button>
       <Button mnemonicParsing="false" onAction="#btnCancel_OnClick" prefHeight="35.0" prefWidth="73.0" text="Cancel" GridPane.columnIndex="1" GridPane.rowIndex="3">
          <opaqueInsets>
@@ -66,6 +70,9 @@
          <GridPane.margin>
             <Insets left="75.0" />
          </GridPane.margin>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </Button>
    </children>
 </GridPane>
