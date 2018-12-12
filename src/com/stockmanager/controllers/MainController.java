@@ -27,6 +27,9 @@ public class MainController implements Controller {
 
 	@FXML
 	private Label lblTitle;
+	
+	@FXML
+	private Label lblUser;
 
 	@FXML
 	private Button btnWarehouse;
@@ -78,6 +81,8 @@ public class MainController implements Controller {
 	public void initialize() {
 		changeView("DashboardView", "Dashboard");
 		checkPermissions(new User("Vasco").getPermissions());
+		lblUser.setText(user.getUser());
+
 	}
 
 	@FXML
@@ -150,7 +155,7 @@ public class MainController implements Controller {
 		mainVerticalBox.getChildren().clear();
 		mainVerticalBox.getChildren().add(0, Utilities.getNode(newView));
 	}
-
+	
 	public void changeView(Node newView) {
 		mainVerticalBox.getChildren().clear();
 		mainVerticalBox.getChildren().add(0, newView);
