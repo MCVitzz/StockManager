@@ -14,6 +14,7 @@ public class Main extends Application {
 
 	public void start(Stage primaryStage) {
 		Utilities.openDialog("LoginView", new LoginController());
+
 		//MainController.getInstance(new User("Vasco"))
 	}
 	
