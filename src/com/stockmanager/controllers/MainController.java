@@ -54,6 +54,12 @@ public class MainController implements Controller {
 
 	@FXML
 	private Button btnUnits;
+    
+	@FXML
+	private Button btnLocations;
+
+	@FXML
+	private Button btnUsers;
 
     private MainController(User user) {
     	this.user = user;
@@ -69,26 +75,6 @@ public class MainController implements Controller {
     	else instance.setUser(user);
     	return instance;
     }
-    
-	@FXML
-	private Button btnLocations;
-
-	@FXML
-	private Button btnUsers;
-
-	private MainController(User user) {
-		this.user = user;
-	}
-
-	public static MainController getInstance() {
-		return instance;
-	}
-
-	public static MainController getInstance(User user) {
-		if (instance == null)
-			instance = new MainController(user);
-		return instance;
-	}
 
 	public void initialize() {
 		changeView("DashboardView", "Dashboard");
@@ -174,6 +160,10 @@ public class MainController implements Controller {
 
 	public User getUser() {
 		return user;
+	}
+
+	private void setUser(User user) {
+		this.user = user;
 	}
 	
 	@Override
