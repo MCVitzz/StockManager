@@ -9,70 +9,72 @@ import com.stockmanager.utils.Utilities;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.ImageCursor;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.layout.VBox;
 
 public class MainController implements Controller {
 
 	private static MainController instance;
-	
+
 	private User user;
-	
+
 	@FXML
 	private VBox mainVerticalBox;
 
-    @FXML
-    private Label lblTitle;
-    
-    @FXML
-    private Button btnWarehouse;
-    
-    @FXML
-    private Button btnCompanies;
+	@FXML
+	private Label lblTitle;
 
-    @FXML
-    private Button btnStock;
+	@FXML
+	private Button btnWarehouse;
 
-    @FXML
-    private Button btnPurchases;
+	@FXML
+	private Button btnCompanies;
 
-    @FXML
-    private Button btnSales;
+	@FXML
+	private Button btnStock;
 
-    @FXML
-    private Button btnInventory;
+	@FXML
+	private Button btnPurchases;
 
-    @FXML
-    private Button btnReports;
+	@FXML
+	private Button btnSales;
 
-    @FXML
-    private Button btnItems;
+	@FXML
+	private Button btnInventory;
 
-    @FXML
-    private Button btnUnits;
+	@FXML
+	private Button btnReports;
 
-    @FXML
-    private Button btnLocations;
+	@FXML
+	private Button btnItems;
 
-    @FXML
-    private Button btnUsers;
+	@FXML
+	private Button btnUnits;
 
-    private MainController(User user) {
-    	this.user = user;
-    }
-    
-    public static MainController getInstance() {
-    	return instance;
-    }
-    
-    public static MainController getInstance(User user) {
-    	if(instance == null)
-    		instance = new MainController(user);
-    	return instance;
-    }
-    
+	@FXML
+	private Button btnLocations;
+
+	@FXML
+	private Button btnUsers;
+
+	private MainController(User user) {
+		this.user = user;
+	}
+
+	public static MainController getInstance() {
+		return instance;
+	}
+
+	public static MainController getInstance(User user) {
+		if (instance == null)
+			instance = new MainController(user);
+		return instance;
+	}
+
 	public void initialize() {
 		changeView("DashboardView", "Dashboard");
 		checkPermissions(new User("Vasco").getPermissions());
@@ -97,57 +99,58 @@ public class MainController implements Controller {
 	void purchaseButton_OnClick(ActionEvent event) {
 		changeView("PurchaseView", "Purchases");
 	}
-	
+
 	@FXML
 	void saleButton_OnClick(ActionEvent event) {
 		changeView("SaleView", "Sales");
 	}
+
 	@FXML
 	void warehouseButton_OnClick() {
 		changeView("WarehouseView", "Warehouses");
 	}
-	
+
 	@FXML
 	void userButton_OnClick(ActionEvent event) {
 		changeView("UserView", "Users");
 	}
-	
+
 	@FXML
 	void companyButton_OnClick() {
 		changeView("CompanyView", "Companies");
 	}
-	
+
 	@FXML
 	void itemButton_OnClick() {
 		changeView("ItemView", "Items");
 	}
-	
+
 	@FXML
 	void unitButton_OnClick() {
 		changeView("UnitView", "Units");
 	}
-	
+
 	@FXML
 	void locationButton_OnClick() {
 		changeView("LocationView", "Locations");
 	}
-	
+
 	@FXML
 	void btnLogout_OnClick() {
 		Utilities.openScene("LoginView", lblTitle.getScene().getWindow());
 	}
-	
+
 	public void changeView(String newView, String title) {
 		lblTitle.setText(title);
 		mainVerticalBox.getChildren().clear();
 		mainVerticalBox.getChildren().add(0, Utilities.getNode(newView));
 	}
-	
+
 	public void changeView(String newView) {
 		mainVerticalBox.getChildren().clear();
 		mainVerticalBox.getChildren().add(0, Utilities.getNode(newView));
 	}
-	
+
 	public void changeView(Node newView) {
 		mainVerticalBox.getChildren().clear();
 		mainVerticalBox.getChildren().add(0, newView);
@@ -156,10 +159,11 @@ public class MainController implements Controller {
 	public User getUser() {
 		return user;
 	}
-	
+
 	@Override
 	public void checkPermissions(HashMap<String, Boolean> permissions) {
 		btnWarehouse.setDisable(!permissions.get("Warehouse"));
+//		btnWarehouse.setCursor(new ImageCursor(new Image("file://../Images/cursor-proibido.png")));
 		btnCompanies.setDisable(!permissions.get("Companies"));
 		btnStock.setDisable(!permissions.get("Stock"));
 		btnPurchases.setDisable(!permissions.get("Purchases"));
