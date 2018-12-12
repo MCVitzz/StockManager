@@ -9,6 +9,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 
 public class LoginController {
 
@@ -41,7 +43,13 @@ public class LoginController {
 	void exit(ActionEvent event) {
 		System.exit(0);
 	}
-
+	
+	@FXML
+	void txtPassword_KeyPressed(KeyEvent event) {
+		if(event.getCode() == KeyCode.ENTER)
+			login(null);
+	}
+	
 	public void openNew() {
 
 	}
