@@ -16,14 +16,25 @@
    <children>
       <VBox prefHeight="800.0" prefWidth="175.0" style="-fx-background-color: rgb(64, 78, 103);;">
          <children>
-            <Label prefHeight="31.0" prefWidth="154.0" text="Project Development" textAlignment="CENTER" textFill="WHITE">
+            <ImageView fitHeight="75.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../Images/logo.png" />
+               </image>
                <VBox.margin>
-                  <Insets left="15.0" />
+                  <Insets left="50.0" top="15.0" />
                </VBox.margin>
+            </ImageView>
+            <Label prefHeight="31.0" prefWidth="154.0" text="Stock Manager" textAlignment="CENTER" textFill="WHITE">
+               <VBox.margin>
+                  <Insets left="30.0" />
+               </VBox.margin>
+               <font>
+                  <Font size="18.0" />
+               </font>
             </Label>
             <Button id="dashboardButton" alignment="TOP_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#dashboardButton" prefHeight="28.0" prefWidth="178.0" stylesheets="@../application.css" text="Dashboard" textFill="WHITE">
                <VBox.margin>
-                  <Insets top="40.0" />
+                  <Insets top="20.0" />
                </VBox.margin>
                <graphic>
                   <ImageView fitHeight="23.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
