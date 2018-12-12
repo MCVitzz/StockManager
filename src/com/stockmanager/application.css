@@ -87,4 +87,10 @@
 	-fx-background-color: rgba(18.0, 42.0, 82.0, 0.815);	
 }
 
+#lblUser {
+	-fx-border-color: white;
+	-fx-border-radius: 2px;
+	-fx-padding:0 20 0 20;
+	}
+
 	
