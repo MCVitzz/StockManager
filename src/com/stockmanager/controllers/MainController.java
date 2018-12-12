@@ -65,7 +65,7 @@ public class MainController implements Controller {
 	private Button btnUsers;
 
     private MainController(User user) {
-    	this.user = user;
+    	setUser(user);
     }
     
     public static MainController getInstance() {
@@ -75,20 +75,18 @@ public class MainController implements Controller {
     public static MainController getInstance(User user) {
     	if(instance == null)
     		instance = new MainController(user);
-    	else instance.setUser(user);
+    	else {
+    		instance.setUser(user);
+    		instance.lblUser.setText(user.getUser());
+    		instance.checkPermissions(user.getPermissions());
+    	}
     	return instance;
     }
 
 	public void initialize() {
 		changeView("DashboardView", "Dashboard");
-<<<<<<< HEAD
-		System.out.println(user.getUser());
-		checkPermissions(user.getPermissions());
-=======
-		checkPermissions(new User("Vasco").getPermissions());
 		lblUser.setText(user.getUser());
-
->>>>>>> master
+		checkPermissions(user.getPermissions());
 	}
 
 	@FXML
