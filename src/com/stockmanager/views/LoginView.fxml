@@ -10,12 +10,12 @@
 
 <VBox id="loginVbox" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" spacing="20.0" stylesheets="@../application.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <TextField fx:id="usernameTF" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="26.0" prefWidth="300.0" promptText="Username" stylesheets="@../application.css">
+      <TextField fx:id="usernameTF" focusTraversable="false" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="26.0" prefWidth="300.0" promptText="Username" stylesheets="@../application.css">
          <VBox.margin>
             <Insets left="100.0" right="100.0" top="300.0" />
          </VBox.margin>
       </TextField>
-      <PasswordField fx:id="passwordPF" maxHeight="-Infinity" maxWidth="-Infinity" onAction="#login" prefHeight="21.0" prefWidth="300" promptText="Password" stylesheets="@../application.css">
+      <PasswordField fx:id="passwordPF" focusTraversable="false" maxHeight="-Infinity" maxWidth="-Infinity" onAction="#login" prefHeight="21.0" prefWidth="300" promptText="Password" stylesheets="@../application.css">
          <VBox.margin>
             <Insets left="100.0" right="100.0" />
          </VBox.margin>

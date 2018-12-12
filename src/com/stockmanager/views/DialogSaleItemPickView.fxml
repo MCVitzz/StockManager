@@ -28,24 +28,24 @@
             <Insets left="50.0" />
          </GridPane.margin>
       </Label>
-      <TextField fx:id="txtVolume" GridPane.columnIndex="1" />
+      <TextField fx:id="txtVolume" focusTraversable="false" GridPane.columnIndex="1" />
       <Label prefHeight="109.0" prefWidth="234.0" text="Item" GridPane.rowIndex="1">
          <GridPane.margin>
             <Insets left="50.0" />
          </GridPane.margin>
       </Label>
-      <TextField fx:id="txtItem" onAction="#txtItem_OnAction" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+      <TextField fx:id="txtItem" focusTraversable="false" onAction="#txtItem_OnAction" GridPane.columnIndex="1" GridPane.rowIndex="1" />
       <Label text="Quantity" GridPane.rowIndex="2">
          <GridPane.margin>
             <Insets left="50.0" />
          </GridPane.margin>
       </Label>
-      <TextField fx:id="txtQuantity" GridPane.columnIndex="1" GridPane.rowIndex="2">
+      <TextField fx:id="txtQuantity" focusTraversable="false" GridPane.columnIndex="1" GridPane.rowIndex="2">
          <GridPane.margin>
             <Insets right="75.0" />
          </GridPane.margin>
       </TextField>
-      <TextField fx:id="txtUnit" GridPane.columnIndex="1" GridPane.rowIndex="2">
+      <TextField fx:id="txtUnit" focusTraversable="false" GridPane.columnIndex="1" GridPane.rowIndex="2">
          <GridPane.margin>
             <Insets left="125.0" />
          </GridPane.margin>
