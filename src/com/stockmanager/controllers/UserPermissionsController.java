@@ -4,6 +4,7 @@ import javax.sound.midi.Soundbank;
 
 import com.stockmanager.model.UserPermission;
 
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableCell;
@@ -29,55 +30,25 @@ public class UserPermissionsController {
 
 	public void initialize() {
 		clmnType.setCellValueFactory(new PropertyValueFactory<UserPermission, String>("Type"));
-		//PropertyValueFactory<UserPermission, String>  a = new PropertyValueFactory<UserPermission, String>("Access");
-//		tblUserPermissions.setRowFactory(t -> new TableRow<UserPermission>() {
-//			@Override
-//		    protected void updateItem(UserPermission item, boolean empty) {
-//				super.updateItem(item, empty);
-//
-//	            if (item == null || empty) {
-//	                setText(null);
-//	                setStyle("");
-//	            } else {
-//	                setItem(item);
-//	                
-//	                UserPermission auxPerson = getTableView().getItems().get(getIndex());
-//	                
-//                	setTextFill(Color.BLACK);
-//	                if (auxPerson.getAccess().equals("Yes"))
-//	                    setStyle("-fx-background-color: GREEN");
-//	                else
-//	                    setStyle("-fx-background-color: RED");
-//	            }
-//	        }
-//		});
-		
+		clmnAccess.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getAccess()));
 		clmnAccess.setCellFactory(column -> {
 			return new TableCell<UserPermission, String>() {
-		        @Override
-		        protected void updateItem(String item, boolean empty) {
-		            super.updateItem(item, empty); //This is mandatory
-
-		            if (item == null || empty) {
-		            	System.out.println(item);
-		                setText(null);
-		                setStyle("");
-		            } else { //If the cell is not empty
-
-		                setText(item); //Put the String data in the cell
-
-		                //We get here all the info of the Person of this row
-		                UserPermission auxPerson = getTableView().getItems().get(getIndex());
-
-		                // Style all persons wich name is "Edgard"
-		                if (auxPerson.getAccess().equals("Yes")) {
-		                    setStyle("-fx-background-color: green");
-		                } else {
-		                    setStyle("-fx-background-color: red");
-		                }
-		            }
-		        }
-		    };
+				@Override
+				protected void updateItem(String item, boolean empty) {
+					super.updateItem(item, empty);
+					if (item == null || empty) {
+						setText(null);
+						setStyle("");
+					} else {
+						setText(item);
+						UserPermission auxPerson = getTableView().getItems().get(getIndex());
+						if (auxPerson.hasAccess())
+							setStyle("-fx-background-color: #007c40");
+						else
+							setStyle("-fx-background-color: #894a40");
+					}
+				}
+			};
 		});
 
 		tblUserPermissions.getSelectionModel().setCellSelectionEnabled(true);
