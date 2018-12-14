@@ -88,7 +88,7 @@ public class MainController implements Controller {
 		lblUser.setText(user.getUser());
 		checkPermissions(user.getPermissions());
 		for(Menu menu : Menu.getAll())
-			createMenuButtons(menu.getName(), menu.getImage());
+			createMenuButtons(menu.getName(), menu.getImage(), menu.getCssClass());
 	}
 
 	@FXML
@@ -175,15 +175,18 @@ public class MainController implements Controller {
 		this.user = user;
 	}
 
-	private void createMenuButtons(String name, String image) {
+	private void createMenuButtons(String name, String image, String cssClass) {
 		
-			System.out.println("Nome do botão: " + name + "Path da imagem: " + image);
+			System.out.println("Nome do botão: " + name + "Path da imagem: " + image + "Classe do css" + cssClass);
 			Button menuButtons = new Button(name);
+			menuButtons.getStyleClass().add(cssClass);
+			menuButtons.setId("btn" + name);
 			vboxMenu.getChildren().add(menuButtons);
 	}
 
 	@Override
 	public void checkPermissions(HashMap<String, Boolean> permissions) {
+		
 		btnWarehouse.setDisable(!permissions.get("Warehouse"));
 		btnCompanies.setDisable(!permissions.get("Companies"));
 		btnStock.setDisable(!permissions.get("Stock"));
