@@ -61,6 +61,14 @@ public class StockVolumeItem extends DatabaseObject {
 		return stockVolumes;
 	}
 	
+	public static boolean hasStock(String company, String item, double quantity) {
+		
+		double qtdStock = Double.parseDouble(Database.simpleSelect("SUM(Quantity)","stockvolumeitem","Company = '" + company + "' AND Item = '"+ item +"'"));
+		
+		return quantity <= qtdStock;
+		
+	}
+	
 	public String getCompany() {
 		return company;
 	}

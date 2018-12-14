@@ -68,6 +68,16 @@ public class DialogPurchaseItemReceivingController {
     		cbItem.getItems().add(new Item(pi.getCompany(), pi.getItem()));
     }
     
+     @FXML
+    void btnReceive_OnClick(ActionEvent event) {
+    	PurchaseVolume pv = new PurchaseVolume(purchase.getCompany(), purchase.getPurchase(), Long.parseLong(txtVolume.getText()));
+    	pv.setLocation(txtLocation.getText());
+    	pv.setWarehouse(purchase.getWarehouse());
+    	pv.save();
+    	pv.makeItem(cbItem.getValue().getItem(), Double.parseDouble(txtQuantity.getText()), txtUnit.getText());
+    	reset();
+    }
+
     @FXML
     void btnFinalize_OnClick(ActionEvent event) {
     	purchase.createStock();
@@ -82,16 +92,7 @@ public class DialogPurchaseItemReceivingController {
     	txtQuantity.setText(Double.toString(new PurchaseItem(purchase.getCompany(), purchase.getPurchase(), cbItem.getValue().getItem()).getQuantity()));
     }
 
-    @FXML
-    void btnReceive_OnClick(ActionEvent event) {
-    	PurchaseVolume pv = new PurchaseVolume(purchase.getCompany(), purchase.getPurchase(), Long.parseLong(txtVolume.getText()));
-    	pv.setLocation(txtLocation.getText());
-    	pv.setWarehouse(purchase.getWarehouse());
-    	pv.save();
-    	pv.makeItem(cbItem.getValue().getItem(), Double.parseDouble(txtQuantity.getText()), txtUnit.getText());
-    	reset();
-    }
-
+   
     @FXML 
     void txtLocation_OnAction() {
     	if(new Location(purchase.getCompany(), purchase.getWarehouse(), txtLocation.getText()).getType() == null) {

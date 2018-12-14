@@ -54,8 +54,8 @@ public class PickItem {
 		}
 
 		return pickingList;
-	}
-
+	}	
+	
 	public StockVolumeItem getVolume() {
 		return volume;
 	}
@@ -67,8 +67,10 @@ public class PickItem {
 	public double getQuantity() {
 		return quantity;
 	}
-
+	
 	public void setQuantity(double quantity) {
 		this.quantity= quantity;
 	}
+
+
 }

@@ -23,7 +23,7 @@ public class SaleItem extends DatabaseObject {
 		this.sale = sale;
 		this.item = item;
 		try {
-			ResultSet rs = Database.select("SELECT * FROM saleItem WHERE Company = '" + company + "' AND Sale = '" + sale + "' AND Item = '" + item + "'");
+			ResultSet rs = Database.select("SELECT * FROM saleitem WHERE Company = '" + company + "' AND Sale = '" + sale + "' AND Item = '" + item + "'");
 			while (rs.next()) {
 				this.quantity = rs.getFloat("Quantity");
 				this.confirmedQuantity = rs.getFloat("ConfirmedQuantity");
@@ -50,7 +50,7 @@ public class SaleItem extends DatabaseObject {
 	}
 	
 	public static ArrayList<SaleItem> getAllItemsInSale(Sale sale) {
-		ResultSet rs = Database.select("SELECT Item FROM saleItem WHERE Company = '" + sale.getCompany() + "' AND Sale = " + sale.getSale() + "");
+		ResultSet rs = Database.select("SELECT Item FROM saleitem WHERE Company = '" + sale.getCompany() + "' AND Sale = " + sale.getSale() + "");
 		ArrayList<SaleItem> sales = new ArrayList<SaleItem>();
 		try {
 			while(rs.next())
@@ -107,19 +107,19 @@ public class SaleItem extends DatabaseObject {
 	}
 
 	protected boolean insert() {
-		return Database.executeQuery("INSERT INTO saleItem (Company, Sale, Item, Quantity, ConfirmedQuantity, Unit, State) VALUES ('" + company + "', '" + sale + "', '" + item + "', '" + quantity + "', '" + confirmedQuantity + "', '" + unit + "', '" + state + "')");
+		return Database.executeQuery("INSERT INTO saleitem (Company, Sale, Item, Quantity, ConfirmedQuantity, Unit, State) VALUES ('" + company + "', '" + sale + "', '" + item + "', '" + quantity + "', '" + confirmedQuantity + "', '" + unit + "', '" + state + "')");
 	}
 
 	protected boolean update() {
-		return Database.executeQuery("UPDATE saleItem SET Quantity = '" + quantity + "', ConfirmedQuantity = '" + confirmedQuantity + "', Unit = '" + unit + "', state = '" + state + "' WHERE Company = '" + company + "' AND Sale = '" + sale + "' AND Item = '" + item + "'");
+		return Database.executeQuery("UPDATE saleitem SET Quantity = '" + quantity + "', ConfirmedQuantity = '" + confirmedQuantity + "', Unit = '" + unit + "', state = '" + state + "' WHERE Company = '" + company + "' AND Sale = '" + sale + "' AND Item = '" + item + "'");
 	}
 
 	protected boolean exists() {
-		return Database.simpleSelect("Sale", "saleItem", "Company = '" + company + "' AND Sale = '" + sale + "' AND Item = '" + item + "'") != null;
+		return Database.simpleSelect("Sale", "saleitem", "Company = '" + company + "' AND Sale = '" + sale + "' AND Item = '" + item + "'") != null;
 	}
 
 	public boolean delete() {
-		return Database.executeQuery("DELETE FROM saleItem WHERE Company = '" + company + "' AND Sale = '" + sale + "' AND Item '" + item + "'");
+		return Database.executeQuery("DELETE FROM saleitem WHERE Company = '" + company + "' AND Sale = '" + sale + "' AND Item '" + item + "'");
 	}
 
 	protected boolean validate() {

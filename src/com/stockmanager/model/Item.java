@@ -30,7 +30,7 @@ public class Item extends DatabaseObject{
 	}
 	
 	public static ArrayList<Item> getAll() {
-		ResultSet rs = Database.select("SELECT Company,Item FROM item");
+		ResultSet rs = Database.select("SELECT Company, Item FROM item");
 		ArrayList<Item> items = new ArrayList<Item>();
 		try {
 			while(rs.next())

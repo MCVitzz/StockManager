@@ -76,7 +76,7 @@ public class SaleVolumeItem extends DatabaseObject {
 
 	@Override
 	protected boolean update() {
-		return Database.executeQuery("UPDATE saleVolumeItem SET Quantity = '" + quantity + "', Unit = '" + unit + "'");
+		return Database.executeQuery("UPDATE saleVolumeItem SET Quantity = '" + quantity + "', Unit = '" + unit + "' WHERE Company ='"+ company + "' AND Sale ='"+ sale +"' AND Volume='"+ volume + "' AND Item='"+ item + "';");
 	}
 
 	@Override
