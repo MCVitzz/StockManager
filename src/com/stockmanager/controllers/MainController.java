@@ -7,6 +7,7 @@ import com.stockmanager.model.User;
 import com.stockmanager.utils.Utilities;
 
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
@@ -181,9 +182,11 @@ public class MainController implements Controller {
 
 	private void createMenu() {
 		HashMap<String, Boolean> permissions = user.getPermissions();
-		for(Menu menu : Menu.getAll())
+		for(Menu menu : Menu.getAll()) {
+			System.out.println(menu.getName());
 			if(permissions.get(menu.getName()))
 				createButton(menu);
+		}
 	}
 	
 	private void createButton(Menu menu) {
@@ -191,6 +194,11 @@ public class MainController implements Controller {
 			Image buttonImage = new Image(menu.getImage());
 			Button button = new Button(menu.getName(), new ImageView(buttonImage));
 			button.getStyleClass().add(menu.getCssClass());
+			button.setOnAction(new EventHandler<ActionEvent>() {
+				@Override
+				public void handle(ActionEvent event) {
+					changeView(menu.getView() + "View", menu.getName());
+			}});
 			vboxSubmenu.getChildren().add(button);
 	}
 
