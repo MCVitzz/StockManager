@@ -1,19 +1,15 @@
 package com.stockmanager.controllers;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 import com.stockmanager.model.User;
-import com.stockmanager.model.UserPermission;
 import com.stockmanager.utils.Utilities;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.ImageCursor;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.image.Image;
 import javafx.scene.layout.VBox;
 
 public class MainController implements Controller {

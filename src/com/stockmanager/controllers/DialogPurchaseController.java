@@ -1,13 +1,11 @@
 package com.stockmanager.controllers;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 import com.stockmanager.model.Company;
 import com.stockmanager.model.Purchase;
 import com.stockmanager.model.PurchaseItem;
 import com.stockmanager.model.User;
-import com.stockmanager.model.UserPermission;
 import com.stockmanager.model.Warehouse;
 import com.stockmanager.utils.Utilities;
 

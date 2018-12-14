@@ -1,7 +1,5 @@
 package com.stockmanager.controllers;
 
-import javax.sound.midi.Soundbank;
-
 import com.stockmanager.model.UserPermission;
 
 import javafx.beans.property.SimpleStringProperty;
@@ -9,11 +7,9 @@ import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.paint.Color;
 
 public class UserPermissionsController {
 
