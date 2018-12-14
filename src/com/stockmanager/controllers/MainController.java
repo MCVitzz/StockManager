@@ -11,6 +11,8 @@ import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 
 public class MainController implements Controller {
@@ -21,6 +23,9 @@ public class MainController implements Controller {
 
 	@FXML
 	private VBox vboxMenu;
+	
+	@FXML
+	private VBox vboxSubmenu;
 
 	@FXML
 	private VBox mainVerticalBox;
@@ -183,9 +188,10 @@ public class MainController implements Controller {
 	
 	private void createButton(Menu menu) {
 			System.out.println("Nome do botão: " + menu.getName() + "Path da imagem: " + menu.getImage() + "Classe do css" + menu.getCssClass());
-			Button button = new Button(menu.getName());
+			Image buttonImage = new Image(menu.getImage());
+			Button button = new Button(menu.getName(), new ImageView(buttonImage));
 			button.getStyleClass().add(menu.getCssClass());
-			vboxMenu.getChildren().add(button);
+			vboxSubmenu.getChildren().add(button);
 	}
 
 	@Override

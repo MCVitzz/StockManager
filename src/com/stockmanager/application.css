@@ -50,13 +50,15 @@
 .menuButton
 {
 	-fx-background-color: rgb(64.0, 78.0, 103.0);
-	-fx-color: white;
+	-fx-text-fill: white;
+	-fx-padding: 10px;
 }
 	
 .menuButton:hover, .menuButton:pressed
 
 {
-	-fx-background-color: rgba(18.0, 42.0, 82.0, 0.815);	
+	-fx-background-color: rgba(18.0, 42.0, 82.0, 0.815);
+	-fx-cursor:hand;
 }
 
 .dashboardSquares {

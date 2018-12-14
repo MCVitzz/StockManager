@@ -35,54 +35,71 @@
                <VBox.margin>
                   <Insets left="45.0" top="30.0" />
                </VBox.margin></Label>
-            <Button fx:id="btnUsers" alignment="TOP_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#userButton_OnClick" prefHeight="28.0" prefWidth="178.0" styleClass="menuButton" stylesheets="@../application.css" text="Users" textFill="WHITE">
-               <graphic>
-                  <ImageView fitHeight="23.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../../Images/man.png" />
-                     </image>
+            <VBox fx:id="vboxSubmenu" prefHeight="483.0" prefWidth="122.0">
+               <opaqueInsets>
+                  <Insets top="10.0" />
+               </opaqueInsets>
+               <VBox.margin>
+                  <Insets left="10.0" top="10.0" />
+               </VBox.margin></VBox>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <Button fx:id="btnUsers" alignment="TOP_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#userButton_OnClick" prefHeight="28.0" prefWidth="178.0" styleClass="menuButton" stylesheets="@../application.css" text="Users" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="23.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../Images/man.png" />
+                           </image>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </ImageView>
+                     </graphic>
+                     <VBox.margin>
+                        <Insets top="50.0" />
+                     </VBox.margin>
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
-                  </ImageView>
-               </graphic>
-               <VBox.margin>
-                  <Insets top="50.0" />
-               </VBox.margin>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-               <padding>
-                  <Insets left="15.0" />
-               </padding>
-            </Button>
-            <Button alignment="TOP_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#btnLogout_OnClick" prefHeight="28.0" prefWidth="178.0" styleClass="menuButton" stylesheets="@../application.css" text="Logout" textFill="WHITE">
-               <graphic>
-                  <ImageView fitHeight="23.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../../Images/logout.png" />
-                     </image>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <padding>
+                        <Insets left="15.0" />
+                     </padding>
+                  </Button>
+                  <Button alignment="TOP_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#btnLogout_OnClick" prefHeight="28.0" prefWidth="178.0" styleClass="menuButton" stylesheets="@../application.css" text="Logout" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="23.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../Images/logout.png" />
+                           </image>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </ImageView>
+                     </graphic>
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
-                  </ImageView>
-               </graphic>
-               <VBox.margin>
-                  <Insets top="20.0" />
-               </VBox.margin>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <padding>
+                        <Insets left="15.0" />
+                     </padding>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </Button>
+               </children>
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
-               <padding>
-                  <Insets left="15.0" />
-               </padding>
-            </Button>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </VBox>
          </children>
          <effect>
             <DropShadow />
