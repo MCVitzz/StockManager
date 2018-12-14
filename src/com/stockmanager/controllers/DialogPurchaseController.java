@@ -79,12 +79,14 @@ public class DialogPurchaseController implements Controller {
 				btnClose.setVisible(true);
 				btnReceive.setVisible(false);
 				cbWarehouse.setDisable(false);
+				break;
 			case "Closed":
 				btnClose.setVisible(false);
 				btnReceive.setVisible(false);
 				txtSupplier.setDisable(false);
 				cbWarehouse.setDisable(false);
 				dtPckrDate.setDisable(false);
+				break;
 			}
 				
 		}

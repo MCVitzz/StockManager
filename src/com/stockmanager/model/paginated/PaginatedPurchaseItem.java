@@ -11,7 +11,7 @@ import com.stockmanager.utils.Utilities;
 
 public class PaginatedPurchaseItem extends PurchaseItem {
 	
-	String name;
+	private String name;
 	
 	public PaginatedPurchaseItem(String company, int purchase, String item, String name) {
 		super(company, purchase, item);

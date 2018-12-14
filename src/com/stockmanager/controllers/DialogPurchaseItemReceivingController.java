@@ -83,6 +83,10 @@ public class DialogPurchaseItemReceivingController {
     	purchase.createStock();
     	Utilities.alert(AlertType.INFORMATION, "The Purchase has been completed");
     	purchase.setState("Closed");
+    	for(PurchaseItem pi : purchase.getItems()) {
+    		pi.setState("Closed");	
+    		pi.save();
+    	}
     	purchase.save();
 		((Stage)txtLocation.getScene().getWindow()).close();
     }
@@ -92,7 +96,19 @@ public class DialogPurchaseItemReceivingController {
     	txtQuantity.setText(Double.toString(new PurchaseItem(purchase.getCompany(), purchase.getPurchase(), cbItem.getValue().getItem()).getQuantity()));
     }
 
-   
+    @FXML
+    void btnReceive_OnClick(ActionEvent event) {
+    	PurchaseVolume pv = new PurchaseVolume(purchase.getCompany(), purchase.getPurchase(), Long.parseLong(txtVolume.getText()));
+    	pv.setLocation(txtLocation.getText());
+    	pv.setWarehouse(purchase.getWarehouse());
+    	pv.save();
+    	pv.makeItem(cbItem.getValue().getItem(), Double.parseDouble(txtQuantity.getText()), txtUnit.getText());
+    	PurchaseItem pi = new PurchaseItem(purchase.getCompany(), purchase.getPurchase(), cbItem.getValue().getItem());
+    	pi.setConfirmedQuantity(Double.parseDouble(txtQuantity.getText()));
+    	pi.save();
+    	reset();
+    }
+
     @FXML 
     void txtLocation_OnAction() {
     	if(new Location(purchase.getCompany(), purchase.getWarehouse(), txtLocation.getText()).getType() == null) {

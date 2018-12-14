@@ -10,7 +10,7 @@
 }
 
 #loginButton, #exitButton {
-	-fx-background-color:         rgb(64.0, 78.0, 103.0);
+	-fx-background-color:  rgb(64.0, 78.0, 103.0);
     -fx-background-insets: 0.0,1.0,2.0,3.0;
     -fx-background-radius: 3.0,2.0,2.0,2.0;
     -fx-padding: 12.0 30.0 12.0 30.0;
@@ -47,44 +47,23 @@
 	-fx-color: black;
 }  
 
-#dashboardCard1,
-#dashboardCard2,
-#dashboardCard3,
-#dashboardCard4,
-#dashboardCard5,
-#dashboardButton,
-#stockButton,
-#salesOrderButton,
-#purchaseButton,
-#inventoryButton,
-#warehouseButton,
-#reportsButton,
-#userButton,
-#companyButton,
-#itemButton,
-#unitButton,
-#locationButton,
-#logoutButton
+.menuButton
 {
-	-fx-background-color:         rgb(64.0, 78.0, 103.0);
+	-fx-background-color: rgb(64.0, 78.0, 103.0);
+	-fx-text-fill: white;
+	-fx-padding: 10px;
 }
 	
+.menuButton:hover, .menuButton:pressed
 
-#dashboardButton:hover, #dashboardButton:pressed,
-#stockButton:hover, #stockButton:pressed,
-#salesOrderButton:hover, #salesOrderButton:pressed,
-#purchaseButton:hover, #purchaseButton:pressed,
-#inventoryButton:hover, #inventoryButton:pressed,
-#warehouseButton:hover, #warehouseButton:pressed,
-#reportsButton:hover, #reportsButton:pressed,
-#userButton:hover, #userButton:pressed,
-#companyButton:hover, #companyButton:pressed,
-#itemButton:hover, #itemButton:pressed,
-#unitButton:hover, #unitButton:pressed,
-#locationButton:hover, #locationButton:pressed,
-#logoutButton:hover, #logoutButton:pressed
 {
-	-fx-background-color: rgba(18.0, 42.0, 82.0, 0.815);	
+	-fx-background-color: rgba(18.0, 42.0, 82.0, 0.815);
+	-fx-cursor:hand;
+}
+
+.dashboardSquares {
+	-fx-background-color: rgb(64.0, 78.0, 103.0);
+
 }
 
 #lblUser {
