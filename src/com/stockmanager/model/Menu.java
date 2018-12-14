@@ -4,6 +4,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import com.mysql.jdbc.ResultSetMetaData;
 import com.stockmanager.utils.Utilities;
 
 public class Menu {
@@ -16,9 +17,10 @@ public class Menu {
 		this.cssClass = cssClass;
 		try {
 			ResultSet rs = Database.select("SELECT * FROM menu WHERE Name = '" + name + "'");
-			while (rs.next())
+			while (rs.next()) {
 				this.image = rs.getString("Image");
 				this.cssClass = rs.getString("CssClass");
+			}
 		}
 		catch(SQLException e) {
 			e.printStackTrace();
