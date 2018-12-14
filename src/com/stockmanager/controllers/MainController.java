@@ -78,7 +78,7 @@ public class MainController implements Controller {
 		else {
 			instance.setUser(user);
 			instance.lblUser.setText(user.getUser());
-			instance.checkPermissions(user.getPermissions());
+			instance.createMenu();
 		}
 		return instance;
 	}
@@ -87,8 +87,7 @@ public class MainController implements Controller {
 		changeView("DashboardView", "Dashboard");
 		lblUser.setText(user.getUser());
 		checkPermissions(user.getPermissions());
-		for(Menu menu : Menu.getAll())
-			createMenuButtons(menu.getName(), menu.getImage(), menu.getCssClass());
+		createMenu();
 	}
 
 	@FXML
@@ -175,28 +174,28 @@ public class MainController implements Controller {
 		this.user = user;
 	}
 
-	private void createMenuButtons(String name, String image, String cssClass) {
-		
-			System.out.println("Nome do botão: " + name + "Path da imagem: " + image + "Classe do css" + cssClass);
-			Button menuButtons = new Button(name);
-			menuButtons.getStyleClass().add(cssClass);
-			menuButtons.setId("btn" + name);
-			vboxMenu.getChildren().add(menuButtons);
+	private void createMenu() {
+		HashMap<String, Boolean> permissions = user.getPermissions();
+		for(Menu menu : Menu.getAll())
+			if(permissions.get(menu.getName()))
+				createButton(menu);
+	}
+	
+	private void createButton(Menu menu) {
+			System.out.println("Nome do botão: " + menu.getName() + "Path da imagem: " + menu.getImage() + "Classe do css" + menu.getCssClass());
+			Button button = new Button(menu.getName());
+			button.getStyleClass().add(menu.getCssClass());
+			vboxMenu.getChildren().add(button);
 	}
 
 	@Override
 	public void checkPermissions(HashMap<String, Boolean> permissions) {
-		
-		btnWarehouse.setDisable(!permissions.get("Warehouse"));
-		btnCompanies.setDisable(!permissions.get("Companies"));
-		btnStock.setDisable(!permissions.get("Stock"));
-		btnPurchases.setDisable(!permissions.get("Purchases"));
-		btnSales.setDisable(!permissions.get("Sales"));
-		btnInventory.setDisable(!permissions.get("Inventory"));
-		btnReports.setDisable(!permissions.get("Reports"));
-		btnItems.setDisable(!permissions.get("Items"));
-		btnUnits.setDisable(!permissions.get("Units"));
-		btnLocations.setDisable(!permissions.get("Locations"));
-		btnUsers.setDisable(!permissions.get("Users"));
 	}
+	
+	
 }
+
+
+
+
+
