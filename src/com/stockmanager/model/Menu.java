@@ -4,13 +4,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import com.mysql.jdbc.ResultSetMetaData;
 import com.stockmanager.utils.Utilities;
 
 public class Menu {
 	private String name;
 	private String image;
 	private String cssClass;
+	private String view;
 	
 	public Menu(String name, String image, String cssClass) {
 		this.name = name;
@@ -20,6 +20,7 @@ public class Menu {
 			while (rs.next()) {
 				this.image = rs.getString("Image");
 				this.cssClass = rs.getString("CssClass");
+				this.view = rs.getString("View");
 			}
 		}
 		catch(SQLException e) {
@@ -54,6 +55,10 @@ public class Menu {
 	
 	public String getCssClass() {
 		return cssClass;
+	}
+	
+	public String getView() {
+		return this.view;
 	}
 	
 	public void setCssClass (String cssClass) {

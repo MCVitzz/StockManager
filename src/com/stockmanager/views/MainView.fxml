@@ -40,7 +40,7 @@
                   <Insets top="10.0" />
                </opaqueInsets>
                <VBox.margin>
-                  <Insets left="10.0" top="10.0" />
+                  <Insets left="10.0" top="30.0" />
                </VBox.margin></VBox>
             <VBox prefHeight="200.0" prefWidth="100.0">
                <children>
@@ -89,7 +89,7 @@
                         <Insets left="15.0" />
                      </padding>
                      <VBox.margin>
-                        <Insets top="10.0" />
+                        <Insets top="5.0" />
                      </VBox.margin>
                   </Button>
                </children>
@@ -97,7 +97,7 @@
                   <Insets />
                </opaqueInsets>
                <VBox.margin>
-                  <Insets />
+                  <Insets top="45.0" />
                </VBox.margin>
             </VBox>
          </children>
