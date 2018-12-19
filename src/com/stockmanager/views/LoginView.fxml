@@ -5,24 +5,53 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
 <VBox id="loginVbox" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" spacing="20.0" stylesheets="@../application.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <TextField fx:id="usernameTF" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="26.0" prefWidth="300.0" promptText="Username" stylesheets="@../application.css">
+      <HBox prefHeight="30.0" prefWidth="800.0">
+         <children>
+            <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../Images/user.png" />
+               </image>
+               <HBox.margin>
+                  <Insets left="250.0" />
+               </HBox.margin>
+            </ImageView>
+            <TextField fx:id="usernameTF" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="26.0" prefWidth="300.0" promptText="Username" stylesheets="@../application.css">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </TextField>
+         </children>
          <VBox.margin>
-            <Insets left="100.0" right="100.0" top="300.0" />
+            <Insets top="350.0" />
          </VBox.margin>
-      </TextField>
-      <PasswordField fx:id="passwordPF" maxHeight="-Infinity" maxWidth="-Infinity" onAction="#login" prefHeight="21.0" prefWidth="300" promptText="Password" stylesheets="@../application.css">
-         <VBox.margin>
-            <Insets left="100.0" right="100.0" />
-         </VBox.margin>
-      </PasswordField>
+      </HBox>
+      <HBox prefHeight="53.0" prefWidth="800.0">
+         <children>
+            <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../Images/password.png" />
+               </image>
+               <HBox.margin>
+                  <Insets left="250.0" />
+               </HBox.margin>
+            </ImageView>
+            <PasswordField fx:id="passwordPF" maxHeight="-Infinity" maxWidth="-Infinity" onAction="#login" prefHeight="21.0" prefWidth="300" promptText="Password" stylesheets="@../application.css">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </PasswordField>
+         </children>
+      </HBox>
       <HBox prefHeight="57.0" prefWidth="600.0">
          <children>
-            <Button id="loginButton" mnemonicParsing="false" onAction="#login" stylesheets="@../application.css" text="Login">
+            <Button mnemonicParsing="false" onAction="#login" styleClass="loginButtons" stylesheets="@../application.css" text="Login">
                <HBox.margin>
                   <Insets left="300.0" />
                </HBox.margin>
@@ -30,7 +59,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button id="exitButton" fx:id="exitButton" mnemonicParsing="false" onAction="#exit" stylesheets="@../application.css" text="Exit">
+            <Button fx:id="exitButton" mnemonicParsing="false" onAction="#exit" styleClass="loginButtons" stylesheets="@../application.css" text="Exit">
                <HBox.margin>
                   <Insets left="50.0" />
                </HBox.margin>
