@@ -42,7 +42,7 @@
                <VBox.margin>
                   <Insets left="10.0" top="30.0" />
                </VBox.margin></VBox>
-            <VBox prefHeight="200.0" prefWidth="100.0">
+            <VBox minHeight="100.0" minWidth="100.0" prefHeight="150.0" prefWidth="100.0">
                <children>
                   <Button fx:id="btnUsers" alignment="TOP_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#userButton_OnClick" prefHeight="28.0" prefWidth="178.0" styleClass="menuButton" stylesheets="@../application.css" text="Users" textFill="WHITE">
                      <graphic>
@@ -97,7 +97,7 @@
                   <Insets />
                </opaqueInsets>
                <VBox.margin>
-                  <Insets top="45.0" />
+                  <Insets />
                </VBox.margin>
             </VBox>
          </children>

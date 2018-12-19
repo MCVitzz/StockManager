@@ -9,7 +9,7 @@
 
 }
 
-#loginButton, #exitButton {
+.loginButtons {
 	-fx-background-color:  rgb(64.0, 78.0, 103.0);
     -fx-background-insets: 0.0,1.0,2.0,3.0;
     -fx-background-radius: 3.0,2.0,2.0,2.0;
@@ -18,13 +18,13 @@
     -fx-font-size: 12.0px;
 }
 
-#loginButton:hover, #exitButton:hover {
+.loginButtons:hover{
 
 	-fx-background-color: #36578c;
     
 }
 
-#loginButton:pressed, #exitButton:pressed {
+.loginButtons:pressed{
 
 	-fx-background-color: rgba(18.0, 42.0, 82.0, 0.815);
     -fx-background-insets: 0.0,1.0,2.0,3.0;
@@ -43,9 +43,7 @@
   -fx-background-color: transparent;
   }
 
-.ccombo-box :disabled {
-	-fx-color: black;
-}  
+
 
 .menuButton
 {
@@ -63,7 +61,6 @@
 
 .dashboardSquares {
 	-fx-background-color: rgb(64.0, 78.0, 103.0);
-
 }
 
 #lblUser {
