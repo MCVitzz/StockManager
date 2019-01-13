@@ -19,7 +19,7 @@ public class StockVolume extends DatabaseObject {
 		this.company = company;
 		this.volume = volume;
 		try {
-			ResultSet rs = Database.select("SELECT * FROM stockVolume WHERE Company = '" + company + "' AND Volume = '" + volume + "'");
+			ResultSet rs = Database.select("SELECT * FROM stockVolume WHERE Company = '" + Utilities.escape(company) + "' AND Volume = '" + volume + "'");
 			while (rs.next()) {
 				this.warehouse = rs.getString("Warehouse");
 				this.location = rs.getString("Location");
@@ -68,19 +68,19 @@ public class StockVolume extends DatabaseObject {
 	}
 
 	protected boolean insert() {
-		return Database.executeQuery("INSERT INTO stockVolume (Company, Warehouse, Volume, Location) VALUES ('" + company + "', '" + warehouse + "', '" + volume + "', '" + location + "')");
+		return Database.executeQuery("INSERT INTO stockVolume (Company, Warehouse, Volume, Location) VALUES ('" + Utilities.escape(company) + "', '" + Utilities.escape(warehouse) + "', '" + volume + "', '" + Utilities.escape(location) + "')");
 	}
 
 	protected boolean update() {
-		return Database.executeQuery("UPDATE stockVolume SET Warehouse = '" + warehouse + "', Location = '" + location + "' WHERE Company = '" + company + "' AND Volume = '" + volume + "'");
+		return Database.executeQuery("UPDATE stockVolume SET Warehouse = '" + Utilities.escape(warehouse) + "', Location = '" + Utilities.escape(location) + "' WHERE Company = '" + Utilities.escape(company) + "' AND Volume = '" + volume + "'");
 	}
 
 	protected boolean exists() {
-		return Database.simpleSelect("StockVolume", "stockVolume", "Company = '" + company + "' AND Volume = '" + volume + "'") != null;
+		return Database.simpleSelect("StockVolume", "stockVolume", "Company = '" + Utilities.escape(company) + "' AND Volume = '" + volume + "'") != null;
 	}
 
 	public boolean delete() {
-		return Database.executeQuery("DELETE FROM stockVolume WHERE Company = '" + company + "' AND Volume = '" + volume + "'");
+		return Database.executeQuery("DELETE FROM stockVolume WHERE Company = '" + Utilities.escape(company) + "' AND Volume = '" + volume + "'");
 	}
 
 	protected boolean validate() {

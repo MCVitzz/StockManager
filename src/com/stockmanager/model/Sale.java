@@ -22,7 +22,7 @@ public class Sale extends DatabaseObject {
 		this.company = company;
 		this.sale = sale;
 		try {
-			ResultSet rs = Database.select("SELECT * FROM sale WHERE Company = '" + company + "' AND Sale = '" + sale + "'");
+			ResultSet rs = Database.select("SELECT * FROM sale WHERE Company = '" + Utilities.escape(company) + "' AND Sale = '" + sale + "'");
 			while (rs.next()) {
 				this.warehouse = rs.getString("Warehouse");
 				this.date = rs.getDate("Date").toLocalDate();
@@ -40,11 +40,11 @@ public class Sale extends DatabaseObject {
 		this.company = company;
 		try {
 			this.sale = 1;
-			String s = Database.simpleSelect("MAX(Sale) AS Sale", "sale",  "Company = '" + company + "'");
+			String s = Database.simpleSelect("MAX(Sale) AS Sale", "sale",  "Company = '" + Utilities.escape(company) + "'");
 			if(s != null)
 				this.sale = Integer.parseInt(s) + 1;
 			
-			ResultSet rs = Database.select("SELECT * FROM sale WHERE Company = '" + company + "' AND Sale = '" + sale + "'");
+			ResultSet rs = Database.select("SELECT * FROM sale WHERE Company = '" + Utilities.escape(company) + "' AND Sale = '" + sale + "'");
 			while (rs.next()) {
 				this.warehouse = rs.getString("Warehouse");
 				this.date = rs.getDate("Date").toLocalDate();
@@ -71,11 +71,11 @@ public class Sale extends DatabaseObject {
 	}
 	
 	public boolean executeSale() {
-		return Database.executeQuery("CALL withdrawstock('" + this.getCompany() + "'	," + this.getSale() +")");
+		return Database.executeQuery("CALL withdrawstock('" + Utilities.escape(company) + "'	," + sale +")");
 	}
 	
 	public ArrayList<SaleItem> getItems() {
-		ResultSet rs = Database.select("SELECT Item FROM saleitem WHERE Company = '" + company + "' AND Sale = " + sale);
+		ResultSet rs = Database.select("SELECT Item FROM saleitem WHERE Company = '" + Utilities.escape(company) + "' AND Sale = " + sale);
 		ArrayList<SaleItem> sales = new ArrayList<SaleItem>();
 		try {
 			while(rs.next())
@@ -132,19 +132,19 @@ public class Sale extends DatabaseObject {
 	}
 	
 	protected boolean insert() {
-		return Database.executeQuery("INSERT INTO sale (Company, Sale, Warehouse, Date, Client, State) VALUES ('" + company + "', '" + sale + "', '" + warehouse + "', '" + date + "', '" + client + "', '" + state + "')");
+		return Database.executeQuery("INSERT INTO sale (Company, Sale, Warehouse, Date, Client, State) VALUES ('" + Utilities.escape(company) + "', '" + sale + "', '" + Utilities.escape(warehouse) + "', '" + date + "', '" + Utilities.escape(client) + "', '" + Utilities.escape(state) + "')");
 	}
 
 	protected boolean update() {
-		return Database.executeQuery("UPDATE sale SET Warehouse = '" + warehouse + "', Date = '" + date + "', Client = '" + client + "', State = '" + state + "' WHERE Company = '" + company + "' AND Sale = '" + sale + "'");
+		return Database.executeQuery("UPDATE sale SET Warehouse = '" + Utilities.escape(warehouse) + "', Date = '" + date + "', Client = '" + Utilities.escape(client) + "', State = '" + Utilities.escape(state) + "' WHERE Company = '" + Utilities.escape(company) + "' AND Sale = '" + sale + "'");
 	}
 
 	protected boolean exists() {
-		return Database.simpleSelect("Sale", "sale", "Company = '" + company + "' AND Sale = '" + sale + "'") != null;
+		return Database.simpleSelect("Sale", "sale", "Company = '" + Utilities.escape(company) + "' AND Sale = '" + sale + "'") != null;
 	}
 
 	public boolean delete() {
-		return Database.executeQuery("DELETE FROM sale WHERE Company = '" + company + "' AND Sale = '" + sale + "'");
+		return Database.executeQuery("DELETE FROM sale WHERE Company = '" + Utilities.escape(company) + "' AND Sale = '" + sale + "'");
 	}
 
 	protected boolean validate() {

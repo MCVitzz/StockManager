@@ -19,7 +19,7 @@ public class User extends DatabaseObject {
 	public User(String user) {
 		this.user = user;
 		try {
-			ResultSet rs = Database.select("SELECT * FROM user WHERE User = '" + user + "'");
+			ResultSet rs = Database.select("SELECT * FROM user WHERE User = '" + Utilities.escape(user) + "'");
 			while (rs.next()) {
 				this.password = rs.getString("Password");
 				this.passwordSalt = rs.getString("PasswordSalt");
@@ -48,7 +48,7 @@ public class User extends DatabaseObject {
 	}
 	
 	private ArrayList<UserPermission> getUsersPermissions() {
-		ResultSet rs = Database.select("SELECT Type FROM userpermission WHERE User = '" + user + "'");
+		ResultSet rs = Database.select("SELECT Type FROM userpermission WHERE User = '" + Utilities.escape(user) + "'");
 		ArrayList<UserPermission> permissions = new ArrayList<UserPermission>();
 		try {
 			while(rs.next())
@@ -68,7 +68,7 @@ public class User extends DatabaseObject {
 	}
 
 	public boolean authenticate(String password) {		
-		return Database.simpleSelect("Password", "user", "User = '" + user + "'") != null && PasswordUtils.generateSecurePassword(password, passwordSalt).equals(this.password);
+		return Database.simpleSelect("Password", "user", "User = '" + Utilities.escape(user) + "'") != null && PasswordUtils.generateSecurePassword(password, passwordSalt).equals(this.password);
 	}
 
 	public void changePassword(String password) {
@@ -77,19 +77,19 @@ public class User extends DatabaseObject {
 	}
 
 	protected boolean insert() {
-		return Database.executeQuery("INSERT INTO user (User, Password, PasswordSalt) VALUES ('" + user + "', '" + password + "', '" + passwordSalt + "')");
+		return Database.executeQuery("INSERT INTO user (User, Password, PasswordSalt) VALUES ('" + Utilities.escape(user) + "', '" + Utilities.escape(password) + "', '" + Utilities.escape(passwordSalt) + "')");
 	}
 
 	protected boolean update() {
-		return Database.executeQuery("UPDATE user SET Password = '" + password + "', PasswordSalt = '" + passwordSalt + "' WHERE User = '" + user + "'");
+		return Database.executeQuery("UPDATE user SET Password = '" + Utilities.escape(password) + "', PasswordSalt = '" + Utilities.escape(passwordSalt) + "' WHERE User = '" + Utilities.escape(user) + "'");
 	}
 
 	protected boolean exists() {
-		return Database.simpleSelect("User", "user", "User = '" + user + "'") != null;
+		return Database.simpleSelect("User", "user", "User = '" + Utilities.escape(user) + "'") != null;
 	}
 
 	public boolean delete() {
-		return Database.executeQuery("DELETE FROM user WHERE user = '" + this.user + "'");
+		return Database.executeQuery("DELETE FROM user WHERE user = '" + Utilities.escape(user) + "'");
 	}
 
 	protected boolean validate() {

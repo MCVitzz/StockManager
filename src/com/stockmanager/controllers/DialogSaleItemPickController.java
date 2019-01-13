@@ -2,7 +2,6 @@ package com.stockmanager.controllers;
 
 import java.util.ArrayList;
 
-import com.stockmanager.model.Item;
 import com.stockmanager.model.PickItem;
 import com.stockmanager.model.Sale;
 import com.stockmanager.model.SaleVolume;
@@ -14,7 +13,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
-import javafx.stage.Stage;
 public class DialogSaleItemPickController {
 
 	private Sale sale;
@@ -44,7 +42,7 @@ public class DialogSaleItemPickController {
 		txtUnit.setDisable(true);
 		putPlaceHolders();
 	}
-	
+
 	@FXML
 	void btnPick_OnClick(ActionEvent event) {
 		SaleVolume sv = new SaleVolume(sale.getCompany(), sale.getSale(), Long.parseLong(txtVolume.getText()));
@@ -54,20 +52,22 @@ public class DialogSaleItemPickController {
 		SaleVolumeItem svi = new SaleVolumeItem(sale.getCompany(), sale.getSale(), Long.parseLong(txtVolume.getText()), txtItem.getText());
 		svi.setQuantity(pickItem.getQuantity());
 		svi.setUnit(txtUnit.getText());
-		
+
 		sv.save();
 		svi.save();
 		pktlist.remove(pickItem);
-		
+
 
 		Utilities.alert(AlertType.INFORMATION, "Picked.");
-		
+
 	}
 
 	@FXML
 	void btnFinalize_OnClick(ActionEvent event) {
-		Database.executeQuery("CALL withdrawstock('"+ sale.getCompany() + "'	," + sale.getSale() +")");
-		Utilities.alert(AlertType.INFORMATION, "The sale has been completed.");
+		if (sale.executeSale())
+			Utilities.alert(AlertType.INFORMATION, "The sale has been completed.");
+		else
+			Utilities.warn("The sale was not completed.");
 	}
 
 	public void putPlaceHolders() {

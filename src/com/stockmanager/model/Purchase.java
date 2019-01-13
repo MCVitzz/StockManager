@@ -22,7 +22,7 @@ public class Purchase extends DatabaseObject {
 		this.company = company;
 		this.purchase = purchase;
 		try {
-			ResultSet rs = Database.select("SELECT * FROM purchase WHERE Company = '" + company + "' AND Purchase = '" + purchase + "'");
+			ResultSet rs = Database.select("SELECT * FROM purchase WHERE Company = '" + Utilities.escape(company) + "' AND Purchase = '" + purchase + "'");
 			while (rs.next()) {
 				this.warehouse = rs.getString("Warehouse");
 				this.date = rs.getDate("Date").toLocalDate();
@@ -39,11 +39,11 @@ public class Purchase extends DatabaseObject {
 		this.company = company;
 		try {
 			this.purchase = 1;
-			String s = Database.simpleSelect("MAX(Purchase) AS Purchase", "purchase",  "Company = '" + company + "'");
+			String s = Database.simpleSelect("MAX(Purchase) AS Purchase", "purchase",  "Company = '" + Utilities.escape(company) + "'");
 			if(s != null)
 				this.purchase = Integer.parseInt(s) + 1;
 			
-			ResultSet rs = Database.select("SELECT * FROM purchase WHERE Company = '" + company + "' AND Purchase = '" + purchase + "'");
+			ResultSet rs = Database.select("SELECT * FROM purchase WHERE Company = '" + Utilities.escape(company) + "' AND Purchase = '" + purchase + "'");
 			while (rs.next()) {
 				this.warehouse = rs.getString("Warehouse");
 				this.date = rs.getDate("Date").toLocalDate();
@@ -70,12 +70,12 @@ public class Purchase extends DatabaseObject {
 	}
 	
 	public void createStock() {
-		Database.executeQuery("INSERT INTO stockvolume SELECT PV.Company, PV.Volume, P.Warehouse, PV.Location FROM purchase AS P INNER JOIN purchasevolume AS PV ON P.Company = PV.Company AND P.Purchase = PV.Purchase WHERE P.Company = '" + company + "' AND P.Purchase = " + purchase + "");
-		Database.executeQuery("INSERT INTO stockvolumeitem SELECT PVI.Company, PVI.Volume, PVI.Item, PVI.Quantity, PVI.Unit, CURDATE() FROM purchase AS P INNER JOIN purchasevolumeitem AS PVI ON P.Company = PVI.Company AND P.Purchase = PVI.Purchase WHERE P.Company = '" + company + "' AND P.Purchase = " + purchase + "");
+		Database.executeQuery("INSERT INTO stockvolume SELECT PV.Company, PV.Volume, P.Warehouse, PV.Location FROM purchase AS P INNER JOIN purchasevolume AS PV ON P.Company = PV.Company AND P.Purchase = PV.Purchase WHERE P.Company = '" + Utilities.escape(company) + "' AND P.Purchase = " + purchase + "");
+		Database.executeQuery("INSERT INTO stockvolumeitem SELECT PVI.Company, PVI.Volume, PVI.Item, PVI.Quantity, PVI.Unit, CURDATE() FROM purchase AS P INNER JOIN purchasevolumeitem AS PVI ON P.Company = PVI.Company AND P.Purchase = PVI.Purchase WHERE P.Company = '" + Utilities.escape(company) + "' AND P.Purchase = " + purchase + "");
 	}
 	
 	public ArrayList<PurchaseItem> getItems() {
-		ResultSet rs = Database.select("SELECT Item FROM purchaseItem WHERE Company = '" + company + "' AND Purchase = '" + purchase + "'");
+		ResultSet rs = Database.select("SELECT Item FROM purchaseItem WHERE Company = '" + Utilities.escape(company) + "' AND Purchase = '" + purchase + "'");
 		ArrayList<PurchaseItem> items = new ArrayList<PurchaseItem>();
 		try {
 			while(rs.next())
@@ -136,19 +136,19 @@ public class Purchase extends DatabaseObject {
 	}
 
 	protected boolean insert() {
-		return Database.executeQuery("INSERT INTO purchase (Company, Purchase, Warehouse, Date, Supplier, State) VALUES ('" + company + "', '" + purchase + "', '" + warehouse + "', '" + date + "', '" + supplier + "', '" + state + "')");
+		return Database.executeQuery("INSERT INTO purchase (Company, Purchase, Warehouse, Date, Supplier, State) VALUES ('" + Utilities.escape(company) + "', '" + purchase + "', '" + Utilities.escape(warehouse) + "', '" + date + "', '" + Utilities.escape(supplier) + "', '" + Utilities.escape(state) + "')");
 	}
 
 	protected boolean update() {
-		return Database.executeQuery("UPDATE purchase SET Warehouse = '" + warehouse + "', Date = '" + date + "', Supplier = '" + supplier + "', State = '" + state + "' WHERE Company = '" + company + "' AND Purchase = '" + purchase + "'");
+		return Database.executeQuery("UPDATE purchase SET Warehouse = '" + Utilities.escape(warehouse) + "', Date = '" + date + "', Supplier = '" + Utilities.escape(supplier) + "', State = '" + Utilities.escape(state) + "' WHERE Company = '" + Utilities.escape(company) + "' AND Purchase = '" + purchase + "'");
 	}
 
 	protected boolean exists() {
-		return Database.simpleSelect("Purchase", "purchase", "Company = '" + company + "' AND Purchase = '" + purchase + "'") != null;
+		return Database.simpleSelect("Purchase", "purchase", "Company = '" + Utilities.escape(company) + "' AND Purchase = '" + purchase + "'") != null;
 	}
 
 	public boolean delete() {
-		return Database.executeQuery("DELETE FROM purchase WHERE Company = '" + company + "' AND Purchase = '" + purchase + "'");
+		return Database.executeQuery("DELETE FROM purchase WHERE Company = '" + Utilities.escape(company)+ "' AND Purchase = '" + purchase + "'");
 	}
 
 	protected boolean validate() {

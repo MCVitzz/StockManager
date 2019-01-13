@@ -17,7 +17,7 @@ public class UserPermission extends DatabaseObject {
 		this.type = type;
 
 		try {
-			ResultSet rs = Database.select("SELECT * FROM userpermission WHERE user = '" + user + "' AND Type = '" + type + "'");
+			ResultSet rs = Database.select("SELECT * FROM userpermission WHERE user = '" + Utilities.escape(user) + "' AND Type = '" + Utilities.escape(type) + "'");
 			while (rs.next()) {
 				this.access = rs.getBoolean("Access");
 			}
@@ -41,7 +41,7 @@ public class UserPermission extends DatabaseObject {
 	}
 	
 	public static ArrayList<UserPermission> getPremissionsFromUser(String user) {
-		ResultSet rs = Database.select("SELECT User, Type FROM userpermission WHERE User = '" + user + "'");
+		ResultSet rs = Database.select("SELECT User, Type FROM userpermission WHERE User = '" + Utilities.escape(user) + "'");
 		ArrayList<UserPermission> userpermissions = new ArrayList<UserPermission>();
 		try {
 			while(rs.next())
@@ -59,22 +59,22 @@ public class UserPermission extends DatabaseObject {
 	
 	@Override
 	protected boolean insert() {
-		return Database.executeQuery("INSERT INTO userpermission (User, Type, Access) VALUES ('" + user + "', '" + type + "', " + access() + ")");
+		return Database.executeQuery("INSERT INTO userpermission (User, Type, Access) VALUES ('" + Utilities.escape(user) + "', '" + Utilities.escape(type) + "', " + access() + ")");
 	}
 
 	@Override
 	protected boolean update() {
-		return Database.executeQuery("UPDATE userpermission SET Access = " + access() + " WHERE User = '" + user + "' AND Type = '" + type + "'");
+		return Database.executeQuery("UPDATE userpermission SET Access = " + access() + " WHERE User = '" + Utilities.escape(user) + "' AND Type = '" + Utilities.escape(type) + "'");
 	}
 
 	@Override
 	protected boolean exists() {
-		return Database.simpleSelect("User", "userpermission", "user = '" + user + "' AND Type = '" + type + "'") != null;
+		return Database.simpleSelect("User", "userpermission", "user = '" + Utilities.escape(user) + "' AND Type = '" + Utilities.escape(type) + "'") != null;
 	}
 
 	@Override
 	public boolean delete() {
-		return Database.executeQuery("DELETE FROM userpermission WHERE User = '" + user + "' AND Type = '" + type + "'");
+		return Database.executeQuery("DELETE FROM userpermission WHERE User = '" + Utilities.escape(user) + "' AND Type = '" + Utilities.escape(type) + "'");
 	}
 
 	@Override

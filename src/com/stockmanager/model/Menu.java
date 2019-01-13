@@ -16,7 +16,7 @@ public class Menu {
 		this.name = name;
 		this.cssClass = cssClass;
 		try {
-			ResultSet rs = Database.select("SELECT * FROM menu WHERE Name = '" + name + "'");
+			ResultSet rs = Database.select("SELECT * FROM menu WHERE Name = '" + Utilities.escape(name) + "'");
 			while (rs.next()) {
 				this.image = rs.getString("Image");
 				this.cssClass = rs.getString("CssClass");
