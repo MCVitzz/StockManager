@@ -67,8 +67,8 @@ public class User extends DatabaseObject {
 		return permissions;
 	}
 
-	public boolean authenticate(String password) {
-		return PasswordUtils.generateSecurePassword(password, passwordSalt).equals(this.password);
+	public boolean authenticate(String password) {		
+		return Database.simpleSelect("Password", "user", "User = '" + user + "'") != null && PasswordUtils.generateSecurePassword(password, passwordSalt).equals(this.password);
 	}
 
 	public void changePassword(String password) {

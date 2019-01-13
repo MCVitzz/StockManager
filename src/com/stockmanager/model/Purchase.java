@@ -87,6 +87,10 @@ public class Purchase extends DatabaseObject {
 		return items;
 	}
 	
+	public static String getDashboardText() {
+		return Database.simpleSelect("count(purchase)", "purchase");
+	}
+	
 	public String getCompany() {
 		return company;
 	}

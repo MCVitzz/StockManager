@@ -4,7 +4,6 @@ import java.time.LocalDate;
 
 import com.stockmanager.model.StockVolume;
 import com.stockmanager.model.StockVolumeItem;
-import com.stockmanager.model.paginated.PaginatedStockVolumeItem;
 import com.stockmanager.utils.Utilities;
 
 import javafx.collections.FXCollections;
@@ -19,39 +18,39 @@ public class StockVolumeItemController {
 	private StockVolume volume;
 	
 	@FXML
-	private TableView<PaginatedStockVolumeItem> tblStockVolumeItem;
+	private TableView<StockVolumeItem> tblStockVolumeItem;
 
 	@FXML
-	private TableColumn<PaginatedStockVolumeItem, String> clmnItem;
+	private TableColumn<StockVolumeItem, String> clmnItem;
 	
 	@FXML
-	private TableColumn<PaginatedStockVolumeItem, String> clmnName;
+	private TableColumn<StockVolumeItem, String> clmnName;
 	
 	@FXML
-	private TableColumn<PaginatedStockVolumeItem, Double> clmnQuantity;
+	private TableColumn<StockVolumeItem, Double> clmnQuantity;
 	
 	@FXML
-	private TableColumn<PaginatedStockVolumeItem, String> clmnUnit;
+	private TableColumn<StockVolumeItem, String> clmnUnit;
 	
 	@FXML
-	private TableColumn<PaginatedStockVolumeItem, LocalDate> clmnEntryDate;
+	private TableColumn<StockVolumeItem, LocalDate> clmnEntryDate;
 
 	public StockVolumeItemController(StockVolume volume) {
 		this.volume = volume;
 	}
 	
 	public void initialize() {
-		clmnItem.setCellValueFactory(new PropertyValueFactory<PaginatedStockVolumeItem, String>("item"));
-		clmnName.setCellValueFactory(new PropertyValueFactory<PaginatedStockVolumeItem, String>("name"));
-		clmnQuantity.setCellValueFactory(new PropertyValueFactory<PaginatedStockVolumeItem, Double>("quantity"));
-		clmnUnit.setCellValueFactory(new PropertyValueFactory<PaginatedStockVolumeItem, String>("unit"));
-		clmnEntryDate.setCellValueFactory(new PropertyValueFactory<PaginatedStockVolumeItem, LocalDate>("entryDate"));
+		clmnItem.setCellValueFactory(new PropertyValueFactory<StockVolumeItem, String>("item"));
+		clmnName.setCellValueFactory(new PropertyValueFactory<StockVolumeItem, String>("name"));
+		clmnQuantity.setCellValueFactory(new PropertyValueFactory<StockVolumeItem, Double>("quantity"));
+		clmnUnit.setCellValueFactory(new PropertyValueFactory<StockVolumeItem, String>("unit"));
+		clmnEntryDate.setCellValueFactory(new PropertyValueFactory<StockVolumeItem, LocalDate>("entryDate"));
 		
 		getData();
 	}
 	
 	public void getData() {
-		tblStockVolumeItem.setItems(FXCollections.observableArrayList(PaginatedStockVolumeItem.getAllPaginatedItemsInVolume(volume)));
+		tblStockVolumeItem.setItems(FXCollections.observableArrayList(StockVolumeItem.getAllItemsInVolume(volume)));
 	}
 
 	@FXML

@@ -62,6 +62,10 @@ public class SaleItem extends DatabaseObject {
 		return sales;
 	}
 	
+	public String getName() {
+		return Database.simpleSelect("Name", "Item", "Company = '" + company + "' AND Item = '" + item + "'");
+	}
+	
 	public String getCompany() {
 		return company;
 	}

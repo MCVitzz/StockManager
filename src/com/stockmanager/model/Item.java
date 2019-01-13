@@ -49,22 +49,22 @@ public class Item extends DatabaseObject{
 
 	@Override
 	protected boolean insert() {
-		return Database.executeQuery("INSERT INTO item (Company, Item, Name, Unit) VALUES ('"+ company+ "', '" + item + "', '" + name + "', '" + unit + "')");
+		return Database.executeQuery("INSERT INTO item (Company, Item, Name, Unit) VALUES ('"+ Utilities.escape(company)+ "', '" + Utilities.escape(item) + "', '" + Utilities.escape(name) + "', '" + Utilities.escape(unit) + "')");
 	}
 
 	@Override
 	protected boolean update() {
-		return Database.executeQuery("UPDATE item SET Company = '" + company + "', Name = '" + name + "', Unit = '" + unit + "' WHERE Item = '" + item + "'");
+		return Database.executeQuery("UPDATE item SET Company = '" + Utilities.escape(company) + "', Name = '" + Utilities.escape(name) + "', Unit = '" + unit + "' WHERE Item = '" + Utilities.escape(item) + "'");
 	}
 
 	@Override
 	protected boolean exists() {
-		return Database.simpleSelect("Item", "item", "item = '" + item + "'") != null;
+		return Database.simpleSelect("Item", "item", "item = '" + Utilities.escape(item) + "'") != null;
 	}
 
 	@Override
 	public boolean delete() {
-		return Database.executeQuery("DELETE FROM item WHERE Item = '" + this.item + "'");
+		return Database.executeQuery("DELETE FROM item WHERE Item = '" + Utilities.escape(item) + "'");
 	}
 
 	@Override

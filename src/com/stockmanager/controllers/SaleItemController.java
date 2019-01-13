@@ -1,6 +1,5 @@
 package com.stockmanager.controllers;
 
-import com.stockmanager.model.paginated.PaginatedSaleItem;
 import com.stockmanager.model.Sale;
 import com.stockmanager.model.SaleItem;
 import com.stockmanager.utils.Utilities;
@@ -17,43 +16,43 @@ public class SaleItemController {
 	private Sale sale;
 	
 	@FXML
-	private TableView<PaginatedSaleItem> tblSaleItem;
+	private TableView<SaleItem> tblSaleItem;
 
 	@FXML
-	private TableColumn<PaginatedSaleItem, String> clmnItem;
+	private TableColumn<SaleItem, String> clmnItem;
 	
 	@FXML
-	private TableColumn<PaginatedSaleItem, String> clmnName;
+	private TableColumn<SaleItem, String> clmnName;
 	
 	@FXML
-	private TableColumn<PaginatedSaleItem, Double> clmnQuantity;
+	private TableColumn<SaleItem, Double> clmnQuantity;
 	
 	@FXML
-	private TableColumn<PaginatedSaleItem, Double> clmnConfirmed;
+	private TableColumn<SaleItem, Double> clmnConfirmed;
 	
 	@FXML
-	private TableColumn<PaginatedSaleItem, String> clmnUnit;
+	private TableColumn<SaleItem, String> clmnUnit;
 	
 	@FXML
-	private TableColumn<PaginatedSaleItem, String> clmnState;
+	private TableColumn<SaleItem, String> clmnState;
 
 	public SaleItemController(Sale sale) {
 		this.sale = sale;
 	}
 	
 	public void initialize() {
-		clmnItem.setCellValueFactory(new PropertyValueFactory<PaginatedSaleItem, String>("item"));
-		clmnName.setCellValueFactory(new PropertyValueFactory<PaginatedSaleItem, String>("name"));
-		clmnQuantity.setCellValueFactory(new PropertyValueFactory<PaginatedSaleItem, Double>("quantity"));
-		clmnConfirmed.setCellValueFactory(new PropertyValueFactory<PaginatedSaleItem, Double>("confirmedQuantity"));
-		clmnState.setCellValueFactory(new PropertyValueFactory<PaginatedSaleItem, String>("state"));
-		clmnUnit.setCellValueFactory(new PropertyValueFactory<PaginatedSaleItem, String>("unit"));
+		clmnItem.setCellValueFactory(new PropertyValueFactory<SaleItem, String>("item"));
+		clmnName.setCellValueFactory(new PropertyValueFactory<SaleItem, String>("name"));
+		clmnQuantity.setCellValueFactory(new PropertyValueFactory<SaleItem, Double>("quantity"));
+		clmnConfirmed.setCellValueFactory(new PropertyValueFactory<SaleItem, Double>("confirmedQuantity"));
+		clmnState.setCellValueFactory(new PropertyValueFactory<SaleItem, String>("state"));
+		clmnUnit.setCellValueFactory(new PropertyValueFactory<SaleItem, String>("unit"));
 		
 		getData();
 	}
 	
 	public void getData() {
-		tblSaleItem.setItems(FXCollections.observableArrayList(PaginatedSaleItem.getAllPaginatedItemsInSale(sale)));
+		tblSaleItem.setItems(FXCollections.observableArrayList(SaleItem.getAllItemsInSale(sale)));
 	}
 
 	@FXML

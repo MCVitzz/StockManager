@@ -62,6 +62,10 @@ public class Warehouse extends DatabaseObject {
 		return warehouses;
 	}
 	
+	public static String getDashboardText() {
+		return Database.simpleSelect("count(company)" , "warehouse");
+	}
+	
 	public String getCompany() {
 		return company;
 	}

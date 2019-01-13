@@ -95,6 +95,13 @@ public class Utilities {
 		}
 		return node;
 	}
+	
+	public static String escape(String s) {
+		System.out.println("To Escape: " + s);
+		s = s.replace("'", "\\'");
+		System.out.println("Escaped: " + s);
+		return s;
+	}
 
 	public static Node getNode(String name) {
 		Node node = null;
