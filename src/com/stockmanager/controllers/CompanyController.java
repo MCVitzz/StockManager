@@ -61,5 +61,5 @@ public class CompanyController {
 	@FXML
 	public void btnRefresh_OnClick() {
 		getData();
-	}	
+	}
 }

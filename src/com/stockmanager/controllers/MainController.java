@@ -190,7 +190,6 @@ public class MainController implements Controller {
 	}
 	
 	private void createButton(Menu menu) {
-			System.out.println("Nome do bot�o: " + menu.getName() + "Path da imagem: " + menu.getImage() + "Classe do css" + menu.getCssClass());
 			Image buttonImage = new Image(menu.getImage());
 			Button button = new Button(menu.getName(), new ImageView(buttonImage));
 			button.getStyleClass().add(menu.getCssClass());
