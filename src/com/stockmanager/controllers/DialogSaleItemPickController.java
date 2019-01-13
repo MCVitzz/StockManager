@@ -2,7 +2,7 @@ package com.stockmanager.controllers;
 
 import java.util.ArrayList;
 
-import com.stockmanager.model.Database;
+import com.stockmanager.model.Item;
 import com.stockmanager.model.PickItem;
 import com.stockmanager.model.Sale;
 import com.stockmanager.model.SaleVolume;
@@ -52,9 +52,9 @@ public class DialogSaleItemPickController {
 		sv.setWarehouse(sale.getWarehouse());
 
 		SaleVolumeItem svi = new SaleVolumeItem(sale.getCompany(), sale.getSale(), Long.parseLong(txtVolume.getText()), txtItem.getText());
-		svi.setQuantity(Double.parseDouble(txtQuantity.getText()));
+		svi.setQuantity(pickItem.getQuantity());
 		svi.setUnit(txtUnit.getText());
-
+		
 		sv.save();
 		svi.save();
 		pktlist.remove(pickItem);
@@ -66,12 +66,8 @@ public class DialogSaleItemPickController {
 
 	@FXML
 	void btnFinalize_OnClick(ActionEvent event) {
-		Database.executeQuery("CALL withdrawstock('"+ sale.getCompany() + "' ," + sale.getSale() +")");
+		Database.executeQuery("CALL withdrawstock('"+ sale.getCompany() + "'	," + sale.getSale() +")");
 		Utilities.alert(AlertType.INFORMATION, "The sale has been completed.");
-		sale.setState("Closed");
-		sale.save();
-		((Stage)txtVolume.getScene().getWindow()).close();
-		
 	}
 
 	public void putPlaceHolders() {

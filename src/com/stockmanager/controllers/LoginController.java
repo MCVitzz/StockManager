@@ -1,6 +1,5 @@
 package com.stockmanager.controllers;
 
-import com.stockmanager.model.Database;
 import com.stockmanager.model.User;
 import com.stockmanager.utils.Utilities;
 
@@ -29,14 +28,8 @@ public class LoginController {
 		String password = passwordPF.getText();
 		User user = new User(username);
 
-		if(Database.simpleSelect("Password", "user", "User = '" + username + "'") == null) Utilities.warn("Username does not exist.");
-		else try {
-			if(user.authenticate(password)) Utilities.openScene("MainView", passwordPF.getScene().getWindow(), MainController.getInstance(user));
-			else Utilities.warn("Password does not match.");
-		}
-		catch(Exception e) {
-			e.printStackTrace();
-		}
+		if(user.authenticate(password)) Utilities.openScene("MainView", passwordPF.getScene().getWindow(), MainController.getInstance(user));
+		else Utilities.warn("Username does not exist/Wrong password.");
 	}
 
 	@FXML
@@ -48,9 +41,5 @@ public class LoginController {
 	void txtPassword_KeyPressed(KeyEvent event) {
 		if(event.getCode() == KeyCode.ENTER)
 			login(null);
-	}
-	
-	public void openNew() {
-
 	}
 }

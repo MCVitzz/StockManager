@@ -61,6 +61,10 @@ public class PurchaseItem extends DatabaseObject {
 		}
 		return purchases;
 	}
+
+	public String getName() {
+		return Database.simpleSelect("Name", "item", "Company = '" + company + "'AND Item = '" + item + "';");
+	}
 	
 	public String getCompany() {
 		return company;

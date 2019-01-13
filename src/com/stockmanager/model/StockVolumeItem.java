@@ -68,8 +68,16 @@ public class StockVolumeItem extends DatabaseObject {
 		return quantity <= qtdStock;
 	}
 	
+	public static String getDashboardText() {
+		return Database.simpleSelect("count(item)", "item");
+	}
+	
 	public String getCompany() {
 		return company;
+	}
+	
+	public String getName() {
+		return Database.simpleSelect("Name", "Item", "Company = '" + company + "' AND Item = '" + item + "'");
 	}
 
 	public long getVolume() {

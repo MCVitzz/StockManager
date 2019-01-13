@@ -39,7 +39,7 @@ public class Warehouse extends DatabaseObject {
 		
 		try {
 			ResultSet rs = Database.select("SELECT Warehouse FROM warehouse WHERE Company = '" + company + "'");
-			while (rs.next()) 
+			while (rs.next())
 				warehouses.add(new Warehouse(company, rs.getString("Warehouse")));
 		}
 		catch(SQLException e) {
@@ -60,6 +60,10 @@ public class Warehouse extends DatabaseObject {
 			e.printStackTrace();
 		}
 		return warehouses;
+	}
+	
+	public static String getDashboardText() {
+		return Database.simpleSelect("count(company)" , "warehouse");
 	}
 	
 	public String getCompany() {

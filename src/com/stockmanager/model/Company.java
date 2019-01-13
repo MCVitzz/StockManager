@@ -15,7 +15,7 @@ public class Company extends DatabaseObject {
 	public Company(String company) {
 		this.company = company;
 		try {
-			ResultSet rs = Database.select("SELECT * FROM company WHERE Company = '" + company + "'");
+			ResultSet rs = Database.select("SELECT * FROM company WHERE Company = '" + Utilities.escape(company) + "'");
 			while (rs.next()) {
 				this.address = rs.getString("Address");
 				this.country = rs.getString("Country");
@@ -46,22 +46,22 @@ public class Company extends DatabaseObject {
 	
 	@Override
 	protected boolean insert() {
-		return Database.executeQuery("INSERT INTO company (Company, Address, Country) VALUES ('" + company + "', '" + address + "', '" + country + "')");
+		return Database.executeQuery("INSERT INTO company (Company, Address, Country) VALUES ('" + Utilities.escape(company) + "', '" + Utilities.escape(address) + "', '" + Utilities.escape(country) + "')");
 	}
 
 	@Override
 	protected boolean update() {
-		return Database.executeQuery("UPDATE company SET Address = '" + address + "', Country = '" + country + "' WHERE Company = '" + company + "'");
+		return Database.executeQuery("UPDATE company SET Address = '" + Utilities.escape(address) + "', Country = '" + Utilities.escape(country) + "' WHERE Company = '" + Utilities.escape(company) + "'");
 	}
 
 	@Override
 	protected boolean exists() {
-		return Database.simpleSelect("Company", "company", "company = '" + company + "'") != null;
+		return Database.simpleSelect("Company", "company", "company = '" + Utilities.escape(company) + "'") != null;
 	}
 
 	@Override
 	public boolean delete() {
-		return Database.executeQuery("DELETE FROM company WHERE Company = '" + this.company + "'");
+		return Database.executeQuery("DELETE FROM company WHERE Company = '" + Utilities.escape(company) + "'");
 	}
 
 	@Override

@@ -70,6 +70,10 @@ public class Sale extends DatabaseObject {
 		return sales;
 	}
 	
+	public boolean executeSale() {
+		return Database.executeQuery("CALL withdrawstock('" + this.getCompany() + "'	," + this.getSale() +")");
+	}
+	
 	public ArrayList<SaleItem> getItems() {
 		ResultSet rs = Database.select("SELECT Item FROM saleitem WHERE Company = '" + company + "' AND Sale = " + sale);
 		ArrayList<SaleItem> sales = new ArrayList<SaleItem>();
@@ -81,6 +85,10 @@ public class Sale extends DatabaseObject {
 			e.printStackTrace();
 		}
 		return sales;
+	}
+	
+	public static String getDashboardText() {
+		return Database.simpleSelect("count(sale)", "sale");
 	}
 	
 	public String getCompany() {

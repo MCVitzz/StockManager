@@ -43,6 +43,10 @@ public class StockVolume extends DatabaseObject {
 		return stockVolumes;
 	}
 	
+	public static String getDashboardText() {
+		return Database.simpleSelect("count(volume)", "stockvolume");
+	}
+	
 	public String getCompany() {
 		return company;
 	}

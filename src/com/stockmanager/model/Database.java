@@ -33,7 +33,6 @@ public class Database {
 	public static String simpleSelect(String column, String from, String where) {
 		String res = null;
 		String s = "SELECT " + column + " FROM " + from + " WHERE " + where;
-		System.out.println(s);
 		try {
 			ResultSet rs = select(s);
 			while (rs.next())
@@ -48,7 +47,6 @@ public class Database {
 	public static String simpleSelect(String column, String from) {
 		String res = null;
 		String s = "SELECT " + column + " FROM " + from;
-		System.out.println(s);
 		try {
 			ResultSet rs = select(s);
 			while (rs.next())
@@ -60,8 +58,13 @@ public class Database {
 		return res;
 	}
 
+	public static ArrayList<DatabaseObject> selectQuery() {
+		return new ArrayList<DatabaseObject>();
+	}
+
 	public static boolean executeQuery(String query) {
 		try {
+			//query = escape(query);
 			System.out.println(query);
 			Statement stmt = conn.createStatement();
 			stmt.executeUpdate(query);
@@ -71,22 +74,23 @@ public class Database {
 			Utilities.warn(e.getMessage());
 			return false;
 		}
-	}
-
-	public static ArrayList<DatabaseObject> selectQuery() {
-		return new ArrayList<DatabaseObject>();
 	}	
 
 	public static ResultSet select(String query) {
 		ResultSet rs = null;
 		try {
-			Statement stmt = conn.createStatement();
+			query = escape(query);
 			System.out.println(query);
+			Statement stmt = conn.createStatement();
 			rs = stmt.executeQuery(query);
 		}
 		catch(SQLException e) {
 			e.printStackTrace();
 		}
 		return rs;
+	}
+	
+	private static String escape(String s) {
+		return s;
 	}
 }

@@ -11,6 +11,7 @@ public class SaleVolumeItem extends DatabaseObject {
 	private long volume;
 	private String item;
 	private double quantity;
+	private double confirmedQuantity;
 	private String unit;
 
 	public SaleVolumeItem(String company, int sale, long volume, String item) {
@@ -22,6 +23,7 @@ public class SaleVolumeItem extends DatabaseObject {
 		try {
 			while(rs.next()) {
 				this.quantity = rs.getDouble("Quantity");
+				this.confirmedQuantity = rs.getDouble("ConfirmedQuantity");
 				this.unit = rs.getString("Unit");
 			}
 		} catch (SQLException e) {
@@ -38,6 +40,13 @@ public class SaleVolumeItem extends DatabaseObject {
 		this.quantity = quantity;
 	}
 
+	public double getConfirmedQuantity() {
+		return confirmedQuantity;
+	}
+
+	public void setConfirmedQuantity(double confirmedQuantity) {
+		this.confirmedQuantity = confirmedQuantity;
+	}
 
 	public String getUnit() {
 		return unit;
