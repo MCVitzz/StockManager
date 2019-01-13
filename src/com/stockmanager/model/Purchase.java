@@ -121,6 +121,10 @@ public class Purchase extends DatabaseObject {
 
 	public void setState(String state) {
 		this.state = state;
+    	for(PurchaseItem pi : getItems()) {
+    		pi.setState(state);	
+    		pi.save();
+    	}
 	}
 
 	public void setWarehouse(String warehouse) {

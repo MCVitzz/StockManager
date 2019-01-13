@@ -73,10 +73,6 @@ public class DialogPurchaseItemReceivingController {
     	purchase.createStock();
     	Utilities.alert(AlertType.INFORMATION, "The Purchase has been completed");
     	purchase.setState("Closed");
-    	for(PurchaseItem pi : purchase.getItems()) {
-    		pi.setState("Closed");	
-    		pi.save();
-    	}
     	purchase.save();
 		((Stage)txtLocation.getScene().getWindow()).close();
     }
