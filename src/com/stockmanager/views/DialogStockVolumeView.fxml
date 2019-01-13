@@ -10,62 +10,63 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="827.0" prefWidth="677.0" stylesheets="@../application.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="1098.0" stylesheets="@../application.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
   <columnConstraints>
-    <ColumnConstraints hgrow="SOMETIMES" maxWidth="169.0" minWidth="10.0" prefWidth="149.0" />
-      <ColumnConstraints hgrow="SOMETIMES" maxWidth="173.0" minWidth="10.0" prefWidth="129.0" />
-      <ColumnConstraints hgrow="SOMETIMES" maxWidth="271.0" minWidth="10.0" prefWidth="106.0" />
-      <ColumnConstraints hgrow="SOMETIMES" maxWidth="257.0" minWidth="0.0" prefWidth="129.0" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="228.0" minWidth="10.0" prefWidth="228.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="266.0" minWidth="10.0" prefWidth="207.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="408.0" minWidth="10.0" prefWidth="302.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="302.0" minWidth="0.0" prefWidth="302.0" />
   </columnConstraints>
   <rowConstraints>
-      <RowConstraints maxHeight="196.0" minHeight="10.0" prefHeight="64.0" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="245.0" minHeight="0.0" prefHeight="68.0" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="647.0" minHeight="10.0" prefHeight="627.0" vgrow="SOMETIMES" />
-    <RowConstraints maxHeight="205.0" minHeight="10.0" prefHeight="78.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="196.0" minHeight="10.0" prefHeight="25.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="196.0" minHeight="10.0" prefHeight="25.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="245.0" minHeight="0.0" prefHeight="25.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="647.0" minHeight="10.0" prefHeight="500.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="205.0" minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <Label prefHeight="109.0" prefWidth="234.0" text="Company">
+      <Label prefHeight="109.0" prefWidth="234.0" text="Company" GridPane.rowIndex="1">
          <GridPane.margin>
             <Insets left="50.0" />
          </GridPane.margin>
       </Label>
-      <TextField fx:id="txtCompany" prefHeight="25.0" prefWidth="343.0" GridPane.columnIndex="1">
+      <TextField fx:id="txtCompany" prefHeight="25.0" prefWidth="343.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
          <GridPane.margin>
             <Insets right="50.0" />
          </GridPane.margin>
       </TextField>
-      <Label prefHeight="109.0" prefWidth="234.0" text="Warehouse" GridPane.columnIndex="2">
+      <Label prefHeight="109.0" prefWidth="234.0" text="Warehouse" GridPane.columnIndex="2" GridPane.rowIndex="1">
          <GridPane.margin>
             <Insets left="50.0" />
          </GridPane.margin>
       </Label>
-      <TextField fx:id="txtWarehouse" prefHeight="25.0" prefWidth="343.0" GridPane.columnIndex="3">
+      <TextField fx:id="txtWarehouse" prefHeight="25.0" prefWidth="343.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
          <GridPane.margin>
             <Insets right="50.0" />
          </GridPane.margin>
       </TextField>
-      <Label prefHeight="109.0" prefWidth="234.0" text="Volume" GridPane.rowIndex="1">
+      <Label prefHeight="109.0" prefWidth="234.0" text="Volume" GridPane.rowIndex="2">
          <GridPane.margin>
             <Insets left="50.0" />
          </GridPane.margin>
       </Label>
-      <TextField fx:id="txtVolume" prefHeight="25.0" prefWidth="343.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+      <TextField fx:id="txtVolume" prefHeight="25.0" prefWidth="343.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
          <GridPane.margin>
             <Insets right="50.0" />
          </GridPane.margin>
       </TextField>
-      <Label prefHeight="109.0" prefWidth="234.0" text="Location" GridPane.columnIndex="2" GridPane.rowIndex="1">
+      <Label prefHeight="109.0" prefWidth="234.0" text="Location" GridPane.columnIndex="2" GridPane.rowIndex="2">
          <GridPane.margin>
             <Insets left="50.0" />
          </GridPane.margin>
       </Label>
-      <TextField fx:id="txtLocation" prefHeight="25.0" prefWidth="343.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
+      <TextField fx:id="txtLocation" prefHeight="25.0" prefWidth="343.0" GridPane.columnIndex="3" GridPane.rowIndex="2">
          <GridPane.margin>
             <Insets right="50.0" />
          </GridPane.margin>
       </TextField>
-      <VBox fx:id="vbStockVolumeItem" prefHeight="531.0" prefWidth="677.0" GridPane.columnSpan="4" GridPane.rowIndex="2" />
-      <Button mnemonicParsing="false" onAction="#btnCancel_OnClick" prefHeight="35.0" prefWidth="73.0" text="Cancel" GridPane.rowIndex="3">
+      <VBox fx:id="vbStockVolumeItem" prefHeight="531.0" prefWidth="677.0" GridPane.columnSpan="4" GridPane.rowIndex="3" />
+      <Button mnemonicParsing="false" onAction="#btnCancel_OnClick" prefHeight="35.0" prefWidth="73.0" text="Cancel" GridPane.rowIndex="4">
          <opaqueInsets>
             <Insets />
          </opaqueInsets>
@@ -75,6 +76,11 @@
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
+      </Button>
+      <Button mnemonicParsing="false" onAction="#btnBack_OnClick" text="&lt;-">
+         <GridPane.margin>
+            <Insets left="15.0" />
+         </GridPane.margin>
       </Button>
    </children>
 </GridPane>

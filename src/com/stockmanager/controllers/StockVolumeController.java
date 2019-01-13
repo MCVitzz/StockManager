@@ -39,8 +39,7 @@ public class StockVolumeController {
 	@FXML
 	public void tblStockVolume_OnClick(MouseEvent e) {
 		if (tblStockVolume.getSelectionModel().getSelectedItem() != null && e.getClickCount() == 2) {
-			StockVolume w = tblStockVolume.getSelectionModel().getSelectedItem();
-			Utilities.openDialog("DialogStockVolumeView", new DialogStockVolumeController(w.getCompany(), w.getVolume()));
+			MainController.getInstance().changeView(Utilities.getNode("DialogStockVolumeView", new DialogStockVolumeController(tblStockVolume.getSelectionModel().getSelectedItem())));
 		}
 	}
 	

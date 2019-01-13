@@ -6,11 +6,9 @@ import com.stockmanager.utils.Utilities;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
-
 public class DialogStockVolumeController {
 
-	private StockVolume volume;
+	private StockVolume stockVolume;
 
 	@FXML
 	private TextField txtCompany;
@@ -27,8 +25,8 @@ public class DialogStockVolumeController {
 	@FXML
 	private VBox vbStockVolumeItem;
 
-	public DialogStockVolumeController(String company, long volume) {
-		this.volume = new StockVolume(company, volume);
+	public DialogStockVolumeController(StockVolume stockVolume) {
+		this.stockVolume = stockVolume;
 	}
 
 	public void initialize() {
@@ -37,17 +35,23 @@ public class DialogStockVolumeController {
 		txtVolume.setDisable(true);
 		txtLocation.setDisable(true);
 		
-		txtCompany.setText(volume.getCompany());
-		txtWarehouse.setText(volume.getWarehouse());
-		txtVolume.setText(Long.toString(volume.getVolume()));
-		txtLocation.setText(volume.getLocation());
+		txtCompany.setText(stockVolume.getCompany());
+		txtWarehouse.setText(stockVolume.getWarehouse());
+		txtVolume.setText(Long.toString(stockVolume.getVolume()));
+		txtLocation.setText(stockVolume.getLocation());
 		
 		vbStockVolumeItem.getChildren().clear();
-		vbStockVolumeItem.getChildren().add(0, Utilities.getNode("StockVolumeItemView", new StockVolumeItemController(volume)));
+		vbStockVolumeItem.getChildren().add(0, Utilities.getNode("StockVolumeItemView", new StockVolumeItemController(stockVolume)));
 	}
 
 	@FXML
 	public void btnCancel_OnClick() {
-		((Stage)txtLocation.getScene().getWindow()).close();
+		MainController.getInstance().changeView("StockVolumeView");
 	}
+	
+	@FXML
+	public void btnBack_OnClick() {
+		btnCancel_OnClick();
+	}
+	
 }
