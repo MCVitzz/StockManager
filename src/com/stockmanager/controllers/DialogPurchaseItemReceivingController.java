@@ -67,16 +67,6 @@ public class DialogPurchaseItemReceivingController {
     	for(PurchaseItem pi : purchase.getItems())
     		cbItem.getItems().add(new Item(pi.getCompany(), pi.getItem()));
     }
-    
-     @FXML
-    void btnReceive_OnClick(ActionEvent event) {
-    	PurchaseVolume pv = new PurchaseVolume(purchase.getCompany(), purchase.getPurchase(), Long.parseLong(txtVolume.getText()));
-    	pv.setLocation(txtLocation.getText());
-    	pv.setWarehouse(purchase.getWarehouse());
-    	pv.save();
-    	pv.makeItem(cbItem.getValue().getItem(), Double.parseDouble(txtQuantity.getText()), txtUnit.getText());
-    	reset();
-    }
 
     @FXML
     void btnFinalize_OnClick(ActionEvent event) {

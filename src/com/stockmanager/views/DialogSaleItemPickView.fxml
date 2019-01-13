@@ -34,7 +34,7 @@
             <Insets left="50.0" />
          </GridPane.margin>
       </Label>
-      <TextField fx:id="txtItem" focusTraversable="false" onAction="#txtItem_OnAction" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+      <TextField fx:id="txtItem" focusTraversable="false" GridPane.columnIndex="1" GridPane.rowIndex="1" />
       <Label text="Quantity" GridPane.rowIndex="2">
          <GridPane.margin>
             <Insets left="50.0" />

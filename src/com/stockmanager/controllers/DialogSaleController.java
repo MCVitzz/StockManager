@@ -139,6 +139,6 @@ public class DialogSaleController {
 
 	@FXML
 	public void btnCancel_OnClick() {
-		((Stage)txtSale.getScene().getWindow()).close();
+		btnBack_OnClick();
 	}
 }

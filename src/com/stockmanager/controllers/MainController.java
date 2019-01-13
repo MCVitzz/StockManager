@@ -53,9 +53,6 @@ public class MainController implements Controller {
 	private Button btnSales;
 
 	@FXML
-	private Button btnInventory;
-
-	@FXML
 	private Button btnReports;
 
 	@FXML
