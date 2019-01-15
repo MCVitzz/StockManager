@@ -63,7 +63,7 @@ public class DialogSaleItemController {
 			txtItem.setText(saleItem.getItem());
 			txtQuantity.setText(Double.toString(saleItem.getQuantity()));
 			txtUnit.setText(saleItem.getUnit());
-			txtState.setText(saleItem.getState());
+			txtState.setText(saleItem.getState().toString());
 			txtConfirmed.setText(Double.toString(saleItem.getConfirmedQuantity()));
 			txtUnitConfirmed.setText(saleItem.getUnit());
 		}

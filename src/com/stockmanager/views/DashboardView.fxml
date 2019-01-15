@@ -11,12 +11,12 @@
    <children>
       <HBox prefHeight="180.0" prefWidth="1089.0">
          <children>
-            <Pane fx:id="dashboardCard1" prefHeight="200.0" prefWidth="315.0" styleClass="dashboardSquares" stylesheets="@../application.css">
+            <Pane prefHeight="200.0" prefWidth="315.0" styleClass="dashboardSquares" stylesheets="@../application.css">
                <HBox.margin>
                   <Insets left="50.0" top="15.0" />
                </HBox.margin>
                <children>
-                  <Text fx:id="purchasesNumber" fill="WHITE" layoutX="26.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1">
+                  <Text fx:id="lblPurchases" fill="WHITE" layoutX="26.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1">
                      <font>
                         <Font size="58.0" />
                      </font>
@@ -28,12 +28,12 @@
                   </Text>
                </children>
             </Pane>
-            <Pane fx:id="dashboardCard2" prefHeight="100.0" prefWidth="315.0" styleClass="dashboardSquares" stylesheets="@../application.css">
+            <Pane prefHeight="100.0" prefWidth="315.0" styleClass="dashboardSquares" stylesheets="@../application.css">
                <HBox.margin>
                   <Insets left="20.0" top="15.0" />
                </HBox.margin>
                <children>
-                  <Text fx:id="salesNumber" fill="WHITE" layoutX="30.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1">
+                  <Text fx:id="lblSales" fill="WHITE" layoutX="30.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1">
                      <font>
                         <Font size="58.0" />
                      </font>
@@ -45,12 +45,12 @@
                   </Text>
                </children>
             </Pane>
-            <Pane fx:id="dashboardCard3" prefHeight="100.0" prefWidth="315.0" styleClass="dashboardSquares" stylesheets="@../application.css">
+            <Pane prefHeight="100.0" prefWidth="315.0" styleClass="dashboardSquares" stylesheets="@../application.css">
                <HBox.margin>
                   <Insets left="20.0" top="15.0" />
                </HBox.margin>
                <children>
-                  <Text fx:id="itemsNumber" fill="WHITE" layoutX="27.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="23">
+                  <Text fx:id="lblItems" fill="WHITE" layoutX="27.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="23">
                      <font>
                         <Font size="58.0" />
                      </font>
@@ -69,12 +69,12 @@
       </HBox>
       <HBox prefHeight="180.0" prefWidth="1089.0">
          <children>
-            <Pane fx:id="dashboardCard4" prefHeight="200.0" prefWidth="315.0" styleClass="dashboardSquares" stylesheets="@../application.css">
+            <Pane prefHeight="200.0" prefWidth="315.0" styleClass="dashboardSquares" stylesheets="@../application.css">
                <HBox.margin>
                   <Insets left="150.0" top="15.0" />
                </HBox.margin>
                <children>
-                  <Text fx:id="warehouseNumber" fill="WHITE" layoutX="26.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="3">
+                  <Text fx:id="lblWarehouses" fill="WHITE" layoutX="26.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="3">
                      <font>
                         <Font size="58.0" />
                      </font>
@@ -86,12 +86,12 @@
                   </Text>
                </children>
             </Pane>
-            <Pane fx:id="dashboardCard5" prefHeight="100.0" prefWidth="315.0" styleClass="dashboardSquares" stylesheets="@../application.css">
+            <Pane prefHeight="100.0" prefWidth="315.0" styleClass="dashboardSquares" stylesheets="@../application.css">
                <HBox.margin>
                   <Insets left="160.0" top="15.0" />
                </HBox.margin>
                <children>
-                  <Text fx:id="volumesNumber" fill="WHITE" layoutX="30.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="13">
+                  <Text fx:id="lblVolumes" fill="WHITE" layoutX="30.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="13">
                      <font>
                         <Font size="58.0" />
                      </font>

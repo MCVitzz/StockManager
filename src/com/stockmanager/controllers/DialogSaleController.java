@@ -5,8 +5,6 @@ import java.util.ArrayList;
 import com.stockmanager.model.Company;
 import com.stockmanager.model.PickItem;
 import com.stockmanager.model.Sale;
-import com.stockmanager.model.SaleItem;
-import com.stockmanager.model.StockVolumeItem;
 import com.stockmanager.model.Warehouse;
 import com.stockmanager.utils.Utilities;
 
@@ -16,7 +14,6 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
 
 public class DialogSaleController {
 
@@ -66,18 +63,18 @@ public class DialogSaleController {
 			cbWarehouse.setValue(new Warehouse(sale.getCompany(), sale.getWarehouse()));
 			dtPckrDate.setValue(sale.getDate());
 			txtClient.setText(sale.getClient());
-			txtState.setText(sale.getState());
+			txtState.setText(sale.getState().toString());
 			putPag();
 			switch(sale.getState()) {
-			case "Open":
+			case OPEN:
 
 				btnPick.setVisible(true);
 				break;
-			case "Picking":
+			case PICKING:
 
 				btnPick.setVisible(false);
 				cbWarehouse.setDisable(false);
-			case "Closed":
+			case CLOSED:
 
 				btnPick.setVisible(false);
 				txtClient.setDisable(false);
@@ -111,10 +108,7 @@ public class DialogSaleController {
 
 	@FXML
 	public void btnPick_OnAction() {
-		boolean hasFullStock = true;
-		for(SaleItem si: sale.getItems())
-			hasFullStock = hasFullStock && StockVolumeItem.hasStock(si.getCompany(), si.getItem(), si.getQuantity());
-		if(hasFullStock) {
+		if(sale.hasStock()) {
 			sale.setState("Picking");
 			ArrayList<PickItem> pktlist = PickItem.getAllPickingItems(sale);
 			Utilities.openDialog("DialogSaleItemPickView",new DialogSaleItemPickController(pktlist,sale));

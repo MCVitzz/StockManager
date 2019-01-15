@@ -5,7 +5,6 @@ import com.stockmanager.utils.Utilities;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
@@ -14,32 +13,29 @@ import javafx.scene.input.KeyEvent;
 public class LoginController {
 
 	@FXML
-	private TextField usernameTF;
+	private TextField txtUser;
 
 	@FXML
-	private PasswordField passwordPF; 
+	private PasswordField txtPassword;
 
 	@FXML
-	private Label lostPasswordLabel;
-
-	@FXML
-	private void login(ActionEvent event) {
-		String username = usernameTF.getText();
-		String password = passwordPF.getText();
+	private void btnLogin_OnClick(ActionEvent event) {
+		String username = txtUser.getText();
+		String password = txtPassword.getText();
 		User user = new User(username);
 
-		if(user.authenticate(password)) Utilities.openScene("MainView", passwordPF.getScene().getWindow(), MainController.getInstance(user));
+		if(user.authenticate(password)) Utilities.openScene("MainView", txtPassword.getScene().getWindow(), MainController.getInstance(user));
 		else Utilities.warn("Username does not exist/Wrong password.");
 	}
 
 	@FXML
-	void exit(ActionEvent event) {
+	void btnExit_OnClick(ActionEvent event) {
 		System.exit(0);
 	}
 	
 	@FXML
 	void txtPassword_KeyPressed(KeyEvent event) {
 		if(event.getCode() == KeyCode.ENTER)
-			login(null);
+			btnLogin_OnClick(null);
 	}
 }

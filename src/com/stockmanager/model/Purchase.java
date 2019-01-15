@@ -14,7 +14,7 @@ public class Purchase extends DatabaseObject {
 	private String warehouse;
 	private LocalDate date;
 	private String supplier;
-	private String state;
+	private PurchaseState state;
 
 	public Purchase() {}
 
@@ -27,7 +27,7 @@ public class Purchase extends DatabaseObject {
 				this.warehouse = rs.getString("Warehouse");
 				this.date = rs.getDate("Date").toLocalDate();
 				this.supplier = rs.getString("Supplier");
-				this.state = rs.getString("State");
+				this.state = PurchaseState.getState(rs.getString("State"));
 			}
 		}
 		catch(SQLException e) {
@@ -48,7 +48,7 @@ public class Purchase extends DatabaseObject {
 				this.warehouse = rs.getString("Warehouse");
 				this.date = rs.getDate("Date").toLocalDate();
 				this.supplier = rs.getString("Supplier");
-				this.state = rs.getString("Date");
+				this.state = PurchaseState.getState(rs.getString("Date"));
 			}
 		}
 		catch(SQLException e) {
@@ -119,16 +119,14 @@ public class Purchase extends DatabaseObject {
 		this.supplier = supplier;
 	}
 
-	public String getState() {
+	public PurchaseState getState() {
 		return state;
 	}
 
 	public void setState(String state) {
-		this.state = state;
-    	for(PurchaseItem pi : getItems()) {
-    		pi.setState(state);	
-    		pi.save();
-    	}
+		PurchaseState newState = PurchaseState.getState(state);
+		if(this.state.canChange(newState, this))
+			this.state = newState;
 	}
 
 	public void setWarehouse(String warehouse) {

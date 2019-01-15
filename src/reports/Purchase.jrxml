@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Purchase" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="029e4a65-f673-4f29-b2d5-2de3488b2933">
+	<parameter name="LoggedInUser" class="com.jaspersoft.jasperserver.api.metadata.user.domain.client.UserImpl" isForPrompting="false">
+		<parameterDescription><![CDATA[Not usable in query input control, but is used as parameter to report]]></parameterDescription>
+		<defaultValueExpression><![CDATA[new com.jaspersoft.jasperserver.api.metadata.user.domain.client.UserImpl()]]></defaultValueExpression>
+	</parameter>
+	<parameter name="LoggedInUsername" class="java.lang.String" isForPrompting="false">
+		<parameterDescription><![CDATA[Of logged in user]]></parameterDescription>
+		<defaultValueExpression><![CDATA["joeuser"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="LoggedInUserFullName" class="java.lang.String" isForPrompting="false">
+		<parameterDescription><![CDATA[Of logged in user]]></parameterDescription>
+		<defaultValueExpression><![CDATA["Joe Smith"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="LoggedInUserEmailAddress" class="java.lang.String" isForPrompting="false">
+		<parameterDescription><![CDATA[Of logged in user]]></parameterDescription>
+		<defaultValueExpression><![CDATA["joe@some.email"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="LoggedInUserEnabled" class="java.lang.Boolean" isForPrompting="false">
+		<parameterDescription><![CDATA[Is logged in user enabled?]]></parameterDescription>
+		<defaultValueExpression><![CDATA[Boolean.TRUE]]></defaultValueExpression>
+	</parameter>
+	<parameter name="LoggedInUserExternallyDefined" class="java.lang.Boolean" isForPrompting="false">
+		<parameterDescription><![CDATA[Is logged in user externally defined? ie. authenticated externally]]></parameterDescription>
+		<defaultValueExpression><![CDATA[Boolean.FALSE]]></defaultValueExpression>
+	</parameter>
+	<parameter name="LoggedInUserTenantId" class="java.lang.String" isForPrompting="false">
+		<parameterDescription><![CDATA[Of logged in user. Only relevant in Pro/Enterprise.]]></parameterDescription>
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="LoggedInUserRoles" class="java.util.Collection" nestedType="java.lang.String" isForPrompting="false">
+		<parameterDescription><![CDATA[Current set of roles of logged in user. Useful for $X parameter]]></parameterDescription>
+		<defaultValueExpression><![CDATA[new ArrayList()]]></defaultValueExpression>
+	</parameter>
+	<parameter name="LoggedInUserAttributes" class="java.util.Map" nestedType="java.lang.String" isForPrompting="false">
+		<parameterDescription><![CDATA[Not usable in query input control, but is used as parameter to report. Empty map if no attributes]]></parameterDescription>
+		<defaultValueExpression><![CDATA[new HashMap()]]></defaultValueExpression>
+	</parameter>
+	<parameter name="LoggedInUserAttributeNames" class="java.util.Collection" nestedType="java.lang.String" isForPrompting="false">
+		<parameterDescription><![CDATA[User profile attribute names. Useful for $X parameters. Empty collection if no attributes]]></parameterDescription>
+		<defaultValueExpression><![CDATA[new ArrayList()]]></defaultValueExpression>
+	</parameter>
+	<parameter name="Company" class="java.lang.String">
+		<parameterDescription><![CDATA[Company Name]]></parameterDescription>
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="114" splitType="Stretch">
+			<staticText>
+				<reportElement x="-20" y="0" width="580" height="79" uuid="582cd633-4e0e-43ec-a369-dccba89e55e5"/>
+				<textElement textAlignment="Center">
+					<font size="48"/>
+				</textElement>
+				<text><![CDATA[Purchase Report]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-20" y="79" width="100" height="30" uuid="a45c503b-ddea-4305-b4df-fd2efe0d55de"/>
+				<text><![CDATA[Company: $P{Company}]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="80" y="79" width="100" height="30" uuid="fbc67916-e044-422f-b3f2-9b7f986e204f"/>
+				<text><![CDATA[Purchase Number: $P{Purchase}]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="180" y="79" width="100" height="30" uuid="9b775f17-b4cd-4ae0-9527-c9f6a65d9466"/>
+				<text><![CDATA[Warehouse: $P{Warehouse}]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="280" y="79" width="100" height="30" uuid="fb0a8304-0da2-4692-8a8e-2b5dec98fe20"/>
+				<text><![CDATA[Date: $P{Date}]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="380" y="79" width="100" height="30" uuid="69500e1f-2af0-4e7a-a11d-da908c87021e"/>
+				<text><![CDATA[Supplier: $P{Supplier}]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="64" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

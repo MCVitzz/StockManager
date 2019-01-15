@@ -68,19 +68,19 @@ public class DialogPurchaseController implements Controller {
 			cbWarehouse.setValue(new Warehouse(purchase.getCompany(), purchase.getWarehouse()));
 			dtPckrDate.setValue(purchase.getDate());
 			txtSupplier.setText(purchase.getSupplier());
-			txtState.setText(purchase.getState());
+			txtState.setText(purchase.getState().toString());
 			putPag();
 			switch(purchase.getState()) {
-			case "Open":
+			case OPEN:
 				btnClose.setVisible(false);
 				btnReceive.setVisible(true);
 				break;
-			case "Receiving":
+			case RECIEVING:
 				btnClose.setVisible(true);
 				btnReceive.setVisible(false);
 				cbWarehouse.setDisable(false);
 				break;
-			case "Closed":
+			case CLOSED:
 				btnClose.setVisible(false);
 				btnReceive.setVisible(false);
 				txtSupplier.setDisable(false);

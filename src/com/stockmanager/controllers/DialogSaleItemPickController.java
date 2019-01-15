@@ -2,7 +2,6 @@ package com.stockmanager.controllers;
 
 import java.util.ArrayList;
 
-import com.stockmanager.model.Item;
 import com.stockmanager.model.PickItem;
 import com.stockmanager.model.Sale;
 import com.stockmanager.model.SaleVolume;
@@ -14,7 +13,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
-import javafx.stage.Stage;
 public class DialogSaleItemPickController {
 
 	private Sale sale;
@@ -66,8 +64,8 @@ public class DialogSaleItemPickController {
 
 	@FXML
 	void btnFinalize_OnClick(ActionEvent event) {
-		Database.executeQuery("CALL withdrawstock('"+ sale.getCompany() + "'	," + sale.getSale() +")");
-		Utilities.alert(AlertType.INFORMATION, "The sale has been completed.");
+		if(sale.executeSale())
+			Utilities.alert(AlertType.INFORMATION, "The sale has been completed.");
 	}
 
 	public void putPlaceHolders() {

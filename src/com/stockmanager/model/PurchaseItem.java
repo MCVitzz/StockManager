@@ -14,7 +14,7 @@ public class PurchaseItem extends DatabaseObject {
 	private double quantity;
 	private double confirmedQuantity;
 	private String unit;
-	private String state;
+	private PurchaseState state;
 
 	public PurchaseItem() {}
 
@@ -28,7 +28,7 @@ public class PurchaseItem extends DatabaseObject {
 				this.quantity = rs.getFloat("Quantity");
 				this.confirmedQuantity = rs.getFloat("ConfirmedQuantity");
 				this.unit = rs.getString("Unit");
-				this.state = rs.getString("State");
+				this.state = PurchaseState.getState(rs.getString("State"));
 			}
 		}
 		catch(SQLException e) {
@@ -90,12 +90,12 @@ public class PurchaseItem extends DatabaseObject {
 		this.confirmedQuantity = confirmedQuantity;
 	}
 
-	public String getState() {
+	public PurchaseState getState() {
 		return state;
 	}
 
 	public void setState(String state) {
-		this.state = state;
+		this.state = PurchaseState.getState(state);
 	}
 
 	public void setUnit(String unit) {

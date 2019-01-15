@@ -14,7 +14,7 @@ public class Sale extends DatabaseObject {
 	private String warehouse;
 	private LocalDate date;
 	private String client;
-	private String state;
+	private SaleState state;
 
 	public Sale() {}
 
@@ -27,15 +27,14 @@ public class Sale extends DatabaseObject {
 				this.warehouse = rs.getString("Warehouse");
 				this.date = rs.getDate("Date").toLocalDate();
 				this.client = rs.getString("Client");
-				this.state = rs.getString("State");
-				
+				this.state = SaleState.getState(rs.getString("State"));
 			}
 		}
 		catch(SQLException e) {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public Sale(String company) {
 		this.company = company;
 		try {
@@ -43,20 +42,20 @@ public class Sale extends DatabaseObject {
 			String s = Database.simpleSelect("MAX(Sale) AS Sale", "sale",  "Company = '" + company + "'");
 			if(s != null)
 				this.sale = Integer.parseInt(s) + 1;
-			
+
 			ResultSet rs = Database.select("SELECT * FROM sale WHERE Company = '" + company + "' AND Sale = '" + sale + "'");
 			while (rs.next()) {
 				this.warehouse = rs.getString("Warehouse");
 				this.date = rs.getDate("Date").toLocalDate();
 				this.client = rs.getString("Client");
-				this.state = rs.getString("State");
+				this.state = SaleState.getState(rs.getString("State"));
 			}
 		}
 		catch(SQLException e) {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public static ArrayList<Sale> getAll() {
 		ResultSet rs = Database.select("SELECT Company, Sale FROM sale");
 		ArrayList<Sale> sales = new ArrayList<Sale>();
@@ -69,11 +68,11 @@ public class Sale extends DatabaseObject {
 		}
 		return sales;
 	}
-	
+
 	public boolean executeSale() {
 		return Database.executeQuery("CALL withdrawstock('" + this.getCompany() + "'	," + this.getSale() +")");
 	}
-	
+
 	public ArrayList<SaleItem> getItems() {
 		ResultSet rs = Database.select("SELECT Item FROM saleitem WHERE Company = '" + company + "' AND Sale = " + sale);
 		ArrayList<SaleItem> sales = new ArrayList<SaleItem>();
@@ -86,11 +85,18 @@ public class Sale extends DatabaseObject {
 		}
 		return sales;
 	}
-	
+
+	public boolean hasStock() {
+		boolean flag = true;
+		for(SaleItem si: getItems())
+			flag = flag && StockVolumeItem.hasStock(si.getCompany(), si.getItem(), si.getQuantity());
+		return flag;
+	}
+
 	public static String getDashboardText() {
 		return Database.simpleSelect("count(sale)", "sale");
 	}
-	
+
 	public String getCompany() {
 		return company;
 	}
@@ -123,14 +129,16 @@ public class Sale extends DatabaseObject {
 		this.client = client;
 	}
 
-	public String getState() {
+	public SaleState getState() {
 		return state;
 	}
 
 	public void setState(String state) {
-		this.state = state;
+		SaleState newState = SaleState.getState(state);
+		if(this.state.canChange(newState, this))
+			this.state = newState;
 	}
-	
+
 	protected boolean insert() {
 		return Database.executeQuery("INSERT INTO sale (Company, Sale, Warehouse, Date, Client, State) VALUES ('" + company + "', '" + sale + "', '" + warehouse + "', '" + date + "', '" + client + "', '" + state + "')");
 	}

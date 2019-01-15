@@ -63,7 +63,7 @@ public class DialogPurchaseItemController {
 			txtItem.setText(purchaseItem.getItem());
 			txtQuantity.setText(Double.toString(purchaseItem.getQuantity()));
 			txtUnit.setText(purchaseItem.getUnit());
-			txtState.setText(purchaseItem.getState());
+			txtState.setText(purchaseItem.getState().toString());
 			txtConfirmed.setText(Double.toString(purchaseItem.getConfirmedQuantity()));
 			txtUnitConfirmed.setText(purchaseItem.getUnit());
 		}

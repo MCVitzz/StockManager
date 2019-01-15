@@ -21,8 +21,6 @@ public class DialogCompanyController {
 
 	private CompanyController companyController;
 
-
-
 	public DialogCompanyController(CompanyController companyController) {
 		this.companyController = companyController;
 	}

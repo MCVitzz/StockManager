@@ -1,7 +1,5 @@
 package com.stockmanager.controllers;
 
-
-import com.stockmanager.model.Database;
 import com.stockmanager.model.Purchase;
 import com.stockmanager.model.Sale;
 import com.stockmanager.model.StockVolume;
@@ -13,31 +11,34 @@ import javafx.scene.text.Text;
 
 public class DashboardController {
 	@FXML
-	private Text purchasesNumber;
+	private Text lblPurchases;
 
 	@FXML
-	private Text salesNumber;
+	private Text lblSales;
 
 	@FXML
-	private Text itemsNumber;
+	private Text lblItems;
 
 	@FXML
-	private Text warehouseNumber;
+	private Text lblWarehouses;
 
 	@FXML
-	private Text volumesNumber;
+	private Text lblVolumes;
 
 	public void initialize() {
 		changeNumbers();
-
 	}
 	
+	/*
+	 * Updates the displayed numbers on the Dashboard 
+	 */
+	
 	public void changeNumbers() {
-		warehouseNumber.setText(Warehouse.getDashboardText()); 
-		volumesNumber.setText(StockVolume.getDashboardText());
-		itemsNumber.setText(StockVolumeItem.getDashboardText());
-		salesNumber.setText(Sale.getDashboardText());
-		purchasesNumber.setText(Purchase.getDashboardText());
+		lblWarehouses.setText(Warehouse.getDashboardText()); 
+		lblVolumes.setText(StockVolume.getDashboardText());
+		lblItems.setText(StockVolumeItem.getDashboardText());
+		lblSales.setText(Sale.getDashboardText());
+		lblPurchases.setText(Purchase.getDashboardText());
 	}
 
 }
