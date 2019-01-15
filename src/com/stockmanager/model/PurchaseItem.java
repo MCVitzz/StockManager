@@ -111,11 +111,11 @@ public class PurchaseItem extends DatabaseObject {
 	}
 
 	protected boolean insert() {
-		return Database.executeQuery("INSERT INTO purchaseItem (Company, Purchase, Item, Quantity, ConfirmedQuantity, Unit, State) VALUES ('" + Utilities.escape(company) + "', '" + purchase + "', '" + Utilities.escape(item) + "', '" + quantity + "', '" + confirmedQuantity + "', '" + Utilities.escape(unit) + "', '" + Utilities.escape(state) + "')");
+		return Database.executeQuery("INSERT INTO purchaseItem (Company, Purchase, Item, Quantity, ConfirmedQuantity, Unit, State) VALUES ('" + Utilities.escape(company) + "', '" + purchase + "', '" + Utilities.escape(item) + "', '" + quantity + "', '" + confirmedQuantity + "', '" + Utilities.escape(unit) + "', '" + Utilities.escape(state.toString()) + "')");
 	}
 
 	protected boolean update() {
-		return Database.executeQuery("UPDATE purchaseItem SET Quantity = '" + quantity + "', ConfirmedQuantity = '" + confirmedQuantity + "', Unit = '" + Utilities.escape(unit) + "', state = '" + Utilities.escape(state) + "' WHERE Company = '" + Utilities.escape(company) + "' AND Purchase = '" + purchase + "' AND Item = '" + Utilities.escape(item) + "'");
+		return Database.executeQuery("UPDATE purchaseItem SET Quantity = '" + quantity + "', ConfirmedQuantity = '" + confirmedQuantity + "', Unit = '" + Utilities.escape(unit) + "', state = '" + Utilities.escape(state.toString()) + "' WHERE Company = '" + Utilities.escape(company) + "' AND Purchase = '" + purchase + "' AND Item = '" + Utilities.escape(item) + "'");
 	}
 
 	protected boolean exists() {

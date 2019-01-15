@@ -134,11 +134,11 @@ public class Purchase extends DatabaseObject {
 	}
 
 	protected boolean insert() {
-		return Database.executeQuery("INSERT INTO purchase (Company, Purchase, Warehouse, Date, Supplier, State) VALUES ('" + Utilities.escape(company) + "', '" + purchase + "', '" + Utilities.escape(warehouse) + "', '" + date + "', '" + Utilities.escape(supplier) + "', '" + Utilities.escape(state) + "')");
+		return Database.executeQuery("INSERT INTO purchase (Company, Purchase, Warehouse, Date, Supplier, State) VALUES ('" + Utilities.escape(company) + "', '" + purchase + "', '" + Utilities.escape(warehouse) + "', '" + date + "', '" + Utilities.escape(supplier) + "', '" + Utilities.escape(state.toString()) + "')");
 	}
 
 	protected boolean update() {
-		return Database.executeQuery("UPDATE purchase SET Warehouse = '" + Utilities.escape(warehouse) + "', Date = '" + date + "', Supplier = '" + Utilities.escape(supplier) + "', State = '" + Utilities.escape(state) + "' WHERE Company = '" + Utilities.escape(company) + "' AND Purchase = '" + purchase + "'");
+		return Database.executeQuery("UPDATE purchase SET Warehouse = '" + Utilities.escape(warehouse) + "', Date = '" + date + "', Supplier = '" + Utilities.escape(supplier) + "', State = '" + Utilities.escape(state.toString()) + "' WHERE Company = '" + Utilities.escape(company) + "' AND Purchase = '" + purchase + "'");
 	}
 
 	protected boolean exists() {
@@ -150,6 +150,6 @@ public class Purchase extends DatabaseObject {
 	}
 
 	protected boolean validate() {
-		return (!Utilities.stringIsEmpty(company) && purchase != 0 && !Utilities.stringIsEmpty(warehouse) && date != null && !Utilities.stringIsEmpty(supplier) && !Utilities.stringIsEmpty(state));
+		return (!Utilities.stringIsEmpty(company) && purchase != 0 && !Utilities.stringIsEmpty(warehouse) && date != null && !Utilities.stringIsEmpty(supplier) && !Utilities.stringIsEmpty(state.toString()));
 	}
 }
