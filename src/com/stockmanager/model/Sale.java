@@ -148,6 +148,6 @@ public class Sale extends DatabaseObject {
 	}
 
 	protected boolean validate() {
-		return true;
+		return (!Utilities.stringIsEmpty(company) && sale != 0 && !Utilities.stringIsEmpty(warehouse) && date != null && !Utilities.stringIsEmpty(client) && !Utilities.stringIsEmpty(state));
 	}
 }

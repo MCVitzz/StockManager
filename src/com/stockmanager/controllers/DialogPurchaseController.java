@@ -123,7 +123,7 @@ public class DialogPurchaseController implements Controller {
 		prc.setState(txtState.getText());
 		prc.save();
 		purchaseController.initialize();
-		btnCancel_OnClick();
+		btnBack_OnClick();
 	}
 	
 	@FXML
@@ -138,7 +138,7 @@ public class DialogPurchaseController implements Controller {
 	
 	@FXML
 	void btnClose_OnClick() {
-		
+		btnBack_OnClick();
 	}
 	
 	@FXML
@@ -146,12 +146,7 @@ public class DialogPurchaseController implements Controller {
 		checkPermissions(null);
 		MainController.getInstance().changeView("PurchaseView");
 	}
-
-	@FXML
-	public void btnCancel_OnClick() {
-		btnBack_OnClick();
-	}
-
+	
 	@Override
 	public void checkPermissions(HashMap<String, Boolean> permissions) {
 		System.out.println(new User("Vasco").getPermissions());

@@ -94,34 +94,23 @@
       <VBox fx:id="vbPurchaseItem" prefHeight="424.0" prefWidth="1118.0" GridPane.columnSpan="6" GridPane.rowIndex="3" />
       <Button mnemonicParsing="false" onAction="#btnSave_OnClick" prefHeight="35.0" prefWidth="73.0" text="Save" GridPane.rowIndex="4">
          <GridPane.margin>
-            <Insets left="75.0" />
+            <Insets left="25.0" />
          </GridPane.margin>
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button mnemonicParsing="false" onAction="#btnCancel_OnClick" prefHeight="35.0" prefWidth="73.0" text="Cancel" GridPane.columnIndex="1" GridPane.rowIndex="4">
-         <opaqueInsets>
+      <Button fx:id="btnReceive" mnemonicParsing="false" onAction="#btnReceive_OnClick" prefHeight="35.0" prefWidth="73.0" text="Receive" GridPane.columnIndex="1" GridPane.rowIndex="4">
+         <GridPane.margin>
             <Insets />
-         </opaqueInsets>
-         <GridPane.margin>
-            <Insets left="55.0" />
          </GridPane.margin>
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button fx:id="btnReceive" mnemonicParsing="false" onAction="#btnReceive_OnClick" prefHeight="35.0" prefWidth="73.0" text="Receive" GridPane.columnIndex="2" GridPane.rowIndex="4">
+      <Button fx:id="btnClose" mnemonicParsing="false" onAction="#btnClose_OnClick" prefHeight="35.0" prefWidth="73.0" text="Close" GridPane.columnIndex="1" GridPane.rowIndex="4">
          <GridPane.margin>
-            <Insets left="-25.0" />
-         </GridPane.margin>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Button>
-      <Button fx:id="btnClose" mnemonicParsing="false" onAction="#btnClose_OnClick" prefHeight="35.0" prefWidth="73.0" text="Close" GridPane.columnIndex="3" GridPane.rowIndex="4">
-         <GridPane.margin>
-            <Insets left="-85.0" />
+            <Insets left="100.0" />
          </GridPane.margin>
          <cursor>
             <Cursor fx:constant="HAND" />

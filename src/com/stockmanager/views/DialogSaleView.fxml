@@ -98,20 +98,9 @@
             <Insets left="75.0" />
          </GridPane.margin>
       </Button>
-      <Button mnemonicParsing="false" onAction="#btnCancel_OnClick" prefHeight="35.0" prefWidth="73.0" text="Cancel" GridPane.columnIndex="1" GridPane.rowIndex="4">
-         <opaqueInsets>
-            <Insets />
-         </opaqueInsets>
+      <Button fx:id="btnPick" mnemonicParsing="false" onAction="#btnPick_OnAction" prefHeight="35.0" prefWidth="73.0" text="Pick" GridPane.columnIndex="1" GridPane.rowIndex="4">
          <GridPane.margin>
-            <Insets left="55.0" />
-         </GridPane.margin>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Button>
-      <Button fx:id="btnPick" mnemonicParsing="false" onAction="#btnPick_OnAction" prefHeight="35.0" prefWidth="73.0" text="Pick" GridPane.columnIndex="2" GridPane.rowIndex="4">
-         <GridPane.margin>
-            <Insets />
+            <Insets left="50.0" />
          </GridPane.margin>
          <cursor>
             <Cursor fx:constant="HAND" />

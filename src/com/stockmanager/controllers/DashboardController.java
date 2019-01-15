@@ -1,7 +1,5 @@
 package com.stockmanager.controllers;
 
-
-import com.stockmanager.model.Database;
 import com.stockmanager.model.Purchase;
 import com.stockmanager.model.Sale;
 import com.stockmanager.model.StockVolume;

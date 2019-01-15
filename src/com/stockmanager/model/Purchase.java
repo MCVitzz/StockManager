@@ -152,6 +152,6 @@ public class Purchase extends DatabaseObject {
 	}
 
 	protected boolean validate() {
-		return true;
+		return (!Utilities.stringIsEmpty(company) && purchase != 0 && !Utilities.stringIsEmpty(warehouse) && date != null && !Utilities.stringIsEmpty(supplier) && !Utilities.stringIsEmpty(state));
 	}
 }

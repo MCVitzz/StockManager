@@ -43,15 +43,10 @@ public class DialogStockVolumeController {
 		vbStockVolumeItem.getChildren().clear();
 		vbStockVolumeItem.getChildren().add(0, Utilities.getNode("StockVolumeItemView", new StockVolumeItemController(stockVolume)));
 	}
-
-	@FXML
-	public void btnCancel_OnClick() {
-		MainController.getInstance().changeView("StockVolumeView");
-	}
 	
 	@FXML
 	public void btnBack_OnClick() {
-		btnCancel_OnClick();
+		MainController.getInstance().changeView("StockVolumeView");
 	}
 	
 }

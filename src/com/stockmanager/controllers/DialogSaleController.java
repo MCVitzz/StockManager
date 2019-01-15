@@ -16,7 +16,6 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
 
 public class DialogSaleController {
 
@@ -106,7 +105,7 @@ public class DialogSaleController {
 		prc.setState(txtState.getText());
 		prc.save();
 		saleController.initialize();
-		btnCancel_OnClick();
+		btnBack_OnClick();
 	}
 
 	@FXML
@@ -135,10 +134,5 @@ public class DialogSaleController {
 	@FXML
 	public void btnBack_OnClick() {
 		MainController.getInstance().changeView("SaleView");
-	}
-
-	@FXML
-	public void btnCancel_OnClick() {
-		btnBack_OnClick();
 	}
 }
