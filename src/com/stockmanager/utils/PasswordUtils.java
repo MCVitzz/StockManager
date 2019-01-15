@@ -7,7 +7,11 @@ import java.util.Base64;
 import java.util.Random;
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.PBEKeySpec;
- 
+ /**
+  * 
+  * Handles all the encryption methods
+  *
+  */
 public class PasswordUtils {
     
     private static final Random RANDOM = new SecureRandom();

@@ -8,5 +8,10 @@ import java.util.HashMap;
  *
  */
 public interface Controller {
+	
+	/**
+	 * Checks permissions for the User
+	 * @param permissions
+	 */
 	public void checkPermissions(HashMap<String, Boolean> permissions);
 }

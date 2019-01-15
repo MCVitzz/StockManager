@@ -2,6 +2,11 @@ package com.stockmanager.model;
 
 import java.util.stream.Collectors;
 
+/**
+ * 
+ * Possible states for a purchase and it's lines
+ *
+ */
 public enum PurchaseState {
 	OPEN, CLOSED, RECIEVING;
 

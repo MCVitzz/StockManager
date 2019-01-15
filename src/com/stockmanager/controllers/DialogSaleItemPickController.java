@@ -13,6 +13,12 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
+
+/**
+ * 
+ * Manages the picking action
+ *
+ */
 public class DialogSaleItemPickController {
 
 	private Sale sale;

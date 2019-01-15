@@ -69,11 +69,16 @@ public class Purchase extends DatabaseObject {
 		return purchases;
 	}
 	
+	/**
+	 * Transforms the purchase into actual stock
+	 */
 	public void createStock() {
 		Database.executeQuery("INSERT INTO stockvolume SELECT PV.Company, PV.Volume, P.Warehouse, PV.Location FROM purchase AS P INNER JOIN purchasevolume AS PV ON P.Company = PV.Company AND P.Purchase = PV.Purchase WHERE P.Company = '" + Utilities.escape(company) + "' AND P.Purchase = " + purchase + "");
 		Database.executeQuery("INSERT INTO stockvolumeitem SELECT PVI.Company, PVI.Volume, PVI.Item, PVI.Quantity, PVI.Unit, CURDATE() FROM purchase AS P INNER JOIN purchasevolumeitem AS PVI ON P.Company = PVI.Company AND P.Purchase = PVI.Purchase WHERE P.Company = '" + Utilities.escape(company) + "' AND P.Purchase = " + purchase + "");
 	}
-	
+	/**
+	 * Returns all items on the purchase
+	 */
 	public ArrayList<PurchaseItem> getItems() {
 		ResultSet rs = Database.select("SELECT Item FROM purchaseItem WHERE Company = '" + Utilities.escape(company) + "' AND Purchase = '" + purchase + "'");
 		ArrayList<PurchaseItem> items = new ArrayList<PurchaseItem>();
@@ -134,11 +139,11 @@ public class Purchase extends DatabaseObject {
 	}
 
 	protected boolean insert() {
-		return Database.executeQuery("INSERT INTO purchase (Company, Purchase, Warehouse, Date, Supplier, State) VALUES ('" + Utilities.escape(company) + "', '" + purchase + "', '" + Utilities.escape(warehouse) + "', '" + date + "', '" + Utilities.escape(supplier) + "', '" + Utilities.escape(state) + "')");
+		return Database.executeQuery("INSERT INTO purchase (Company, Purchase, Warehouse, Date, Supplier, State) VALUES ('" + Utilities.escape(company) + "', '" + purchase + "', '" + Utilities.escape(warehouse) + "', '" + date + "', '" + Utilities.escape(supplier) + "', '" + Utilities.escape(state.toString()) + "')");
 	}
 
 	protected boolean update() {
-		return Database.executeQuery("UPDATE purchase SET Warehouse = '" + Utilities.escape(warehouse) + "', Date = '" + date + "', Supplier = '" + Utilities.escape(supplier) + "', State = '" + Utilities.escape(state) + "' WHERE Company = '" + Utilities.escape(company) + "' AND Purchase = '" + purchase + "'");
+		return Database.executeQuery("UPDATE purchase SET Warehouse = '" + Utilities.escape(warehouse) + "', Date = '" + date + "', Supplier = '" + Utilities.escape(supplier) + "', State = '" + Utilities.escape(state.toString()) + "' WHERE Company = '" + Utilities.escape(company) + "' AND Purchase = '" + purchase + "'");
 	}
 
 	protected boolean exists() {
@@ -150,6 +155,6 @@ public class Purchase extends DatabaseObject {
 	}
 
 	protected boolean validate() {
-		return (!Utilities.stringIsEmpty(company) && purchase != 0 && !Utilities.stringIsEmpty(warehouse) && date != null && !Utilities.stringIsEmpty(supplier) && !Utilities.stringIsEmpty(state));
+		return (!Utilities.stringIsEmpty(company) && purchase != 0 && !Utilities.stringIsEmpty(warehouse) && date != null && !Utilities.stringIsEmpty(supplier) && !Utilities.stringIsEmpty(state.toString()));
 	}
 }

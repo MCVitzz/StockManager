@@ -62,6 +62,10 @@ public class SaleItem extends DatabaseObject {
 		return sales;
 	}
 	
+	/**
+	 * 
+	 * Returns the name of the item
+	 */
 	public String getName() {
 		return Database.simpleSelect("Name", "Item", "Company = '" + Utilities.escape(company) + "' AND Item = '" + Utilities.escape(item) + "'");
 	}
@@ -111,11 +115,11 @@ public class SaleItem extends DatabaseObject {
 	}
 
 	protected boolean insert() {
-		return Database.executeQuery("INSERT INTO saleitem (Company, Sale, Item, Quantity, ConfirmedQuantity, Unit, State) VALUES ('" + Utilities.escape(company) + "', '" + sale + "', '" + Utilities.escape(item) + "', '" + quantity + "', '" + confirmedQuantity + "', '" + Utilities.escape(unit) + "', '" + Utilities.escape(state) + "')");
+		return Database.executeQuery("INSERT INTO saleitem (Company, Sale, Item, Quantity, ConfirmedQuantity, Unit, State) VALUES ('" + Utilities.escape(company) + "', '" + sale + "', '" + Utilities.escape(item) + "', '" + quantity + "', '" + confirmedQuantity + "', '" + Utilities.escape(unit) + "', '" + Utilities.escape(state.toString()) + "')");
 	}
 
 	protected boolean update() {
-		return Database.executeQuery("UPDATE saleitem SET Quantity = '" + quantity + "', ConfirmedQuantity = '" + confirmedQuantity + "', Unit = '" + Utilities.escape(unit) + "', state = '" + Utilities.escape(state) + "' WHERE Company = '" + Utilities.escape(company) + "' AND Sale = '" + sale + "' AND Item = '" + Utilities.escape(item) + "'");
+		return Database.executeQuery("UPDATE saleitem SET Quantity = '" + quantity + "', ConfirmedQuantity = '" + confirmedQuantity + "', Unit = '" + Utilities.escape(unit) + "', state = '" + Utilities.escape(state.toString()) + "' WHERE Company = '" + Utilities.escape(company) + "' AND Sale = '" + sale + "' AND Item = '" + Utilities.escape(item) + "'");
 	}
 
 	protected boolean exists() {

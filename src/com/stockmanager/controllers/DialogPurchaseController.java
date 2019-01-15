@@ -55,6 +55,10 @@ public class DialogPurchaseController implements Controller {
 		this.purchaseController = purchaseController;
 	}
 
+	/*
+	 *Initializes the Dialog according to the Purchase's state 
+	 */
+	
 	public void initialize() {
 		Utilities.fillCompanies(cbCompany);
 		txtPurchase.setDisable(true);

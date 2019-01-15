@@ -5,7 +5,12 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import com.stockmanager.utils.Utilities;
-
+ /***
+  * 
+  * Class does not represent a DatabaseObject
+  * Manages all the picking action on the back-end
+  *
+  */
 public class PickItem {
 
 

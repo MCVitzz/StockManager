@@ -18,6 +18,10 @@ public class LoginController {
 	@FXML
 	private PasswordField txtPassword;
 
+	/**
+	 * Verifies the encrypted password
+	 * @param event
+	 */
 	@FXML
 	private void btnLogin_OnClick(ActionEvent event) {
 		String username = txtUser.getText();

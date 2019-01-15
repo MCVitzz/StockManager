@@ -8,7 +8,12 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import com.stockmanager.utils.Utilities;
-
+/***
+ * 
+ * The class that manages all Database accesses, the lowest level.
+ * 
+ *
+ */
 public class Database {
 	private static Connection conn;
 
