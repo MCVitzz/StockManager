@@ -42,7 +42,7 @@ public class DialogSaleItemPickController {
 		txtUnit.setDisable(true);
 		putPlaceHolders();
 	}
-	
+
 	@FXML
 	void btnPick_OnClick(ActionEvent event) {
 		SaleVolume sv = new SaleVolume(sale.getCompany(), sale.getSale(), Long.parseLong(txtVolume.getText()));
@@ -52,20 +52,22 @@ public class DialogSaleItemPickController {
 		SaleVolumeItem svi = new SaleVolumeItem(sale.getCompany(), sale.getSale(), Long.parseLong(txtVolume.getText()), txtItem.getText());
 		svi.setQuantity(pickItem.getQuantity());
 		svi.setUnit(txtUnit.getText());
-		
+
 		sv.save();
 		svi.save();
 		pktlist.remove(pickItem);
-		
+
 
 		Utilities.alert(AlertType.INFORMATION, "Picked.");
-		
+
 	}
 
 	@FXML
 	void btnFinalize_OnClick(ActionEvent event) {
-		if(sale.executeSale())
+		if (sale.executeSale())
 			Utilities.alert(AlertType.INFORMATION, "The sale has been completed.");
+		else
+			Utilities.warn("The sale was not completed.");
 	}
 
 	public void putPlaceHolders() {

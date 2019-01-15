@@ -103,7 +103,7 @@ public class DialogSaleController {
 		prc.setState(txtState.getText());
 		prc.save();
 		saleController.initialize();
-		btnCancel_OnClick();
+		btnBack_OnClick();
 	}
 
 	@FXML
@@ -129,10 +129,5 @@ public class DialogSaleController {
 	@FXML
 	public void btnBack_OnClick() {
 		MainController.getInstance().changeView("SaleView");
-	}
-
-	@FXML
-	public void btnCancel_OnClick() {
-		btnBack_OnClick();
 	}
 }

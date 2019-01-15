@@ -18,7 +18,7 @@ public class PurchaseVolumeItem extends DatabaseObject {
 		this.purchase = purchase;
 		this.volume = volume;
 		this.item = item;
-		ResultSet rs = Database.select("SELECT * FROM purchaseVolumeItem WHERE Company= '" + company + "' AND Purchase = '" + purchase + "' AND Volume = '" + volume + "' AND Item = '" + item + "'");
+		ResultSet rs = Database.select("SELECT * FROM purchaseVolumeItem WHERE Company= '" + Utilities.escape(company) + "' AND Purchase = '" + purchase + "' AND Volume = '" + volume + "' AND Item = '" + Utilities.escape(item) + "'");
 		try {
 			while(rs.next()) {
 				this.quantity = rs.getDouble("Quantity");
@@ -70,22 +70,22 @@ public class PurchaseVolumeItem extends DatabaseObject {
 
 	@Override
 	protected boolean insert() {
-		return Database.executeQuery("INSERT INTO purchaseVolumeItem (Company, Purchase, Volume, Item, Quantity, Unit) VALUES ('" + company + "', '" + purchase + "', '" + volume + "', '" + item + "', '" + quantity + "', '" + unit + "')");
+		return Database.executeQuery("INSERT INTO purchaseVolumeItem (Company, Purchase, Volume, Item, Quantity, Unit) VALUES ('" + Utilities.escape(company) + "', '" + purchase + "', '" + volume + "', '" + Utilities.escape(item) + "', '" + quantity + "', '" + Utilities.escape(unit) + "')");
 	}
 
 	@Override
 	protected boolean update() {
-		return Database.executeQuery("UPDATE purchaseVolumeItem SET Quantity = '" + quantity + "', Unit = '" + unit + "' WHERE Company = '"+ company + "' AND Purchase ='" + purchase + "' AND Volume ='" + volume + "' AND Item='"+item+"';");
+		return Database.executeQuery("UPDATE purchaseVolumeItem SET Quantity = '" + quantity + "', Unit = '" + Utilities.escape(unit) + "' WHERE Company = '"+ Utilities.escape(company) + "' AND Purchase ='" + purchase + "' AND Volume ='" + volume + "' AND Item='"+ Utilities.escape(item) +"';");
 	}
 
 	@Override
 	protected boolean exists() {
-		return Database.simpleSelect("Purchase", "purchaseVolumeItem", "Company = '" + company + "' AND Purchase = '" + purchase + "' AND Volume = '" + volume + "' AND Item = '" + item + "'") != null;
+		return Database.simpleSelect("Purchase", "purchaseVolumeItem", "Company = '" + Utilities.escape(company) + "' AND Purchase = '" + purchase + "' AND Volume = '" + volume + "' AND Item = '" + Utilities.escape(item) + "'") != null;
 	}
 
 	@Override
 	public boolean delete() {
-		return Database.executeQuery("DELETE FROM purchaseVolumeItem WHERE Company = '" + company + "' AND Purchase = '" + purchase + "' AND Volume '" + volume + "' AND Item = '" + item + "'");
+		return Database.executeQuery("DELETE FROM purchaseVolumeItem WHERE Company = '" + Utilities.escape(company) + "' AND Purchase = '" + purchase + "' AND Volume '" + volume + "' AND Item = '" + Utilities.escape(item) + "'");
 	}
 
 	@Override

@@ -4,6 +4,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import com.stockmanager.utils.Utilities;
+
 public class PickItem {
 
 
@@ -24,7 +26,7 @@ public class PickItem {
 				ResultSet rs = Database.select("SELECT SVI.Company, SVI.Volume, SVI.Item, SVI.Quantity "
 						+ "FROM stockvolumeitem AS SVI "
 						+ "INNER JOIN saleitem AS SI ON SVI.Company = SI.Company AND SVI.Item = SI.Item "
-						+ "WHERE SI.Company = '" + sale.getCompany() + "' AND SI.Sale = " + sale.getSale() + " GROUP BY SVI.Company, SVI.Item, SVI.Volume;");
+						+ "WHERE SI.Company = '" + Utilities.escape(sale.getCompany()) + "' AND SI.Sale = " + sale.getSale() + " GROUP BY SVI.Company, SVI.Item, SVI.Volume;");
 				saleqnt = si.getQuantity();
 				while(rs.next()) {
 					saleqnt -= rs.getDouble("Quantity");

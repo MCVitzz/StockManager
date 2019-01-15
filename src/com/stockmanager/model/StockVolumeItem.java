@@ -23,7 +23,7 @@ public class StockVolumeItem extends DatabaseObject {
 		this.volume = volume;
 		this.item = item;
 		try {
-			ResultSet rs = Database.select("SELECT * FROM stockVolumeItem WHERE Company = '" + company + "' AND Volume = '" + volume + "' AND Item = '" + item + "'");
+			ResultSet rs = Database.select("SELECT * FROM stockVolumeItem WHERE Company = '" + Utilities.escape(company) + "' AND Volume = '" + volume + "' AND Item = '" + Utilities.escape(item) + "'");
 			while (rs.next()) {
 				this.quantity = rs.getFloat("Quantity");
 				this.unit = rs.getString("Unit");
@@ -49,7 +49,7 @@ public class StockVolumeItem extends DatabaseObject {
 	}
 	
 	public static ArrayList<StockVolumeItem> getAllItemsInVolume(StockVolume volume) {
-		ResultSet rs = Database.select("SELECT Item FROM stockVolumeItem WHERE Company = '" + volume.getCompany() + "' AND Volume = " + volume.getVolume() + "");
+		ResultSet rs = Database.select("SELECT Item FROM stockVolumeItem WHERE Company = '" + Utilities.escape(volume.getCompany()) + "' AND Volume = " + volume.getVolume() + "");
 		ArrayList<StockVolumeItem> stockVolumes = new ArrayList<StockVolumeItem>();
 		try {
 			while(rs.next())
@@ -62,7 +62,7 @@ public class StockVolumeItem extends DatabaseObject {
 	}
 	
 	public static boolean hasStock(String company, String item, double quantity) {
-		String aux = Database.simpleSelect("SUM(Quantity)","stockvolumeitem","Company = '" + company + "' AND Item = '"+ item +"'");
+		String aux = Database.simpleSelect("SUM(Quantity)","stockvolumeitem","Company = '" + Utilities.escape(company) + "' AND Item = '"+ Utilities.escape(item) +"'");
 		double qtdStock = aux == null ? 0 :  Double.parseDouble(aux);
 		
 		return quantity <= qtdStock;
@@ -77,7 +77,7 @@ public class StockVolumeItem extends DatabaseObject {
 	}
 	
 	public String getName() {
-		return Database.simpleSelect("Name", "Item", "Company = '" + company + "' AND Item = '" + item + "'");
+		return Database.simpleSelect("Name", "Item", "Company = '" + Utilities.escape(company) + "' AND Item = '" + Utilities.escape(item) + "'");
 	}
 
 	public long getVolume() {
@@ -105,19 +105,19 @@ public class StockVolumeItem extends DatabaseObject {
 	}
 
 	protected boolean insert() {
-		return Database.executeQuery("INSERT INTO stockVolumeItem (Company, Warehouse, Volume, Item, Quantity, Unit, EntryDate) VALUES ('" + company + "', '" + volume + "', '" + item + "', '" + quantity + "', '" + unit + "', '" + entryDate + "')");
+		return Database.executeQuery("INSERT INTO stockVolumeItem (Company, Warehouse, Volume, Item, Quantity, Unit, EntryDate) VALUES ('" + Utilities.escape(company) + "', '" + volume + "', '" + Utilities.escape(item) + "', '" + quantity + "', '" + Utilities.escape(unit) + "', '" + entryDate + "')");
 	}
 
 	protected boolean update() {
-		return Database.executeQuery("UPDATE stockVolumeItem SET Quantity = '" + quantity + "', Unit = '" + unit + "', EntryDate = '" + entryDate + "' WHERE Company = '" + company + "' AND Volume = '" + volume + "' AND Item = '" + item + "'");
+		return Database.executeQuery("UPDATE stockVolumeItem SET Quantity = '" + quantity + "', Unit = '" + Utilities.escape(unit) + "', EntryDate = '" + entryDate + "' WHERE Company = '" + Utilities.escape(company) + "' AND Volume = '" + volume + "' AND Item = '" + Utilities.escape(item) + "'");
 	}
 
 	protected boolean exists() {
-		return Database.simpleSelect("Volume", "stockVolumeItem", "Company = '" + company + "' AND Volume = '" + volume + "' AND Item = '" + item + "'") != null;
+		return Database.simpleSelect("Volume", "stockVolumeItem", "Company = '" + Utilities.escape(company) + "' AND Volume = '" + volume + "' AND Item = '" + Utilities.escape(item) + "'") != null;
 	}
 
 	public boolean delete() {
-		return Database.executeQuery("DELETE FROM stockVolumeItem WHERE Company = '" + company + "' AND Volume = '" + volume + "' AND Item = '" + item + "'");
+		return Database.executeQuery("DELETE FROM stockVolumeItem WHERE Company = '" + Utilities.escape(company) + "' AND Volume = '" + volume + "' AND Item = '" + Utilities.escape(item) + "'");
 	}
 
 	protected boolean validate() {

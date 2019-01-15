@@ -20,7 +20,7 @@ public class Location extends DatabaseObject {
 		this.warehouse = warehouse;
 		this.location = location;
 		try {
-			ResultSet rs = Database.select("SELECT * FROM location WHERE Company = '" + company + "' AND Warehouse = '" + warehouse + "' AND Location = '" + location + "'");
+			ResultSet rs = Database.select("SELECT * FROM location WHERE Company = '" + Utilities.escape(company) + "' AND Warehouse = '" + Utilities.escape(warehouse) + "' AND Location = '" + Utilities.escape(location) + "'");
 			while (rs.next()) {
 				this.type = rs.getString("Type");
 			}
@@ -64,19 +64,19 @@ public class Location extends DatabaseObject {
 	}
 
 	protected boolean insert() {
-		return Database.executeQuery("INSERT INTO location (Company, Warehouse, Location, Type) VALUES ('" + company + "', '" + warehouse + "', '" + location + "', '" + type + "')");
+		return Database.executeQuery("INSERT INTO location (Company, Warehouse, Location, Type) VALUES ('" + Utilities.escape(company) + "', '" + Utilities.escape(warehouse) + "', '" + Utilities.escape(location) + "', '" + Utilities.escape(type) + "')");
 	}
 
 	protected boolean update() {
-		return Database.executeQuery("UPDATE location SET Type = '" + type + "' WHERE Company = '" + company + "' AND Warehouse = '" + warehouse + "' AND Location = '" + location + "'");
+		return Database.executeQuery("UPDATE location SET Type = '" + type + "' WHERE Company = '" + Utilities.escape(company) + "' AND Warehouse = '" + Utilities.escape(warehouse) + "' AND Location = '" + Utilities.escape(location) + "'");
 	}
 
 	protected boolean exists() {
-		return Database.simpleSelect("Location", "location", "Company = '" + company + "' AND Location = '" + location + "'") != null;
+		return Database.simpleSelect("Location", "location", "Company = '" + Utilities.escape(company) + "' AND Location = '" + Utilities.escape(location) + "'") != null;
 	}
 
 	public boolean delete() {
-		return Database.executeQuery("DELETE FROM location WHERE Company = '" + company + "' AND Location = '" + this.location + "'");
+		return Database.executeQuery("DELETE FROM location WHERE Company = '" + Utilities.escape(company) + "' AND Location = '" + Utilities.escape(location) + "'");
 	}
 
 	protected boolean validate() {

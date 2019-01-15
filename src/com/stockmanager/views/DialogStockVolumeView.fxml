@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
@@ -66,17 +65,6 @@
          </GridPane.margin>
       </TextField>
       <VBox fx:id="vbStockVolumeItem" prefHeight="531.0" prefWidth="677.0" GridPane.columnSpan="4" GridPane.rowIndex="3" />
-      <Button mnemonicParsing="false" onAction="#btnCancel_OnClick" prefHeight="35.0" prefWidth="73.0" text="Cancel" GridPane.rowIndex="4">
-         <opaqueInsets>
-            <Insets />
-         </opaqueInsets>
-         <GridPane.margin>
-            <Insets left="75.0" />
-         </GridPane.margin>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Button>
       <Button mnemonicParsing="false" onAction="#btnBack_OnClick" text="&lt;-">
          <GridPane.margin>
             <Insets left="15.0" />

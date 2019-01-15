@@ -16,7 +16,7 @@ public class Unit extends DatabaseObject{
 		this.company = company;
 		this.unit = unit;
 		try {
-			ResultSet rs = Database.select("SELECT * FROM unit WHERE Company = '" + company + "' AND Unit = '" + unit + "'");
+			ResultSet rs = Database.select("SELECT * FROM unit WHERE Company = '" + Utilities.escape(company) + "' AND Unit = '" + Utilities.escape(unit) + "'");
 			while (rs.next()) {
 				this.name = rs.getString("Name");
 			}
@@ -44,7 +44,7 @@ public class Unit extends DatabaseObject{
 		ArrayList<Unit> units = new ArrayList<>();
 		
 		try {
-			ResultSet rs = Database.select("SELECT Unit FROM unit WHERE Company = '" + company + "'");
+			ResultSet rs = Database.select("SELECT Unit FROM unit WHERE Company = '" + Utilities.escape(company) + "'");
 			while (rs.next()) 
 				units.add(new Unit(company, rs.getString("Unit")));
 		}
@@ -62,22 +62,22 @@ public class Unit extends DatabaseObject{
 	
 	@Override
 	protected boolean insert() {
-		return Database.executeQuery("INSERT INTO unit (Company, Unit, Name) VALUES ('"+ company+"', '" + unit + "', '" + name + "')");
+		return Database.executeQuery("INSERT INTO unit (Company, Unit, Name) VALUES ('"+ Utilities.escape(company) +"', '" + Utilities.escape(unit) + "', '" + Utilities.escape(name) + "')");
 	}
 
 	@Override
 	protected boolean update() {
-		return Database.executeQuery("UPDATE unit SET Company = '" + company + "Name = '" + name +  "' WHERE Unit = '" + unit + "'");
+		return Database.executeQuery("UPDATE unit SET Company = '" + Utilities.escape(company) + "Name = '" + Utilities.escape(name) +  "' WHERE Unit = '" + Utilities.escape(unit) + "'");
 	}
 
 	@Override
 	protected boolean exists() {
-		return Database.simpleSelect("Unit", "unit", "unit = '" + unit + "'") != null;
+		return Database.simpleSelect("Unit", "unit", "unit = '" + Utilities.escape(unit) + "'") != null;
 	}
 
 	@Override
 	public boolean delete() {
-		return Database.executeQuery("DELETE FROM unit WHERE Unit = '" + this.unit + "'");
+		return Database.executeQuery("DELETE FROM unit WHERE Unit = '" + Utilities.escape(unit) + "'");
 	}
 
 	@Override

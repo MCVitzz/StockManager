@@ -18,7 +18,7 @@ public class Item extends DatabaseObject{
 		this.company = company;
 		this.item = item;
 		try {
-			ResultSet rs = Database.select("SELECT * FROM item WHERE Company = '" + company + "' AND Item = '" + item + "'");
+			ResultSet rs = Database.select("SELECT * FROM item WHERE Company = '" + Utilities.escape(company) + "' AND Item = '" + Utilities.escape(item) + "'");
 			while (rs.next()) {
 				this.name = rs.getString("Name");
 				this.unit = rs.getString("Unit");
@@ -54,7 +54,7 @@ public class Item extends DatabaseObject{
 
 	@Override
 	protected boolean update() {
-		return Database.executeQuery("UPDATE item SET Company = '" + Utilities.escape(company) + "', Name = '" + Utilities.escape(name) + "', Unit = '" + unit + "' WHERE Item = '" + Utilities.escape(item) + "'");
+		return Database.executeQuery("UPDATE item SET Company = '" + Utilities.escape(company) + "', Name = '" + Utilities.escape(name) + "', Unit = '" + Utilities.escape(unit) + "' WHERE Item = '" + Utilities.escape(item) + "'");
 	}
 
 	@Override

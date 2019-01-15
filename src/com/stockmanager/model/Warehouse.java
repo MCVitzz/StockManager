@@ -19,7 +19,7 @@ public class Warehouse extends DatabaseObject {
 		this.company = company;
 		this.warehouse = warehouse;
 		try {
-			ResultSet rs = Database.select("SELECT * FROM warehouse WHERE Company = '" + company + "' AND Warehouse = '" + warehouse + "'");
+			ResultSet rs = Database.select("SELECT * FROM warehouse WHERE Company = '" + Utilities.escape(company) + "' AND Warehouse = '" + Utilities.escape(warehouse) + "'");
 			while (rs.next()) {
 				this.name = rs.getString("Name");
 				this.address = rs.getString("Address");
@@ -38,7 +38,7 @@ public class Warehouse extends DatabaseObject {
 		ArrayList<Warehouse> warehouses = new ArrayList<>();
 		
 		try {
-			ResultSet rs = Database.select("SELECT Warehouse FROM warehouse WHERE Company = '" + company + "'");
+			ResultSet rs = Database.select("SELECT Warehouse FROM warehouse WHERE Company = '" + Utilities.escape(company) + "'");
 			while (rs.next())
 				warehouses.add(new Warehouse(company, rs.getString("Warehouse")));
 		}
@@ -87,19 +87,19 @@ public class Warehouse extends DatabaseObject {
 	}
 
 	protected boolean insert() {
-		return Database.executeQuery("INSERT INTO warehouse (Company, Warehouse, Name, Address) VALUES ('" + company + "', '" + warehouse + "', '" + name + "', '" + address + "')");
+		return Database.executeQuery("INSERT INTO warehouse (Company, Warehouse, Name, Address) VALUES ('" + Utilities.escape(company) + "', '" + Utilities.escape(warehouse) + "', '" + Utilities.escape(name) + "', '" + Utilities.escape(address) + "')");
 	}
 
 	protected boolean update() {
-		return Database.executeQuery("UPDATE warehouse SET Name = '" + name + "', Address = '" + address + "' WHERE Company = '" + company + "' AND Warehouse = '" + warehouse + "'");
+		return Database.executeQuery("UPDATE warehouse SET Name = '" + Utilities.escape(name) + "', Address = '" + Utilities.escape(address) + "' WHERE Company = '" + Utilities.escape(company) + "' AND Warehouse = '" + Utilities.escape(warehouse) + "'");
 	}
 
 	protected boolean exists() {
-		return Database.simpleSelect("Warehouse", "warehouse", "Company = '" + company + "' AND Warehouse = '" + warehouse + "'") != null;
+		return Database.simpleSelect("Warehouse", "warehouse", "Company = '" + Utilities.escape(company) + "' AND Warehouse = '" + Utilities.escape(warehouse) + "'") != null;
 	}
 
 	public boolean delete() {
-		return Database.executeQuery("DELETE FROM warehouse WHERE Company = '" + company + "' AND Warehouse = '" + this.warehouse + "'");
+		return Database.executeQuery("DELETE FROM warehouse WHERE Company = '" + Utilities.escape(company) + "' AND Warehouse = '" + Utilities.escape(warehouse) + "'");
 	}
 
 	protected boolean validate() {

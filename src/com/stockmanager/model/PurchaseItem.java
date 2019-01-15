@@ -23,7 +23,7 @@ public class PurchaseItem extends DatabaseObject {
 		this.purchase = purchase;
 		this.item = item;
 		try {
-			ResultSet rs = Database.select("SELECT * FROM purchaseItem WHERE Company = '" + company + "' AND Purchase = '" + purchase + "' AND Item = '" + item + "'");
+			ResultSet rs = Database.select("SELECT * FROM purchaseItem WHERE Company = '" + Utilities.escape(company) + "' AND Purchase = '" + purchase + "' AND Item = '" + Utilities.escape(item) + "'");
 			while (rs.next()) {
 				this.quantity = rs.getFloat("Quantity");
 				this.confirmedQuantity = rs.getFloat("ConfirmedQuantity");
@@ -50,7 +50,7 @@ public class PurchaseItem extends DatabaseObject {
 	}
 	
 	public static ArrayList<PurchaseItem> getAllItemsInPurchase(Purchase purchase) {
-		ResultSet rs = Database.select("SELECT Item FROM purchaseItem WHERE Company = '" + purchase.getCompany() + "' AND Purchase = " + purchase.getPurchase() + "");
+		ResultSet rs = Database.select("SELECT Item FROM purchaseItem WHERE Company = '" + Utilities.escape(purchase.getCompany()) + "' AND Purchase = " + purchase.getPurchase() + "");
 		ArrayList<PurchaseItem> purchases = new ArrayList<PurchaseItem>();
 		try {
 			while(rs.next())
@@ -63,7 +63,7 @@ public class PurchaseItem extends DatabaseObject {
 	}
 
 	public String getName() {
-		return Database.simpleSelect("Name", "item", "Company = '" + company + "'AND Item = '" + item + "';");
+		return Database.simpleSelect("Name", "item", "Company = '" + Utilities.escape(company) + "'AND Item = '" + Utilities.escape(item) + "';");
 	}
 	
 	public String getCompany() {
@@ -111,19 +111,19 @@ public class PurchaseItem extends DatabaseObject {
 	}
 
 	protected boolean insert() {
-		return Database.executeQuery("INSERT INTO purchaseItem (Company, Purchase, Item, Quantity, ConfirmedQuantity, Unit, State) VALUES ('" + company + "', '" + purchase + "', '" + item + "', '" + quantity + "', '" + confirmedQuantity + "', '" + unit + "', '" + state + "')");
+		return Database.executeQuery("INSERT INTO purchaseItem (Company, Purchase, Item, Quantity, ConfirmedQuantity, Unit, State) VALUES ('" + Utilities.escape(company) + "', '" + purchase + "', '" + Utilities.escape(item) + "', '" + quantity + "', '" + confirmedQuantity + "', '" + Utilities.escape(unit) + "', '" + Utilities.escape(state) + "')");
 	}
 
 	protected boolean update() {
-		return Database.executeQuery("UPDATE purchaseItem SET Quantity = '" + quantity + "', ConfirmedQuantity = '" + confirmedQuantity + "', Unit = '" + unit + "', state = '" + state + "' WHERE Company = '" + company + "' AND Purchase = '" + purchase + "' AND Item = '" + item + "'");
+		return Database.executeQuery("UPDATE purchaseItem SET Quantity = '" + quantity + "', ConfirmedQuantity = '" + confirmedQuantity + "', Unit = '" + Utilities.escape(unit) + "', state = '" + Utilities.escape(state) + "' WHERE Company = '" + Utilities.escape(company) + "' AND Purchase = '" + purchase + "' AND Item = '" + Utilities.escape(item) + "'");
 	}
 
 	protected boolean exists() {
-		return Database.simpleSelect("Purchase", "purchaseItem", "Company = '" + company + "' AND Purchase = '" + purchase + "' AND Item = '" + item + "'") != null;
+		return Database.simpleSelect("Purchase", "purchaseItem", "Company = '" + Utilities.escape(company) + "' AND Purchase = '" + purchase + "' AND Item = '" + Utilities.escape(item) + "'") != null;
 	}
 
 	public boolean delete() {
-		return Database.executeQuery("DELETE FROM purchaseItem WHERE Company = '" + company + "' AND Purchase = '" + purchase + "' AND Item '" + item + "'");
+		return Database.executeQuery("DELETE FROM purchaseItem WHERE Company = '" + Utilities.escape(company) + "' AND Purchase = '" + purchase + "' AND Itsem '" + Utilities.escape(item) + "'");
 	}
 
 	protected boolean validate() {
