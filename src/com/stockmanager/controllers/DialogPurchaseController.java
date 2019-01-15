@@ -79,7 +79,7 @@ public class DialogPurchaseController implements Controller {
 				btnClose.setVisible(false);
 				btnReceive.setVisible(true);
 				break;
-			case RECIEVING:
+			case RECEIVING:
 				btnClose.setVisible(true);
 				btnReceive.setVisible(false);
 				cbWarehouse.setDisable(false);

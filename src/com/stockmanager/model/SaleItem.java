@@ -16,7 +16,9 @@ public class SaleItem extends DatabaseObject {
 	private String unit;
 	private SaleState state;
 
-	public SaleItem() {}
+	public SaleItem() {
+		this.state = SaleState.OPEN;
+	}
 
 	public SaleItem(String company, int sale, String item) {
 		this.company = company;

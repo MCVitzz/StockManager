@@ -80,7 +80,7 @@ public class SaleVolumeItem extends DatabaseObject {
 
 	@Override
 	protected boolean insert() {
-		return Database.executeQuery("INSERT INTO saleVolumeItem (Company, Sale, Volume, Item, Quantity, Unit) VALUES ('" + Utilities.escape(company) + "', '" + sale + "', '" + volume + "', '" + Utilities.escape(item) + "', '" + quantity + "', '" + Utilities.escape(unit) + "')");
+		return Database.executeQuery("INSERT INTO saleVolumeItem (Company, Sale, Volume, Item, Quantity, ConfirmedQuantity, Unit) VALUES ('" + Utilities.escape(company) + "', '" + sale + "', '" + volume + "', '" + Utilities.escape(item) + "', '" + quantity + "', " + confirmedQuantity + ", '" + Utilities.escape(unit) + "')");
 	}
 
 	@Override

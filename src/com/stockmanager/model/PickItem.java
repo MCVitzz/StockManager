@@ -42,8 +42,8 @@ public class PickItem {
 					sv.setWarehouse(sale.getWarehouse());
 					SaleVolumeItem svi = new SaleVolumeItem(si.getCompany(), si.getSale(), rs.getLong("Volume"), si.getItem());
 					svi.setQuantity(rs.getLong("Quantity"));
+					svi.setConfirmedQuantity(0);
 					svi.setUnit(si.getUnit());
-
 					sv.save();
 					svi.save();
 

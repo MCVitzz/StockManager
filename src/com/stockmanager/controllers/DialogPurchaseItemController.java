@@ -80,6 +80,7 @@ public class DialogPurchaseItemController {
 		pi.setQuantity(Double.parseDouble(txtQuantity.getText()));
 		pi.setUnit(txtUnit.getText());
 		pi.setState(txtState.getText());
+		System.out.println(txtState.getText());
 		pi.save();
 		purchaseItemController.initialize();
 		btnCancel_OnClick();

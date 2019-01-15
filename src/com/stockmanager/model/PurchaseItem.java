@@ -16,7 +16,9 @@ public class PurchaseItem extends DatabaseObject {
 	private String unit;
 	private PurchaseState state;
 
-	public PurchaseItem() {}
+	public PurchaseItem() {
+		this.state = PurchaseState.OPEN;
+	}
 
 	public PurchaseItem(String company, int purchase, String item) {
 		this.company = company;
@@ -115,6 +117,7 @@ public class PurchaseItem extends DatabaseObject {
 	}
 
 	protected boolean update() {
+		System.out.println(state);
 		return Database.executeQuery("UPDATE purchaseItem SET Quantity = '" + quantity + "', ConfirmedQuantity = '" + confirmedQuantity + "', Unit = '" + Utilities.escape(unit) + "', state = '" + Utilities.escape(state.toString()) + "' WHERE Company = '" + Utilities.escape(company) + "' AND Purchase = '" + purchase + "' AND Item = '" + Utilities.escape(item) + "'");
 	}
 

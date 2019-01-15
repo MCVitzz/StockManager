@@ -8,29 +8,36 @@ import java.util.stream.Collectors;
  *
  */
 public enum PurchaseState {
-	OPEN, CLOSED, RECIEVING;
+	OPEN, CLOSED, RECEIVING;
 
 	public static PurchaseState getState(String state) {
+		System.out.println(state);
+		PurchaseState ps;
 		switch(state) {
 		case "Open":
-			return OPEN;
+			ps = OPEN;
+			break;
 		case "Closed":
-			return CLOSED;
-		case "Picking":
-			return RECIEVING;
+			ps = CLOSED;
+			break;
+		case "Receiving":
+			ps = RECEIVING;
+			break;
 		default:
-			return null;
+			ps = null;
 		}
+		return ps;
 	}
 
 	public boolean canChange(PurchaseState changeTo, Purchase purchase) {
+		System.out.println(changeTo);
 		switch(changeTo) {
-		case RECIEVING:
+		case RECEIVING:
 			return (purchase.getItems().stream().filter(a -> a.getState() != OPEN).count() > 0 && purchase.getState() != CLOSED);
 		case OPEN:
-			return false;
+			return true;
 		case CLOSED:
-			return purchase.getItems().stream().filter(a -> a.getState() == RECIEVING || a.getState() == CLOSED).count() > 0 && purchase.getState() == RECIEVING;
+			return purchase.getItems().stream().filter(a -> a.getState() == RECEIVING || a.getState() == CLOSED).count() > 0 && purchase.getState() == RECEIVING;
 		default:
 			return false;
 		}
@@ -38,12 +45,12 @@ public enum PurchaseState {
 
 	public void changeTo(PurchaseState state, Purchase sale) {
 		switch(state) {
-		case RECIEVING:
+		case RECEIVING:
 			for(PurchaseItem si : sale.getItems().stream().filter(a -> a.getState() == OPEN).collect(Collectors.toList()))
-				si.setState(RECIEVING.toString());
+				si.setState(RECEIVING.toString());
 			break;
 		case CLOSED:
-			for(PurchaseItem si : sale.getItems().stream().filter(a -> a.getState() == RECIEVING).collect(Collectors.toList()))
+			for(PurchaseItem si : sale.getItems().stream().filter(a -> a.getState() == RECEIVING).collect(Collectors.toList()))
 				si.setState(CLOSED.toString());
 		default:
 			break;
@@ -57,8 +64,8 @@ public enum PurchaseState {
 			return "Open";
 		case CLOSED:
 			return "Closed";
-		case RECIEVING:
-			return "Recieving";
+		case RECEIVING:
+			return "Receiving";
 		default:
 			return null;
 		}

@@ -16,7 +16,9 @@ public class Sale extends DatabaseObject {
 	private String client;
 	private SaleState state;
 
-	public Sale() {}
+	public Sale() {
+		this.state = SaleState.OPEN;
+	}
 
 	public Sale(String company, int sale) {
 		this.company = company;
@@ -37,23 +39,11 @@ public class Sale extends DatabaseObject {
 
 	public Sale(String company) {
 		this.company = company;
-		try {
-			this.sale = 1;
-			String s = Database.simpleSelect("MAX(Sale) AS Sale", "sale",  "Company = '" + Utilities.escape(company) + "'");
-			if(s != null)
-				this.sale = Integer.parseInt(s) + 1;
-			
-			ResultSet rs = Database.select("SELECT * FROM sale WHERE Company = '" + Utilities.escape(company) + "' AND Sale = '" + sale + "'");
-			while (rs.next()) {
-				this.warehouse = rs.getString("Warehouse");
-				this.date = rs.getDate("Date").toLocalDate();
-				this.client = rs.getString("Client");
-				this.state = SaleState.getState(rs.getString("State"));
-			}
-		}
-		catch(SQLException e) {
-			e.printStackTrace();
-		}
+		this.sale = 1;
+		String s = Database.simpleSelect("MAX(Sale) AS Sale", "sale",  "Company = '" + Utilities.escape(company) + "'");
+		if(s != null)
+			this.sale = Integer.parseInt(s) + 1;
+		this.state = SaleState.OPEN;
 	}
 
 	public static ArrayList<Sale> getAll() {

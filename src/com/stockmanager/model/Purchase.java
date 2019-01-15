@@ -16,7 +16,9 @@ public class Purchase extends DatabaseObject {
 	private String supplier;
 	private PurchaseState state;
 
-	public Purchase() {}
+	public Purchase() {
+		this.state = PurchaseState.OPEN;
+	}
 
 	public Purchase(String company, int purchase) {
 		this.company = company;
@@ -37,23 +39,11 @@ public class Purchase extends DatabaseObject {
 	
 	public Purchase(String company) {
 		this.company = company;
-		try {
-			this.purchase = 1;
-			String s = Database.simpleSelect("MAX(Purchase) AS Purchase", "purchase",  "Company = '" + Utilities.escape(company) + "'");
-			if(s != null)
-				this.purchase = Integer.parseInt(s) + 1;
-			
-			ResultSet rs = Database.select("SELECT * FROM purchase WHERE Company = '" + Utilities.escape(company) + "' AND Purchase = '" + purchase + "'");
-			while (rs.next()) {
-				this.warehouse = rs.getString("Warehouse");
-				this.date = rs.getDate("Date").toLocalDate();
-				this.supplier = rs.getString("Supplier");
-				this.state = PurchaseState.getState(rs.getString("Date"));
-			}
-		}
-		catch(SQLException e) {
-			e.printStackTrace();
-		}
+		this.purchase = 1;
+		this.state = PurchaseState.OPEN;
+		String s = Database.simpleSelect("MAX(Purchase) AS Purchase", "purchase",  "Company = '" + Utilities.escape(company) + "'");
+		if(s != null)
+			this.purchase = Integer.parseInt(s) + 1;
 	}
 
 	public static ArrayList<Purchase> getAll() {
@@ -129,6 +119,7 @@ public class Purchase extends DatabaseObject {
 	}
 
 	public void setState(String state) {
+		System.out.println(this.state);
 		PurchaseState newState = PurchaseState.getState(state);
 		if(this.state.canChange(newState, this))
 			this.state = newState;

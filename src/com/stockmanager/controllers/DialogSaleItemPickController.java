@@ -58,7 +58,7 @@ public class DialogSaleItemPickController {
 		SaleVolumeItem svi = new SaleVolumeItem(sale.getCompany(), sale.getSale(), Long.parseLong(txtVolume.getText()), txtItem.getText());
 		svi.setQuantity(pickItem.getQuantity());
 		svi.setUnit(txtUnit.getText());
-
+		svi.setConfirmedQuantity(Double.parseDouble(txtQuantity.getText()));
 		sv.save();
 		svi.save();
 		pktlist.remove(pickItem);
